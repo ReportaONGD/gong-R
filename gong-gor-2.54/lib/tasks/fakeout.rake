@@ -25,74 +25,73 @@ class Fakeout
 
   def initialize(size)
     self.size = size
-    self.output = open("fakeout.log", 'w')
   end
 
   def fakeout
     begin
-      self.output.write "Faking it ... (#{size})\n"
+      puts "Faking it ... (#{size})"
       Fakeout.disable_mailers
 
       process(MODELS_1)
       proyecto
       process(MODELS_2)
       libro_agente_moneda_pais
-      self.output.write "libro_agente_moneda_pais\n"
+      puts "libro_agente_moneda_pais"
       documento_proyecto
-      self.output.write "documento_proyecto\n"
+      puts "documento_proyecto"
       proyecto_estado_ejecucion
-      self.output.write "proyecto_estado_ejecucion\n"
+      puts "proyecto_estado_ejecucion"
       documento_contrato
-      self.output.write "documento_contrato\n"
+      puts "documento_contrato"
       datos_proyecto
-      self.output.write "datos_proyecto\n"
+      puts "datos_proyecto"
       # partida_x_partida_financiacion ##Esta no funciona
       etapa_proyecto
-      self.output.write "etapa_proyecto\n"
+      puts "etapa_proyecto"
       contrato_proyecto
-      self.output.write "contrato_proyecto\n"
+      puts "contrato_proyecto"
       grupo_usuario_x_espacio
-      self.output.write "grupo_usuario_x_espacio\n"
+      puts "grupo_usuario_x_espacio"
       grupo_usuario_x_libro
-      self.output.write "grupo_usuario_x_libro\n"
+      puts "grupo_usuario_x_libro"
       ##grupo_usuario_x_agente
       grupo_usuario_x_proyecto
       proyecto_x_pais
-      self.output.write "proyecto_x_pais\n"
+      puts "proyecto_x_pais"
       proyecto_sector_poblacion
-      self.output.write "proyecto_sector_poblacion\n"
+      puts "proyecto_sector_poblacion"
       pais_actividad
-      self.output.write "pais_actividad\n"
+      puts "pais_actividad"
       ##partida_x_partida_financiacion
       proyecto_x_implementador
-      self.output.write "proyecto_x_implementador\n"
+      puts "proyecto_x_implementador"
       #agente_grupo_usuario
       convocatoria_x_pais
-      self.output.write "convocatoria_x_pais\n"
+      puts "convocatoria_x_pais"
       #workflow_contrato_etiqueta_agente
       #puts "workflow_contrato_etiqueta_agente"
       proyecto_x_sector_poblacion
-      self.output.write "proyecto_x_sector_poblacion\n"
+      puts "proyecto_x_sector_poblacion"
       valor_intermedio_x_indicador
-      self.output.write "valor_intermedio_x_indicador\n"
+      puts "valor_intermedio_x_indicador"
       process(MODELS_3)
       actualiza_definicion_estado
-      self.output.write "actualiza_definicion_estado\n"
+      puts "actualiza_definicion_estado"
       objetivo_general_proyecto
-      self.output.write "objetivo_general_proyecto\n"
+      puts "objetivo_general_proyecto"
       tipo_contrato_x_documento
-      self.output.write "tipo_contrato_x_documento\n"
+      puts "tipo_contrato_x_documento"
       transferencia_x_documento
-      self.output.write "transferencia_x_documento\n"
+      puts "transferencia_x_documento"
       contrato_x_financiador
-      self.output.write "contrato_x_financiador\n"
+      puts "contrato_x_financiador"
       estado_contrato
-      self.output.write "estado_contrato\n"
+      puts "estado_contrato"
       process(MODELS_4)
       periodo_proyecto
-      self.output.write "periodo_proyecto\n"
+      puts "periodo_proyecto"
       indicador_general_x_programa_marco
-      self.output.write "indicador_general_x_programa_marco\n"
+      puts "indicador_general_x_programa_marco"
 
       #Hay que mirar que hacer con los proyectos para hacerlos convenios.
     end
@@ -102,7 +101,7 @@ class Fakeout
   def process(models)
     models.each do |model|
       unless respond_to?("build_#{model.downcase}")
-        self.output.write "  * #{model.pluralize}: **warning** I couldn't find a build_#{model.downcase} method\n"
+        puts "  * #{model.pluralize}: **warning** I couldn't find a build_#{model.downcase} method"
         next
       end
       1.upto(send(size)) do
@@ -113,11 +112,11 @@ class Fakeout
             save_models(m)
           end
         rescue StandardError => e
-          self.output.write "Error build_#{model.downcase}\n"
-          self.output.write "#{e}\n"
+          puts "Error build_#{model.downcase}"
+          puts "#{e}"
         end
       end
-      self.output.write "  * #{model.pluralize}: #{model.constantize.count(:all)}\n"
+      puts "  * #{model.pluralize}: #{model.constantize.count(:all)}"
     end
   end
 
@@ -434,12 +433,12 @@ class Fakeout
       model.save
       yield if block_given?
     else
-      self.output.write "Error #{model}\n"
-      self.output.write "#{model.errors.to_yaml}\n"
+      puts "Error #{model}"
+      puts "#{model.errors.to_yaml}"
     end
   rescue StandardError => e
-    self.output.write "#{model.to_yaml}\n"
-    self.output.write "#{e}\n"
+    puts "#{model.to_yaml}"
+    puts "#{e}"
   end
 
   # by default, all mailings are disabled on faking out
