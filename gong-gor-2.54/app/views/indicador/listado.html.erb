@@ -1,0 +1,21 @@
+<div id="indicadores">
+  <div id="indicador_general">
+    <%= render partial: "indicadores_generales" %>
+  </div>
+
+  <div class="filacabecerasinborde">
+    <%= _("Listado de Indicadores de Objetivos Específicos y Resultados") %>
+    <div class="linea"></div>
+  </div>
+  <% i = 0 %>
+  <% for @indicador in @indicadores %>
+    <% fila = "indicador_" + (i+=1).to_s %>
+    <fieldset>
+      <%= render :partial => "indicador", :locals => { :fila => fila } %>
+      <%= render( :partial => "variables", :locals => { :update_listado => fila + "_variable"}) unless params[:menu] == "ejecucion_tecnica" && @indicador.variable_indicador.empty? %>
+      <%= render( :partial => "indicadores_pacs", :locals => { :update_listado => fila + "_pac"}) if params[:menu] == "ejecucion_tecnica" && @proyecto.convenio? %>
+    </fieldset>
+  <% end %>
+
+</div>
+

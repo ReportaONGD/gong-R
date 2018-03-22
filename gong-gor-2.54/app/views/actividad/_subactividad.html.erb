@@ -1,0 +1,10 @@
+  <div  id="<%= fila %>" class="fila">
+    <%= fila_listado @subactividad, campos_listado("subactividad"), fila %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup @subactividad, {:campos => campos_listado("subactividad") + campos_info("subactividad"), :id => fila + "_informacion"} %>
+      <%= link_to_remote( icono("comentarios" + (@subactividad.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => fila + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => @subactividad.id.to_s, :tipo => "Subactividad"} , :html => {:id => fila + "_comentarios"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" )%>
+      <%= link_to_remote(icono("lista", _("Ver seguimiento de la subactividad")),  :url => {:update => fila + "_sub", :action => 'valores_subactividad', :subactividad_id => @subactividad.id.to_s, :update_objeto => fila}, :html => {:id => fila + "_valores"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) %>
+    </div>
+    <div class="linea"></div>
+    <div id="<%= fila %>_sub" class="linea"></div>
+  </div>

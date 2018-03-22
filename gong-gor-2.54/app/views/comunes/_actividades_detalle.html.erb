@@ -1,0 +1,33 @@
+<div id="actividades_detalle">
+  <div class="linea"> <div class="filacabecera">
+    <%= _("Actividades") %>
+    <div class="elementoderecha notapie"><%= link_to_remote "(" + _("Cambiar a Resultados") + ")", :url => {:action => "detallar_resultados", :detallado => params[:detallado], :id =>  @objeto.id }, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" unless params[:detallado] == "siempre" || params[:disabled] %></div>
+  </div></div>
+  <% if params[:detallado] == "no" %>
+    <% @actividad = @actividades.first %>
+    <%= selector  _("Actividad"), "actividad", 'actividad_id', (@proyecto.actividad.sort! {|x, y|  x.codigo <=> y.codigo }).collect {|a|[a.codigo_nombre, a.id]} , true, "2", {:name => "actividades[0][actividad_id]", :obligatorio => true, disabled: params[:disabled]} %>
+    <%= hidden_field 'actividad', 'proyecto_id', {:value => @proyecto.id, :name => "actividades[0][proyecto_id]"} unless controller.controller_name == "presupuesto_proyectos" %>
+    <div class="elementoderecha"><br>
+      <%= link_to_remote ">> " + _("Detallar actividades"), :url => {:action => "detallar_actividades", :detallado => "si", :id =>  @objeto.id }, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" unless params[:disabled] %>
+    </div>
+    <div class="linea">
+      <%= checkbox(_("Dividir entre todas las actividades de la etapa"), 'dividir_actividades', 'todas', "3_2",
+             {:izquierda => true, :checked => @objeto.todas_actividades?(@proyecto)}) unless params[:disabled] %>
+    </div>
+    <br><br>
+  <% elsif params[:detallado] == "si" || params[:detallado] == "siempre" %>
+    <div class="linea">
+      <div class="elementoderecha"><br>
+        <%= link_to_remote "<< " + _("No detallar actividades"), :url => {:action => "detallar_actividades", :detallado => "no", :id =>  @objeto.id },
+             :loading =>       "Element.show('espera')", :complete => "Element.hide('espera')" unless params[:detallado] == "siempre" || params[:disabled] %>
+      </div>
+    </div>
+    <div class="linea">
+      <%= render :partial => "comunes/actividades" %>
+    </div>
+    <br>
+    <div class="linea"></div>
+    <%= hidden_field 'actividades_detallado', {:value => true } %>
+  <% end %>
+</div> 
+

@@ -1,0 +1,13 @@
+<%= cabecera_listado campos_listado("proyecto_x_financiacion"), _("Asociar Proyecto a Financiación"), {:action => 'editar_nuevo_proyecto_x_financiacion'}, :id => "proyecto_anadir" %>
+<% i = 0 %>
+<% for proyecto in @proyectos_x_financiacion %>
+<div  id="proyecto_<%= i +=1 %>" class="<%= cycle('fila', 'filaDos') %>  ">
+    <%= fila_listado proyecto, campos_listado ("proyecto_x_financiacion"), "proyecto_" + i.to_s %>
+    <div class="elementoderecha">
+       <%= modal( icono( "editar" ), {:action => 'editar_nuevo_proyecto_x_financiacion', :id => proyecto}, _("Editar las relacion del proyecto con la financiación"), :id => "proyecto_" + i.to_s + "_editar" )   %>
+       <%= modal_borrado icono( "borrar", _( "eliminar asociación" ) ), { :action => 'eliminar_proyecto_x_financiacion', :id => proyecto.id },  _('Eliminar la asociacion de proyecto a financiación: '), proyecto.nombre_en_financiacion, :id => "proyecto_" + i.to_s + "_borrar" %>
+    </div>
+  <div class='linea'></div>
+</div>
+<% end %>
+<%= final_listado %>

@@ -1,0 +1,130 @@
+---------------------------------------------
+| MANUAL DE ACTUALIZACIÓN DE GONG-GOR  v2.x |
+---------------------------------------------
+
+
+################################################################################
+ Copyright 2010-2015 Free Software's Seed (Semilla de Software Libre), CENATIC y IEPALA
+
+ Licencia con arreglo a la EUPL, Versión 1.1 o –en cuanto sean aprobadas por la Comisión Europea–
+ versiones posteriores de la EUPL (la «Licencia»);
+ Solo podrá usarse esta obra si se respeta la Licencia.
+ Puede obtenerse una copia de la Licencia en:
+
+ http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1
+
+ Salvo cuando lo exija la legislación aplicable o se acuerde por escrito,
+ el programa distribuido con arreglo a la Licencia se distribuye «TAL CUAL»,
+ SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas ni implícitas.
+ Véase la Licencia en el idioma concreto que rige los permisos y limitaciones que
+ establece la Licencia.
+################################################################################
+
+Este manual describe brevemente los pasos a seguir para la actualización de GONG desde versiones
+anteriores a la actual.
+
+Si se está realizando una instalación nueva este documento puede ignorarse y referirse unicamente
+al manual de instalación.
+
+Si está actualizando una instalación multisitio, tenga en cuenta que la ubicación de los ficheros
+de configuración, logs y repositorio documental no corresponde con lo aquí descrito. Para la localización 
+de estos elementos y la ejecución de los comando descritos en este manual es necesario considerar el uso
+de la variable de entorno GOR_SITEID según está descrito en el manual de instalación.
+
+
+Convenciones
+
+  * Una linea que empieza por "$" indica el prompt bash en consola. A no ser que se especifique lo contrario,
+    los comandos se ejecutarán como el usuario root.
+
+  * Una linea que empieza por "mysql>" indica el prompt en la consola de mysql.
+
+
+
+*********************************************************************************************
+
+Indice
+
+0.- Notas
+
+1.- Backup
+2.- Actualización del código
+3.- Instalación de nuevas gemas
+4.- Cambios en el modelo de datos
+5.- Permisos
+6.- Reinicio del servidor web
+
+*********************************************************************************************
+
+
+0.- Notas
+
+* Actualización a la Versión 2.44: En esta versión se ha incluido una gema para la cual 
+es necesario realizar previamente a todo el proceso la instalación de dos paquetes de sistema:
+
+  $ apt-get install imagemagick libmagickwand-dev
+
+ 
+* Actualización a la Versión 2.54: En esta versión se ha cambiado la versión de Ruby
+utilizada.
+
+Por ello, tras la descarga del código es necesario aplicar de nuevo los puntos 1.4 y 1.6 del
+manual de instalación.
+
+
+1.- Backup 
+
+Realizaremos un backup previo para poder restaurar la instalación si se produjera un error
+durante la actualización:
+
+* del fichero de conexión a BBDD ( config/database.yml )
+* de la BBDD
+* del directorio de almacenamiento del gestor documental ( files )
+
+
+2.- Actualización del código
+
+* Sustituimos el código instalado con el correspondiente a la nueva versión asegurándonos que el
+propietario de los ficheros es el usuario root.
+
+* Restauraremos el fichero de conexión a BBDD por el guardado en el punto anterior.
+* Restauraremos el directorio de almacenamiento del gestor documental.
+
+
+3.- Instalación de nuevas gemas
+
+Desde el directorio donde tengamos instalado GONG (/usr/share/gong/gor) actualizaremos las gemas:
+
+  $ RAILS_ENV=production bundle install
+
+
+4.- Cambios en el modelo de datos
+
+Desde el directorio donde tengamos instalado GONG (/usr/share/gong/gor), ejecutaremos:
+
+  $ LANG=es_ES RAILS_ENV=production rake db:migrate
+
+y cargaremos los datos preeliminares de BBDD que no hayan sido incluidos previamente:
+
+  $ LANG=es_ES RAILS_ENV=production rake db:seed
+
+Cambiando el idioma definido en LANG los datos iniciales cargados en BBDD estarán en el idioma elegido.
+Actualmente, sólo están disponibles español (es) y portugués (pt).
+
+
+5.- Permisos
+
+Cambiamos el propietario de los directorios escribibles por el navegador web según el indicado en el
+punto 2.1 del manual de instalación:
+
+  $ chown -R www-data.www-data /usr/share/gong/gor/files
+  $ chown -R www-data.www-data /usr/share/gong/gor/logs
+  $ chown -R www-data.www-data /usr/share/gong/gor/tmp
+
+
+6.- Reinicio del servidor web
+
+Por último reiniciaremos el servidor web
+
+  $ /etc/init.d/apache2 restart
+

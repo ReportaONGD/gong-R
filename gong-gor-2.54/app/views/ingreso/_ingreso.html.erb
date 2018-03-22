@@ -1,0 +1,12 @@
+<div id="<%= update %>" class="fila <%= @ingreso.marcado.color if @ingreso.marcado %>">
+  <%= fila_listado @ingreso, campos_listado("ingreso"), update %>
+  <div class="elementoderecha">
+    <%= ventana_info_popup @ingreso, {:campos => campos_listado("ingreso") + campos_info("ingreso"), :id => update + "_informacion" } %>
+    <%= remote icono( "etiquetas", _("Marcar la línea de ingreso.")), :url => {:update => update, :controller => "marcado" , :action => 'editar', :id => @ingreso, :tipo => "ingreso" } %>
+    <%= remote( icono("comentarios" + (@ingreso.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => @ingreso.id.to_s, :tipo => "Ingreso" })  %>
+    <%= editar( :url => { :action => 'editar_nuevo', :id => @ingreso, :update => update }) %> 
+    <% texto_borrado = @ingreso.concepto + " / " + @ingreso.fecha.to_s + " / " + @ingreso.importe.to_s + " " + @ingreso.moneda.nombre %>
+    <%= borrado( :url => { :action => 'eliminar', :id => @ingreso, :update => update },  :texto => texto_borrado, :identificador => update )  %>     
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div> 
+</div>

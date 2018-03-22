@@ -1,0 +1,15 @@
+<% tipo = @proyecto ? "gasto" : "gasto_agentes" %>
+<%= comienzo_sublistado _("Gastos"), params[:update], {:descargar => true} %>
+  <% i = 0 %>
+  <% for gasto in gastos %>
+    <% gasto_id = params[:update] +"_gastos_" + gasto.id.to_s %>
+    <div  id="<%= gasto_id %>" class="fila" >
+      <%= fila_listado gasto, campos_listado(tipo) - [["Cambio", "1_4", "updated_at", true]], gasto_id %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup gasto, {:campos => campos_listado(tipo) + campos_info(tipo), :id => gasto_id + "_informacion" } %>
+      </div>
+    </div>
+  <% end %>
+<%= final_sublistado gastos %>
+<br>
+

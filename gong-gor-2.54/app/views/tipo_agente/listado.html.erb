@@ -1,0 +1,18 @@
+<div id="nuevos_tipos" style="display:none">
+  <%= cabecera_listado campos_listado("tipo_agente")%>
+  <div id="tipo_nuevo_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado de nuevos elementos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("tipo_agente"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}  %>
+  <% i = 0 %>
+  <% for @tipo in @tipos %>
+   <% i += 1 %>
+   <%= render :partial => "tipo_agente", :locals => {:update => "tipo_agente_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

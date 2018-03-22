@@ -1,0 +1,14 @@
+<!-- FORMULARIO DE SELECCION DE VOLCADO DE INFORME-->
+<fieldset>
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "seleccionar"}, :multipart => true, :class => "formulario" ) %>
+  <%= selector _('Tipo de Informe'), 'selector', 'tipo', [["Informe AECID","informe_aecid"],], false , '3_2'  %>
+  <%# selector _('Proyecto'), %>
+<div class="elementoderecha1_2"><%= submit_tag(_("Seleccionar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+<% if @tipo %>
+    tipo : <%= @tipo %><br>
+    fichero : <%= @fichero %><br>
+<% end %>
+

@@ -1,0 +1,15 @@
+<div id="observaciones_popup_<%= estado.id %>" class="popup" style="display:none">
+<div class='listadoroundbox'>
+<div class='listadotopleft'></div>
+<div class='listadotopright'></div>
+</div>
+<div class='listadocontentborder'>
+
+<div class='fila'><%= estado.observacion %></div>
+
+</div>
+<div class='listadoroundboxbot'>
+<div class='listadobotleft'></div>
+<div class='listadobotright'></div>
+</div>
+<%= javascript_tag "new Popup('observaciones_popup_#{estado.id}','estado_link_#{estado.id}')" %>

@@ -1,0 +1,51 @@
+
+<% @gasto ||= gasto %>
+<% marcado = @gasto.marcado_proyecto(@proyecto) ? @gasto.marcado_proyecto(@proyecto).color : (@gasto.marcado ? @gasto.marcado.color : '') %>
+<% fecha_fuera_de_etapas = (@gasto.fecha > @proyecto.fecha_de_fin || @gasto.fecha < @proyecto.fecha_de_inicio) %>
+<% marcado = "rojo" if fecha_fuera_de_etapas %>
+<div id="<%= update %>" class="fila <%= marcado %>" >
+    <%= fila_listado @gasto, campos_listado("gasto"), update %>
+      <div class="elementoderecha">
+         <% avisos = @gasto.chequea_avisos_proyecto(@proyecto, fecha_fuera_de_etapas) %>
+	 <%= ventana_info_popup( @gasto, { :campos => [[_("Proyectos relacionados con el gasto"), "1", "importes_por_proyectos"]], :icono => "compartir", :icono_mensaje => _("Gasto compartido entre varios proyectos (y/o delegación)"), :id => update + "_compartir"} ) if Gasto.find(@gasto.id).gasto_x_proyecto.size > 1 %>
+         <%= icono "alerta", _("¡Atención!.") + avisos.join(" ") unless avisos.blank? %>
+         <%= ventana_info_popup @gasto, {:campos => campos_listado("gasto") + campos_info("gasto"), :id => update + "_informacion" } %>
+    <%= remote icono( "etiquetas", ("Marcar la línea de gasto.")), :url => {:update => update, :controller => "marcado" , :action => 'editar', :id => @gasto, :tipo => "gasto" } %>
+         <%= link_to_remote( icono("comentarios" + (@gasto.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => @gasto.id.to_s, :tipo => "Gasto"} , :html => {:id => update + "_comentarios"}, :loading => "Element.show('spinner_#{@gasto.id.to_s }')", :complete => "Element.hide('spinner_#{@gasto.id.to_s}')" )%>
+         <%= link_to_remote( icono("documentos" + (@gasto.documento.empty? ? "" : "_r"), _("Ver documentos")), :url => {:update => update + "_sub" , :controller => 'documento', :action => 'listado_asociados', :objeto_id => @gasto.id.to_s, :tipo => "Gasto"} , :html => {:id => update + "_documentos"}, :loading => "Element.show('spinner_#{@gasto.id.to_s }')", :complete => "Element.hide('spinner_#{@gasto.id.to_s}')" )%>
+
+         <% if @gasto.es_valorizado %>
+           <div class="icono"></div>
+         <% else %>
+           <%= link_to_remote(icono("lista", _("Ver pagos")),  :url => {:update => update + "_sub", :update_gasto => update, :controller => 'pago', :action => 'pagos', :gasto_id => @gasto.id.to_s}, :html => {:id => update + "_pagos"}, :loading => "Element.show('spinner_#{@gasto.id.to_s }')", :complete => "Element.hide('spinner_#{@gasto.id.to_s}')" ) %>
+         <% end %>
+
+         <% if @gasto.proyecto_origen_id == @proyecto.id %>
+           <%= editar( :url => { :action => 'editar_nuevo', :controller => "gasto_proyectos", :id => @gasto, :update => update }) %>
+           <%= copiar( :url => { :action => 'editar_copia', :controller => "gasto_proyectos", :id => @gasto, :update => "formulario_anadir" }) %>
+           <%= borrado( :url => { :action => 'eliminar', :controller => "gasto_proyectos", :id => @gasto.id, :update => update },  :texto => (@gasto.importe.to_s + " " + @gasto.moneda.nombre), :identificador => update )  %>     
+
+         <% else %>
+           <%= editar( :url => { :action => 'editar_parcial', :controller => "gasto_proyectos", :id => @gasto, :update => update }) %>
+           <% if @gasto.proyecto_origen_id.nil? %>
+             <div class="icono"></div>
+             <div class="icono"></div>
+           <% else %>
+             <div class="icono"></div>
+             <%= borrado( :url => { :action => 'descofinanciar', :controller => "gasto_proyectos", :id => @gasto.id, :update => update },  :texto =>  _("Va a desvincular del Proyecto el gasto cofinanciado con %{nombre}") % {:nombre => @gasto.proyecto_origen} + ": " + (@gasto.fecha.to_s + " / " + @gasto.importe.to_s + " " + @gasto.moneda.abreviatura), :identificador => update )  %>
+           <% end %>
+
+         <% end %> 
+         <%= image_tag("cargando.gif", :id  => 'indicador'+@gasto.id.to_s, :style => 'display:none')%>    
+      </div>
+    <div class="linea" id="borrame_gasto<%=@gasto.id.to_s%>"></div>
+    <div id="spinner_<%= @gasto.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="<%= update %>_sub" class="linea">
+      <!-- Despliega los documentos si se le indica que lo haga -->
+      <% if params[:gasto_id] == @gasto.id.to_s %>
+        <% @objeto = @gasto %>
+        <% @documentos = @gasto.documento %>
+        <%= render :partial => "documento/listado_asociados", :locals => { :objeto_id => @gasto.id, :tipo => "Gasto", :update_listado => update + "_sub" } %>
+      <% end %>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<div class="fila">
+  <%= texto _("Nombre"), 'dato_basico', 'nombre', "1" %>
+  <%= texto _("Descripción"), 'dato_basico', 'descripcion', "3" %>
+</div>
+
+<div class="fila">&nbsp;</div>
+<div class="filacabecera"><%= _("Tareas de Proyectos o Agentes") %></div>
+<div class="fila">
+  <%= checkbox _("Proyecto"), 'dato_basico', 'tipo_proyecto', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.tipo_proyecto : false) } %>
+  <%= checkbox _("Agente"), 'dato_basico', 'tipo_agente', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.tipo_agente : false) } %>
+</div>
+
+<div class="fila">&nbsp;</div>
+<div class="filacabecera"><%= _("Tipo de tareas") %></div>
+<div class="fila">
+  <%= checkbox _("Administración"), 'dato_basico', 'administracion', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.administracion : false) } %>
+  <%= checkbox _("Configuración"), 'dato_basico', 'configuracion', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.configuracion : false) } %>
+  <%= checkbox _("Formulación técnica"), 'dato_basico', 'formulacion_tecnica', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.formulacion_tecnica : false) } %>
+  <%= checkbox _("Formulacion económica"), 'dato_basico', 'formulacion_economica', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.formulacion_economica : false) } %>
+  <%= checkbox _("Seguimiento técnico"), 'dato_basico', 'seguimiento_tecnico', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.seguimiento_tecnico : false) } %>
+  <%= checkbox _("Seguimiento económico"), 'dato_basico', 'seguimiento_economico', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.seguimiento_economico : false) } %>
+  <%= checkbox _("Justificación final"), 'dato_basico', 'justificacion', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.justificacion : false) } %>
+</div>
+
+<div class="fila">&nbsp;</div>
+<div class="filacabecera"><%= _("Notificaciones de próxima finalización") %></div>
+<div class="fila">
+  <%= texto _("Avisar por correo cuando falten para el fin de la tarea... (indicar el número de días, separando con comas si hay más de uno)"), 'dato_basico', 'dias_aviso_finalizacion', "4" %>
+</div>
+<div class="fila">&nbsp;</div>
+<div class="fila" style="text-align:center;font-style:italic;">
+  <%= _("NOTA: Las notificaciones por correo sólo se realizarán si el sistema está configurado para ejecutar tareas programadas.") %>
+</div>
+
+
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<div class="fila"></div>
+<%= final_formulario %>

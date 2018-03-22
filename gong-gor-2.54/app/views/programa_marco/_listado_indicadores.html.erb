@@ -1,0 +1,20 @@
+<% update_listado = update + "_anadir" %>
+<%= comienzo_sublistado _("Indicadores Asociados al Programa Marco"), update %>
+  <div id="<%= update_listado %>"></div>
+  <div class="fila">
+    <%= anadir url: { action: 'editar_nuevo_indicador', update: update_listado, update_listado: update,
+                     programa_marco_id: params[:programa_marco_id] } %> 
+  </div>
+  <% for indicador in @indicadores %>
+    <% html_id = update + "_indicador_" + indicador.id.to_s %>
+    <div id="<%= html_id %>" class="fila" >
+      <%= fila_listado indicador, campos_listado("indicador_general"), html_id %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup indicador, {campos: campos_listado("indicador_general") + campos_info("indicador_general"), id: html_id + "_informacion" } %>
+        <%= borrado( url: {action: 'eliminar_indicador', id: indicador.id, programa_marco_id: params[:programa_marco_id], update: html_id},
+                     texto: _("Eliminar Asociación"), identificador: html_id ) %>
+      </div>
+    </div>
+  <% end %>
+<%= final_sublistado %> 
+<br>

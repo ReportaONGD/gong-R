@@ -1,0 +1,28 @@
+<!-- FORMULARIO DE SELECCION DE RESUMEN DE PROYECTOS -->
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "proyectos" }, :multipart => true, :class => "formulario" ) %>
+  <%= selector _('Estado de los proyectos'), '', 'estado', @estados, false , '3_4', {:selected => params[:estado]}  %>
+  <div class="elementoderecha">
+    <%= submit_tag(_("Filtrar"), :class => "boton1_2") %>
+  </div>
+</form>
+</fieldset>
+
+
+<%= cabecera_listado campos_listado("proyecto_ampliado"), :id => "proyecto_anadir" %>
+<% for proyecto in @proyectos %>
+
+<% update = "proyecto_" + proyecto.id.to_s %>
+<div  id="<%= update %>" class="fila">
+    <% tipo_elemento = (proyecto.convenio? ? _("Convenio") : _("Proyecto")) %>
+    <%= fila_listado proyecto, campos_listado("proyecto_ampliado"), update %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup proyecto, {:campos => campos_listado("proyecto_ampliado") + campos_info("proyecto_ampliado"), :id => update + "_informacion" } %>
+      <%= link_to( icono( "seleccionar", _("Seleccionar Proyecto") + " " + proyecto.nombre ), proyecto_path(proyecto.id), :id => update + "_seleccionar" ) %>
+    </div>
+  <div class='linea'></div>
+</div>
+<% end %>
+<%= final_listado %>
+

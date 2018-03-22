@@ -1,0 +1,18 @@
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "cronograma_proyectos"}, :multipart => true, :class => "formulario" ) %>
+  <div id="div_selector_etapa">
+    <%= selector _('Etapa'), '', 'etapa', @listado_etapa, false, '3_4', {:selected => params[:etapa].to_i} %>
+  </div>
+  <%= checkbox _("Sólo proyectos aprobados"), '', 'solo_aprobados', "1", {:checked => !(params[:solo_aprobados]=="0"), :izquierda => true, :abajo => true}  %>
+  <div class="fila"><br/></div>
+  <%= checkbox _("Sacar el resultado a fichero "), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+
+<div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+<% for tabla in @tablas %>
+  <%=   resumen(tabla) %>
+<% end  unless @tablas.nil? %>
+<%# resumen @tablas.first unless @tablas.nil? || @tablas.empty? %>

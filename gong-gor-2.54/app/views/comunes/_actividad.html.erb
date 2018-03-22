@@ -1,0 +1,24 @@
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]} %>
+
+<div id="<%= 'actividad' + linea.to_s %>" class="linea">
+  <%= selector  _("Actividades"), "actividad", 'actividad_id', (@proyecto.actividad.sort! {|x, y|  x.codigo <=> y.codigo }).collect {|a|[a.codigo_nombre, a.id]}, true, "2", {:name => "actividades[#{linea}][actividad_id]", disabled: params[:disabled]} %>
+  <% actividad_importe_id = "actividades[#{linea}][importe_convertido]" %>
+  <% if controller.controller_name == "presupuesto_proyectos" %>
+    <% actividad_unidades_id = "actividades[#{linea}][numero_unidades]" %>
+    <%= texto_numero _("Nº unidades"), 'actividad', 'numero_unidades',"1_2", {id: actividad_unidades_id, name: actividad_unidades_id, disabled: params[:disabled]} %>
+    <%= observe_field( actividad_unidades_id, :url => {:action => :calcula_importe, :update => actividad_importe_id},
+                      :with => "'presupuesto[numero_unidades]='+ escape($('#{actividad_unidades_id}').value) +
+                                '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value)" ) %>
+  <% end %>
+  <div id="<%= actividad_importe_id %>">
+    <%= texto_numero _("Importe"), 'actividad', 'importe_convertido',"1_2", {id: actividad_importe_id, name: actividad_importe_id, disabled: params[:disabled]}  %>
+  </div>
+  <%= hidden_field 'actividad', 'proyecto_id', {:value => @proyecto.id, :name => "actividades[#{linea}][proyecto_id]"} unless controller.controller_name == "presupuesto_proyectos" %>
+</div>
+<% if ultima  %>
+  <div id="actividad_<%= (linea + 1).to_s %>">
+    <br><%=link_to_remote _("Añadir actividad"), :update => "actividad_#{(linea + 1).to_s}", :url => {:action => "anadir_actividad", :linea => (linea + 1)} ,:loading => "Element.show('spinner');Element.hide('botonguardar');", :complete => "Element.hide('spinner');Element.show('botonguardar');" unless params[:disabled] %>
+  </div>
+<% end %>
+
+

@@ -1,0 +1,15 @@
+    <!-- Caja con seguimiento del proyecto -->
+    <fieldset class="caja_info caja_gris" >
+      <div class="info_nombre"><%= _("Resumen Tesorería") %></div>
+      <div class="info_contenido">
+        <div id="detalle_ejecucion_proyecto">
+          <% url_detalle = url_for(seccion: "proyectos", proyecto_id: @proyecto.id, menu: "resumen", controller: "info", action: "detalle_financiadores_proyecto") %>
+          <% title_detalle = _("Detalle Financiero por Financiadores") + " (" + @proyecto.moneda_principal.abreviatura + ")"  %>
+          <%= modal render(partial: "porcentaje_gasto", locals: {proyecto: @proyecto}), url_detalle, title_detalle, {class: "enlace-contextual"} %>
+          <%= modal render(partial: "porcentaje_gasto", locals: { proyecto: @proyecto, financiador: @proyecto.agente }), url_detalle, title_detalle, {class: "enlace-contextual"} %>
+        </div>
+        <div id="detalle_transferencias_proyecto">
+          <%= render :partial => "porcentaje_transferencias", :locals => { :proyecto => @proyecto } %>
+        </div>
+      </div>
+    </fieldset>

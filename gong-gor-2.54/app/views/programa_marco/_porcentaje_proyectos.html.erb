@@ -1,0 +1,8 @@
+<!-- Porcentaje de proyectos no cerrados -->
+<% num_aprobados = proyectos_aprobados.count %>
+<% num_cerrados = proyectos_aprobados.where("definicion_estado.cerrado" => true).count %>
+<% num_activos = num_aprobados - num_cerrados %>
+
+<% texto_proyectos = _("%{num} proyectos finalizados de un total de %{total} aprobados.")%{num: num_cerrados, total: num_aprobados} %>
+<%= caja_porcentaje total: num_aprobados, valor: num_cerrados,
+                    titulo: _("P.Cerrados:"), rotulo: texto_proyectos %>

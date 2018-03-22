@@ -1,0 +1,33 @@
+
+<%= comienzo_sublistado _("Tasa Cambio"), params[:update] %>
+<div class="fila">
+<%= modal icono("anadir"), {:action => 'editar_nuevo_tasa_cambio', :update =>  params[:update], :etapa_id => params[:etapa_id]}, _("Crear Tasa de Cambio"), {:id => params[:update] + "_tasa_anadir" } %>
+</div>
+<% i = 0 %>
+<% for tasa in @tasas %>
+   <div  id="<%= params[:update] %>_tasas_<%= (i += 1).to_s%>" class="fila" >
+    <%= fila_listado tasa, campos_listado("tasa_cambio"), params[:update] + "_tasas_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup tasa, {:campos => campos_listado("tasa_cambio") + campos_info("tasa_cambio"), :id => params[:update] + "_tasas_" + i.to_s + "_informacion" } %>
+      <% if @proyecto %>
+        <% estado_actual = (@proyecto.estado_actual && @proyecto.estado_actual.definicion_estado) ? @proyecto.estado_actual.definicion_estado : nil %>
+        <% ppto = estado_actual ? estado_actual.formulacion && !estado_actual.cerrado : false %>
+        <% gasto = estado_actual ? estado_actual.ejecucion && !estado_actual.cerrado : false %>
+      <% else %>
+        <% ppto = gasto = (tasa.etapa && !tasa.etapa.cerrada) %>
+      <% end %>
+
+      <% if (tasa.etapa.proyecto || tasa.etapa.agente).moneda_id == tasa.moneda_id || (tasa.objeto == "presupuesto" && !ppto ) || (tasa.objeto == "gasto" && !gasto) %>
+        <div class="icono"></div>
+        <div class="icono"></div>
+      <% else %>
+        <%= modal icono( "editar" ),  {:action => 'editar_nuevo_tasa_cambio', :update => params[:update], :id => tasa.id, :etapa_id => params[:etapa_id]}, _("Editar Tasa de Cambio"), :id => (params[:update] + "_tasas_" + i.to_s + "_editar")  %>
+        <%= modal_borrado(icono(( "borrar"), _('Eliminar Tasa de Cambio')),  { :action => 'eliminar_tasa_cambio', :update =>  params[:update], :id => tasa.id, :etapa_id => tasa.etapa_id } , _('Eliminar Tasas de Cambio para ') + tasa.etapa.nombre, _("Aplicable a ") + tasa.tipo + " desde " + tasa.fecha_inicio.strftime('%d/%m/%Y') + " hasta " + tasa.fecha_fin.strftime('%d/%m/%Y'),  :id => (params[:update] + "_tasas_" + i.to_s + "_borrar"), :ajax => true) %>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+    </div>
+<% end %>
+<%= final_sublistado %> 
+
+<BR>

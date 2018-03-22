@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gasto_id: 1
+  transferencia_id: 1
+
+two:
+  gasto_id: 1
+  transferencia_id: 1

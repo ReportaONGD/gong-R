@@ -1,0 +1,18 @@
+<div class="filacabecerasinborde %>" id="suma_<%= empleado.id %>">
+  <div class="elemento3_4"><%= _("Numero de presupuesto") %>: <%= empleado.numero_presupuesto(session[:presupuesto_empleado_etapa]) %></div>
+	<div class="elemento3_2">&nbsp;</div>
+  <div class="elemento3_4"><%= _("Total por empleado") %></div>
+  <div class="elemento1_2_td"><%= number_with_delimiter(('%.2f' % empleado.suma_presupuesto(session[:presupuesto_empleado_etapa])).to_s , :separator => ",", :delimiter => ".") %> <%= @agente.moneda_principal.abreviatura %></div>
+  <br />
+  <div class="elemento3_4"><br /></div>
+	<div class="elemento3_2">&nbsp;</div>
+  <div class="elemento3_4"><%= _('Imputado a agente') %></div>
+  <div class="elemento1_2_td"><%= number_with_delimiter(('%.2f' % empleado.importe_presupuesto_agente(session[:presupuesto_empleado_etapa])).to_s , :separator => ",", :delimiter => ".") %> <%= @agente.moneda_principal.abreviatura %></div>
+  <div class="elemento1_3_td"><%= number_with_delimiter(('%.2f' % empleado.porcentaje_presupuesto_agente(session[:presupuesto_empleado_etapa])).to_s , :separator => ",", :delimiter => ".") %> %</div>
+  <br />
+  <div class="elemento3_4"><br /></div>
+		<div class="elemento3_2">&nbsp;</div>
+  <div class="elemento3_4"><%= _('Imputado a proyectos') %></div>
+  <div class="elemento1_2_td"><%= number_with_delimiter(('%.2f' % empleado.importe_presupuesto_proyecto(session[:presupuesto_empleado_etapa])).to_s , :separator => ",", :delimiter => ".") %> <%= @agente.moneda_principal.abreviatura %></div>
+  <div class="elemento1_3_td"><%= number_with_delimiter(('%.2f' % empleado.porcentaje_presupuesto_proyecto(session[:presupuesto_empleado_etapa])).to_s , :separator => ",", :delimiter => ".") %> %</div>
+</div>

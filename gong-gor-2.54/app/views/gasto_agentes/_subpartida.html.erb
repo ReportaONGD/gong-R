@@ -1,0 +1,9 @@
+<% disabled = defined?(disabled) && disabled %>
+<% if partida_id.blank? %>
+    <div class="elemento2" id="subpartida"> <%= _("Subpartida") %><br><%= _("Seleccione partida para elegir subpartida") %> </div>    
+<% else %> 
+    <div class="elemento2" id="subpartida"> 
+    <% subpartidas = @agente.subpartida.all(:conditions => {:partida_id => partida_id}).collect{|s| [s.nombre, s.id]} %>
+    <%= selector _("Subpartida"), 'gasto', 'subpartida_agente_id', subpartidas, true ,"2", disabled: disabled %>
+    </div> 
+<% end %>

@@ -1,0 +1,44 @@
+<% proy_nuevo = @proyecto.nil?.to_s %>
+<%=  comienzo_formulario( { :action => 'modificar_crear', :id => @proyecto, :update => params[:update], :convenio_id => @convenio_id }, !params[:update].nil? ) %>
+    <%= texto _("Nombre"), 'proyecto', 'nombre', "2", :obligatorio => true %>
+
+    <% if params[:convenio_id] %>
+      <%= hidden_field 'proyecto', 'convenio_id', {:value => @convenio_id} %>
+    <% else %>
+      <%= selector _("Convocatoria"), 'proyecto', 'convocatoria_id',  @convocatorias, false, "1", {obligatorio: true, enriquecido: true}  %>
+      <div class="fila">
+        <%= render :partial => "selector_implementador", :locals => {:implementadores => @implementadores} %>
+        <%= render :partial => "selector_libro_financiador", :locals => {:libros => @libros, :libro_id => (@proyecto ? @proyecto.libro_id : nil) } %>
+        <%= selector _("Moneda Justificación"), 'proyecto', 'moneda_id',  @monedas , false, "1", :obligatorio => true  %>
+          <%= observe_field( "proyecto_moneda_id" , :url => {:action => "libro_cambio_moneda"},
+              :with => "'moneda_id='+ escape($('proyecto_moneda_id').value) + '&implementador_id='+ escape($('implementador_id').value) + '&nuevo=' + escape('" +proy_nuevo+ "')",
+              :loading => "Element.show('spinner_proyecto')", :complete => "Element.hide('spinner_proyecto')") %>
+        <%= selector _("Divisa"), 'proyecto', 'moneda_intermedia_id', @monedas, true, "1" %>
+      </d
+iv>
+      <div class="fila">
+        <div class="elemento1_2">&nbsp;</div>
+        <%= checkbox _("Multipaís"), 'selector', 'multipais', "1_2", {:izquierda => true, :abajo=>true, :checked => ((@proyecto.nil? or @proyecto.pais_principal_id) ? false : true) } %>
+          <%= observe_field( "selector_multipais" , :function => 'if( document.getElementById("selector_multipais").checked ){ Element.hide("mostrar_pais"); } else { Element.show("mostrar_pais"); } Modalbox.resizeToContent();' ) %>
+        <div id="mostrar_pais" style="<%= "display:none;" unless @proyecto.nil? || @proyecto.pais_principal_id %>" >
+          <%= selector _("País Principal"), 'proyecto', 'pais_principal_id',  @paises , false, "1", :obligatorio => true  %>
+        </div>
+      </div>
+
+    <% end %>
+    <%= texto _("Título"), 'proyecto', 'titulo', "4", :obligatorio => true %>
+    <%# if params[:menu] == "convenio" && !params[:convenio_id] %>
+    <% if es_convenio %>
+      <div class="fila"><br/></div>
+      <%= selector _("Acciones a nivel de"), 'proyecto', 'convenio_accion', [[_("Objetivos Específicos"), "objetivo_especifico"], [_("Resultados"), "resultado"]], false, "1", :obligatorio => true %>
+    <% end %>
+    <div class="fila">
+      <br>
+      <%= checkbox _("Filtrar Gastos según Usuario/Ejecutor"), 'proyecto', 'ocultar_gastos_otras_delegaciones', "3_2",
+                        { izquierda: true, abajo: true, checked: (@proyecto && @proyecto.ocultar_gastos_otras_delegaciones) } %>
+      <br><%= _("NOTA: Si activa esta opción, en los listados de gastos del proyecto tan sólo serán visibles aquellos ejecutados por los agentes asignados al usuario que realiza la consulta.") %>
+      <br>
+    </div>
+<%= final_formulario %>
+<div id="spinner_proyecto" class="spinner" style="display:none" ></div>
+

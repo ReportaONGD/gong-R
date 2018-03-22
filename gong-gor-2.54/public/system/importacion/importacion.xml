@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <ppto fecha_creacion="2010-12-16 2010T09:42:41">
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="2" importe="5000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INSTALACION DE SW">
+    <actividad codigo="R01-A01" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="3" importe="5000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="SELECCIÓN Y CAPACITACIÓN EQUIPOS">
+    <actividad codigo="R01-A02" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="4" importe="35000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS PILOTO">
+    <actividad codigo="R01-A03" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="5" importe="2000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="MANUAL DE BUENAS PRÁCTICAS">
+    <actividad codigo="R05-A01" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="6" importe="3000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN DE HERRAMIENTAS WEB DE DIFUSIÓN">
+    <actividad codigo="R05-A02" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="7" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN METANGULA">
+    <actividad codigo="R03-A01-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="8" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN METANGULA">
+    <actividad codigo="R03-A02-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="9" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN METANGULA">
+    <actividad codigo="R03-A03-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="10" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN METANGULA">
+    <actividad codigo="R03-A04-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="11" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN LICHINGA">
+    <actividad codigo="R03-A01-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="12" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN LICHINGA">
+    <actividad codigo="R03-A02-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="13" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN LICHINGA">
+    <actividad codigo="R03-A03-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="14" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN LICHINGA">
+    <actividad codigo="R03-A04-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="15" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN CATUR">
+    <actividad codigo="R03-A01-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="16" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN CATUR">
+    <actividad codigo="R03-A02-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="17" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN CATUR">
+    <actividad codigo="R03-A03-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="18" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN CATUR">
+    <actividad codigo="R03-A04-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="19" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MARRUPA">
+    <actividad codigo="R03-A01-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="20" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MARRUPA">
+    <actividad codigo="R03-A02-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="21" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MARRUPA">
+    <actividad codigo="R03-A03-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="22" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MARRUPA">
+    <actividad codigo="R03-A04-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="23" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MONTEPUEZ">
+    <actividad codigo="R03-A01-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="24" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MONTEPUEZ">
+    <actividad codigo="R03-A02-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="25" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MONTEPUEZ">
+    <actividad codigo="R03-A03-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="26" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MONTEPUEZ">
+    <actividad codigo="R03-A04-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="27" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MUEDA">
+    <actividad codigo="R03-A01-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="28" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MUEDA">
+    <actividad codigo="R03-A02-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="29" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MUEDA">
+    <actividad codigo="R03-A03-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="30" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MUEDA">
+    <actividad codigo="R03-A04-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="31" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN NACALA">
+    <actividad codigo="R03-A01-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="32" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN NACALA">
+    <actividad codigo="R03-A02-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="33" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN NACALA">
+    <actividad codigo="R03-A03-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="34" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN NACALA">
+    <actividad codigo="R03-A04-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="35" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN CUAMBA">
+    <actividad codigo="R03-A01-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="36" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN CUAMBA">
+    <actividad codigo="R03-A02-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="37" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN CUAMBA">
+    <actividad codigo="R03-A03-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="38" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN CUAMBA">
+    <actividad codigo="R03-A04-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="39" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN NAMPULA">
+    <actividad codigo="R03-A01-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="40" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN NAMPULA">
+    <actividad codigo="R03-A02-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="41" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN NAMPULA">
+    <actividad codigo="R03-A03-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="42" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN NAMPULA">
+    <actividad codigo="R03-A04-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="43" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN LUMBO">
+    <actividad codigo="R03-A01-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="44" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN LUMBO">
+    <actividad codigo="R03-A02-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="45" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN LUMBO">
+    <actividad codigo="R03-A03-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="46" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN LUMBO">
+    <actividad codigo="R03-A04-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="47" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN PEMBA">
+    <actividad codigo="R03-A01-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="48" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN PEMBA">
+    <actividad codigo="R03-A02-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="49" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN PEMBA">
+    <actividad codigo="R03-A03-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="50" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN PEMBA">
+    <actividad codigo="R03-A04-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="51" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN QUELIMANE">
+    <actividad codigo="R03-A01-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="52" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN QUELIMANE">
+    <actividad codigo="R03-A02-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="53" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN QUELIMANE">
+    <actividad codigo="R03-A03-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="54" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN QUELIMANE">
+    <actividad codigo="R03-A04-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="55" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN NACAMBE">
+    <actividad codigo="R03-A01-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="56" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN NACAMBE">
+    <actividad codigo="R03-A02-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="57" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN NACAMBE">
+    <actividad codigo="R03-A03-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="58" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN NACAMBE">
+    <actividad codigo="R03-A04-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="59" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN DECALO">
+    <actividad codigo="R03-A01-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="60" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN DECALO">
+    <actividad codigo="R03-A02-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="61" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN DECALO">
+    <actividad codigo="R03-A03-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="62" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN DECALO">
+    <actividad codigo="R03-A04-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="63" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN ESCOLA">
+    <actividad codigo="R03-A01-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="64" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN ESCOLA">
+    <actividad codigo="R03-A02-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="65" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN ESCOLA">
+    <actividad codigo="R03-A03-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="66" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN ESCOLA">
+    <actividad codigo="R03-A04-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="67" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MAPUTO">
+    <actividad codigo="R03-A01-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="68" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MAPUTO">
+    <actividad codigo="R03-A02-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="69" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MAPUTO">
+    <actividad codigo="R03-A03-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="70" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MAPUTO">
+    <actividad codigo="R03-A04-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="71" importe="5000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INSTALACION DE SW">
+    <actividad codigo="R01-A01" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="72" importe="5000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="SELECCIÓN Y CAPACITACIÓN EQUIPOS">
+    <actividad codigo="R01-A02" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="73" importe="35000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS PILOTO">
+    <actividad codigo="R01-A03" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="74" importe="2000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="MANUAL DE BUENAS PRÁCTICAS">
+    <actividad codigo="R05-A01" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-APLIC_SF" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="75" importe="3000.00" moneda_abreviatura="EUR" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN DE HERRAMIENTAS WEB DE DIFUSIÓN">
+    <actividad codigo="R05-A02" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="76" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN METANGULA">
+    <actividad codigo="R03-A01-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="77" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN METANGULA">
+    <actividad codigo="R03-A02-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="78" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN METANGULA">
+    <actividad codigo="R03-A03-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-METANGULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="79" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN METANGULA">
+    <actividad codigo="R03-A04-METANGULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="80" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN LICHINGA">
+    <actividad codigo="R03-A01-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="81" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN LICHINGA">
+    <actividad codigo="R03-A02-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="82" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN LICHINGA">
+    <actividad codigo="R03-A03-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LICHINGA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="83" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN LICHINGA">
+    <actividad codigo="R03-A04-LICHINGA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="84" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN CATUR">
+    <actividad codigo="R03-A01-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="85" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN CATUR">
+    <actividad codigo="R03-A02-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="86" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN CATUR">
+    <actividad codigo="R03-A03-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CATUR" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="87" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN CATUR">
+    <actividad codigo="R03-A04-CATUR" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="88" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MARRUPA">
+    <actividad codigo="R03-A01-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="89" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MARRUPA">
+    <actividad codigo="R03-A02-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="90" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MARRUPA">
+    <actividad codigo="R03-A03-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MARRUPA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="91" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MARRUPA">
+    <actividad codigo="R03-A04-MARRUPA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="92" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MONTEPUEZ">
+    <actividad codigo="R03-A01-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="93" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MONTEPUEZ">
+    <actividad codigo="R03-A02-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="94" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MONTEPUEZ">
+    <actividad codigo="R03-A03-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MONTEPUEZ" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="95" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MONTEPUEZ">
+    <actividad codigo="R03-A04-MONTEPUEZ" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="96" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MUEDA">
+    <actividad codigo="R03-A01-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="97" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MUEDA">
+    <actividad codigo="R03-A02-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="98" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MUEDA">
+    <actividad codigo="R03-A03-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MUEDA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="99" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MUEDA">
+    <actividad codigo="R03-A04-MUEDA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="100" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN NACALA">
+    <actividad codigo="R03-A01-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="101" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN NACALA">
+    <actividad codigo="R03-A02-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="102" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN NACALA">
+    <actividad codigo="R03-A03-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACALA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="103" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN NACALA">
+    <actividad codigo="R03-A04-NACALA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="104" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN CUAMBA">
+    <actividad codigo="R03-A01-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="105" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN CUAMBA">
+    <actividad codigo="R03-A02-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="106" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN CUAMBA">
+    <actividad codigo="R03-A03-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-CUAMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="107" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN CUAMBA">
+    <actividad codigo="R03-A04-CUAMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="108" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN NAMPULA">
+    <actividad codigo="R03-A01-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="109" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN NAMPULA">
+    <actividad codigo="R03-A02-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="110" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN NAMPULA">
+    <actividad codigo="R03-A03-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NAMPULA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="111" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN NAMPULA">
+    <actividad codigo="R03-A04-NAMPULA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="112" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN LUMBO">
+    <actividad codigo="R03-A01-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="113" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN LUMBO">
+    <actividad codigo="R03-A02-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="114" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN LUMBO">
+    <actividad codigo="R03-A03-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-LUMBO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="115" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN LUMBO">
+    <actividad codigo="R03-A04-LUMBO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="116" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN PEMBA">
+    <actividad codigo="R03-A01-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="117" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN PEMBA">
+    <actividad codigo="R03-A02-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="118" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN PEMBA">
+    <actividad codigo="R03-A03-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-PEMBA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="119" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN PEMBA">
+    <actividad codigo="R03-A04-PEMBA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="120" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN QUELIMANE">
+    <actividad codigo="R03-A01-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="121" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN QUELIMANE">
+    <actividad codigo="R03-A02-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="122" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN QUELIMANE">
+    <actividad codigo="R03-A03-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-QUELIMANE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="123" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN QUELIMANE">
+    <actividad codigo="R03-A04-QUELIMANE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="124" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN NACAMBE">
+    <actividad codigo="R03-A01-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="125" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN NACAMBE">
+    <actividad codigo="R03-A02-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="126" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN NACAMBE">
+    <actividad codigo="R03-A03-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-NACAMBE" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="127" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN NACAMBE">
+    <actividad codigo="R03-A04-NACAMBE" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="128" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN DECALO">
+    <actividad codigo="R03-A01-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="129" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN DECALO">
+    <actividad codigo="R03-A02-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="130" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN DECALO">
+    <actividad codigo="R03-A03-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-DECALO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="131" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN DECALO">
+    <actividad codigo="R03-A04-DECALO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="132" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN ESCOLA">
+    <actividad codigo="R03-A01-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="133" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN ESCOLA">
+    <actividad codigo="R03-A02-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="134" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN ESCOLA">
+    <actividad codigo="R03-A03-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-ESCOLA" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="135" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN ESCOLA">
+    <actividad codigo="R03-A04-ESCOLA" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="136" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACIÓN Y CALENDARIO EN MAPUTO">
+    <actividad codigo="R03-A01-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2012-11-01" fecha_inicio="2011-11-01" id="137" importe="184000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="ELABORACION DE PLAN DE FORMACION Y CAPACITACIÓN EN MAPUTO">
+    <actividad codigo="R03-A02-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="138" importe="2024000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="INCORPORACIÓN DE PROYECTOS EN MAPUTO">
+    <actividad codigo="R03-A03-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="139" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN EN MAPUTO">
+    <actividad codigo="R03-A04-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="140" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN PARA TOTO">
+    <actividad codigo="R03-A04-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    <linea_ppto agente_nombre="AGENTE-MAPUTO" coste_unitario="" fecha_fin="2011-12-01" fecha_inicio="2011-11-01" id="__NodoNuevo__ 0" importe="138000.00" moneda_abreviatura="MZN" numero_unidades="" observaciones="" partida_codigo="X" subpartida="EVALUACIÓN DE LA IMPLANTACIÓN PARA TATA">
+    <actividad codigo="R03-A04-MAPUTO" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="0.8000"/>
+    <financiador nombre="AGENTE-APLIC_SF" porcentaje="0.2000"/>
+    </linea_ppto>
+    </ppto>

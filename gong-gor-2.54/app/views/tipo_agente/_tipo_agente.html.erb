@@ -1,0 +1,9 @@
+<% @tipo ||= tipo %>
+<div id="<%= update %>" class="fila" >
+  <%= fila_listado @tipo, campos_listado("tipo_agente"), update %>
+  <div class="elementoderecha">
+    <%= ventana_info_popup @tipo, {:campos => campos_listado("tipo_agente"), :id => update + "_informacion" } %>
+    <%= editar( :url => { :action => 'editar_nuevo', :id => @tipo, :update => update }) %> 
+    <%= borrado( :url => { :action => 'eliminar', :id => @tipo.id, :update => update },  :texto => (@tipo.nombre), :identificador => update )  %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<%= _("El próximo día '%{dia}' se cumple el plazo de finalización de '%{nombre}'")%{dia: I18n.l(@tarea.fecha_fin), nombre: @tarea.titulo} %>
+
+* <%= _("Proyecto") %>: <%= @tarea.proyecto.nombre %>. <%= @tarea.proyecto.titulo %>
+* <%= _("Fecha de finalización de actividades") %>: <%= I18n.l(@tarea.proyecto.fecha_fin_actividades) if  @tarea.proyecto.fecha_fin_actividades %>
+* <%= _("Fecha límite de justificación final") %>: <%= I18n.l(@tarea.proyecto.fecha_fin_justificacion) if @tarea.proyecto.fecha_fin_justificacion %>
+* <%= _("Porcentaje de ejecución presupuestaria") %>: <% @porcentaje_economico %>
+* <%= _("Porcentaje de ejecución de actividades") %>: <% @porcentaje_actividad %>
+
+
+--------------------
+
+<%= _("Esta notificación se ha enviado a todos los usuarios del proyecto.") %>
+<%= Time.now %>
+

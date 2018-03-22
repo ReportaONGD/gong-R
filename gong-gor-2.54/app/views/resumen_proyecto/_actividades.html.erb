@@ -1,0 +1,58 @@
+  <br/><h3><%= _("Actividades de Resultado") + " " + resultado.codigo %></h3>
+  <% @actividades.each do |actividad| %>
+  <% if actividad.resultado_id == resultado.id %>
+    <div class="linea">&nbsp;</div><div class="linea">
+
+      <!-- Datos de la Actividad -->
+      <% valores_intermedios = ValorIntermedioXActividad.all(:include => "actividad_x_etapa", :order => "fecha asc", :conditions => ["actividad_x_etapa.actividad_id = ? AND fecha < ?", actividad.id, @fecha_de_fin]) %>
+      <strong><%= _("Actividad") + ": " + actividad.codigo %></strong>&nbsp;-&nbsp;<%= actividad.descripcion %><br/>
+      <%= _("Realizada") %>:&nbsp;
+      <strong><% if valores_intermedios.empty? %>
+        <%= _("No") + " (0%)" %>
+      <% else %>
+        <%= (valores_intermedios.last.realizada ? "Sí" : "No") + " (" + (valores_intermedios.last.porcentaje * 100).to_s + "%)" %>
+      <% end %></strong>
+      <!-- Valores Intermedios de cumplimiento de la actividad -->
+      <ul><% valores_intermedios.each do |valor| %>
+        <li>
+          <strong><%= (valor.porcentaje * 100).to_s %>%</strong>&nbsp;
+          <%= valor.fecha.strftime('%d/%m/%Y') + " (" + valor.usuario.nombre + ")" %>&nbsp;
+          <% if valor.comentario %>-&nbsp;<%= valor.comentario %><% end %>
+        </li>
+      <% end %></ul>
+
+      <!-- Comentarios a la Actividad -->
+      <% comentarios = actividad.comentario.all(:order => "updated_at asc", :conditions => ["created_at <= ?", @fecha_de_fin]) %>
+      <% unless comentarios.empty? %>
+        <div class="linea">
+          <%= _("Comentarios a la actividad:") %>
+          <ul><% comentarios.each do |comentario| %>
+            <li><%= comentario.updated_at.strftime('%d/%m/%Y') + ( comentario.usuario ? " (" + comentario.usuario.nombre + ")" : "") + " - " + comentario.texto %></li>
+          <% end %></ul>
+        </div>
+      <% end %>
+
+      <!-- Subactividades -->
+      <% unless actividad.subactividad.empty? %>
+        <div class="linea">
+          <%= _("Subactividades:") %>
+          <ul><% actividad.subactividad.each do |subactividad| %>
+            <li>
+              <% valores = subactividad.valor_intermedio_x_subactividad.all(:order => "fecha asc", :conditions => ["fecha <= ?", @fecha_de_fin]) %>
+              <%= subactividad.descripcion %>&nbsp;
+              <strong>(<%= (valores.last.estado + " - ") if valores.last %><%= (valores.empty? ? 0 : valores.last.porcentaje * 100).to_s + "% " + _("realizado") %>)</strong>
+              <!-- Valores intermedios de cumplimiento de la subactividad -->
+              <ul><% valores.each do |valor| %>
+                <li>
+                  <strong><%= (valor.porcentaje * 100).to_s %>%</strong>&nbsp;
+                  <%= valor.fecha.strftime('%d/%m/%Y') + " (" + valor.usuario.nombre + ")" %>&nbsp;
+                  <% if valor.comentario %><%= valor.comentario %><% end %>
+                </li>
+              <% end %></ul>
+            </li>
+          <% end unless actividad.subactividad.empty? %></ul>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  <% end %>

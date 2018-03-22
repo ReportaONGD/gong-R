@@ -1,0 +1,4 @@
+primera:
+  usuario_id: 1
+  agente_id: 1
+  rol: MyString

@@ -1,0 +1,9 @@
+<% linea =  0 %>
+<% unless @proyectos.empty? %>
+  <% for @proyecto in @proyectos %>
+    <%= render :partial => "proyecto", :locals => {:linea => linea, :ultima =>  @proyectos.last == @proyecto ? true : false} %>
+    <% linea += 1  %>
+  <% end %> 
+<% else %> 
+    <%= render :partial => "proyecto", :locals => {:linea => linea, :ultima =>  true} %>
+<% end %> 

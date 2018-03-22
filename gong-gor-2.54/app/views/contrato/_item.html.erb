@@ -1,0 +1,22 @@
+<% linea_s = linea.to_s %>
+<div id="item<%= linea_s %>" class="linea">
+  <%= texto_numero nil, '', 'id', '1_4', {value: linea_s, disabled: true} %>
+  <%= texto nil, 'item', 'nombre', '2', {name: "item[#{linea}][nombre]", disabled: params[:disabled]} %>
+  <%= texto_numero nil, 'item', 'cantidad', '1_3', {id: "item_cantidad_" + linea_s, name: "item[#{linea}][cantidad]", disabled: params[:disabled]} %>
+  <%= texto_numero nil, 'item', 'coste_unitario_convertido', '1_2', {id: "item_coste_" + linea_s, name: "item[#{linea}][coste_unitario_convertido]", disabled: params[:disabled]} %>
+  <%= texto_numero nil, 'item', 'importe_convertido', '1_2', {id: "item_importe_" + linea_s, disabled: true} %>
+  <%= hidden_field 'item', 'id', {name: "item[#{linea}][id]"} %>
+      <%= observe_field( "item_cantidad_" + linea_s, url: {action: :calcula_importe, update: "item_importe_" + linea_s},
+              with: "'cantidad=' + escape($('item_cantidad_" + linea_s + "').value) +
+                    '&coste_unitario=' + escape($('item_coste_" + linea_s + "').value)" ) %>
+      <%= observe_field( "item_coste_" + linea_s, url: {action: :calcula_importe, update: "item_importe_" + linea_s},
+              with: "'cantidad=' + escape($('item_cantidad_" + linea_s + "').value) +
+                    '&coste_unitario=' + escape($('item_coste_" + linea_s + "').value)" ) %>
+</div>
+<% if ultima  %>
+  <div id="item_<%= (linea + 1).to_s %>">
+    <%= link_to_remote _("Añadir item"), :update => "item_#{(linea + 1).to_s}", url: {action: "anadir_item", linea: (linea + 1)} ,loading: "Element.show('spinner');Element.hide('botonguardar');", complete: "Element.hide('spinner');Element.show('botonguardar');" unless params[:disabled] %>
+  </div>
+<% end %>
+
+

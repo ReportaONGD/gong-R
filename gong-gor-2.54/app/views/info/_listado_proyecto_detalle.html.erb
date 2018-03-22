@@ -1,0 +1,6 @@
+<%= comienzo_sublistado _("Detalles del Proyecto"), "mas_info_proyecto_#{@proyecto.id}" %>
+  <div class="contenedor_caja_info_centrado">
+    <%= render partial: 'proyecto_detalle_cajas', locals: {enlazar: true} %>
+  </div>
+<%= final_sublistado %>
+<div class="linea"><br></div>

@@ -1,0 +1,10 @@
+<% linea =  0 %>
+<% unless @paises.empty? %>
+  <% for @pais in @paises %>
+    <%= render :partial => "pais", :locals => {:linea => linea, :ultima =>  @paises.last == @pais ? true : false} %>
+    <% linea += 1  %>
+  <% end %>
+<% else %>
+    <%= render :partial => "pais", :locals => {:linea => linea, :ultima =>  true} %>
+<% end %>
+

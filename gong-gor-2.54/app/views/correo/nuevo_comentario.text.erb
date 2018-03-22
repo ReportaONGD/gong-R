@@ -1,0 +1,7 @@
+<%= _("Hay un comentario en") + " " + _(@objeto_relacionado.class.name) + " " + (@objeto ? _("del") + " " + _(@objeto.class.name) + " " + @objeto.nombre : "general") %>:
+
+* <%= _("URL") %>: <%= url_for(@url) %>
+* <%= _("Autor") %>: <%= @comentario.usuario.nombre_completo %>
+* <%= _("Fecha") %>: <%= @comentario.updated_at %>
+* <%= _(@objeto_relacionado.class.name) %>: <%= @texto_url %>
+* <%= _("Comentario") %>: <%= @comentario.texto %>

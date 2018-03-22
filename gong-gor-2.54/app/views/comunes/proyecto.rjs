@@ -1,0 +1,5 @@
+page.replace "proyecto_" + @objeto.id.to_s + "_"+ params[:linea], :partial => "comunes/proyecto" , :locals =>  { :linea => params[:linea].to_i, :ultima => true}
+page.replace params[:update] + "_proyectos", :partial => 'comunes/icono_proyectos', :locals => {:objeto => @objeto}
+
+
+page.call("Modalbox.resizeToContent")

@@ -1,0 +1,26 @@
+<% update_listado = params[:update_listado] || (params[:update] + "_usuario_x_" + tipo) %>
+<% titulo = tipo.capitalize + "s" unless tipo == "libro" %>
+<% titulo = "Cuentas" if tipo == "libro" %>
+<%= comienzo_sublistado _(titulo), update_listado %>
+<div id="<%= update_listado %>_anadir"></div>
+<div class="fila">
+<%= anadir( :url => {action: 'asignar_relacion', update: update_listado + "_anadir", update_listado: update_listado, id: @usuario.id, tipo: tipo}) %>
+</div>
+<% i = 0 %>
+<% for elemento in elementos %>
+  <% update = update_listado + "_" + (i += 1).to_s %>
+  <div id="<%= update %>" class="fila" >
+    <%= fila_listado elemento, campos_listado("usuario_x_" + tipo), update %>
+    <div class="elementoderecha">
+      <% if elemento.grupo_usuario_id %>
+        <%= ventana_info_popup elemento, {:campos => [[_("Asignado en Grupo"),"1","grupo_usuario.nombre"]], :id => update + "_informacion" } %>
+      <% elsif params[:seccion] == "administracion" || tipo != "agente" || (@agente && @agente.id == elemento.agente_id) %>
+        <%= editar( :url => { action: 'asignar_relacion', id: @usuario.id, tipo: tipo, elemento_id: elemento.id, update: update, update_listado: update_listado }) %>
+        <%= borrado( :url => { action: 'desasignar_relacion', id: @usuario.id, tipo: tipo, elemento_id: elemento.id, update: update },  :texto => (_("Vinculación con: ") + tipo.capitalize + " '" + elemento.send(tipo).nombre + "'"), :identificador => update )  %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<%= final_sublistado %>
+
+<BR>

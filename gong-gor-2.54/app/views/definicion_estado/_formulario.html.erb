@@ -1,0 +1,30 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @definicion_estado }, false ) %>
+
+<%= selector _("Orden listado"), 'definicion_estado', 'orden', Array.new(30) {|x| [x, x] } , false, "1_2" %>
+<%= texto _("Nombre"), 'definicion_estado', 'nombre', "1" %>
+<%= texto _("Descripción"), 'definicion_estado', 'descripcion', "3" %>
+
+<div class="elemento1"><br /><%= checkbox _("Estado inicial"), 'definicion_estado', 'primer_estado', "3_4", {:izquierda => true, :checked => (@definicion_estado ? @definicion_estado.primer_estado : false)} %></div>
+<%= observe_field( "definicion_estado_primer_estado" , :function => 'if( document.getElementById("definicion_estado_primer_estado").checked ){ Element.hide("estado_anterior");} else { Element.show("estado_anterior");}' ) %>
+<div id="estado_anterior">
+  <div class="filacabecera"><%= _("Estados anteriores al Nuevo Estado") %></div>
+  <div class="fila">
+  <% for estado in @definicion_estados_padres %>
+     <%= checkbox estado.nombre, 'definicion_estado_padre', estado.id, "3_4", { :izquierda => true, :checked => ( @definicion_estado.estado_padre.include?(estado)) }  %>
+  <% end %>
+  </div>
+</div>
+
+<div class="fila"><br /></div>
+<div class="filacabecera"><%= _("Estados generales relacionados con el estado") %></div>
+<div class="fila">
+  <%= checkbox _("Aprobado"), 'definicion_estado', 'aprobado', "3_4", {:izquierda => true, :checked => (@definicion_estado ? @definicion_estado.aprobado : false) } %>
+</div>
+<div class="fila">
+  <%= checkbox _("Formulación"), 'definicion_estado', 'formulacion', "3_4", {:izquierda => true, :checked => (@definicion_estado ? @definicion_estado.formulacion : false)  } %>
+  <%= checkbox _("Ejecución"), 'definicion_estado', 'ejecucion', "3_4", {:izquierda => true, :checked => (@definicion_estado ? @definicion_estado.ejecucion : false)  } %>
+  <%= checkbox _("Reporte"), 'definicion_estado', 'reporte', "3_4", {:izquierda => true, :checked => (@definicion_estado ? @definicion_estado.reporte : false) } %>
+  <%= checkbox _("Cerrado"), 'definicion_estado', 'cerrado', "3_4", {:izquierda => true, :checked => (@definicion_estado ? @definicion_estado.cerrado : false) } %>
+</div>
+
+<%= final_formulario %>

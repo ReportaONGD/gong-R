@@ -1,0 +1,40 @@
+<fieldset>
+  <% html_id = "indicador_general" %>
+  <div class="legend"><%= _("Indicadores del Objetivo General") %></div>
+  <div id="indicador_general_anadir"></div>
+  <%= if params[:menu] == "formulacion"
+        listado(campos_listado("indicador_general_x_proyecto"),
+                url: {action: "editar_nuevo_indicador_general", update: html_id + "_anadir", update_listado: html_id}) 
+      else
+        listado(campos_listado("indicador_general_x_proyecto"), anadir: false)
+      end %>
+  <% aviso = _("¡Atención!.") + " " + _("No se ha definido valor base o valor objetivo para el Indicador General") %>
+  <% for igxp in @igxps %>
+    <% update = "#{html_id}_#{igxp.indicador_general_id}" %>
+    <div id="<%= update %>" class="fila">
+      <%= fila_listado igxp, campos_listado("indicador_general_x_proyecto"), update %>
+      <div class="elementoderecha">
+        <%= icono("alerta", aviso) unless igxp.valor_base && igxp.valor_objetivo %>
+        <%= ventana_info_popup igxp, {campos: campos_listado("indicador_general_x_proyecto") + campos_info("indicador_general_x_proyecto"), id: update + "_informacion"} %>
+        <%= link_to_remote(icono("lista", _("Ver valores medidos")),
+                           url: {update: update + "_sub", action: 'valores_indicador_general', indicador_general_id: igxp.indicador_general_id},
+                           html: {id: update + "_valores"},
+                           loading: "Element.show('espera')",
+                           complete: "Element.hide('espera')" ) if @permitir_ejecucion %>
+        <%= editar( url: { action: 'editar_nuevo_indicador_general', id: igxp.indicador_general_id, update: update, update_listado: html_id }) if @permitir_formulacion %>
+        <% if @permitir_formulacion %>
+          <% if igxp.proviene_de_programa_marco? %>
+            <div class="icono"></div>
+          <% else %>
+            <%= borrado( url: { action: 'eliminar_indicador_general', id: igxp.indicador_general_id, update: update }, 
+                         texto: igxp.indicador_general.nombre,
+                         identificador: update ) %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="linea"></div>
+      <div id="<%= update %>_sub" class="linea"></div>
+    </div>
+  <% end %>
+</fieldset>
+<br><br>

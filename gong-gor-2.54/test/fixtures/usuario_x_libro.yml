@@ -1,0 +1,4 @@
+primera:
+  libro_id: 1
+  usuario_id: 1
+  rol: MyString

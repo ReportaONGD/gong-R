@@ -1,0 +1,19 @@
+
+<!-- Listado de gastos -->
+
+<div id="nuevos_gastos" style="display:none">
+  <%= cabecera_listado campos_listado("gasto_agentes")%>
+  <div id="nuevo"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado nuevos gastos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("gasto_agentes"), :url =>  {:action => 'editar_nuevo'}  %>
+  <% for @gasto in @gastos %>
+   <%= render :partial => "gasto" %>
+  <% end %>
+<%= final_listado %>
+

@@ -1,0 +1,9 @@
+primera:
+  importe: 33
+  proyecto_id: 1
+  libro_id: 1
+  moneda_id: 1
+  agente_id: 1
+  tipo: MyString
+  observaciones: MyString
+  fecha: 2010-08-16

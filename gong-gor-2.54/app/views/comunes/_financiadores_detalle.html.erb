@@ -1,0 +1,31 @@
+
+<div id="financiadores_detalle">
+  <div class="linea"> <div class="filacabecera">Financiadores</div></div>
+  <% if params[:detallado] == "no" %>
+    <% @financiador = @financiadores.first %>
+    <% financiadores = @proyecto.financiador if params[:menu] == "formulacion" %>
+    <% financiadores = @proyecto.financiador_gasto unless params[:menu] == "formulacion" %>
+    <%# selector  _("Financiador"), "financiador", 'agente_id', financiadores.collect {|a|[a.nombre, a.id]}, true, "1", {:name => "financiadores[0][agente_id]", :obligatorio => true} %>
+    <%# Para nuevos gastos de proyecto el financiador es el principal del proyecto %>
+    <%= selector  _("Financiador"), "financiador", 'agente_id', financiadores.collect {|a|[a.nombre, a.id]}, true, "1", {:name => "financiadores[0][agente_id]", :obligatorio => true, :selected => @proyecto.agente.id, disabled: params[:disabled] } if @proyecto && @gasto && @gasto.id.nil? %>
+    <%# Para otro tipo de gastos, no se decide ningun financiador %>
+    <%= selector  _("Financiador"), "financiador", 'agente_id', financiadores.collect {|a|[a.nombre, a.id]}, true, "1", {:name => "financiadores[0][agente_id]", :obligatorio => true, disabled: params[:disabled] } unless @proyecto && @gasto && @gasto.id.nil? %>
+
+    <%= hidden_field 'financiador', 'proyecto_id', {:value => @proyecto.id, :name => "financiadores[0][proyecto_id]"} unless params[:disabled] || controller.controller_name == "presupuesto_proyectos" %>
+    <div class="elementoderecha"><br>
+    <%= link_to_remote ">> " + _("Detallar financiadores"), :url => {:action => "detallar_financiadores", :detallado => "si", :id =>  @objeto.id }, :loading =>          "Element.show('espera')", :complete => "Element.hide('espera')" unless params[:disabled] %>
+    </div>
+    <br><br>
+  <% else %>
+    <div class="linea">
+    <div class="elementoderecha"><br>
+    <%= link_to_remote "<< " + _("No detallar financiador"), :url => {:action => "detallar_financiadores", :detallado => "no", :id =>  @objeto.id }, :loading =>                "Element.show('espera')", :complete => "Element.hide('espera')"  unless params[:disabled] || params[:detallado] == "siempre" %>
+    </div>
+    </div>
+    <div class="linea">
+      <%=render :partial => "comunes/financiadores" %>
+    </div>
+    <div class="linea"></div>
+    <%= hidden_field 'financiadores_detallado', {:value => true } %>
+  <% end %>
+</div>

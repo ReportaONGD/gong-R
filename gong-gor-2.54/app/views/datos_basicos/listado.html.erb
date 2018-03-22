@@ -1,0 +1,20 @@
+<%= cabecera_listado campos_listado("#{@nombre_dato}"), _( "Nuevo #{@Nombre_dato}"), {:action => 'editar_nuevo', :tipo => @nombre_dato}, :id => "#{@nombre_dato}_anadir" %>
+<% i = 0 %>
+<% for dato in @datos_basicos %>
+  <% html_id = @nombre_dato.downcase + "_" + (i += 1).to_s %>
+  <div id="<%= html_id %>" class="fila">
+    <%= fila_listado dato, campos_listado(@nombre_dato), html_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup dato, {campos: campos_listado(@nombre_dato) + campos_info(@nombre_dato), id: html_id + "_informacion"} %>
+       <%= modal( icono( "editar" ), {:action => 'editar_nuevo', :id => dato, :nombre_dato_basico => @nombre_dato}, _( "Editar"),  :id => ( html_id + "_editar")  )   %>
+       <%= link_to_remote(icono("lista", _("Ver monedas")), :url => {:update => "pais_sub_"+ i.to_s, :action => 'moneda_x_pais', :pais_id => dato.id}, :html => {:id =>"pais_" + i.to_s + "_monedas"}, :loading => "Element.show('spinner_#{dato.id.to_s }')", :complete => "Element.hide('spinner_#{dato.id.to_s}')" ) if @nombre_dato == "pais" %>
+       <%= modal_borrado icono("borrar", _("Borrar")), { :action => 'eliminar', :id => dato.id, :nombre_dato_basico => @nombre_dato },  _('Va a eliminar %{nombre_dato}') % {:nombre_dato => @Nombre_dato}, dato.nombre, :id => ( html_id + "_borrar") unless @nombre_dato == "tipo_periodo" && dato.no_borrable%>
+			 <%= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".html_safe if @nombre_dato == "tipo_periodo" && dato.no_borrable%>
+    </div>
+    <div class="linea"></div>
+    <div id="spinner_<%= dato.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="<%= @nombre_dato %>_sub_<%= i.to_s %>" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+

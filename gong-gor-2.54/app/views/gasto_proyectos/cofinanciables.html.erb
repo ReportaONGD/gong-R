@@ -1,0 +1,9 @@
+<!-- Listado de gastos -->
+<%= cabecera_listado campos_listado("gasto_cofinanciable"), :id => "gasto_cofinanciable_anadir"  %>
+  <% i = 0 %>
+  <% for @gasto in @gastos %>
+    <% i += 1 %>
+    <%= render :partial => 'cofinanciable', :locals => {:update =>  "gasto_cofinanciable_" + i.to_s} %>
+  <% end %>
+<%= final_listado%>
+

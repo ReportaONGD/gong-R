@@ -1,0 +1,23 @@
+<%= cabecera_listado campos_listado("tarea"), _("Nueva tarea"), {:action => 'editar_nuevo'}, :id => "tarea_anadir" %>
+<% i = 0 %>
+<% for tarea in @tareas %>
+<div  id="tarea_<%= i +=1 %>" class="fila <%= tarea.estado_color %>">
+    <%= fila_listado tarea, campos_listado("tarea"), "tarea_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= ventana_popup tarea, {:campos => ["tipo_tarea.nombre","titulo","descripcion", "estado_actual", "fecha_inicio", "fecha_fin", "asignado_a", "creado_por", "fecha_creacion", "ultima_modificacion"], :id => "tarea_" + i.to_s + "_informacion"} %>
+      <%= link_to_remote(icono("comentarios" + (tarea.comentario.empty? ? "" : "_r"), _("Ver comentarios")),  :url => {:update=>"tarea_sub_"+ i.to_s, :controller => 'comentario', :action => 'comentarios', :objeto_id => tarea.id.to_s, :tipo => "Tarea"}, :html => {:id => "tarea_" + i.to_s + "_comentarios" }, :loading => "Element.show('spinner_#{tarea.id.to_s }')", :complete => "Element.hide('spinner_#{tarea.id.to_s}')"  )   %>
+      <% if params[:seccion] == "inicio" && ( tarea.agente || tarea.proyecto ) %>
+        <div class="icono"></div>
+        <%= link_to icono("seleccionar", _("Ir a las tareas")),  {:action => 'ir_tareas', :id => tarea.id.to_s}, {:id => "tareas_" + i.to_s + "_seleccionar"} %>
+      <% elsif (params[:seccion] == "inicio" && ( tarea.agente.nil? && tarea.proyecto.nil? )) || params[:seccion] != "inicio" %>
+        <%= modal( icono( "editar" ),  {:action => 'editar_nuevo', :id => tarea}, _( "Editar tarea" ), :id => "tarea_" + i.to_s + "_editar" )   %>
+        <%= modal_borrado icono( "borrar", _( "Eliminar" ) ), { :action => 'eliminar', :id => tarea.id}, _('Eliminar tarea'), tarea.titulo, :id => "tarea_" + i.to_s + "_borrar" %>
+      <% end %>
+    </div>
+    <div id="spinner_<%= tarea.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="tarea_sub_<%= i.to_s %>" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+
+

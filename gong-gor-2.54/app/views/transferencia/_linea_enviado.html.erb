@@ -1,0 +1,23 @@
+   <% @transferencia ||= transferencia %>
+   <% libro_origen = Libro.find_by_id(@transferencia.libro_origen_id) %>
+
+   <!-- Sólo deja editar los campos si la cuenta nos pertenece y esta entre las editables -->
+   <% disabled = !( libro_origen.nil? || (@usuario_identificado.libro.include?(libro_origen) && libros.include?([libro_origen.nombre,libro_origen.id])) ) %>
+
+   <!-- Linea de salida de transferencia -->
+   <div id="origen" class="fila">
+
+      <%= calendario_fecha _("Fecha envío"), 'transferencia', 'fecha_enviado', {:disabled => disabled, :obligatorio => true} %>
+      <% if disabled %>
+        <%= texto rotulo_libro, 'transf', 'libro_origen', "2", {:value => libro_origen.nombre, :disabled => disabled, :obligatorio => true} %>
+      <% else %>
+        <%= selector rotulo_libro, 'transferencia', 'libro_origen_id', libros, false, "2", {:disabled => disabled, :obligatorio => true}  %>
+          <%= observe_field( "transferencia_libro_origen_id", :url => {:action => :moneda_libro, :destino => ["moneda_origen","moneda_recibida"]} , :with => "id" , :loading => "Element.show('espera')", :complete => "Element.hide('espera')") %>
+      <% end %>
+      <%= texto_numero _("Importe Enviado"), 'transferencia', 'importe_enviado_convertido', "2_3", {:disabled => disabled, :obligatorio => true} %>
+      <div class="elemento1_3" id="moneda_origen">
+        &nbsp;<br/><%= @transferencia.libro_origen ? @transferencia.libro_origen.moneda.abreviatura : "" %>
+      </div>
+
+   </div>
+

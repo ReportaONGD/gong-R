@@ -1,0 +1,24 @@
+<% objeto = params[:objetivo_especifico_id] ? "objetivo_especifico" : "resultado" %>
+
+
+<%= comienzo_sublistado _("Fuentes de verificación"),  update_listado %>
+<div  id="<%= update_listado %>_anadir" class="linea" ></div>
+<div class="fila">
+  <%= anadir :url => {:action => 'nueva_editar_fuente_verificacion', :update_listado => update_listado, (objeto + "_id").to_sym => params[(objeto + "_id").to_sym], :update => update_listado + "_anadir"  } %>
+</div>
+
+<% i = 0 %>
+<% for fuente_verificacion in @fuentes_verificacion %>
+  <% fila =  update_listado + (i += 1).to_s %>
+  <div  id="<%= fila %>" class="fila" >
+    <%= fila_listado fuente_verificacion, campos_listado("fuente_verificacion"), fila %>
+    <div class="elementoderecha">
+      <%= ventana_popup fuente_verificacion , {:campos => ["codigo","descripcion"], :id => fila + "_informacion"} %>
+      <%= editar(:url => {:action => 'nueva_editar_fuente_verificacion' , :id => fuente_verificacion.id, (objeto + "_id").to_sym => params[(objeto + "_id").to_sym], :update_listado => update_listado, :update => fila }) %>
+      <%= borrado(:url => {:action => 'eliminar_fuente_verificacion' , :id => fuente_verificacion, (objeto + "_id").to_sym => params[(objeto + "_id").to_sym], :update => fila}, :texto =>  fuente_verificacion.codigo + " - " + fuente_verificacion.descripcion, :identificador => fila) %>
+    </div>
+  </div>
+<% end %>
+
+<%= final_sublistado %>
+

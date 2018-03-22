@@ -1,0 +1,22 @@
+<%= cabecera_listado(campos_listado("workflow_contrato"), _("Nuevo estado del workflow"), {:action => 'editar_nuevo'}, :id => "workflow_contrato_anadir") unless @agente %>
+<%= cabecera_listado campos_listado("workflow_contrato") if @agente %>
+<% for workflow_contrato in @workflow_contratos %>
+  <% update = "workflow_contrato_" + workflow_contrato.id.to_s %>
+  <div id="<%= update %>" class="fila">
+    <%= fila_listado workflow_contrato, campos_listado("workflow_contrato"), update %>
+    <div class="elementoderecha">
+      <%# Para agentes muestra unas cosas y para administracion, otras %>
+      <% if @agente %>
+        <%= ventana_info_popup workflow_contrato, {campos: campos_listado("workflow_contrato") + campos_info("workflow_contrato"), id: update + "_informacion" } %>
+        <%= modal(icono( "etiquetas"), {:action => 'editar_nueva_etiqueta', :id => workflow_contrato, :update => update},
+                   _("Documentos necesarios para cambiar el contrato al estado %{nom}.")%{nom: workflow_contrato.nombre},  :id => (update + "_editar_etiqueta") ) %> 
+      <% else %>
+        <%= modal(icono( "editar"), {:action => 'editar_nuevo', :id => workflow_contrato.id}, _("Editar estado"),  :id => (update + "_editar") )  %>
+        <%= modal_borrado icono(("borrar"), _( "Eliminar estado" )), { :action => 'eliminar', :id => workflow_contrato.id }, _('Eliminar el estado'), workflow_contrato.nombre, :id => (update + "_borrar")  %>
+      <% end %>
+    </div>
+    <div class='linea'></div>
+    <div id='<%= update %>_sub' class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>

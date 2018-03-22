@@ -1,0 +1,11 @@
+<% partida = @partida || gasto.partida %>
+<% if partida and  partida.tipo_empleado and !@empleados.empty? %>
+  <div  class="elemento1" id="formulario_empleado" >
+  <!-- De momento permitimos gastos desde agentes en empleados distintos del propio... confirmar -->
+    <%= selector _("Empleado"), 'gasto', 'empleado_id', @empleados, false, "1", {selected: (gasto ? gasto.empleado_id : nil), obligatorio: true } %>
+  </div>
+<% else %> 
+  <div class="elemento1" id="formulario_empleado">
+    <%= hidden_field "gasto", "empleado_id", value: nil %>
+  </div>   
+<% end %>

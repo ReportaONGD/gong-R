@@ -1,0 +1,17 @@
+
+<!-- Template para seleccionar etapa: hay que pasar @etapas (listado de etapas y el rotulo y la accion) -->
+<!--<div class="fila">
+  <b><%= rotulo %></b>
+</div>-->
+<%= cabecera_listado campos_listado("etapa")%>
+<% i = 0 %>
+<% for etapa in @etapas %>
+  <div id="etapas_<%= i+=1 %>" class="fila">
+      <%= fila_listado etapa, campos_listado("etapa"), "etapas_" + i.to_s %>
+      <div class="elementoderecha">
+         <%= link_to icono("seleccionar", _("Selecciona etapa para gestionar datos")), {:action => accion, :id => etapa}, :id => ("etapas_" + i.to_s + "_seleccionar") %> 
+      </div>
+      <div class="linea"></div>
+  </div>
+<% end %> 
+<%= final_listado %>

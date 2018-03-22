@@ -1,0 +1,103 @@
+<%= formulario_comienzo( url: { action: 'modificar_crear', id: @contrato, i: params[:i] })%>
+  <div class="fila">
+    <%= texto _("Código"), 'contrato', 'codigo', '1_2', {:disabled => @contrato.aprobado?, :obligatorio => @contrato.aprobado?} %>
+    <%= texto _("Nombre"), 'contrato', 'nombre', '1', :obligatorio => true %>
+    <%= texto _("Descripción"), 'contrato', 'descripcion', '3' %>
+  </div>
+  <div class="fila">
+    <div class="elemento1_2"></br></div>
+    <%= selector _("Gestor del Contrato"), 'contrato', 'agente_id', @agentes, false, '1', {disabled: params[:seccion] == "agentes", obligatorio: true, enriquecido: true} %>
+    <% if @contrato.agente_id %>
+      <%= selector _("Tipo de Contrato"), 'contrato', 'tipo_contrato_id', @tipos_contrato, true, '1', {obligatorio: true} %>
+        <%= observe_field( "contrato_tipo_contrato_id", update: "campos_particulares_tipo", url: {action: :cambia_tipo_contrato, id: @contrato.id}, with: "tipo_contrato_id", loading: "Element.show('spinner')", complete: "Element.hide('spinner')") %>
+    <% else %>
+      <div class="elemento1"></br></div>
+    <% end %>
+
+    <div class="elemento1_2"><br/></div>
+    <% etiqueta_importe = @contrato.id ? _("Importe") : _("Importe estimado") %>
+    <%= texto_numero etiqueta_importe, 'contrato', 'importe_convertido',"2_3", :obligatorio => true %>
+    <%= selector _("Moneda"), 'contrato', 'moneda_id', @monedas, false, "1_3", {selected: (@contrato.moneda ? nil : (@agente||@proyecto).moneda_id), obligatorio: true} %>
+  </div>
+
+  <div class="fila">
+    <div class="elemento1_2"></br></div>
+    <%= selector _("Proveedor"), 'contrato', 'proveedor_id', @proveedores, true, '2', {enriquecido: true, disabled: params[:seccion] != "agentes", obligatorio: true} %>
+    <% condiciones_fecha = { class: "fecha", :obligatorio => true } %>
+    <% if @proyecto %>
+      <% condiciones_fecha[:valid_date_check] = "fecha_inicio = new Date(" + @proyecto.fecha_de_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @proyecto.fecha_de_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;" %>
+    <% end %>
+    <div class="elemento1_2"><br/></div>
+    <%= calendario_fecha _("Fecha de Inicio"), 'contrato', 'fecha_inicio', condiciones_fecha %>
+    <%= calendario_fecha _("Fecha de Fin"), 'contrato', 'fecha_fin', condiciones_fecha %>
+  </div>
+
+  <div class="fila">
+    <div class="elemento1_2"></br></div>
+    <%= texto_area _("Objetivo"), 'contrato', 'objetivo', "4" %>
+  </div>
+  <div class="fila">
+    <div class="elemento1_2"></br></div>
+    <%= texto_area _("Justificación"), 'contrato', 'justificacion', "4" %>
+  </div>
+  <div class="fila">
+    <div class="elemento1_2"></br></div>
+    <%= texto_area _("Observaciones"), 'contrato', 'observaciones', "4" %>
+  </div>
+  <% if @contrato.id %>
+    <div class="fila">
+      <div class="elemento1_2"></br></div>
+      <%= texto_area _("Observaciones al cambio"), 'contrato', 'observaciones_cambio', "4" %>
+    </div>
+  <% end %>
+
+  <div class="fila"><br/></div>
+
+  <%= render partial: "campos_particulares_tipo" %>
+
+  <!-- conservamos el valor general de "disabled" para restaurarlo mas tarde (periodos) si fuera necesario -->
+  <% global_disabled = params[:disabled] %>
+
+  <% if @contrato.proyecto %>
+    <!-- Elementos particulares de proyecto (solo son editables desde el proyecto generador del contrato) -->
+    <% params[:disabled] = true unless params[:seccion] == "proyectos" %>
+    <div class="fila">
+      <% @objeto = @contrato %>
+      <!-- permitimos ver el detalle de elementos particulares del proyecto en la seccion de agentes -->
+      <% @proyecto = @contrato.proyecto unless params[:seccion] == "proyectos" %>
+      <% params[:detallado] = "siempre" %>
+      <%= render partial: "comunes/actividades_detalle" %>
+      <%= render partial: "comunes/financiadores_detalle" %> 
+      <div class="fila"><br/></div>
+    </div>
+  <% end %>
+
+  <div id="items_contrato" class="fila">
+    <div class="linea"><div class="filacabecera">
+      <%= _("Items") %>
+    </div></div>
+    <div class="linea"><br></div>
+    <div class="elemento1_2"></br></div>
+    <div class="elemento4">
+      <%= render :partial => "items_contrato" %>
+    </div>
+  </div>
+  <div class="fila"><br/></div>
+
+  <!-- Los periodos de pago son revisables desde la delegacion pues puede negociar el contrato -->
+  <% params[:disabled] = global_disabled %>
+  <div id="periodos_contrato" class="fila">
+    <div class="linea"><div class="filacabecera">
+      <%= _("Periodos y Pagos") %>
+    </div></div>
+    <div class="linea"><br></div>
+    <div class="elemento1_2"></br></div>
+    <div class="elemento4">
+      <%= render :partial => "periodos_contrato" %>
+    </div>
+  </div>
+
+  <div class="fila"><br/></div>
+
+<%= formulario_final %>
+

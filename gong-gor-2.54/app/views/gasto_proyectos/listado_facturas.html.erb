@@ -1,0 +1,49 @@
+<!-- Solo mostramos el formulario de cambio de numeracion para el financiador en estados de reporte -->
+<% if @proyecto.estado_actual.definicion_estado.reporte %>
+	<fieldset>
+	<div class="legend"><%= _("Cambiar los criterios de numeración de facturas para el financiador (estado de reporte)") %>
+	  <%  
+		  script_ocultar = "Element.hide('formulario_ordenacion');Element.hide('ocultar_filtros');Element.show('mostrar_filtros');"
+	    script_mostrar = "Element.show('formulario_ordenacion');Element.hide('mostrar_filtros');Element.show('ocultar_filtros');"
+			%>
+	    <%= link_to_function( _("< ocultar formulario"), script_ocultar.html_safe, {:id => "ocultar_filtros", style: "display:none;"} ).html_safe %>
+	    <%= link_to_function( _("> mostrar formulario"), script_mostrar.html_safe, {:id => "mostrar_filtros"} ).html_safe %>
+			</div>
+	  <div	id="formulario_ordenacion" style="display:none;" > 
+			<%= render :partial => "numeracion_facturas_financiador"%>
+	  </div>
+	</fieldset>
+<% end %>
+
+
+
+
+<!-- LISTADO DE FACTURAS -->
+
+<% campos_listado = params[:action] == "listado_facturas_financiador" ? "factura_financiador" : "factura"%>
+<%= cabecera_listado campos_listado(campos_listado) %>
+<% i = 0 %>
+<% for gasto in @gastos %>
+<% marcado = gasto.marcado_proyecto(@proyecto) ? gasto.marcado_proyecto(@proyecto).color : (gasto.marcado ? gasto.marcado.color : '') %>
+<% fecha_fuera_de_etapas = (gasto.fecha > @proyecto.fecha_de_fin || gasto.fecha < @proyecto.fecha_de_inicio) %>
+<% marcado = "rojo" if fecha_fuera_de_etapas %>
+<div id="factura_<%= i += 1 %>" class="fila <%= marcado %>">
+    <%= fila_listado gasto, campos_listado(campos_listado), "factura_" + i.to_s %>
+      <div class="elementoderecha">
+        <% avisos = "" %>
+        <% avisos += " " + _("La fecha está fuera de las etapas del proyecto.") if fecha_fuera_de_etapas %>
+        <% avisos += " " + _("La suma por actividades no es correcta.") unless gasto.comprobar_actividades(@proyecto) %>
+        <% avisos += " " + _("La suma por financiadores no es correcta.") unless gasto.comprobar_financiadores(@proyecto) %>
+        <% avisos += " " + _("El gasto no está pagado correctamente.") unless gasto.proyecto_origen_id != @proyecto.id || gasto.pagado? %>
+				<% avisos += " " + _("¡Atención!. No existe Partida o no está mapeada a la Financiación") unless gasto.partida && gasto.partida.partida_asociada(@proyecto) if params[:action] == "listado_facturass_financiador"  %>
+        <%= icono( "alerta", _("¡Atención!.") + avisos ) unless avisos == "" %>
+        
+         <%# link_to(icono( "etiquetas", _("Generar etiqueta para la factura.")),  {:action => 'generar_etiqueta', :id => factura.id }, :id => 'factura_' + i.to_s + '_etiqueta') if factura.orden_factura %>
+
+         <%= ventana_info_popup gasto, {:campos => campos_listado("factura") + campos_info("factura"), :id => "factura_" + i.to_s + "_informacion" } %>
+      </div>
+</div>
+<% end %>
+<%= final_listado %>
+
+<%# formulario_filtrado ({:action => :filtrado, :listado => :listado_facturas }, @estado_filtrado, @opciones_filtrado)  %>

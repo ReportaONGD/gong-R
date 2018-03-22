@@ -1,0 +1,170 @@
+<html>
+
+  <head>
+    <% app_title = GorConfig.getValue("APP_TITLE") %>
+    <% app_title = _("GONG: Gestion ONGs") if app_title.blank? %>
+    <title><%= app_title %> - <%= controller.controller_name + " / acción:" +  controller.action_name %></title>
+    <%= stylesheet_link_tag 'application', :media => "all" %>
+    <%= stylesheet_link_tag '/stylesheets/modalbox' %>
+    <%= stylesheet_link_tag '/stylesheets/popup' %>
+    <%= stylesheet_link_tag '/stylesheets/opentip' %>
+		
+    <%= csrf_meta_tag %>
+    <% unless params[:seccion] == 'informes_aecid' %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_include_tag '/javascripts/scriptaculous' %>
+      <%# javascript_include_tag '/javascripts/effects' %>
+      <%= javascript_include_tag '/javascripts/modalbox' %>
+      <%= javascript_include_tag '/javascripts/popup' %>
+      <%= javascript_include_tag '/javascripts/opentip-native.min' %>
+    <% end %>
+
+    <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+    <META NAME="copyright" CONTENT="Copyright (C) 2010-2016 Free Software's Seed, CENATIC, IEPALA">
+    <META NAME="generator" CONTENT="GONG-GOR - Version <%= ENV['GOR_VERSION'] %>">
+  </head>
+
+<!-- <body ondblclick="glosario()"> -->
+<body >
+
+
+<!-- CABECERA -->
+<div id="cabecera">
+
+  <div id="logogong"></div>
+
+  <div id="info_superior">
+    <%= render partial: "layouts/info_superior" %>
+  </div>
+
+  <div id="centra_ruta">
+    <ul class="menu_superior">
+      <div class="info_seccion"><%= ruta_seccion %></div>
+      <% secciones.each do |seccion| %>
+        <li class="menu"><a id="seccion_<%= seccion[:nombre] %>" href="<%= seccion[:url] %>" title="<%= seccion[:titulo] %>"><div class="<%= params[:seccion] == seccion[:nombre] ? 'seleccionado' : ''%>" >&nbsp;</div></a> </li>
+      <% end %>
+    </ul>
+
+    <div class="bar_menu">
+      <div class="bar_space"></div>
+      <!-- RUTA DE LA SECCION -->
+      <!--<div class="menu_ruta"><%= ruta_seccion %></div> -->
+      <div class="bar_ruta">
+        <!-- RUTA DEL CONTROLADOR -->
+        <% unless menu_seccion.empty? %>
+          <div class='menu_ruta'>
+            <%= menu %>
+          </div>
+        <% end %>
+        <!-- RUTA DE LA ACCION -->
+        <% unless controladores_menu.empty? %>
+          <div class='menu_ruta'>&nbsp;&gt;&gt;</div><div class='menu_ruta'>
+            <%= menu_acciones %>
+          </div>
+        <% end %>
+      </div>
+      <!-- INFORMACION CONTEXTUAL -->
+      <div class="mas_info">
+        <a class="menu" href="#"><%= icono "informacion" %></a>
+        <div class="pop_mas_info">
+        <% texto_ayuda(params[:seccion], params[:controller], params[:action]).each do |linea| %>
+        <%=  simple_format(linea) %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="mensaje_cabecera"></div>
+
+  <!-- Fin CENTRA_RUTA -->   
+  </div>
+
+</div>
+<!-- Fin CABECERA --> 
+
+
+<div class="centro">
+
+    <div id="mensaje_cabecera_2"></div>
+  <!-- Mensajes de informacion -->
+  <%= mensaje flash[:mensaje] if flash[:mensaje] %>
+  <%= mensaje_ok(flash[:mensaje_ok]) if flash[:mensaje_ok] %>
+  <%= mensaje_error(flash[:mensaje_error]) if flash[:mensaje_error] %>
+
+
+  <!-- Contenido de cada accion -->
+  <%# @content_for_layout %>
+  <%= yield %>
+
+  <!-- Si estamos en modo development mostramos al final de la pagina el tiempo total (con una cierto error) de ejecuacion -->
+  <br>
+  <%= ("Modo: " + ENV['RAILS_ENV'] + ". Tiempo total ejecucion: " + (Time.now - @tiempo_comienzo).to_s) if ENV['RAILS_ENV'] == 'development' %>
+
+</div>
+
+
+<% if @paginado or (@accion_filtrado and @opciones_filtrado) -%> 
+  <div id="pie_pagina" >
+    <div id="centra_pie">
+      <div id="caja_pie">
+        <%= paginacion(@paginado, session[:por_pagina]) if @paginado %>
+        <br><%= formulario_filtrado(@accion_filtrado, @opciones_filtrado)  if @accion_filtrado and @opciones_filtrado %> 
+      </div>
+    </div>
+  </div>
+<% end %>
+<!-- Capa de fondo con spinner --> 
+<div id="espera" style="display:none"><div id="ruedafondo"></div><div id="rueda"></div></div>
+
+
+
+<!-- Inicializamos los tooltips chulos para la clase css help -->
+<script type="text/javascript" charset="utf-8">
+        $$(".help").each( function(input) {
+                new Tooltip(input);
+        });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var activaSelectoresChosen = function() {
+    $$(".chosen_select").each( function(input) {
+      input.setAttribute("data-placeholder","<%= _('Ningún elemento seleccionado...') %>");
+      input.removeClassName('chosen_select');
+      new Chosen(input, {width: '100%', allow_single_deselect: true, no_results_text: "<%= _('No se ha encontrado') %>" });
+    });
+  }
+  activaSelectoresChosen();
+</script>
+
+
+<!-- Cambia el logo de GONG por el de la ONG pasados 5 segundos -->
+<script type="text/javascript">
+  var changeBackground = function() {
+    $('logogong').setStyle({
+      backgroundImage: 'url(<%= ENV["GOR_LOGO"] %>)'
+    });
+  };
+  changeBackground.delay(5);
+</script>
+<!-- Es una funcion para el chequeo de todos los proyectos del usuario para las notificaciones.  -->
+<script type="text/javascript">
+  	function checkAll(button, grupo_checks, marcar) {
+  		var form = $(button.form);
+  		var inputs = form.getInputs('checkbox');
+  		inputs.each(function (elem) {
+				if (grupo_checks == "comentario" && elem.name.match(/comentario/)) {
+  				elem.checked = marcar;
+				};
+				if (grupo_checks == "estado" && elem.name.match(/estado/)) {
+  				elem.checked = marcar;
+				};
+				if (grupo_checks == "asignar_usuario" && elem.name.match(/asignar_usuario/)) {
+  				elem.checked = marcar;
+				};
+  		});
+  	}
+</script>
+
+
+
+</body>
+</html>

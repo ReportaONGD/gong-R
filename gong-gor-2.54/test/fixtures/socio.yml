@@ -1,0 +1,22 @@
+primera:
+  nombre: MyString
+  apellido1: MyString
+  apellido2: MyString
+  tratamiento: MyString
+  NIF: MyString
+  NIF_representante: MyString
+  sexo: MyString
+  fecha_nacimiento: 2010-08-16
+  direccion: MyString
+  localidad: MyString
+  codigo_postal: MyString
+  provincia: MyString
+  comunidad: MyString
+  municipio: MyString
+  codigo_provincia_fiscal: MyString
+  pais: MyString
+  email: MyString
+  telefono_fijo: MyString
+  telefono_movil: MyString
+  comentarios: MyText
+  naturaleza_socio_id: 1

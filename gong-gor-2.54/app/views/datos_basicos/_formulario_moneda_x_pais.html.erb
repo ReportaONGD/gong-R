@@ -1,0 +1,5 @@
+<%= comienzo_formulario( { :action => 'crear_moneda_x_pais', :pais_id => params[:pais_id], :update => params[:update] }, true ) %>
+  <%= selector _("Moneda"), "moneda", "id",  @monedas, false, "2"  %>
+<%= final_formulario %>
+
+

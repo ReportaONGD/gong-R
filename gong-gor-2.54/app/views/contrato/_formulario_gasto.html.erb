@@ -1,0 +1,5 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( :url => { :action => 'modificar_crear_gasto', :id => @contrato.id }) %>
+  <%= selector _('Vincular Gasto'), 'gxc', 'gasto_id', @gastos, false , '3', {obligatorio: true, enriquecido: true} %>
+<%= formulario_final %>
+

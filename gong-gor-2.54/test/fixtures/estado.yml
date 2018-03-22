@@ -1,0 +1,9 @@
+primera:
+  definicion_estado_id: 1
+  proyecto_id: 1
+  financiacion_id: 1
+  fecha_inicio: 2010-02-16
+  fecha_fin: 2010-12-16
+  observacion: MyText
+  usuario_id: 1
+  estado_actual: false

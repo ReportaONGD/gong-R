@@ -1,0 +1,36 @@
+
+<fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Presupuesto del periodo") %></div>
+  <%= form_tag( { :action => "listado"}, :multipart => true, :class => "formulario" ) %>
+    <div id="div_selector_etapa">
+      <%= selector _('Etapa'), '', 'etapa_id', @etapas, false, '3_4', {:selected => @etapa ? @etapa.id : nil} %>
+    </div>
+  <div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+  </form>
+</fieldset>
+
+<% if @etapa %>
+  <!-- Presupuesto inicial de totales -->
+  <%= render partial: "suma_totales", locals: {clase: "caja_suma_total_inicio"} %>
+
+  <div id="mensajes_modificacion"></div>
+  <% i = 0 %>
+  <!-- Presupuesto por partidas -->
+  <% for partida in PartidaIngreso.where(presupuestable: true).order("nombre") %>
+  <fieldset>
+    <div class="filacabecerasinborde" id="suma_partida_<%= partida.id %>">
+      <%= fila_listado partida, [["", "3", "nombre"] ],  "partida_" + (i +=1).to_s %>
+      <div class="elementoderecha">
+        <%= remote(icono("lista", _("Ver presupuestos")),  :url => {:update_listado => "presupuesto_sub_"+ i.to_s, :action => 'presupuesto_x_partida', :partida_id => partida.id }) %>
+      </div>
+    </div>
+  
+    <%=  render :partial => "suma", :locals => {:objeto => partida } %>
+    <div id="presupuesto_sub_<%= i.to_s %>"></div>
+  </fieldset>
+  <% end %>
+
+  <!-- Presupuesto final de totales -->
+  <%= render partial: "suma_totales", locals: {clase: "caja_suma_total_fin"} %>
+<% end %>
+

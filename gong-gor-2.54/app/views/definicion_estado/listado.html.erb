@@ -1,0 +1,23 @@
+<%= cabecera_listado campos_listado("definicion_estado"), _("Nuevo definicion_estado"), {:action => 'editar_nuevo'}, :id => "definicion_estado_anadir" %>
+<% i = 0 %>
+<% for definicion_estado in @definicion_estados %>
+<div id="definicion_estado_<%= i += 1 %>" class="fila">
+    <%= fila_listado definicion_estado, campos_listado("definicion_estado"), "definicion_estado_" + i.to_s %>
+    <div class="elementoderecha">
+      
+
+      <%= link_to_remote(icono("lista", _("Ver tareas asociadas al estado")), :url => {:update => "definicion_estado_sub_"+ i.to_s, :action => 'tareas', :definicion_estado_id => definicion_estado.id.to_s},  :html => {:id => "definicion_estado_" + i.to_s + "_tareas"}, :loading => "Element.show('spinner_#{definicion_estado.id.to_s }')", :complete => "Element.hide('spinner_#{definicion_estado.id.to_s}')"  )   %>
+
+
+       <%= modal(icono( "etiquetas"), {:action => 'editar_nueva_etiqueta', :id => definicion_estado, :update => "definicion_estado_"+i.to_s}, _("Editar etiquetado de los documentos para este estado"),  :id => ("definicion_estado_" + i.to_s + "_editar_etiqueta") )  %>
+
+
+       <%= modal(icono( "editar"), {:action => 'editar_nuevo', :id => definicion_estado}, _("Editar definicion_estado"),  :id => ("definicion_estado_" + i.to_s + "_editar") )  %>
+       <%= modal_borrado icono(("borrar"), _( "Eliminar definicion_estado" )), { :action => 'eliminar', :id => definicion_estado.id }, _('Eliminar el definicion_estado'), definicion_estado.nombre, :id => ("definicion_estado_" + i.to_s + "_borrar")  %>
+    </div>
+    <div class='linea'></div>
+    <div id="spinner_<%= definicion_estado.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id='definicion_estado_sub_<%= i %>' class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>

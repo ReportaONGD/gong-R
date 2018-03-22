@@ -1,0 +1,4 @@
+<div id="selector_libro_financiador">
+  <!-- Solo permitimos dejar vacia la cuenta del financiador si no hay ya una cuenta vinculada -->
+  <%= selector _("Cuenta Recepción Fondos"), 'proyecto', 'libro_id', [[_("Crear Nuevo Libro"),-1]] + libros, !(@proyecto && @proyecto.libro_principal), "1", { :selected => libro_id }  %>
+</div>

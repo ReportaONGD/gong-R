@@ -1,0 +1,13 @@
+
+<div class="linea" id="<%= params[:update] %>_usuario_x_proyecto">
+  <%= render :partial => "listado_relaciones_elemento" , :locals => {tipo: "proyecto", elementos: proyectos } %>
+</div>
+
+<div class="linea" id="<%= params[:update] %>_usuario_x_agente">
+  <%= render :partial => "listado_relaciones_elemento" , :locals => {tipo: "agente", elementos: agentes } %>
+</div>
+
+<div class="linea" id="<%= params[:update] %>_usuario_x_libro">
+  <%= render :partial => "listado_relaciones_elemento" , :locals => {tipo: "libro", elementos: libros } %>
+</div>
+

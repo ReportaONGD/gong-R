@@ -1,0 +1,8 @@
+<%= formulario_comienzo :url => { :action => 'crear_modificar_empleado_salario', :id => @empleado_salario_hora.id, :empleado_id => params[:empleado_id], :update_listado => params[:udpate_listado] } %>
+  <%= hidden_field "empleado_salario_hora", "empleado_id",  :value => params[:empleado_id] %>
+  <% rango_anos = [ 1995, Time.now.year + 20 ] %>
+  <%= calendario_fecha _("Fecha Inicio"), 'empleado_salario_hora', 'fecha_inicio', :year_range => rango_anos, :class => "fecha" %>
+  <%= calendario_fecha _("Fecha Fin"), 'empleado_salario_hora', 'fecha_fin', :year_range => rango_anos, :class => "fecha" %>
+  <%= texto_numero _("Salario / Hora"), 'empleado_salario_hora', 'salario_hora',"2_3" %>
+<%= formulario_final %>
+

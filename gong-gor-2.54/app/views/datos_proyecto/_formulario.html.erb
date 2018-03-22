@@ -1,0 +1,5 @@
+
+<%= include_tiny_mce_if_needed %>
+<%= comienzo_formulario( {:action => 'modificar', :atributo => params[:atributo], :id => @datos_proyecto.id }, true ) %>
+   <%= texto_area params[:rotulo], 'datos_proyecto', params[:atributo], "editor_rico" %>
+<%= final_formulario %>

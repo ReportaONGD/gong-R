@@ -1,0 +1,9 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear', :id => @financiacion } , false ) %>
+    <%= texto _("Nombre"), 'financiacion', 'nombre', "3_2" %>
+    <%= selector _("Moneda"), 'financiacion', 'moneda_id',  @monedas , false, "1_2"  %>
+
+    <%= selector _("Financiador"), 'financiacion', 'financiador_id',  @financiadores , false, "1"  %>
+    <%= selector _("Solicitante"), 'financiacion', 'solicitante_id',  @solicitantes , false, "1"  %>
+    <%= texto _("Título"), 'financiacion', 'titulo', "4" %>
+<%= final_formulario %>
+

@@ -1,0 +1,8 @@
+<%= comienzo_formulario( { :action => 'modificar_crear_proyecto_cofinanciador', :id => @proyecto_x_proyecto}, false ) %>
+  <%= selector _("Proyecto cofinanciador"), "proyecto_x_proyecto", "proyecto_cofinanciador_id",  @proyectos , false, "2", {obligatorio: true, enriquecido: true}  %>
+  <%= texto_numero _("Importe"), 'proyecto_x_proyecto', 'importe',"2_3"  %>
+   <div class = "linea"></div>
+  <%= checkbox _("Financiación pública"), 'proyecto_x_proyecto', 'financiacion_publica', "1", { :checked => (@proyecto_x_proyecto.financiacion_publica), :izquierda => true, :abajo=>true} %>
+  <%= checkbox _("Financiación privada"), 'proyecto_x_proyecto', 'financiacion_privada', "1", { :checked => (@proyecto_x_proyecto.financiacion_privada), :izquierda => true, :abajo=>true} %>
+
+<%= final_formulario %>

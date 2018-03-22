@@ -1,0 +1,23 @@
+<fieldset >
+<div class="legend"><%= _("Tasas de cambio de Gastos en la etapa seleccionada") %>:</div>
+  <div class=fila>
+    <div class="elemento2">  <%= @etapa.nombre %> ( <%= @etapa.fecha_inicio %> / <%= @etapa.fecha_fin %> )</div>
+    <div class="elementoderecha"> <%= link_to (_("<< Volver a iniciar para aplicar tasas de cambio"), :action => "inicio")%></div>
+  </div>
+</fieldset>
+
+<!-- Listado de gastos -->
+<%= cabecera_listado campos_listado("tasa_cambio_gasto") %>
+<% i = 0 %>
+<% for gasto in @gastos %>
+<div id="gastos_<%= i+=1 %>"class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado gasto, campos_listado("tasa_cambio_gasto"), "gastos_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup gasto, {:campos => campos_listado("tasa_cambio_gasto") + campos_info("tasa_cambio_gasto"), :id => "gastos_" + i.to_s + "_informacion" } %>
+    </div>
+    <div class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+
+

@@ -1,0 +1,1 @@
+page.replace "financiador_" + params[:linea], :partial => "comunes/financiador", :locals => { :linea => params[:linea].to_i, :ultima => true}

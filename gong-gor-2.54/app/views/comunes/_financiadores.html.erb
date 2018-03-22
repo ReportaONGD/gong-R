@@ -1,0 +1,9 @@
+<% linea =  0 %>
+<% unless @financiadores.empty? %>
+  <% for @financiador in @financiadores %>
+    <%= render :partial => "comunes/financiador", :locals => {:linea => linea, :ultima =>  @financiadores.last == @financiador ? true : false} %>
+    <% linea += 1  %>
+  <% end %> 
+<% else %> 
+    <%= render :partial => "comunes/financiador", :locals => {:linea => linea, :ultima =>  true} %>
+<% end %> 

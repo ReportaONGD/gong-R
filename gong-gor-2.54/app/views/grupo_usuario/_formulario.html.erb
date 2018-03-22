@@ -1,0 +1,5 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear', :id => @grupo }, false ) %>
+  <%= texto _("Nombre"), 'grupo', 'nombre', "1" %>
+  <%= checkbox _("Ocultar en proyectos"), 'grupo', 'ocultar_proyecto', "1", {:izquierda => true, :abajo =>true, :checked => (@grupo ? @grupo.ocultar_proyecto : false) } %>
+  <%= selector _("Asignar a nuevos proyectos con rol"), "grupo", 'asignar_proyecto_rol_id', [[_("(no asignar por defecto)"), nil]] + @roles_proyecto, false, "1" %>
+<%= final_formulario %>

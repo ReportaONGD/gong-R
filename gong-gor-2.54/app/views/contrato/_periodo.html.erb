@@ -1,0 +1,30 @@
+
+<% condiciones_fecha = { class: "fecha", disabled: params[:disabled] } %>
+<% condiciones_fecha[:valid_date_check] = "fecha_inicio = new Date(" + @contrato.fecha_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @contrato.fecha_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;" if @contrato.fecha_inicio && @contrato.fecha_fin %>
+
+<% divid = "periodo" + linea.to_s %>
+<div id="<%= divid %>" class="linea">
+  <%= texto nil, 'periodo', 'descripcion', '3_2', {name: "periodo[#{linea}][descripcion]", disabled: params[:disabled]} %>
+  <%= calendario_fecha nil, 'periodo', 'fecha_inicio', condiciones_fecha.merge({id: "periodo_fecha_inicio_" + linea.to_s, name: "periodo[#{linea}][fecha_inicio]"}) %>
+  <%= calendario_fecha nil, 'periodo', 'fecha_fin', condiciones_fecha.merge({id: "periodo_fecha_fin_" + linea.to_s, name: "periodo[#{linea}][fecha_fin]"}) %>
+  <%= texto_numero nil, 'periodo', 'importe_convertido', '1_2', {name: "periodo[#{linea}][importe_convertido]", disabled: params[:disabled]} %>
+  <%= hidden_field 'periodo', 'id', {name: "periodo[#{linea}][id]"} %>
+  <!-- Mostramos el enlace a descargas solo cuando el contrato esta aprobado y no cerrado y no estamos exportando para pdf -->
+  <% if @contrato.id && @contrato.ejecucion? && !@contrato.cerrado? %>
+    <% docus_pago = Documento.includes("etiqueta").where("etiqueta.nombre" => "Pago de Contrato", "etiqueta.tipo" => "plantilla") %>
+    <% unless docus_pago.empty? %>
+      <div class="elementoderecha">
+        <%= link_to_function( icono("descargar", _("Descargar nota de gasto")), nil){|page| page.show divid + '_plantilla_borradofondo'; page.show divid + '_plantilla_borrado'} %>
+        <%= mensaje_advertencia identificador: divid + "_plantilla", partial: "descarga_plantilla_pago", texto_cerrar: _("Cerrar"),
+                                                                      locals: {docus_pago: docus_pago, periodo: @periodo} %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<% if ultima  %>
+  <div id="periodo_<%= (linea + 1).to_s %>">
+    <%= link_to_remote _("Añadir periodo"), :update => "periodo_#{(linea + 1).to_s}", url: {action: "anadir_periodo", id: @contrato.id, linea: (linea + 1)} ,loading: "Element.show('spinner');Element.hide('botonguardar');", complete: "Element.hide('spinner');Element.show('botonguardar');" unless params[:disabled] %>
+  </div>
+<% end %>
+

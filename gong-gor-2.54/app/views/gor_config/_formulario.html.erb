@@ -1,0 +1,10 @@
+<!-- Formulario -->
+<%= formulario_comienzo url: { action: 'modificar_crear', id: @parameter.id } %>
+  <div class="linea">
+    <div class="elemento2">
+      <span><b><%= _("Parámetro") %>:</b></span> <%= @parameter.name %><br>
+      <span><b><%= _("Descripción") %>:</b></span> <%= @parameter.description %>
+    </div>
+    <%= texto _("Valor"), 'parameter', 'value', '2', :obligatorio => true %>
+  </div>
+<%= formulario_final %>

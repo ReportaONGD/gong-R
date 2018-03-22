@@ -1,0 +1,13 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( url: { action: 'modificar_crear_permiso', id: @rol.id, permiso_id: @permiso.id }) %>
+  <div class="linea">
+    <%= selector _('Menú'), 'permiso', 'menu', @menus_seccion, false, '1', {obligatorio: true} %>
+      <%= observe_field( "permiso_menu", update: "permiso_menu_controlador", url: {action: :cambia_menu_seccion, id: @rol.id}, with: "opcion_menu", loading: "Element.show('spinner')", complete: "Element.hide('spinner')") %>
+    <%= render partial: 'permiso_menu_controlador' %>
+  </div>
+  <div class="linea">
+    <%= checkbox _("Puede leer"), 'permiso', 'ver', "2_3", {abajo: true, izquierda: true, :checked => @permiso.ver } %>
+    <%= checkbox _("Puede cambiar"), 'permiso', 'cambiar', "2_3", {abajo: true, izquierda: true, :checked => @permiso.cambiar } %>
+  </div>
+  <div class="linea">&nbsp;</div>
+<%= formulario_final %>

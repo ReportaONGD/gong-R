@@ -1,0 +1,40 @@
+
+<% unless params[:to_pdf] %>
+  <fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+  <%= form_tag( { :action => "resumen_ejecutivo"}, :multipart => true, :class => "formulario" ) %>
+    <%= selector(_('PAC'), '', 'pac', @listado_pac, false, '1', {:selected => params[:pac].to_i }) if @proyecto.convenio? %>
+    <div class="fila">
+      <%= checkbox _("Sacar el resultado a fichero "), 'selector', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+            <%= observe_field( "selector_fichero" , :function => '
+          selector = document.getElementById("selector_fichero");
+          if( selector.checked ) {
+            Element.show("tipo_fichero");
+          }else { Element.hide("tipo_fichero"); }
+      ' ) %>
+      <div id="tipo_fichero" style="display:none">
+      <%= selector(_('Tipo de fichero '), 'selector', 'tipo', [[_("pdf"), "pdf"], [_("xls"), "xls"]], false, '1', {:selected => (params[:selector][:tipo] if params[:selector])})  %>
+    </div>
+  <div class="elementoderecha1_2"> <%= submit_tag(_("Mostrar"), :class => "boton1_2") %></div>
+  </form>
+  </fieldset>
+<% end %>
+
+
+<% @resumen.each do |resumen| %>
+  <% if resumen[:listado][:lineas] %>
+    <div class="fieldset">
+      <div class="legend" align= "left">
+        <%= _("Resumen Ejecutivo") + " (" + Time.now.strftime('%d/%m/%Y') + ")" %>
+      </div>
+      <br>
+
+      <%= dibuja_tabla resumen[:listado][:lineas] unless resumen[:listado][:resumen_error] %>
+      <%= mensaje_error resumen[:listado][:resumen_error] if resumen[:listado][:resumen_error] %>
+
+    </div>
+  <% end %> 
+<% end if @resumen %>
+
+<%= "</div>" if params[:sin_layout]%>
+

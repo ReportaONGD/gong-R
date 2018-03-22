@@ -1,0 +1,17 @@
+
+
+<% sublistado = params[:update_listado]||"listado_partidas" %>
+<% div_formulario = (params[:update]||"partida") + "_formulario_anadir" %>
+
+<div id='<%=sublistado%>'>
+  <%= listado campos_listado("partida_financiacion"), :url =>  {:action => 'editar_nuevo', :update => div_formulario, :update_listado => sublistado, :objeto_id => params[:objeto_id]}, :id_listado => sublistado, :identado => params[:objeto_id], :cerrar_listado => params[:objeto_id] %>
+
+  <div id="<%= div_formulario %>" class="linea"></div>
+
+  <% for partida_financiacion in @partidas_financiacion %>
+    <%= render :partial => "partida", :locals => {:partida_financiacion => partida_financiacion, :sublistado => sublistado} %>
+  <% end %>
+
+  <%= final_listado %>
+<br><br>
+</div>

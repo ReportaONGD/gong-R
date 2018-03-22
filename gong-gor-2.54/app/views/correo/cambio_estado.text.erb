@@ -1,0 +1,5 @@
+<%= _("El proyecto %s ha cambiado de estado") % [@proyecto.nombre] %>
+
+URL: <%= url_for(@url) %>
+<%= _("Nuevo estado") %><%= @estado.definicion_estado.nombre.capitalize if @estado && @estado.definicion_estado %>
+<%= @estado.observacion if @estado %>

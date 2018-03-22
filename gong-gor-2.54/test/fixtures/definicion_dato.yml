@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  rotulo: MyString
+  tipo: MyString
+  pestana: MyString
+  rango: MyInteger
+
+two:
+  nombre: MyString
+  rotulo: MyString
+  tipo: MyString
+  pestana: MyString
+  rango: MyInteger

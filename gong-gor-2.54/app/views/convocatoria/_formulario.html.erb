@@ -1,0 +1,21 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @convocatoria, :i => params[:i] } %>
+  <div class="linea">
+    <%= texto _("Código"), 'convocatoria', 'codigo', '3_2', :obligatorio => true %>
+    <%= texto _("Nombre"), 'convocatoria', 'nombre', '2', :obligatorio => true %>
+    <%= selector _("Financiador"), 'convocatoria', 'agente_id', @financiadores, false, '3_2', :obligatorio => true %>
+    <%= calendario_fecha _("Fecha de publicación"), "convocatoria", "fecha_publicacion" %>
+    <%= calendario_fecha _("Fecha de presentación"), "convocatoria", "fecha_presentacion", :obligatorio => true %>
+    <%= calendario_fecha _("Fecha de resolución"), "convocatoria", "fecha_resolucion" %>
+    <div class="elemento1"><br></div>
+    <%= selector _("Estado"), 'convocatoria', 'cerrado', [ [_("Abierta"), false], [_("Cerrada"), true] ], false, '3_4', :obligatorio => true %>
+    <%= selector _("Tipo Convocatoria"), 'convocatoria', 'tipo_convocatoria_id', @tipos_convocatoria, true, '1', :obligatorio => false %>
+    <%= texto_area _("Descripción"), 'convocatoria', 'descripcion', "5" %>
+    <%= texto_area _("Prioridades y Observaciones"), 'convocatoria', 'observaciones', "5" %>
+  </div>
+  <div class="linea">&nbsp;</div>
+  <div id="paises_detalle" class="linea">
+    <div class="filacabecera"><%= _("Países (dejar vacío para ámbito geográfico global)") %></div>
+    <%= render :partial => "paises" %>
+  </div>
+<%= formulario_final %>

@@ -1,0 +1,12 @@
+primera:
+  importe: 33
+  subpartida: MyString
+  observaciones: MyString
+  partida_id: 1
+  moneda_id: 1
+  agente_id: 1
+  fecha_inicio: 2010-02-16
+  fecha_fin: 2010-12-16
+  libro_id: 1
+  coste_unitario: 33
+  numero_unidades: 1

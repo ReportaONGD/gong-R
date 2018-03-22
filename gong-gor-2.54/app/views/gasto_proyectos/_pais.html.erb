@@ -1,0 +1,5 @@
+  <% disabled = defined?(disabled) && disabled %>
+  <div id="gasto_pais">
+    <!-- De momento permitimos gastos desde agentes en paises distintos del propio... confirmar -->
+    <%= selector _("País"), 'gasto', 'pais_id', @paises, false, "1", {selected: pais_id, obligatorio: true, disabled: disabled} %>
+  </div>

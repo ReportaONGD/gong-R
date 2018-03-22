@@ -1,0 +1,7 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @subpartida, :i => params[:i] } %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'subpartida', 'nombre', '1' %>
+    <%= selector _("Partida"), 'subpartida', 'partida_id', @partidas, true, '1' %>
+  </div>
+<%= formulario_final %>

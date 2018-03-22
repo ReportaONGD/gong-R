@@ -1,0 +1,17 @@
+    <!-- Usuarios asignados al proyecto -->
+    <% usuarios = proyecto.usuario_x_proyecto.where(grupo_usuario_id: nil).collect{|u| u.usuario.nombre + " (" + u.rol + ")" } %>
+    <% grupos = proyecto.grupo_usuario_x_proyecto.joins(:grupo_usuario).where("grupo_usuario.ocultar_proyecto IS NOT true").collect{|u| u.grupo_usuario.nombre + " (" + u.rol + ")" } %>
+    <a href="<%= url_for seccion: 'proyectos', menu: 'resumen', controller: 'usuario', action: 'listado' %>" class="enlace-contextual">
+      <% unless usuarios.empty? %>
+        <div class="caja_porcentaje_contenedor_doble help" title="<%= usuarios.join(", ")%>">
+          <div class="caja_porcentaje_titulo"><%= _("Usuarios") %>:&nbsp;</div> 
+          <div class="caja_porcentaje_texto"><div><%= usuarios.join(", ") %></div></div>
+        </div>
+      <% end %>
+      <% unless grupos.empty? %>
+        <div class="caja_porcentaje_contenedor_doble help" title="<%= grupos.join(", ")%>">
+          <div class="caja_porcentaje_titulo"><%= _("Grupos") %>:&nbsp;</div>
+          <div class="caja_porcentaje_texto"><div><%= grupos.join(", ") %></div></div>
+        </div>
+      <% end %>
+    </a>

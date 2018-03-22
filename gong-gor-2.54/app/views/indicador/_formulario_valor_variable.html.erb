@@ -1,0 +1,8 @@
+<%= formulario_comienzo :url => { :action => 'modificar_crear_valor_variable', :id => @valor_variable, :variable_indicador_id => params[:variable_indicador_id] } %>
+  <div class="fila">
+    <%= calendario_fecha _("Fecha"), 'valor_variable', 'fecha', :valid_date_check => "fecha_inicio = new Date(" + @proyecto.fecha_de_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @proyecto.fecha_de_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;", :year_range => [ 1995, Time.now.year + 20 ], :class => "fecha"%>
+    <%= texto _("Valor Medido"), 'valor_variable', 'valor', '1' %>
+    <%= texto _('Comentario'), 'valor_variable', 'comentario', '2' %>
+  </div>
+  <div class="fila">&nbsp;</div>
+<%= formulario_final %>

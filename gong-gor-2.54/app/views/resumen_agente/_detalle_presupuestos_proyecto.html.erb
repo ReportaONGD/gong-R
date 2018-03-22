@@ -1,0 +1,14 @@
+<%= comienzo_sublistado _("Presupuestos"), params[:update], {:descargar => true} %>
+  <% i = 0 %>
+  <% for ppto in presupuestos %>
+    <% ppto_id = params[:update] +"_ppto_" + ppto.presupuesto_id.to_s %>
+    <div  id="<%= ppto_id %>" class="fila" >
+      <%= fila_listado ppto, campos_listado("detalle_presupuestos_proyecto"), ppto_id %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup ppto, {:campos => campos_listado("detalle_presupuestos_proyecto") + campos_info("detalle_presupuestos_proyecto"), :id => ppto_id + "_informacion" } %>
+      </div>
+    </div>
+  <% end %>
+<%= final_sublistado %>
+<br>
+

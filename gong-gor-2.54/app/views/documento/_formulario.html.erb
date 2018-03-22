@@ -1,0 +1,64 @@
+<iframe id="upload_frame" name="upload_frame" style="display: none"></iframe>
+
+<%= formulario_comienzo( :url => {:action => 'modificar_crear', :i => params[:i], :id => @documento, :objeto_id =>  params[:objeto_id], :tipo => params[:tipo]}, :target => "upload_frame" ) %>
+
+<% if params[:id] %>
+  <div class="linea">
+    <%= _("Documento") + ": " %><a href="#" onClick="document.getElementById('gor').style.display=''"><%= @documento.adjunto_file_name %></a>
+    <div  id='gor' style="display:none">
+      <%= file_field  'documento', 'adjunto', :class => 'elementoizquierda', :html => { :display => 'none'}%>
+    </div>    
+  </div>
+<% else %>
+<div class="fila">  <%= file_field  'documento', 'adjunto', :class => 'elementoizquierda' %></div>
+<% end %>
+
+<!-- Seleccionamos las opciones de espacio en funcion de la seccion -->
+<% if (!params[:objeto_id] or params[:objeto_id] == "") and params[:seccion] != "administracion"   %>
+  <%  espacio = Espacio.find(session[:espacio_proyecto_seleccionado]) if params[:seccion] == "proyectos" %>
+  <%  espacio = Espacio.find(session[:espacio_seleccionado]) if params[:seccion] == "documentos" %>
+  <%  espacio = Espacio.find(session[:espacio_agente_seleccionado]) if params[:seccion] == "agentes" %>
+  <br> <%= _("Espacio seleccionado") %>: <b><%= espacio.nombre %></b><br>
+  <%= checkbox(_("Mover a un espacio diferente al actual"), 'cambiar', 'espacio', "2", {}) if params[:id]%>
+    <%= observe_field( "cambiar_espacio" , :function => '
+      if( document.getElementById("cambiar_espacio").checked ) {
+        Element.show("mover_a_espacio");
+      } else {
+        Element.hide("mover_a_espacio");
+      }
+    ' ) %>
+  <br><br>
+  <div id="mover_a_espacio" style="display:none;" class="fila">
+    <%= render :partial => "listado_mover" %>
+  </div>
+  <br><br><br>
+  <%= hidden_field :documento_x_espacio, :espacio_id, {:value => espacio.id } %>
+
+<% elsif params[:seccion] == "administracion" %>
+  <% espacio_plantillas = Espacio.find_by_nombre "Plantillas Exportación" %>
+  <br> <%= _("Espacio seleccionado") %>: <b><%= espacio_plantillas.nombre %></b><br><br>
+  <%= hidden_field :documento_x_espacio, :espacio_id, {:value => espacio_plantillas.id } %>
+
+<% end %>
+
+<%= texto_area _("Descripción"), 'documento', 'descripcion', "4" %>
+<%= hidden_field :documento, :proyecto_id, {:value => @documento.proyecto_id || @proyecto.id } if @proyecto %>
+<%= hidden_field :documento, :agente_id, {:value => @documento.agente_id || @agente.id } if @agente %>
+
+
+<div class="fila">
+<div class="filacabecera">Etiquetas</div>
+  <% for etiqueta in @etiquetas %>
+    <%= checkbox truncate(etiqueta.nombre, :length =>28), 'etiqueta', etiqueta.id, "1", 
+                 { :izquierda => true, :checked => @etiquetas_documento.include?(etiqueta.id), :title => etiqueta.nombre}  %>
+  <% end %>
+</div>
+
+
+<div class="fila"><br/></div>
+
+<%= formulario_final %>
+
+
+
+

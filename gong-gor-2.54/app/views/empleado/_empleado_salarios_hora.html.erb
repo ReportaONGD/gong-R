@@ -1,0 +1,25 @@
+
+<%= comienzo_sublistado "Salarios hora, por perdiodos, del empleado", update_listado %>
+<div id="<%= update_listado %>_salario_anadir"></div>
+<%= anadir :url => {:action => 'nuevo_editar_empleado_salario', :update_listado => update_listado, :empleado_id => params[:empleado_id], :update => ( update_listado + "_salario_anadir") } %>  
+
+<%= cabecera_listado campos_listado("empleado_salario_hora")%>
+
+<% i = 0 %>
+<% for salario in @salarios %>
+  <% i += 1 %>
+  <% elemento_id = "#{update_listado}_salario_#{i}" %>
+  <div id="<%= elemento_id %>" class="fila" >
+    <%= fila_listado salario, campos_listado("empleado_salario_hora"), elemento_id %>
+    <div class="elementoderecha">
+      <%= editar :url => {:update_listado => update_listado, :action => 'nuevo_editar_empleado_salario', :id => salario.id, :empleado_id => params[:empleado_id] , :update => elemento_id} %>      
+      <%= borrado( :url =>  { :action => 'eliminar_empleado_salario', :update => elemento_id, :id => salario.id, :empleado_id => params[:empleado_id]  },  :texto => "Salario por hora:" + salario.fecha_inicio.to_s + " / " + salario.fecha_fin.to_s , :identificador => elemento_id ) %>
+  </div>
+  <div class="linea"></div>
+  </div>
+<% end %>
+
+<%= final_sublistado %> 
+<br>
+
+

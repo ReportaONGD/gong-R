@@ -1,0 +1,195 @@
+
+--
+
+################################################################################
+ Copyright 2010-2015 Free Software's Seed (Semilla de Software Libre), CENATIC y IEPALA
+
+ Licencia con arreglo a la EUPL, Versión 1.1 o –en cuanto sean aprobadas por la Comisión Europea– 
+ versiones posteriores de la EUPL (la «Licencia»);
+ Solo podrá usarse esta obra si se respeta la Licencia.
+ Puede obtenerse una copia de la Licencia en:
+
+ http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1
+
+ Salvo cuando lo exija la legislación aplicable o se acuerde por escrito, 
+ el programa distribuido con arreglo a la Licencia se distribuye «TAL CUAL»,
+ SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas ni implícitas.
+ Véase la Licencia en el idioma concreto que rige los permisos y limitaciones que establece la Licencia.
+################################################################################
+
+++
+
+<b>NOTAS a la versión 2.x de GONG </b> 
+<b>Borrador</b>
+
+= Introducción a la nueva versión
+
+GONG (Gestión para ONGs) es una aplicación para gestión de ONGs de cooperación, es decir, enfocada para ONGDs ( "D" de desarrollo).
+
+La version actual (2.0) esta especialmente orientada a la gestión de proyectos integrando la gestión tecnica y la financieram, se han incorporado nueva funcionalidades (gestion por tareas y estados, gestión de gastos estructurales, nuevas vistas, mejora de la exportación e importación,...etc) y se ha mejorado la usabilidad general del sistema.
+
+En la arquitectura actual GONG es una aplicación desarrollada en Ruby on Rails. Hemos unificado la arquitectura de GONG para poder cubrir las nuevas metas generales que habíamos planteado para el sistema (ver próximo apartado), dejando una plataforma única para la gestión general de toda la información. 
+
+Por otro lado los módulos de "salida de información" que componían la arquitectura quedan del siguiente modo:
+
+* Se mantiene Mondrian para la gestión del cuadro de mando.
+* Se quita Jasper y se cambia por volcados a un formato común XML procesado con hojas de estilo XSL (en estudio).
+
+
+
+= El cambio de arquitectura
+
+La versión actual de GONG esta desarrollada en Ruby on Rails (RoR) y tiene las siguientes caracteristicas:
+
+* Se ha actualizado a la versión 2.3.5 de Rails.
+
+* Ya no funciona de forma integrada con Alfresco como en las anteriores versiones (hasta la 1.1), es decir, la gestión de las entidades generales que necesita el sistema ahora son gestionadas desde RoR. La arquitectura se ha simplificado y unificado incorporando todas las funcionalidades sobre RoR. 
+
+¿Por que hemos modificado la arquitectura y hemos unificado el sistema en RoR? Los 4 motivos centrales para esta nueva versión y que han llevado al cambio de arquitectura son:
+
+1. Usabilidad general del sistema. Un sistema para la gestión diaria de mucha información debe centrarse en la sencillez y rapidez para la situaciones de uso habitual. Esto implica utilizar recursos mas dinámicos desde el punto de vista del usuario. AJAX es pues necesario. Pero ademas se trata de hacer sencillo (u ocultar la complejidad) especialmente para la diversidad de agentes que intervienen en los proyectos. En definitiva necesitábamos actualizar y mejorar las vistas y el uso general del sistema.
+
+2. Acento en la gestión económica. En anteriores versiones de GONG, pese a la integración visual que habíamos realizado, la gestión económica suponía una administración y gestión aparte. Actualmente el sistema se encuentra mas integrado pudiendo tener de forma unificada junto a la gestión económica el resto de la gestión de las entidades. No existen pues "puntos de entrada" diferentes para la gestión técnica y la gestión financiera.
+
+3. Adaptación a cambios. En la version anterior era complicado actualizar en producción la aplicación en sus diferentes niveles: modelo, vista, controlador. También resultaba muy complicado actualizar la versión de Alfresco. Este punto resulta critico, dado que en nuestra experiencia actual, los procesos de implantación son largos, y requieren una dinámica muy intensa de adaptación entre los procesos de las organizaciones y el propio software. Se necesita pues una plataforma dinámica que permita la adaptación ágil a los continuos cambios.
+
+4. Nuevos requisitos. A los largo de las pruebas, usos y formaciones, especialmente en el 2009 pero también en el 2010, han surgido nuevas funcionalidades que tenían que ser resueltas y que no encajaban en la lógica del gestor Alfresco. Estos nuevos requisitos se fueron haciendo centrales en nuestro dialogo con los usuarios, y reclamaban este cambio de arquitectura.
+
+
+NOTA: Algunas lineas analizadas para una posible versión reintegrada con Alfresco son:
+
+* Autenticación unificada a través de LDAP, y "sites" específicos para cada proyecto (Alfresco-Share), desactivando el controlador para la gestión documental. Esta versión no se integraría visualmente pero mantendría fácilmente algunas de las herramientas de alfresco-share, y permitiría que la arquitectura se mantuviese desacoplada.
+* Autenticación unificada a través de LDAP, y la gestión documental a través de Alfresco con un Front-End en RoR. Esta linea mantendría la coherencia visual pero conllevaría una solución mas "atada" entre las 2 partes.
+
+De cualquier forma estas vías deberían ser adecuadamente evaluadas para no perder las cuatro características que hemos definido en este apartado.
+
+
+= Instalación.
+
+En este punto solo enumeramos los pasos generales para una instalación. Remitimos al documento de instalación (INSTALL) para una explicación mas detallada.
+
+1. Instalar Rails.
+2. Crear el usuario de la base de datos y configurarlo en la aplicación (database.yml). 
+3. Crear la base de datos (rake db:create:all) y el modelo de datos (rake db:schema:load).
+4. Instalar las gemas extras que necesita el sistema (rake gems:install).
+5. Instalar y configurar mod-rails (o cualquier motor rails) con apache (o con cualquier otro servidor web).
+
+Para el resto de módulos remitimos a la documentación sobre instalación general del sistema recogida en el archivo INSTALL
+
+
+
+= Breve descripción general de la estructura 
+
+== Secciones y navegación
+
+Las secciones es un elemento de navegación superior que se introduce sobre la forma de navegación habitual de rails.
+Las rutas del sistema son de la forma:
+
+/seccion/controlador/accion/id
+
+Para cada sección se muestran una serie de controladores y unas acciones de ese controlador determinadas.
+
+Las 4 secciones que tiene actualmente el sistema son:
+
+* <b>administracion</b> En esta sección llevamos la administración general de las entidades del sistema: proyecto, cuenta o libro, financiaciones, usuarios, y agentes. Además asignamos permisos a los usuarios sobre cada una de estas entidades. Por otro lado desde el controlador de DatosBasicos gestionamos los datos básicos de configuración del sistema: partidas, países, monedas, sectores de intervención, sectores de población, áreas de actuación, así como la definición de los estados para proyecto y financiación.
+
+  * ProyectoController
+  * LibroController
+  * FinanciacionController
+  * AgenteController
+  * UsuarioController
+  * DatosBasicosController
+
+* <b>proyectos</b>. Se encuentran recogidas las funcionalidades de gestión de proyecto.  A lo largo de esta sección se guarda en la session el proyecto con el que estamos trabajando (session[:proyecto]). Se puede acceder desde ella a los controladores:
+
+  * DatosProyectoController
+  * MatrizController
+  * EstadoController
+  * TareaController
+  * GastoProyectosController
+  * PresupuestoProyectosController
+  * TransferenciaController
+  * ImportacionController
+  * ExportacionController
+  * IngresoController
+  * ResumenProyectoController
+
+* <b>financiaciones</b>. En esta sección gestionamos los datos de cada financiación. Guardamos en la sesión el plan financiador con el que estamos trabajando (session[:financiacion]). Se accede a los controladores:
+
+  * DatosFinanciacionController
+  * EstadoController
+  * DocumentoController
+  * TareaController
+  * PartidaFinanciacionController
+  * TasaCambioController
+  * IdentificacionGastoController
+
+* <b>agentes</b>. En esta sección se encuentran recogidos las funcionalidades para la gestión económica desde el punto de vista de un agente (gastos, presupuesto, transferencias generales de una agente asignados a proyectos). A lo largo de esta sección guardamos en la session el agente que hemos seleccionado para trabajar (session[:agente]). Se puede acceder desde ella a los controladores:
+
+
+  * EtapaController.
+  * GastoAgentesController.
+  * PresupuestoAgentesController.
+ * TransferenciaController.
+
+* <b>socios</b>. En esta sección se encuentran recogidos las funcionalidades para la gestión de los socios, sus pagos, notificaciones, integracion con formatos bancarios, etc. Se puede acceder desde ella a los controladores
+
+
+  * SocioController
+
+
+== Vistas
+
+Las vistas responden al modelo clásico de Rails y concretamente:
+
+* Existe un único layout general para todo el sistema.
+* Existen una carpeta especifica "view/comunes" para todos los partials comunes a varios controladores.
+
+Tanto en "comunes" con el resto de las vistas ademas del formato habitual en rails (extensiones "hrtml"), utilizamos en bastantes ocasiones rjs (javascript con ruby).
+
+[Pendiente breve descripción del Layout]
+
+== Helper
+
+Existe un único helper general con todos los métodos específicos de las vistas ApplicationHelper. En este helper están los métodos que presentan los elementos generales de navegación son:
+
+[pendiente describir brevemente los 2 o 3 metodos que dibujan los menus controladores y acciones]
+
+Y ademas:
+
+[pendiente de describir brevemente los metodos mas significativos: elementos_listado, comienzo_formulario, cabecera_listado]
+
+== CSS
+
+Existen dos CSS principales, para separar los características generales de posicionamiento, y las características que permitirían la "tematización" de la aplicación:
+
+* gor_posicionamiento.css
+* gor_tema.css
+
+
+[pendiente enumerar el resto de css asociadas a los javascript utilizados]
+
+
+== JavaScript
+
+[pendiente de describir que aparte de las librerias por defecto (:default) tambien se utilizan: ModalBox y los Popups]
+
+= Changelog y "TODO"
+
+El listado de las novedades y cambios de esta versión de GONG se puede consultar
+En el fichero "changelog". Los cambios pendientes a implementar en futuras versiones
+aparecen descritas en el fichero "TODO".
+
+
+= Licencia
+
+GONG está licenciado bajo EUPL1.1. Una descripción de dicha licencia, así como las
+condiciones de uso, copia, modificación y distribución aparecen en el fichero "COPYING".
+
+GONG está desarrollado por el equipo referido en el archivo "AUTHORS". El Copyright
+de GONG pertenece a: 
+
+  Free Software's Seed (Semilla de Software Libre): http://semillasl.com/  <info@semillasl.com>
+  Fundación CENATIC: http://www.cenatic.es/  <info@cenatic.es>
+  Fundación IEPALA: http://iepala.es/  <iepala@iepala.es>
+

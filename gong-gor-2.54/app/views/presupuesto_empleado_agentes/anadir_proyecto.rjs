@@ -1,0 +1,1 @@
+page.replace "proyecto_" + params[:linea], :partial => "proyecto", :locals => { :linea => params[:linea].to_i, :ultima => true}

@@ -1,0 +1,82 @@
+
+
+<fieldset>
+<div class = "filacabecera">
+  <div class = "elemento">
+    <% @ruta = @espacio.ruta_con_id if @espacio %>
+    <% if @ruta %>
+      <% seleccionable = params[:seccion] == "documentos" %>
+      <% @ruta.each do |rid| %>
+        <%= " / " %>
+        <% seleccionable = true if (@proyecto || @agente) && (@proyecto || @agente).espacio.id == rid[:id] %>
+        <%= link_to( rid[:nombre], {:action => rid[:action] || :seleccionar_espacio, :id => rid[:id]} ) if seleccionable %>
+        <%= rid[:nombre] unless seleccionable %>
+      <% end %>
+      <%= " / " + @espacio.nombre if @espacio %> 
+    <% else %>
+      <%= _("Se encuentra en la 'raíz' de documentos") %>
+    <% end %>
+  </div>
+  <div class="elementoderecha">
+<%= link_to((" <<  " + _("Volver al espacio superior") + " "), {:action => :seleccionar_espacio, :id => @espacio.espacio_padre}, :id =>("espacio_seleccionar")) if params[:seccion] == "documentos" and @espacio %>
+<%= link_to((" <<  " + _("Volver al espacio superior") + " "), {:action => :seleccionar_espacio, :id => @espacio.espacio_padre}, :id =>("espacio_seleccionar")) if params[:seccion] == "proyectos" and @espacio != @proyecto.espacio %>
+<%= link_to((" <<  " + _("Volver al espacio superior") + " "), {:action => :seleccionar_espacio, :id => @espacio.espacio_padre}, :id =>("espacio_seleccionar")) if params[:seccion] == "agentes" and @espacio != @agente.espacio %>
+  </div>
+  <div class="linea"></div>
+</div>
+<BR>
+  <% i = 0 %>
+  <% for espacio in @espacios %>
+  <div id="espacio_<%= i += 1 %>" class = "fila">
+        <% #icono = icono ("carpeta", "Ir al espacio") %>
+    <div class="elemento2">
+        <% icono = image_tag("/images/iconos_bn/carpeta.png", :border => 0, :class => "iconoespacio", :title => _("Ir al espacio '%{nombre}'") % {:nombre => espacio[:nombre]}, :onmouseover => "this.src='/images/iconos_bn/carpeta_s.png';", :onmouseout => "this.src='/images/iconos_bn/carpeta.png';" ) %>
+				<% espacio_objeto = Espacio.find_by_id(espacio[:id]) %>
+				<% documentos = espacio_objeto ? espacio_objeto.documento.count :  0 %>
+				<% espacios = espacio_objeto ? espacio_objeto.espacio_hijo.count : 0 %>
+				<% titulo = espacio[:nombre] + " <br> Documentos: #{documentos} | Espacios: #{espacios}"%>
+        <%= link_to( (icono + " " + truncate(espacio[:nombre], :length => 54) ), { :action => espacio[:action], :id => espacio[:id] }, :title => titulo, :id => ("espacio_" + i.to_s + "_seleccionar"), :class => "help #{ documentos == 0 ? '' : 'texto_resaltado' }"  )  %>
+    </div>
+    <div class="elemento2" title="<%= espacio[:descripcion] %>"><%= truncate(espacio[:descripcion], :length => 64) %></div>
+    <div class='linea'></div>
+  </div>
+  <% end %>
+<br>
+<div class="elementoderecha" id = "paginacion">
+  <%= _("Documentos en el proyecto: %{numero}") % {:numero => @proyecto.documento.size.to_s} if @proyecto %>
+  <%= _("Documentos en el sistema: %{numero}") % {:numero => Documento.count.to_s} if params[:seccion] == "documentos" %>    
+</div>
+
+</fieldset>
+
+<% if @espacio and @espacio.nombre != "Proyectos" and @espacio.nombre != "Agentes" %>
+<fieldset>
+<!-- Listado de documentos -->
+
+<div id="nuevos_documentos" style="display:none">
+  <%= cabecera_listado campos_listado("documento")%>
+  <div id="documento_nuevo_1"></div>
+  <%= final_listado %>
+  <%= mensaje "El listado nuevos documentos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página" %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<% opciones = { url: {action: 'asociar_o_nuevo', update: 'formulario_anadir', i: 1} } %> 
+<% opciones[:descargar] = {texto_enlace: _("Descargar los documentos en un fichero zip."), url: {action: :descargar_zip}} unless @documentos.empty? %>
+<%= listado campos_listado("documento"), opciones %>
+  <% i = 0 %>
+  <% for un_documento in @documentos %>
+    <% i += 1 %>
+    <%= render :partial => "documento/documento", :locals => {:documento => un_documento, :update => "documento_" + i.to_s, :update_listado => "documento_" + i.to_s  }%>
+  <% end %>
+<%= final_listado %>
+
+<br>
+<div class="elementoderecha" id ="paginacion" > Documentos en el espacio <%= @documentos.size %>        </div>
+
+
+
+</fieldset>
+<% end %>

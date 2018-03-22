@@ -1,0 +1,48 @@
+<% base_params = {:action => "espacios_donde_mover", :tipo => params[:tipo], :objeto_id => params[:objeto_id], :update => params[:update], :i => params[:i]} %>
+
+<div class = "filacabecera">
+  <div class = "elemento">
+    <%= _("Seleccione un espacio hacia donde mover el documento") %>
+  </div>
+</div>
+<div>
+  <br/>
+  <div class = "elemento">
+    <% @ruta = @espacio.ruta_con_id if @espacio %>
+    <b><%= _("Espacio destino") %>:</b>&nbsp;
+    <% if @ruta %>
+      <% @ruta.each do |rid| %>
+        <%= " / " %>
+        <%= link_to_remote rid[:nombre], :url => base_params.merge({:espacio_id => rid[:id]||0}), :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+      <% end %>
+      <%= " / " + @espacio.nombre if @espacio %>
+    <% else %>
+      <%= _("Se encuentra en la 'raíz' de documentos") %>
+    <% end %>
+  </div>
+  <br/>
+</div>
+
+<%= hidden_field :cambiar, :espacio_id, {:value => @espacio ? @espacio.id : nil } %>
+
+<br>
+<% ico_esp = image_tag("/images/iconos_bn/carpeta.png", :border => 0, :class => "iconoespacio", :title => "Ir a Espacio" || "", :onmouseover => "this.src='/images/iconos_bn/carpeta_s.png';", :onmouseout => "this.src='/images/iconos_bn/carpeta.png';" ) %>
+<% if @espacio %>
+  <% espacio_padre_id = @espacio.espacio_padre ? @espacio.espacio_padre.id : 0 %>
+  <div id="espacio_<%= espacio_padre_id %>" class = "fila">
+    <%= link_to_remote (ico_esp + " .."), :url => base_params.merge({:espacio_id => espacio_padre_id }), :html => {:id => ("espacio_" + espacio_padre_id.to_s + "_seleccionar")}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+    <div class='linea'></div>
+  </div>
+<% end %>
+<% for espacio in @espacios %>
+  <div id="espacio_<%= espacio[:id] %>" class = "fila">
+    <%= link_to_remote (ico_esp+ " " + espacio[:nombre]), :url => base_params.merge({:espacio_id => espacio[:id] }), :html => {:id => ("espacio_" + espacio[:id].to_s + "_seleccionar")}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+    <div class='linea'></div>
+  </div>
+<% end %>
+
+<div class = "filacabecera">
+  <div class = "elemento">
+    &nbsp;
+  </div>
+</div>

@@ -1,0 +1,17 @@
+  <div class="linea"> <br> </div>
+  <div class="linea"> <div class="filacabecera"><%= _("Reparto del gasto") %></div>    </div>
+
+  <div id="proyectos"> 
+    <% linea =  0 %>
+    <div>
+      <% unless @proyectos.empty? %>
+      <% for @proyecto in @proyectos %>
+        <%= render :partial => "proyecto", :locals => {:linea => linea, :ultima =>  @proyectos.last == @proyecto ? true : false} %>
+        <% linea += 1  %>
+      <% end %> 
+      <% else %> 
+          <%= render :partial => "proyecto", :locals => {:linea => linea, :ultima =>  true} %>
+      <% end %>   
+    </div>
+  </div>
+ 

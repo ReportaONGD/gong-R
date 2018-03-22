@@ -1,0 +1,12 @@
+
+  <% update_id = update_listado + "_" + permiso.id.to_s %>
+  <% tipo = 'permiso_x_rol' %>
+  <div id="<%= update_id %>" class="fila" >
+    <%= fila_listado permiso, campos_listado(tipo), update_id %>
+    <div class="elementoderecha">
+      <%= editar(url: { action: 'editar_nuevo_permiso', id: params[:id], permiso_id: permiso.id, update: update_id, update_listado: update_listado }) %>
+      <% texto_borrado = _("permisos sobre '%{menu}' / '%{controlador}'") % {menu: permiso.menu, controlador: permiso.controlador} %>
+      <%= borrado( url: { action: 'eliminar_permiso', update: update_id, id: params[:id], permiso_id: permiso.id }, texto: texto_borrado, identificador: update_id ) %>
+    </div>
+  </div>
+

@@ -1,0 +1,115 @@
+<% if @monedas.size == 0 %>
+  <%= mensaje_error(_("Sólo está definido %{moneda} como moneda.") % {:moneda => (@proyecto||@agente).moneda_principal.nombre} + "<br>" + _("Para definir tasas de cambio se deben vincular más monedas.")) %>
+  <br/>
+<% else %>
+  <%=  comienzo_formulario( {:action => 'modificar_crear_tasa_cambio', :id => @tasa, :etapa_id => @etapa, :update => params[:update] }, true ) %>
+
+      <div class="elemento3_2"><%= _("Moneda base") %>:<b> <%= (@proyecto || @agente).moneda_principal.abreviatura %> </b></div>
+      <% if (@proyecto || @agente).moneda_intermedia %>
+        <br/><div class="elemento3_2"><%= _("Divisa") + " / " + _("Moneda intermedia") %>:<b> <%= (@proyecto || @agente).moneda_intermedia.abreviatura %> </b></div>
+      <% end %>
+
+      <!-- Objeto y Tipo a aplicar -->
+      <div class="linea"><br>
+        <%= selector _('Presupuesto o Gastos'), 'tasa', 'objeto', [[_("Presupuesto"), "presupuesto"], [_("Gastos"), "gasto"]], false, '3_4' %>
+          <%= observe_field( "tasa_objeto" , :function => '
+		if ( document.getElementById("tasa_objeto").selectedIndex == 0 ) {
+                  Element.hide("selector_tiempos");
+		  Element.hide("selector_tasa_fija");
+                  Element.hide("selector_financiador");
+		  Element.show("valor_manual");
+                  Element.hide("selector_pais_tc");
+		} else {
+                  Element.show("selector_tiempos");
+		  Element.show("selector_tasa_fija");
+                  Element.show("selector_financiador");
+		  if ( document.getElementById("tasa_tasa_fija").selectedIndex == 0 ) {
+		    Element.show("valor_manual")
+		  } else {
+		    Element.hide("valor_manual");
+		  }
+                  Element.show("selector_pais_tc");
+		}
+		Modalbox.resizeToContent();
+          ') %>
+
+        <% opciones = [[_("Manual"),true]] %>
+        <% opciones += [[_("Media Ponderada"),false]] if @proyecto %>
+        <div id="selector_tasa_fija" style="<%= 'display:none;' if @tasa.objeto == "presupuesto" %>"> 
+          <%= selector _('Cálculo'), 'tasa', 'tasa_fija', opciones, false , '3_4'  %>
+            <%= observe_field( "tasa_tasa_fija" , :function => '
+		if( document.getElementById("tasa_tasa_fija").selectedIndex == 0 ) {
+		  Element.show("valor_manual");
+		} else {
+		  Element.hide("valor_manual");
+		}
+            ') %>
+        </div>
+
+        <!-- Moneda a aplicar la tasa de cambio -->
+        <%= selector _("Moneda"), 'tasa', 'moneda_id', @monedas, false, "3_4"%>
+          <!-- Retocamos las etiquetas y la visibilidad de las tasas segun la moneda elegida -->
+          <%= observe_field( "tasa_moneda_id", :function => '
+		var elemento = document.getElementById("tasa_moneda_id");
+		$("rotulo_tasa_tasa_cambio_convertida").update("1 " + elemento.options[elemento.selectedIndex].text + " =");
+		$("rotulo_tasa_tasa_cambio_divisa").update("1 " + elemento.options[elemento.selectedIndex].text + " =");
+		if ( elemento.options[elemento.selectedIndex].value == "' + (@proyecto || @agente).moneda_intermedia_id.to_s + '" ) {
+		  Element.hide("cambio_divisa");
+		} else {
+		  Element.show("cambio_divisa");
+		}
+          ') %>
+
+        <!-- Valores manuales de tasas de cambio -->
+        <div id="valor_manual" style="<%= 'display:none;' if !@tasa.tasa_fija %>">
+          <!-- Tasa de cambio directa. La mostramos solo cuando no haya moneda intermedia o la seleccionada inicial sea la misma o la divisa --> 
+          <%= texto "1 " + (Moneda.find_by_id(@tasa.moneda_id) ? Moneda.find_by_id(@tasa.moneda_id).abreviatura : @monedas[0][0]) + " =", 'tasa', 'tasa_cambio_convertida', "1_2"%>
+          <div class="elemento1_4"><br/><%= (@proyecto || @agente).moneda_principal.abreviatura %></div> 
+
+          <!-- Tasa de cambio de divisa solo es visible cuando la moneda no es la intermedia -->
+          <div id="cambio_divisa" <% if @tasa.moneda_id == (@proyecto || @agente).moneda_intermedia_id %>style="display:none;"<% end %>>
+            <% if (@proyecto || @agente).moneda_intermedia %>
+              <!-- Existe moneda_intermedia, luego existe tasa divisa -->
+              <%= texto "1 " + (Moneda.find_by_id(@tasa.moneda_id) ? Moneda.find_by_id(@tasa.moneda_id).abreviatura : @monedas[0][0]) + " =", 'tasa', 'tasa_cambio_divisa', "1_2"%>
+              <div class="elemento1_4"><br/><%= (@proyecto || @agente).moneda_intermedia.abreviatura %></div>
+            <% end %>
+          </div>
+
+          <!-- País de la TC solo es visible cuando es un gasto en proyectos -->
+          <div id="selector_pais_tc" <% if @tasa.objeto == "presupuesto" %>style="display:none;"<% end %>>
+            <%= selector _("País"), 'tasa', 'pais_id', ([[_("Todos los países"), nil]] + @proyecto.pais.collect{|p| [p.nombre, p.id]}), false, "3_4" if @proyecto %>    
+          </div> 
+        </div>
+      </div>
+
+      <!-- Financiador aplicable a la tasa de cambio (solo en proyectos => cuando haya financiadores) -->
+      <% if @financiadores %>
+        <div id="selector_financiador" class="linea" style="<%= 'display:none;' if @tasa.objeto == 'presupuesto' %>"><br>
+          <%# selector _("Financiador"), 'tasa', 'agente_id', @financiadores, false, "3_4"%>  
+        </div>
+      <% end %>
+
+      <!-- Rango de aplicacion de tasas de cambio -->
+      <div id="selector_tiempos" class="linea" style="<%= 'display:none;' if @tasa.objeto == 'presupuesto' %>"><br>
+        <%= checkbox _("Toda la Etapa"), 'selector', 'etapa', "3_4", {:izquierda => true, :abajo => true, :checked => (@tasa.fecha_inicio == @tasa.etapa.fecha_inicio && @tasa.fecha_fin == @tasa.etapa.fecha_fin)}  %>
+          <%= observe_field( "selector_etapa" , :function => '
+                if( document.getElementById("selector_etapa").checked ) {
+                  Element.hide("intervalo_manual");
+                } else {
+                  Element.show("intervalo_manual");
+                }
+                Modalbox.resizeToContent();
+          ') %>
+
+        <div id="intervalo_manual" style="<%= 'display:none;' if @tasa.fecha_inicio == @tasa.etapa.fecha_inicio && @tasa.fecha_fin == @tasa.etapa.fecha_fin %>">
+          <%# calendario_fecha _("Fecha inicio"),'intervalo', 'fecha_inicio'%>
+          <%# calendario_fecha _("Fecha fin"),'intervalo', 'fecha_fin'%>
+          <%= calendario_fecha _("Fecha inicio"), "tasa", "fecha_inicio", :valid_date_check => "fecha_inicio = new Date(" + @etapa.fecha_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @etapa.fecha_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;", :year_range => [ 1995, Time.now.year + 20 ] %>
+          <%= calendario_fecha _("Fecha fin"), "tasa", "fecha_fin", :valid_date_check => "fecha_inicio = new Date(" + @etapa.fecha_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @etapa.fecha_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;", :year_range => [ 1995, Time.now.year + 20 ] %>
+        </div>
+      </div>
+
+      <%= hidden_field "etapa", "id", :value => params[:etapa_id] %>
+
+  <%= final_formulario %>
+<% end %>

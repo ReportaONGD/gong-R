@@ -1,0 +1,25 @@
+primera:
+  nombre: MyString
+  descripcion: MyText
+  estado_padre_id: 1
+  tipo: MyString
+  datos_proyecto: false
+  tarea: false
+  documento: false
+  matriz: false
+  presupuesto: false
+  gasto_proyectos: false
+  transferencia: false
+  ingreso: false
+  vista: false
+  exportacion: false
+  importacion: false
+  primer_estado: false
+  tasa_cambio: false
+  partida_financiacion: false
+  datos_financiacion: false
+  presupuesto_proyectos: false
+  gasto_agentes: false
+  resumen_proyecto: false
+  socio: false
+  resumen_financiacion: false

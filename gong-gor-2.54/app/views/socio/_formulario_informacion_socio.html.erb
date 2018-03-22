@@ -1,0 +1,82 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear_informacion_socio', :id => params[:id], :update => params[:update] }, true ) %>
+
+   <div class="linea">
+     <div class="linea"> <div class="filacabecera"><%= _("Información General") %></div>    </div>
+     <%= selector (_( "Socio Activo" )), "informacion_socio", "activo", [[_("No"), false],[_("Sí"), true]], false, "1_2" %>
+       <%= observe_field( "informacion_socio_activo" , :function => '
+        selector = document.getElementById("informacion_socio_activo");
+        switch ( selector.options[selector.selectedIndex].value ) {
+          // Pago con tarjeta 
+          case "true":
+            Element.hide("info_baja");
+          break;
+          // Otros tipos de pago 
+          default:
+            Element.show("info_baja"); 
+        }
+        Modalbox.resizeToContent({resizeDuration: 0.5});
+
+        ' ) %>
+     <div class="elemento1_2">&nbsp;</div>
+     <%= selector _( "Enviar Información Periodica" ), "informacion_socio", "enviar_periodica", [[_("No"), false],[_("Sí"), true]], false, "1" %>
+     <%= selector _( "Enviar Información Puntual" ), "informacion_socio", "enviar_puntual", [[_("No"), false],[_("Sí"), true]], false, "1" %>
+     <%= selector _( "Enviar Certificado Aportaciones" ), "informacion_socio", "enviar_182", [[_("Sí"), true],[_("No"), false]], false,  "1" %>
+     <div class="linea"><br/></div>
+   </div>
+
+   <div class="linea">
+     <div class="linea"> <div class="filacabecera"><%= _("Información de Cuotas") %></div>    </div>
+     <%= selector _( "Tipo Cuota" ), "informacion_socio", "tipo_cuota_socio_id", @tipo_cuota_socio, false, "1"%>
+     <%= texto _( "Importe Cuota" ), "informacion_socio", "importe_cuota", "1" %>
+     <%= texto _( "Calendario de Pagos" ), "informacion_socio", "calendario_pagos", "1" %>
+     <%= selector _( "Forma Pago" ), "informacion_socio", "forma_pago_socio_id", @forma_pago_socio, false, "1" %>
+       <%= observe_field( "informacion_socio_forma_pago_socio_id" , :function => '
+	selector = document.getElementById("informacion_socio_forma_pago_socio_id");
+	switch ( selector.options[selector.selectedIndex].innerHTML ) {
+	  // Pago con tarjeta 
+	  case "' + _("Tarjeta") + '":
+	    Element.show("info_tarjeta");
+	  break;
+	  // Otros tipos de pago 
+	  default:
+	    Element.hide("info_tarjeta"); 
+	}
+        Modalbox.resizeToContent({resizeDuration: 0.5});
+
+	' ) %>
+     <div class="linea"><br/></div>
+   </div>
+
+   <div id="info_tarjeta" class="linea" style='<%= @informacion_socio.forma_pago_socio.forma_pago == _("Tarjeta") ? "" : "display:none;" %>'>
+     <% @datos_tarjeta_socio = @informacion_socio.datos_tarjeta_socio %>
+     <div class="linea"> <div class="filacabecera"><%= _("Información de Tarjeta de Pago") %></div>    </div>
+     <%= texto _( "Tipo de Tarjeta" ), "datos_tarjeta_socio", "tipo_tarjeta", "1" %>
+     <%= texto _( "Número de Tarjeta" ), "datos_tarjeta_socio", "numero_tarjeta", "1" %>
+     <%= mes_fecha _( "Fecha Caducidad" ), "datos_tarjeta_socio", "fecha_caducidad" %>
+     <%= texto _("CVC"), "datos_tarjeta_socio", "numero_verificacion", "1_2" %>
+     <div class="linea"><br/></div>
+   </div>
+
+   <div id="info_alta" class="linea">
+     <div class="linea"> <div class="filacabecera"><%= _("Información del Alta") %></div>    </div>
+     <%= calendario_fecha _( "Fecha Alta" ), "informacion_socio", "fecha_alta" %>
+     <div class="elemento1_4">&nbsp;</div>
+     <%= calendario_fecha _( "Fecha Alta Sistema" ), "informacion_socio", "fecha_alta_sistema" %>
+     <%= calendario_fecha _( "Fecha Carta Bienvenida" ), "informacion_socio", "fecha_carta_bienvenida" %>
+     <%= calendario_fecha _( "Fecha Envio Documentacion" ), "informacion_socio", "fecha_envio_documentacion" %>
+     <%= calendario_fecha _( "Fecha Envio Carne" ), "informacion_socio", "fecha_envio_carne" %>
+     <%= selector _( "Origen Socio" ), "informacion_socio", "origen_socio_id", @origen_socio, false, "3_4" %>
+     <div class="elemento1_4">&nbsp;</div>
+     <%= texto_area _( "Comentario Origen Socio" ), "informacion_socio", "comentario_origen_socio", "3" %>
+     <div class="linea"><br/></div>
+   </div>
+
+   <div id="info_baja" class="linea" style='<%= @informacion_socio.activo ? "display:none;" : "" %>'>
+     <div class="linea"> <div class="filacabecera"><%= _("Información de la Baja") %></div>    </div>
+     <%= calendario_fecha _( "Fecha de Baja" ), "informacion_socio", "fecha_baja" %>
+     <div class="elemento1_4">&nbsp;</div>
+     <%= texto_area _( "Motivo de la Baja" ), "informacion_socio", "motivo_baja", "3" %>
+   </div>
+
+<%= final_formulario %>
+

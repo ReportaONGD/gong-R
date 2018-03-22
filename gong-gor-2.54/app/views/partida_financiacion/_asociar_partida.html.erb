@@ -1,0 +1,10 @@
+<%=  comienzo_formulario( { :action => 'crear_asociacion_partida', :update => params[:update], :objeto_id => params[:objeto_id]}, true ) %>
+      <% if ! @partidas_pendientes.empty? %>
+      <%= selector _("Partidas"), "partida" , "id",@partidas_pendientes, true,  "3_2"  %> 
+      <input type="hidden" name="partida_financiacion_id" value="<%= params[:partida_financiacion_id] %>" >
+<%= final_formulario %>
+      <% else %>
+  todas las partidas fueron asociadas
+</FORM>
+      <% end %>
+

@@ -1,0 +1,10 @@
+primera:
+  nombre: MyString
+  moneda_id: 1
+  agente_id: 1
+  cuenta: MyString
+  descripcion: MyString
+  tipo: MyString
+  pais_id: 1
+  iban: MyString
+  swift: MyString

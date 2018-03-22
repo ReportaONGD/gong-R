@@ -1,0 +1,48 @@
+<fieldset id="<%= clase %>">
+  <% total = (Presupuesto.joins(:tasa_cambio).where({"presupuesto.proyecto_id" => @proyecto.id }).sum "importe * tasa_cambio").to_f %>
+  <% alerta_total = @proyecto.importe_previsto_total.nil? ? false : total > @proyecto.importe_previsto_total %>
+  <div class="filacabecerasinborde" id="<%= clase %>_total">
+    <div class="elemento2"><%= _("Total líneas de presupuesto") %>: <%= @proyecto.presupuesto.size %> </div>
+    <div class="elemento3_4"><%= _("TOTAL Presupuesto") %></div>
+    <div class="elemento1_2_td"><%= _("Acumulado") %>:</div>
+    <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % total.to_s), :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %> </div>
+    <div class="elementoderecha">
+      <%= editar( :url => { :action => 'editar_nuevo_total_previsto', :controller => 'presupuesto_proyectos', :update => clase + "_sub" })%>
+    </div>
+  </div>
+  <% if @proyecto.importe_previsto_total && @proyecto.importe_previsto_total > 0 %>
+    <div class="filacabecerasinborde <%= 'rojo' if alerta_total %>" id="<%= clase %>_total_previsto">
+      <div class="elemento2">&nbsp;</div>
+      <div class="elemento3_4"> &nbsp;</div>
+      <div class="elemento1_2_td"><%= _("Previsto") %>:</div>
+      <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % @proyecto.importe_previsto_total.to_s), :separator => ",", :delimiter => ".") %></div>
+      <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %> </div>
+      <div class="elementoderecha">
+        <%= icono( "alerta", _("¡Atención!.") + " " + _("El importe acumulado total supera al previsto.")) if alerta_total  %>
+      </div>
+    </div>
+  <% end %>
+  <% total = @proyecto.presupuesto_total_con_financiador(@proyecto.agente) %>
+  <% alerta_total = @proyecto.importe_previsto_subvencion.nil? ? false : total > @proyecto.importe_previsto_subvencion %>
+  <div class="filacabecerasinborde" id="<%= clase %>_total_financiador">
+    <div class="elemento2"> &nbsp;</div>
+    <div class="elemento3_4"><%= _("Total") + " " + @proyecto.agente.nombre %></div>
+    <div class="elemento1_2_td"><%= _("Acumulado") %>:</div>
+    <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % total.to_s), :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %> </div>
+  </div>
+  <% if @proyecto.importe_previsto_subvencion && @proyecto.importe_previsto_subvencion > 0 %>
+    <div class="filacabecerasinborde <%= 'rojo' if alerta_total %>" id="<%= clase %>_total_previsto_financiador">
+      <div class="elemento2"> &nbsp;</div>
+      <div class="elemento3_4"> &nbsp;</div>
+      <div class="elemento1_2_td"><%= _("Previsto") %>:</div>
+      <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % @proyecto.importe_previsto_subvencion.to_s), :separator => ",", :delimiter => ".") %></div>
+      <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %> </div>
+      <div class="elementoderecha">
+        <%= icono( "alerta", _("¡Atención!.") + " " + _("El importe total del Financiador supera el previsto para la Subvención.")) if alerta_total  %>
+      </div>
+    </div>
+  <% end %>
+  <div id="<%= clase %>_sub"></div>
+</fieldset>

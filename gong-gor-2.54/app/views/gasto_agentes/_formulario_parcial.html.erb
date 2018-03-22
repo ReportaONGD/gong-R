@@ -1,0 +1,17 @@
+<%=  formulario_comienzo( :url => { :action => 'modificar_parcial', :id => @gasto } ) %>
+  <% campos_editables = Gasto.campos_edicion_permitidos(@gasto) %>
+    
+  <div class="fila" style="text-align:center;font-style:italic;">
+    <%= _("NOTA: Este gasto proviene de un proyecto.") + " " + _("Sólo se editan algunos datos.") %>
+  </div>
+  <b><%= _("Gasto originado en el proyecto") %>:</b> <%= @gasto.proyecto_origen %><br/>
+  <b><%= _("Fecha") %>:</b> <%= "%s"%[@gasto.fecha] %><br/>
+  <b><%= _("Importe del gasto") %>:</b> <%= @gasto.importe %>&nbsp<%= @gasto.moneda.abreviatura %><br/>
+  <b><%= _("Concepto del gasto") %>:</b> <%= @gasto.concepto %><br>
+  <b><%= _("Partida del gasto") %>:</b> <%= @gasto.partida.codigo if @gasto.partida %> <%= @gasto.partida.nombre if @gasto.partida %><br/>
+  <br/>
+
+  <div class="linea"> <br/> </div>
+  <%= render :partial => "subpartida", :locals => {:partida_id => @gasto.partida_id, disabled: !campos_editables.include?("subpartida_agente_id")} %>
+  <%= texto _("Referencia Contable"), 'gasto', 'ref_contable', "2", disabled: !campos_editables.include?("ref_contable") %>
+<%= formulario_final %>

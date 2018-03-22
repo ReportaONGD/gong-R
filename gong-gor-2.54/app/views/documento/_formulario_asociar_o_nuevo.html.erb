@@ -1,0 +1,25 @@
+<%# #Esto es para permitir la traduccion de la siguiente linea %>
+<% _("FuenteVerificacion") %>
+<% texto = params[:tipo] ? _(params[:tipo]) : Espacio.find(@espacio_id).nombre %>
+
+<%= formulario_comienzo %>
+
+<div style = "text-align:center;">
+  <br/>
+  <b><%= link_to_remote _("Adjuntar un nuevo documento a") + " " + texto, :url=> {:action => 'editar_nuevo', :controller => "documento" , :tipo => params[:tipo], :objeto_id => params[:objeto_id], :listado => :listado_asociados, :update => params[:update], :update_listado => params[:update_listado], :pisa_formulario => true, :i => params[:i]}, :html => {:id => "adjuntar_a_nuevo_documento"}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');"  %></b>
+  <br/><br/>
+  <% if params[:tipo] == "Gasto" && @usuario_identificado.id == 8 %>
+    <b>
+      <%# link_to _("Escanear un nuevo documento y vincularlo a") + " " + texto, :action => 'editar_nuevo_callback', :controller => 'documento_scanner', :tipo => params[:tipo], :objeto_id => params[:objeto_id], :update => params[:update_listado] %>
+      <%= link_to_remote _("Escanear un nuevo documento y vincularlo a") + " " + texto, :url=> {:action => 'editar_nuevo_callback', :controller => 'documento_scanner', :tipo => params[:tipo], :objeto_id => params[:objeto_id], :update => params[:update]}, :html => {:id => "escanea_nuevo_documento"}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');"  %>
+    </b>
+    <br/><br/>
+  <% end %>
+  <b>
+   <%  texto = params[:tipo] ? _(" en la documentación del proyecto.") : _(" en la documentación general del sistema.") %>
+  <%= link_to_remote _("Vincular a") + " " + _(params[:tipo]||"") + " " + _("un documento ya existente") + texto , :url=> {:action => 'asociar_documentos', :controller => "documento" , :tipo => params[:tipo], :objeto_id => params[:objeto_id], :listado => :listado_asociados, :update => params[:update], :update_listado => params[:update_listado], :i => params[:i]}, :html => {:id => "adjuntar_a_documento_existente"}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');"  %></b>
+  <br/><br/><br/>
+</div>
+
+<%= formulario_final(nil) %>
+

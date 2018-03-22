@@ -1,0 +1,18 @@
+<% linea =  0 %>
+<% unless @actividades.blank? %>
+  <% for @actividad in @actividades %>
+    <%= render :partial => "comunes/actividad", :locals => {:linea => linea, :ultima =>  @actividades.last == @actividad ? true : false} %>
+    <% linea += 1  %>
+  <% end %> 
+<% else %> 
+    <%= render :partial => "comunes/actividad", :locals => {:linea => linea, :ultima =>  true} %>
+<% end %>
+<% unless params[:disabled] %>
+  <div class="linea">
+    <%= checkbox(_("Dividir entre todas las actividades seleccionadas"), 'dividir_actividades', 'todas', "2",
+                   {:izquierda => true, :checked => @objeto.todas_actividades?(@proyecto)}) %>
+  </div>
+<% end %>
+<br><br>
+
+

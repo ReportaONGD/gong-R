@@ -1,0 +1,23 @@
+<% if session[:espacio_seleccionado_tipo].nil? || session[:espacio_seleccionado_tipo] == 'general' %>
+  <%= render :partial => 'listado_tipo', :locals => {:espacios => @espacios['general'], :tipo => 'general', :nombre_tipo => _("documentación general")} %>
+<% end %>
+
+<% if session[:espacio_seleccionado_tipo].nil? || session[:espacio_seleccionado_tipo] == 'proyecto' %>
+  <%= render :partial => 'listado_tipo', :locals => {:espacios => @espacios['proyecto'], :tipo => 'proyecto', :nombre_tipo => _("documentación de proyecto")} %>
+<% end %>
+
+<% if session[:espacio_seleccionado_tipo].nil? || session[:espacio_seleccionado_tipo] == 'agente' %>
+  <%= render :partial => 'listado_tipo', :locals => {:espacios => @espacios['agente'], :tipo => 'agente', :nombre_tipo => _("documentación de delegaciones")} %>
+<% end %>
+
+<% if session[:espacio_seleccionado_tipo].nil? || session[:espacio_seleccionado_tipo] == 'socia' %>
+  <%= render :partial => 'listado_tipo', :locals => {:espacios => @espacios['socia'], :tipo => 'socia', :nombre_tipo => _("documentación de socias locales")} %>
+<% end %>
+
+<% if session[:espacio_seleccionado_tipo].nil? || session[:espacio_seleccionado_tipo] == 'financiador' %>
+  <%= render :partial => 'listado_tipo', :locals => {:espacios => @espacios['financiador'], :tipo => 'financiador', :nombre_tipo => _("documentación de financiadores")} %>
+<% end %>
+
+<% if session[:espacio_seleccionado_tipo].nil? || session[:espacio_seleccionado_tipo] == 'pais' %>
+  <%= render :partial => 'listado_tipo', :locals => {:espacios => @espacios['pais'], :tipo => 'pais', :nombre_tipo => _("documentación de paises")} %>
+<% end %>

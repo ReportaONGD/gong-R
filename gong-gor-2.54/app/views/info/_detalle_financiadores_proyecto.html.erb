@@ -1,0 +1,15 @@
+<% reset_cycle %>
+<div>
+  <% moneda = @proyecto.moneda_principal.abreviatura %>
+  <% campos = [[_("Financiador"), "1", ""]] + [_("Presupuestado"), _("Ejecutado"), _("Pendiente"), _("% Ejecutado")].collect{|c| [c, "2_3_td", ""]} %>
+  <% financiador = @proyecto.convocatoria.agente %>
+  <% otros_financiadores =  @proyecto.financiador.order("agente.nombre") - [financiador] %>
+
+  <%= cabecera_listado campos %>
+    <%= render partial: "info/detalle_financiadores_proyecto_linea", locals: {moneda: moneda, financiador: financiador} %>
+    <% for financiador in otros_financiadores %>
+      <%= render partial: "info/detalle_financiadores_proyecto_linea", locals: {moneda: moneda, financiador: financiador} %>
+    <% end %>
+    <%= render partial: "info/detalle_financiadores_proyecto_linea", locals: {moneda: moneda, financiador: nil} %>
+  <%= final_listado %>
+</div>

@@ -1,0 +1,6 @@
+<% enlazar ||= false %>
+<%= render :partial => "datos_proyecto", :locals => { proyecto: @proyecto, enlazar: enlazar } %>
+<%= render :partial => "contexto_proyecto" %>
+<%= render :partial => "tesoreria_proyecto" %>
+<%= render :partial => "seguimiento_proyecto" unless @proyecto.convenio? %>
+<%= render :partial => "pacs_convenio" if @proyecto.convenio? %>

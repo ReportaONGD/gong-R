@@ -1,0 +1,18 @@
+XXXXXX
+<%= cabecera_listado campos_listado( "periodo" ), _( "Añadir periodo"), {:action => 'editar_nuevo_periodo'}, {:id => "periodo_anadir"}   %>
+
+<% i = 0 %>
+<% for periodo in @periodos %>
+  <div id="periodo_<%= i += 1 %>" class="fila">
+    <%= fila_listado periodo, campos_listado( "periodo" ), "periodos_" + i.to_s %>
+    <div class="elementoderecha">
+       <%= modal( icono( "editar"), {:action => 'editar_nuevo_periodo', :id => periodo}, _( "Editar periodo"), :id => ("periodo_" + i.to_s + "_editar") ) %>
+       <%= link_to_remote(icono("lista", _("Ver Tarea")),  :url => {:update => "periodo_sub_"+ i.to_s, :controller => 'tasa_cambio', :action => 'tasa_cambio', :periodo_id => periodo.id.to_s}, :html => {:id =>"periodo_" + i.to_s + "_tasas_cambio"}, :loading => "Element.show('spinner_#{periodo.id.to_s }')", :complete => "Element.hide('spinner_#{periodo.id.to_s}')" ) %>
+       <%= modal_borrado icono("borrar", _("Eliminar periodo")), { :action => 'eliminar_periodo', :id => periodo.id, :periodo => periodo.id }, _('Eliminar la periodo: '), periodo.nombre, :id => ("periodo_" + i.to_s + "_borrar") %>   
+    </div>
+    <div class="linea"></div>
+    <div id="spinner_<%= periodo.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="periodo_sub_<%= i.to_s %>" class="linea"></div>
+  </div>
+<% end %>
+<%= final_listado %>

@@ -1,0 +1,20 @@
+<div id="campos_particulares_tipo" class="fila">
+  <% if @contrato.tipo_contrato && !@contrato.tipo_contrato.campo_tipo_contrato.empty? %>
+    <div class="linea filacabecera"><div class="elemento4"><%= _("Condiciones particulares para contratos de tipo '%{tipo}'")%{tipo: @contrato.tipo_contrato.nombre} %></div></div>
+    <div class="fila"><br></div>
+    <% @contrato.tipo_contrato.campo_tipo_contrato.each do |campo| %>
+      <div class="fila" title="<%= campo.descripcion %>">
+        <% @valor = @contrato.contrato_x_campo_tipo_contrato.find_by_campo_tipo_contrato_id(campo.id)||ContratoXCampoTipoContrato.new %>
+        <div class="elemento1_td" title="<%= campo.etiqueta %>"><%= campo.etiqueta + ": " %></div>
+        <% if campo.tipo_campo == "boolean" %>
+          <%= select  'valor', 'valor_dato', [ [_("Sí"), "1"], [_("No"), "0"] ], {include_blank: true}, {name: "campo_tipo_contrato[#{campo.id}]", class: 'selector1_3'} %> 
+        <% elsif campo.tipo_campo == "number" %>
+          <%= text_field 'valor', 'valor_dato', {class: 'elemento1_2_td', name: "campo_tipo_contrato[#{campo.id}]"} %>
+        <% else %>
+          <%= text_area 'valor', 'valor_dato', {class: "textoarea3", type: "d", rows: 2, name: "campo_tipo_contrato[#{campo.id}]"} %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="fila"><br></div>
+  <% end %>
+</div>

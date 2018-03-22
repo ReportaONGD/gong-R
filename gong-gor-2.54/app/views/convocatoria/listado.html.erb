@@ -1,0 +1,18 @@
+<div id="nuevas_convocatorias" style="display:none">
+  <%= cabecera_listado campos_listado("convocatoria")%>
+  <div id="convocatoria_nueva_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado nuevas convocatorias (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("convocatoria"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}  %>
+  <% i = 0 %>
+  <% for @convocatoria in @convocatorias %>
+   <% i += 1 %>
+   <%= render :partial => "convocatoria", :locals => {:update => "convocatoria_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

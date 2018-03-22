@@ -1,0 +1,2 @@
+page.replace "actividad_" + params[:linea], :partial => "comunes/actividad", :locals => { :linea => params[:linea].to_i, :ultima => true}
+

@@ -1,0 +1,8 @@
+<%= listado campos_listado("plugin"), :anadir => false %>
+  <% i = 0 %>
+  <% for @plugin in @plugins %>
+   <% i += 1 %>
+   <%= render :partial => "plugin", :locals => {:update => "plugin_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

@@ -1,0 +1,19 @@
+<% i = 0 %>
+<%= comienzo_listado %>
+<% for fuente_verificacion in @fuentes_verificacion %>
+   <% update = "fuente_verificacion_" + (i += 1).to_s %>
+   <%= render :partial => "fuente_verificacion", :locals => {:update => update, :fuente_verificacion => fuente_verificacion} %>
+
+   <div id="<%= update %>_documento"> 
+     <% @objeto = fuente_verificacion %>
+     <% @documentos = fuente_verificacion.documento %>
+     <% fuente_verificacion.fuente_verificacion_pac.each {|fvp| @documentos += fvp.documento} %>
+
+     <%= render :partial => "documento/listado_asociados", :locals => { :objeto_id => fuente_verificacion.id, :tipo => "FuenteVerificacion", :documentos => @documentos, :update_listado => update + "_documento"} %>
+   </div>
+   <br/><br/>
+<% end %>
+<%= final_listado %>
+
+
+

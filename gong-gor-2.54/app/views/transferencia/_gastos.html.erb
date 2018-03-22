@@ -1,0 +1,25 @@
+<!-- <div id="gastos_<%=params[:transferencia_id] %>" class="linea"> -->
+
+<!--BORRAR ESTE DIV FILA CUANDO SE CREEN LOS ESTILOS DE SUBLISTADO -->
+<%= comienzo_sublistado "Gastos", params[:update] %>
+
+<div class="fila">
+<%= modal icono( "anadir"),  {:controller => 'transferencia', :action => 'asociar_gasto', :update =>  params[:update], :transferencia_id => params[:transferencia_id] }, _("asociar gasto"), :id => params[:update] + "_gastos_anadir" %>
+</div>
+
+<% i = 0 %>
+<% for gasto in gastos %>
+   <div id="<%= params[:update] %>_gastos_<%= i += 1 %>" class="fila" >
+     <div id="<%= params[:update] %>_gastos_<%= i.to_s %>_valor_importe" class="elemento1_2"><%= gasto.importe  %></div>
+     <div id="<%= params[:update] %>_gastos_<%= i.to_s %>_valor_partida_nombre" class="elemento3_2"><%= gasto.partida.nombre %></div>
+     <div id="<%= params[:update] %>_gastos_<%= i.to_s %>_valor_concepto" class="elemento3_2"><%= (gasto.concepto || "&nbsp;") %></div>
+     <div class="elementoderecha">
+       <%# link_to_remote icono( "borrar", _( "Eliminar gasto" ) ), :url => { :controller => 'transferencia', :action => 'eliminar_gasto', :gasto_id => gasto.id, :transferencia_id => params[:transferencia_id] }, :confirm => _('Va a eliminar el gasto: ') + _('¿Confirmar?'), :post => true %>
+       <%= modal_borrado icono( "borrar", _( "Eliminar gasto" ) ), { :update => params[:update], :controller => 'transferencia', :action => 'eliminar_gasto', :gasto_id => gasto.id, :transferencia_id => params[:transferencia_id] }, _('Eliminar gasto'), gasto.partida.nombre + " - " + gasto.concepto, :id => (params[:update] + "_gastos_" + i.to_s + "_borrar"), :ajax => true %>
+     </div>
+     <div class="linea"></div>
+    </div>
+<% end %>
+
+<%= final_sublistado %>
+<!-- <div class="linea"></div> -->

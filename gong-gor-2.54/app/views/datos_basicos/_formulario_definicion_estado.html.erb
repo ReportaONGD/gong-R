@@ -1,0 +1,42 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<div class="fila">
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "1" %>
+<%= texto _("Descripción"), 'dato_basico', 'descripcion', "3" %>
+</div><div class="fila">
+<%= selector _("Estado anterior"), 'dato_basico', 'estado_padre_id', @estados_padre, true, "1" %>
+<%= selector _("Tipo"), 'dato_basico', 'tipo', [['proyecto', 'proyecto']], true, "1" %>
+<% if @dato_basico %><%= javascript_tag("document.getElementById(\"" + @dato_basico.tipo + "\").style.display=\"block\";Modalbox.resizeToContent();") %><% end %>
+
+<%= observe_field( "dato_basico_tipo" , :function => 'if( document.getElementById("dato_basico_tipo").selectedIndex == 2 ){ Element.show("financiacion");Element.hide("proyecto"); Modalbox.resizeToContent()  } else if ( document.getElementById("dato_basico_tipo").selectedIndex == 1 ) { Element.show("proyecto"); Element.hide("financiacion"); Modalbox.resizeToContent()
+ }'  ) %>
+<%= observe_field( "dato_basico_tipo" , :function => 'if( document.getElementById("dato_basico_tipo").selectedIndex == 1 ){ Element.show("proyecto"); Element.hide("financiacion") } else { Element.show("financiacion"); Element.hide("proyecto") ) }'  ) %>
+</div>
+<div id="proyecto" style="display: none;">
+<div class="fila">
+  <%= checkbox _("Datos proyecto"), 'dato_basico', 'datos_proyecto', "3_4", {:izquierda => true, :checked => true} %>
+  <%= checkbox _("Tarea"), 'dato_basico', 'tarea', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.tarea : false)  } %>
+  <%= checkbox _("Documento"), 'dato_basico', 'documento', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.documento : false) } %>
+  <%= checkbox _("Matriz"), 'dato_basico', 'matriz', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.matriz : false) } %>
+  <%= checkbox _("Gasto"), 'dato_basico', 'gasto_proyectos', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.gasto_proyectos : false) } %>
+</div><div class="fila">
+  <%= checkbox _("Presupuesto Proyectos"), 'dato_basico', 'presupuesto_proyectos', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.presupuesto_proyectos : false) } %>
+  <%= checkbox _("Transferencias"), 'dato_basico', 'transferencia', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.transferencia : false) } %>
+  <%= checkbox _("Ingresos"), 'dato_basico', 'ingreso', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.ingreso : false) } %>
+  <%= checkbox _("Vista"), 'dato_basico', 'resumen_proyecto', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.resumen_proyecto : false) } %>
+  <%= checkbox _("Exportación"), 'dato_basico', 'exportacion', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.exportacion : false) } %>
+  <%= checkbox _("Importación"), 'dato_basico', 'importacion', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.importacion : false) } %>
+  <%= checkbox _("Tasa de Cambio") + "&nbsp;&nbsp;&nbsp;&nbsp;", 'dato_basico', 'tasa_cambio', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.tasa_cambio : false) } %>
+  <%= checkbox _("Partida Financiación"), 'dato_basico', 'partida_financiacion', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.partida_financiacion : false) } %>
+  <%= checkbox _("Informe"), 'dato_basico', 'informe', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.informe : false) } %>
+</div>
+<div class="fila">
+
+</div>
+</div>
+<div class="fila">
+<%= checkbox _("Estado inicial"), 'dato_basico', 'primer_estado', "3_4", {:izquierda => true} %>
+<%# checkbox _("Socios"), 'dato_basico', 'socio', "3_4", {:izquierda => true} %>
+</div>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<div class="fila"></div>
+<%= final_formulario %>

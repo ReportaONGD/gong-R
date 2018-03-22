@@ -1,0 +1,28 @@
+<% reset_cycle %>
+<div id="<%= relacion %>">
+
+<fieldset> <div class="legend"><%= case relacion
+   when "libro" then rotulo =  _("Cuentas")
+   when "pais" then rotulo =  _("País")
+   when "sector_poblacion" then rotulo = _("Sector de Población")
+   when "sector_intervencion" then rotulo = _("Sector de Intervención")
+   when "area_actuacion" then rotulo = _("Área de Actuación")
+   when "moneda" then rotulo = _("Moneda")
+   else rotulo = relacion.humanize.capitalize
+   end  %></div>
+  <% campos_relacion = (relacion == "sector_poblacion" or relacion == "sector_intervencion" or  relacion == "area_actuacion" or relacion == "libro") ? (relacion + "_relaciones") : relacion %> 
+  <%= cabecera_listado campos_listado(campos_relacion),  _("Añadir %{relacion} al proyecto") % {:relacion => rotulo}, {:action => 'anadir_' + relacion}, :id => relacion + "_anadir" %>
+
+  <% i = 0 %>
+  <% for elemento in relaciones %>
+    <div id="<%= relacion %>_<%= i+=1 %>" class="<%= cycle( 'fila', 'filaDos' ) %>" >
+      
+      <%= fila_listado elemento, campos_listado(campos_relacion), relacion + "_" + i.to_s  %>
+      <div class="elementoderecha">
+        <%= modal_borrado icono( "borrar", _( "Eliminar" ) ), { :update => relacion, :action => 'eliminar_relacion', :id => elemento, :atributo => relacion }, _('Eliminar'), _('Eliminar %{elemento} del proyecto') % {:elemento => elemento.nombre}, :id => (relacion + "_" + i.to_s + "_borrar"), :ajax => true %>
+      </div><div class="linea"></div>
+    </div> 
+  <% end %>
+  <%= final_listado %>
+</fieldset>
+</div>

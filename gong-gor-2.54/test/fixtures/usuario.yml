@@ -1,0 +1,11 @@
+primera:
+  nombre: admin
+  contrasena: admin
+  nombre_completo: MyString
+  correoe: MyString
+  administracion: true
+  proyectos: true
+  financiaciones: true
+  agentes: true
+  cuadromando: false
+  socios: true

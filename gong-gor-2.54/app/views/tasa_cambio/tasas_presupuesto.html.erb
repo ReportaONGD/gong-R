@@ -1,0 +1,29 @@
+<fieldset >
+<div class="legend"><%= _("Aplicar tasas de cambio para el presupuesto en la etapa seleccionado") %>:</div>
+  <div class=fila>
+    <div class="elemento2">  <%= @etapa.nombre %> ( <%= @etapa.fecha_inicio %> / <%= @etapa.fecha_fin %> )</div>
+    <div class="elementoderecha"> <%= link_to (_("<< Volver a iniciar para aplicar tasas de cambio"), :action => "inicio")%></div>
+  </div>
+</fieldset>
+
+
+
+
+<br>
+<!-- Listado de presupuestos -->
+<%= cabecera_listado campos_listado("presupuesto" + (@agente ?  "_agentes" : "")).push([_("T.Cambio"),"1_3_td", "tasa_cambio"], [_("Imp. x TC."), "1_2_td", "importe_tasa_cambio"]) %>
+<% i = 0 %>
+<% for presupuesto in @presupuestos %>
+<div id="presupuestos_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado presupuesto, campos_listado("presupuesto" + (@agente ?  "_agentes" : "")), "presupuestos_" + i.to_s %>
+    <div class="elemento1_3_td">
+      <%= number_with_delimiter(( presupuesto.tasa_cambio).to_s , :separator => ",", :delimiter => ".") if presupuesto.tasa_cambio %>
+    </div>
+    <div class="elemento1_2_td">
+      <%=   number_with_delimiter(('%.2f' % (presupuesto.importe * presupuesto.tasa_cambio)).to_s , :separator => ",", :delimiter => ".") + " " + Moneda.find((@proyecto || @agente).moneda_id).abreviatura if presupuesto.tasa_cambio %>
+    </div>
+    <div class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+

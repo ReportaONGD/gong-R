@@ -1,0 +1,6 @@
+primera:
+  gasto_id: 1
+  fecha_gasto: 2010-08-16
+  proyecto_id: 1
+  financiacion_id: 1
+  identificacion: MyString

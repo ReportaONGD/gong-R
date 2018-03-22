@@ -1,0 +1,27 @@
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]} %>
+<%= formulario_comienzo :url => { :action => 'modificar_abrir_cerrar_subactividad', :id => @subactividad.id, :etapa_id => params[:etapa_id], :actividad_id => params[:actividad_id], :update => params[:update_listado]} %>
+
+  <% if params[:menu] == "ejecucion_tecnica" %>
+    <div class="elemento4">
+      <%= (_("Descripción") + ": ").html_safe %><strong><%= @subactividad.descripcion %></strong>
+    </div>
+    <% if @subactividad.descripcion_detallada != "" %>
+      <div class="elemento4">
+        <%= (_("Descripción detallada") + ": ").html_safe %><strong><%= @subactividad.descripcion_detallada %></strong>
+      </div>
+    <% end %>
+    <div class="fila"><br/></div>
+    <%= texto _("Responsables"), 'subactividad', 'responsables_ejecucion', '4' %>
+    <div class="fila"><br/></div>
+    <%= selector( _("Estado"), "subactividad", 'estado', [["Abierta","abierta"],["En curso","curso"],["Cerrada","cerrada"]] , false, "1_2") %>
+    <%= selector( _("% cumplimiento"), "subactividad", 'porcentaje_cumplimiento', porcentajes, false, "1_2") %>
+    <div class="fila"><br/></div>
+    <%= texto_area( _("Comentarios a la ejecucion"), 'subactividad', 'comentarios_ejecucion', '2') %>
+  <% else %>
+    <%= texto _("Descripción"), 'subactividad', 'descripcion', '4' %>
+    <%= texto _("Responsables"), 'subactividad', 'responsables_ejecucion', '4' %>
+    <div class="fila"><br/></div>
+    <%= texto_area( _("Descripción detallada"), 'subactividad', 'descripcion_detallada', '2') %>
+  <% end %>
+
+<%= formulario_final %>

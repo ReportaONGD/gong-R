@@ -1,0 +1,65 @@
+<% controlador = params[:partida_id] ? "presupuesto_proyectos" : "presupuesto_actividad" %>
+<%= formulario_comienzo( :url => { :action => 'modificar_crear', :id => @presupuesto, :controller => controlador, :i => params[:i], :partida_id => params[:partida_id], :actividad_id => params[:actividad_id], :nueva_vinculacion => @nueva_vinculacion })%>
+
+  <%= selector _("Etapa"), 'presupuesto', 'etapa_id', @etapas, false, "3_4", {:selected => (@presupuesto.etapa ? nil : session[:presupuesto_proyectos_filtro_etapa].to_i), :obligatorio => true} %>
+  <%= selector _("Partida"), 'presupuesto', 'partida_id', @partidas, false ,"2", :obligatorio => true  %>
+
+  <%= texto _("Subpartida"), 'presupuesto', 'subpartida_nombre', "2", :autocomplete => true, :autocomplete_with_also => ["presupuesto_partida_id"] %>
+  <%= texto _("Concepto/Detalle"), 'presupuesto', 'concepto', "5_2", :obligatorio => true %>
+  <div class="elemento1_4">&nbsp;</div>
+  <%= texto _("Observaciones"), 'presupuesto', 'observaciones', "2" %>
+
+  <div class="linea">
+    <%= texto _("Unidad"), 'presupuesto', 'unidad',"1_2" %>
+
+    <!-- Si estamos en presupuesto por partidas -->
+    <% if params[:partida_id] %>
+      <%= texto_numero _("Nº unidades"), 'presupuesto', 'numero_unidades',"1_2", :obligatorio => true %>
+      <%= observe_field( "presupuesto_numero_unidades", :url => {:action => :calcula_importe, :update => 'presupuesto'},
+          :with => "'presupuesto[numero_unidades]='+ escape($('presupuesto_numero_unidades').value) +
+	        '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value)" ) %>
+      <%= texto_numero _("Coste/unidad"), 'presupuesto', 'coste_unitario_convertido',"1_2", :obligatorio => true %>
+      <%= observe_field( "presupuesto_coste_unitario_convertido" , :url => {:action => :calcula_importe, :update => 'presupuesto'},
+           :with => "'presupuesto[numero_unidades]='+ escape($('presupuesto_numero_unidades').value) +
+           '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value) " ) %>
+      <div class="elemento1_2" id ="presupuesto_importe_convertido" style="text-align:center;padding:2px;">
+        Importe <br /><b> <%= @presupuesto.importe_convertido if @presupuesto %></b>
+      </div>
+      <%= hidden_field 'presupuesto', 'importe' %>
+    <!--... o en presupuesto por actividad --> 
+    <% elsif params[:actividad_id]%>
+      <%= texto_numero _("Nº unidades"), 'presupuesto_x_actividad', 'numero_unidades',"1_2", :obligatorio => true %>
+      <%= observe_field( "presupuesto_x_actividad_numero_unidades", :url => {:action => :calcula_importe, :update => 'presupuesto'},
+          :with => "'presupuesto_x_actividad[numero_unidades]='+ escape($('presupuesto_x_actividad_numero_unidades').value) +
+	        '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value)" ) %>
+      <%= texto_numero _("Coste/unidad"), 'presupuesto', 'coste_unitario_convertido',"1_2", :obligatorio => true %>
+      <%= observe_field( "presupuesto_coste_unitario_convertido" , :url => {:action => :calcula_importe, :update => 'presupuesto'},
+           :with => "'presupuesto_x_actividad[numero_unidades]='+ escape($('presupuesto_x_actividad_numero_unidades').value) +
+           '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value) " ) %>
+      <div class="elemento1_2" id ="presupuesto_importe_convertido" style="text-align:center;padding:2px;">
+        Importe <br /><b>  <%= @presupuesto_x_actividad.importe_convertido if @presupuesto %> </b>
+      </div>
+      <%= hidden_field 'presupuesto_x_actividad', 'importe' if params[:actividad_id]%>
+    <% end %>
+
+    <%= selector _("Moneda"), 'presupuesto', 'moneda_id', @monedas, false, "1_3", :obligatorio => true  %>
+    <%= selector _("Implementador"), 'presupuesto', 'agente_id', @implementadores, false ,"3_2", :obligatorio => true  %>
+      <%= observe_field( "presupuesto_agente_id", :update => "presupuesto_pais", :url => {:controller => :presupuesto_proyectos, :action => :cambia_pais}, :with => "agente_id", :loading => "Element.show('espera')", :complete => "Element.hide('espera')") if @presupuesto.id.nil? %>
+    <%= render :partial => "presupuesto_proyectos/pais", :locals => {:pais_id => @presupuesto ? @presupuesto.pais_id : nil} %>
+  </div>
+
+  <div class="fila">
+    <% if params[:partida_id] %>
+      <!-- Detalle de Actividades -->
+      <% params[:detallado] = (@presupuesto.id.nil? || @actividades.size <= 1 || @presupuesto.todas_actividades?) ? "no" : "si" %>
+      <%= render :partial => "comunes/actividades_detalle" %>
+      <!-- Detalle de Financiadores -->
+      <% params[:detallado] = (@presupuesto.id.nil? || @financiadores.size <= 1) ? "no" : "si" %>
+      <%= render :partial => "comunes/financiadores_detalle" %>
+    <% elsif params[:actividad_id] %>
+      <%= render :partial => "presupuesto_actividad/financiadores" %>
+    <% end %>
+  </div>
+  <div class="fila">&nbsp;</div>
+
+<%= formulario_final %>

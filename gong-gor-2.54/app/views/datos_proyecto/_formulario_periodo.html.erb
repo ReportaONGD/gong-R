@@ -1,0 +1,38 @@
+<%
+  if params[:tipo_periodo] =~ /prorroga|prorroga_justificacion|formulacion/
+    tipos_periodo = TipoPeriodo.where( grupo_tipo_periodo: params[:tipo_periodo])
+  elsif params[:tipo_periodo] =~ /seguimiento|final/
+    tipos_periodo = TipoPeriodo.where( grupo_tipo_periodo: ["seguimiento","final"], oficial: (params[:tipo_periodo] == "seguimiento"|| params[:tipo_periodo] == "final"))
+  end
+  prorroga = params[:tipo_periodo] =~ /prorroga.*/
+  prorroga_ejecucion = params[:tipo_periodo] == "prorroga"
+%>
+
+<%=  comienzo_formulario( {:action => 'modificar_crear_periodo', :id => @periodo , :tipo_periodo => params[:tipo_periodo]} , false ) %>
+  <%= selector _("Tipo Periodo"), 'periodo', 'tipo_periodo_id', tipos_periodo.collect{|tp| [tp.nombre, tp.id]}, false, "3_2", {:disabled => params[:id] ? true : false} %>
+  <%= calendario_fecha _("Fecha inicio"), "periodo", "fecha_inicio" %>
+  <%= calendario_fecha _("Fecha fin"), "periodo", "fecha_fin" %>
+  <%= calendario_fecha _("Fecha informe"), "periodo", "fecha_informe" unless prorroga_ejecucion %>
+
+  <%= texto_area _("Descripción"), 'periodo', 'descripcion', "4" %>
+  <%= checkbox _("Cerrar gastos del periodo"), 'periodo', 'gastos_cerrados', "1", {:izquierda => true, :checked => (@periodo ? @periodo.gastos_cerrados : false) } unless prorroga_ejecucion %>
+
+  <% rotulo_cerrar = prorroga ? _("Prorroga aceptada") : _("Aceptar periodo") %>
+  <%= checkbox rotulo_cerrar, 'periodo', 'periodo_cerrado', "3_4", {:izquierda => true, :checked => (@periodo ? @periodo.periodo_cerrado : !prorroga) } %>
+
+  <% if params[:tipo_periodo] == "prorroga" %>
+    <% msg_prorroga  = _("La aprobación de la prórroga de ejecución supone el cambio en las fechas de ejecución del proyecto.") + "<br><br>"
+       if GorConfig::getValue("UPDATE_STAGE_ENDING_DATE_WHEN_EXTENSION_IS_APPROVED") == "TRUE"
+         msg_prorroga += _("La fecha de fin de la última etapa del proyecto se sustituirá por la fecha de fin de la prórroga.")
+       else
+         msg_prorroga += _("Debe modificar manualmente las etapas del proyecto para que se correspondan con la prórroga aprobada.")
+       end %>
+    <%= observe_field( "periodo_periodo_cerrado", 
+                       function: 'if( document.getElementById("periodo_periodo_cerrado").checked ){
+                                    Element.show("advertencia_prorroga_aprobada_borradofondo");
+                                    Element.show("advertencia_prorroga_aprobada_borrado")
+                                  }' ) %>
+    <%= mensaje_advertencia identificador: "advertencia_prorroga_aprobada", texto: msg_prorroga %>
+  <% end %>
+<%= final_formulario %>
+

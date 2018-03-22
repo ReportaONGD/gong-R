@@ -1,0 +1,11 @@
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]}%>
+
+<%= formulario_comienzo :url => { :action => 'crear_modificar_valor_subactividad', :id => @valor, :subactividad_id => params[:subactividad_id], :update_objeto => params[:update_objeto] } %>
+  <div class="fila">
+    <%= calendario_fecha _("Fecha"), 'valor', 'fecha' %>
+    <%= selector( _("Porcentaje"), 'valor', 'porcentaje', porcentajes, false ,"1_2") %>
+    <%= selector( _("Estado"), "valor", 'estado', [[_("Abierta"),"Abierta"],[_("En curso"),"En curso"],[_("Cerrada"),"Cerrada"]] , false, "1_2") %>
+    <%= texto_area _("Comentario"), 'valor', 'comentario', '4' %>
+  </div>
+  <div class="fila">&nbsp;</div>
+<%= formulario_final %>

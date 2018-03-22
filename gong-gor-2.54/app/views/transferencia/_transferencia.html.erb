@@ -1,0 +1,28 @@
+<% transferencia ||= @transferencia %>
+  <% avisos = transferencia.chequea_avisos %>
+  <% color = transferencia.marcado.color if transferencia.marcado
+     color = avisos == "" ? '' : ' rojo' unless transferencia.marcado  %>
+  <div id="<%= update %>" class="fila <%= color %>">
+    <%# fila_listado transferencia, campos_listado( "transferencia"), update, campos_listado("transferencia") + campos_info("transferencia") %>
+    <%= fila_listado transferencia, campos_listado( "transferencia"), update %>
+    <div class="elementoderecha">
+      <% unless avisos.blank? %>
+        <span id="<%= update %>_alerta_recepcion"><%= icono( "alerta", _("¡Atención!.") + avisos.join(" ")) %></span>
+      <% end %>
+      <%= ventana_info_popup transferencia, {:campos => campos_listado("transferencia") + campos_info("transferencia"), :id => update + "_informacion" } %>
+      <%= remote icono( "etiquetas", _("Marcar la línea de transferencia.")), :url => {:update => update , :controller => "marcado" , :action => 'editar', :id => transferencia, :tipo => "transferencia" } %>
+      <%= remote( icono("comentarios" + (transferencia.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => transferencia.id.to_s, :tipo => "Transferencia" })  %>
+      <% unless transferencia.tipo == "remanente" %>
+        <%= link_to_remote( icono("gastos", _("Ver gastos asociados")), :html => {:id => update + "_gastos"}, :url => {:update => update + "_sub", :controller => 'transferencia', :action => 'gastos', :transferencia_id => transferencia.id.to_s,} , :loading => "Element.show('spinner_#{update}')", :complete => "Element.hide('spinner_#{update}')" ) if params[:seccion] == "proyectos" %>
+        <%= link_to_remote( icono("documentos" + (transferencia.documento.empty? ? "" : "_r"), _("Ver documentos")), :url => {:update => update + "_sub" , :controller => 'documento', :action => 'listado_asociados', :objeto_id => transferencia.id.to_s, :tipo => "Transferencia"} , :html => {:id => update + "_documentos"}, :loading => "Element.show('spinner_#{update}')", :complete => "Element.hide('spinner_#{update}')" ) %>
+        <%= editar( :url => { :action => 'editar_nuevo', :id => transferencia.id, :update => update }) %>
+      <% else %>
+        <div class="icono"></div><div class="icono"></div>
+      <% end %>
+      <%= borrado( :url => { :action => 'eliminar', :id => transferencia.id, :update => update },  :texto => ( _(transferencia.tipo.capitalize) ), :identificador => update )  %>
+      <%= image_tag("cargando.gif", :id  => update + '_indicador', :style => 'display:none')%>
+    </div>
+    <br/>
+    <div id="spinner_<%= update %>" class="spinner" style="display:none" ></div>
+    <div id="<%= update %>_sub" class="linea"></div>
+  </div>

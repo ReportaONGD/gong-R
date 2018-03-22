@@ -1,0 +1,46 @@
+<div class="linea">
+  <!--BORRAR ESTE DIV FILA CUANDO SE CREEN LOS ESTILOS DE SUBLISTADO -->
+  <%= comienzo_sublistado "Información del socio", params[:update] %>
+    <div class="linea" ><br>
+     <div class="elementoderecha"><%= modal(icono( "editar"), {:update => params[:update], :action => 'editar_nuevo_informacion_socio', :id => params[:id]}, _("Editar Información del socio"), :id => params[:update] + "_editar_informacion" )   %></div>
+    </div>
+    <div style='padding:2em;text-align:left;'>
+	<b>Estado del Socio/a</b><br>
+	<div style='width:33%;float:left;'><%= _("Socio/a en Activo") %>: <%= @informacion_socio.activo ? 'Sí' : 'No' %></div>
+	<div style='width:33%;float:left;'><%= _("Motivo de la Baja") %>: <%= @informacion_socio.motivo_baja %></div>
+	<br><hr>
+
+	<b>Fechas</b><br>
+	<div style='width:33%;float:left;'><%= _("Alta en la Organización") %>: <%= @informacion_socio.fecha_alta.strftime('%d/%m/%Y') if @informacion_socio.fecha_alta %></div>
+    	<div style='width:33%;float:left;'><%= _("Alta en el Sistema") %>: <%= @informacion_socio.fecha_alta_sistema.strftime('%d/%m/%Y') if @informacion_socio.fecha_alta_sistema %></div>
+    	<div style='width:33%;float:left;'><%= _("Baja en la Organización") %>: <%= @informacion_socio.fecha_baja.strftime('%d/%m/%Y') if @informacion_socio.fecha_baja %></div>
+    	<br><br>
+
+	<b>Cuota</b><br>
+	<div style='width:33%;float:left;'><%= _("Tipo de Cuota") %>: <%= @informacion_socio.tipo_cuota_socio.tipo_cuota %></div>
+	<div style='width:33%;float:left;'><%= _("Forma Pago") %>: <%= @informacion_socio.forma_pago_socio.forma_pago %></div>
+	<div style='width:33%;float:left;'><%= _("Importe de la Cuota") %>: <%= @informacion_socio.importe_cuota %></div><br>
+	<div style='width:33%;float:left;'><%= _("Calendario de Pagos") %>: <%= @informacion_socio.calendario_pagos %></div>
+	<br><br>
+
+	<b>Protocolo de Envíos</b><br>
+	<div style='width:33%;float:left;'><%= _("Enviar Información Periodica") %>: <%= @informacion_socio.enviar_periodica ? 'Sí' : 'No' %></div>
+	<div style='width:33%;float:left;'><%= _("Enviar Información Puntual") %>: <%= @informacion_socio.enviar_puntual ? 'Sí' : 'No' %></div>
+	<div style='width:33%;float:left;'><%= _("Enviar Certificación de Aportaciones") %>: <%= @informacion_socio.enviar_182 ? 'Sí' : 'No'  %></div>
+	<br><br>
+
+	<b>Fechas de los Envíos realizados</b><br>
+	<div style='width:33%;float:left;'><%= _("Carta Bienvenida") %>: <%= @informacion_socio.fecha_carta_bienvenida.strftime('%d/%m/%Y') if @informacion_socio.fecha_carta_bienvenida %></div>
+	<div style='width:33%;float:left;'><%= _("Documentación") %>: <%= @informacion_socio.fecha_envio_documentacion.strftime('%d/%m/%Y') if @informacion_socio.fecha_envio_documentacion %></div>
+	<div style='width:33%;float:left;'><%= _("Carné") %>: <%= @informacion_socio.fecha_envio_carne.strftime('%d/%m/%Y') if @informacion_socio.fecha_envio_carne %></div>
+	<br><hr>
+
+	<b>Otros</b><br>
+	<div style='width:25%;float:left;'><%= _("Origen del Socio/a") %>: <%= @informacion_socio.origen_socio.origen %>
+	<div style='width:75%;float:left;'><%= _("Comentario sobre el Origen") %>: <%= @informacion_socio.comentario_origen_socio %>
+	<br>
+    </div>
+  <%= final_sublistado %> 
+</div>
+<BR>
+

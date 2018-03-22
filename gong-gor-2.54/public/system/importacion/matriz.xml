@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Matriz.xsl"?>
+<matriz xsi:noNamespaceSchemaLocation="/Users/Alvaro/BGS/ONG/Diseño/Interfaz/Documentos Esquema/Matriz/Matriz.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fecha_creacion="2010-03-20T10:01:11">
+	<og descripcion="Objetivo general"/>
+	<oe codigo="OE1" descripcion="Objetivo Específico 1">
+    <h descripcion="Hipótesis 1"/>
+		<h descripcion="Hipótesis 3"/>
+		<iov codigo="OE1.IOV1" descripcion="Indicador Objetivamente verificable 1">
+			<fv codigo="OE1.IOV1.FV1" descripcion="Fuente de verificación 1" />
+			<fv codigo="OE1.IOV1.FV2" descripcion="Fuente de verificación 2" />
+		</iov>
+		<iov codigo="OE1.IOV2" descripcion="Indicador Objetivamente verificable 2">
+			<fv codigo="OE1.IOV2.FV3" descripcion="Fuente de verificación 3">
+			</fv>
+		</iov>
+		<res codigo="OE1.R1" descripcion="Resultado 1">
+			<rh descripcion="Hipotesis 1 del resultado 1"/>
+			<riov codigo="OE1.R1.IOV1" descripcion="Indicador Objetivamente Verificable 1 del resultado 1">
+				<rfv codigo="OE1.R1.IOV1.RFV1" descripcion="Fuente de verificación 1 del resultado 1" />
+			</riov>
+			<act codigo="OE1.R1.ACT1" descripcion="Actividad 1 del resultado 1"/>
+			<act codigo="OE1.R1.ACT2" descripcion="Actividad 2 del resultado 1"/>
+		</res>
+		<res codigo="OE1.R2" descripcion="Resultado 2">
+  		<rh descripcion="Hipotesis 1 del resultado 2"/>
+			<riov codigo="OE1.R2.IOV1" descripcion="Indicador Objetivamente Verificable 1 del resultado 2">
+				<rfv codigo="OE1.R2.IOV1.RFV1" descripcion="Fuente de verificación 1 del resultado 2" />
+			</riov>
+			<act codigo="R2.ACT1" descripcion="Actividad 1 del resultado 2"/>
+		</res>
+	</oe>
+	<oe codigo="OE2" descripcion="Objetivo Específico 2">
+		<h codigo="OE2.IOV1.FV1.H1" descripcion="Hipótesis 1"/>
+		<h codigo="OE2.IOV1.FV2.H2" descripcion="Hipótesis 2"/>
+		<h codigo="OE2.IOV2.FV3.H3" descripcion="Hipótesis 3"/>
+		<iov codigo="OE2.IOV1" descripcion="Indicador Objetivamente verificable 1">
+			<fv codigo="OE2.IOV1.FV1" descripcion="Fuente de verificación 1" />
+			<fv codigo="OE2.IOV1.FV2" descripcion="Fuente de verificación 2" />
+		</iov>
+		<iov codigo="OE2.IOV2" descripcion="Indicador Objetivamente verificable 2">
+			<fv codigo="OE2.IOV2.FV3" descripcion="Fuente de verificación 3" />
+		</iov>
+		<res codigo="OE2.R1" descripcion="Resultado 1">
+			<rh descripcion="Hipotesis 1 del resultado 1"/>
+			<riov codigo="OE2.R1.IOV1" descripcion="Indicador Objetivamente Verificable 1 del resultado 1">
+				<rfv codigo="OE2.R1.IOV1.RFV1" descripcion="Fuente de verificación 1 del resultado 1" />
+			</riov>
+			<act codigo="R1.ACT1" descripcion="Actividad 1 del resultado 1"/>
+		</res>
+		<res codigo="R2" descripcion="Resultado 2">
+			<rh  descripcion="Hipotesis 1 del resultado 2"/>
+			<riov codigo="R2.IOV1" descripcion="Indicador Objetivamente Verificable 1 del resultado 2">
+				<rfv codigo="R2.IOV1.RFV1" descripcion="Fuente de verificación 1 del resultado 2" />
+			</riov>
+			<act codigo="R2.ACT1" descripcion="Actividad 1 del resultado 2"/>
+			<act codigo="R2.ACT2" descripcion="Actividad 2 del resultado 2"/>
+			<act codigo="R2.ACT3" descripcion="Actividad 3 del resultado 2"/>
+		</res>
+	</oe>
+
+</matriz>
+

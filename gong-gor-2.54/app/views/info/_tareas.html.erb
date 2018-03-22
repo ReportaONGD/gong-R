@@ -1,0 +1,20 @@
+
+<fieldset class="fila caja_gris enlace" title="<%= _("Haz click para ir a Tareas") %>" onclick="window.location = '<%= url_for :controller => :tarea %>'">
+  <div class="info_nombre"><%= _("Tareas pendientes asignadas a") %> <%= @usuario_identificado.nombre %> (<%= @tareas.size %>)
+ <%#"<BR> Proyecto: ".html_safe + @proyecto.nombre if  @proyecto%>
+</div>
+  <div class="info_contenido_auto">
+    <% if @tareas.size == 0  -%>
+       <%= _("No hay tareas asociadas pendientes.") %>        
+    <% else -%>
+      <%= cabecera_listado campos_listado("tarea") %>
+      <% for tarea in @tareas %>
+        <div  id="tarea_<%= tarea.id %>" class="filaDos <%= tarea.estado_color %>">
+          <%= fila_listado tarea, campos_listado("tarea"), "tarea_" + tarea.id.to_s %>
+        </div>
+      <% end %>
+      <%= final_listado %>
+    <% end %>
+  </div>
+</fieldset>
+

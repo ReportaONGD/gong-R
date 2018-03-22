@@ -1,0 +1,31 @@
+
+<%= comienzo_sublistado _("Tareas Periodo"), params[:update], :anadir => {:url =>  {:controller => 'tarea', :action => 'editar_nuevo_tarea_periodo', :update =>  params[:update] + "_periodo_anadir" , :periodo_id => params[:periodo_id], :update_listado => params[:update] }} %>
+<div id="<%= params[:update] %>_periodo_anadir"></div>
+
+</div>
+<% unless  @tareas.empty? %>
+	<%= cabecera_listado campos_listado("tarea"), _("Nueva tarea"), nil , :id => "tarea_anadir" %>
+	<% i = 0 %>
+	<% for tarea in @tareas %>
+	   <div  id="<%= params[:update] %>_tareas_<%= (i += 1).to_s%>" class="fila <%= tarea.estado_color %>" >
+	    <%= fila_listado tarea, campos_listado("tarea"), params[:update] + "_tareas_" + i.to_s %>
+	    <div class="elementoderecha">
+				<% avisos = "" %>
+	      <% avisos += " " + _("La tarea no tiene definida fecha de inicio.") unless tarea.fecha_inicio %>	
+	      <% avisos += " " + _("La tarea no tiene definida fecha de finalización.") unless tarea.fecha_fin %>
+	      <% avisos += " " + _("La tarea no tiene asignado usuario.") unless tarea.usuario_asignado_id %>
+	      <%= icono( "alerta", _("¡Atención!.") + avisos ) unless avisos == "" %>
+	      <%= ventana_info_popup tarea, {:campos => campos_listado("tarea") + campos_info("tarea"), :id => (params[:update] + "_tareas_" + i.to_s + "_informacion") } %>
+	      <%= editar :url => {:action => 'editar_nuevo_tarea_periodo', :update => (params[:update] + "_tareas_" + i.to_s), :id => tarea.id, :periodo_id => params[:periodo_id], :update_listado => params[:update]}  %>
+	      <%= borrado :url => { :action => 'eliminar_tarea_periodo', :update =>  (params[:update] +"_tareas_" + i.to_s), :id => tarea.id, :periodo_id => params[:periodo_id], :update_listado => params[:update] }, :comentario => _('Eliminar Tarea asociada a periodo '),  :identificador => (params[:update] + "_tareas_" + i.to_s) %>
+
+	    </div>
+			    <div class="linea"></div>
+	    </div>
+	<% end %>
+<% end %>
+<%= final_sublistado %> 
+<BR>
+
+
+

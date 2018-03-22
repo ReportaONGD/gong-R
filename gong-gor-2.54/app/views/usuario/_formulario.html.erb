@@ -1,0 +1,42 @@
+<%=  comienzo_formulario( {:action => 'modificar_crear', :id => @usuario }, false ) %>
+    <%= texto _("Nombre"), 'usuario', 'nombre', "1" %>
+    <%= texto _("Nombre completo"), 'usuario', 'nombre_completo', "2" %>
+    <%= selector _("Delegación/Oficina"), 'usuario', 'agente_id', @agentes, @agente.nil?, "1"  %>
+    <div id = "contrasena" class="elemento1">
+      <% if @usuario && (Rails.configuration.external_auth.first.nil? || @usuario.external_id.nil?) %>
+        <br><%= link_to_remote(_("Nueva contraseña"), :update => "contrasena", :url=>{:action => "contrasena"} ,:loading => "Element.show('indicador')", :complete => "Element.hide('indicador')") %>  
+      <% else %>
+        <%= contrasena _("Contraseña"), 'usuario', 'contrasena', "1"  unless @usuario %>
+        <br>
+      <% end %>
+    </div>
+    <%= texto _("Correo"), 'usuario', 'correoe', "2" %>
+    <%= selector _("Bloqueado"), 'usuario', 'bloqueado',   [[_("No"), false], [_("Sí"), true]] , false, "1"  %>
+    <div class="elemento1">&nbsp;<br>&nbsp;</div>
+    <%= texto _("Skype ID"), 'usuario', 'skype_id', "2" %>
+    <div class="elemento1">&nbsp;<br>&nbsp;</div>
+    <!-- Permitimos gestionar administradores solo desde los propios admins -->
+    <% unless @agente %>
+      <%= selector _("Administrador"), 'usuario', 'administracion',   [[_("No"), false], [_("Sí"), true]] , false, "1"  %>
+    <% end %>
+    <div class="linea"></div>
+    <br>
+    <div class = "elemento2">
+      <div style="float:right;">&nbsp;&nbsp;</div><div style="float:right;"<b>Permisos :</b></div>
+    </div>
+    <div class="elemento1">
+    <%= checkbox _("Sección Proyectos"), 'usuario', 'proyectos', "1", {:izquierda => true, :checked => (@usuario ? @usuario.proyectos : false) }  %>
+    <%= checkbox _("Sección Agentes"), 'usuario', 'agentes', "1", {:izquierda => true, :checked => (@usuario ? @usuario.agentes : false) }  %>
+    <!-- Desde las oficinas no podemos cambiar las asignaciones al cuadro de mando ni a socios ni a proyectos marco -->
+    <% unless @agente %>
+      <%= checkbox _("Sección Programas Marco"), 'usuario', 'programas_marco', "1", {:izquierda => true, :checked => (@usuario ? @usuario.programas_marco : false) }  %>
+      <%= checkbox _("Sección Cuadro de Mando"), 'usuario', 'cuadromando', "1", {:izquierda => true, :checked => (@usuario ? @usuario.cuadromando : false) }  %>
+      <%= checkbox _("Sección Socios"), 'usuario', 'socios', "1", {:izquierda => true, :checked => (@usuario ? @usuario.socios : false) }  %>
+    <% end %>
+    <%= checkbox _("Sección Documentos"), 'usuario', 'documentos', "1", {:izquierda => true, :checked => (@usuario ? @usuario.documentos : false) }  %>
+    <% if Plugin.activos.find_by_clase("Webservice") %>
+     <%= checkbox _("Sección Informes AECID"), 'usuario', 'informes_aecid', "1", {:izquierda => true, :checked => (@usuario ? @usuario.informes_aecid : false) }  %>
+    <% end %>
+    </div>
+
+<%= final_formulario %>

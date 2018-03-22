@@ -1,0 +1,14 @@
+    <p><%= _("El próximo día '%{dia}' se cumple el plazo de finalización de la tarea '%{nombre}'")%{dia: I18n.l(@tarea.fecha_fin), nombre: @tarea.titulo} %></p>
+    <p><ul>
+      <li><strong><%= _("Título") %>: </strong><%= @tarea.titulo %></li>
+      <li><strong><%= _("URL") %>: </strong><%= url_for(@url) %></li>
+      <li><strong><%= _("Tipo") %>: </strong><%= @tarea.tipo_tarea.nombre if @tarea.tipo_tarea %></li>
+      <li><strong><%= _("Autor") %>: </strong><%= @tarea.usuario.nombre_completo if @tarea.usuario %></li>
+      <li><strong><%= _("Asignada a") %>: </strong><%= @tarea.usuario_asignado.nombre_completo if @tarea.usuario_asignado %></li>
+      <li><strong><%= _("Estado") %>: </strong><%= @tarea.estado_tarea.nombre.capitalize if @tarea.estado_tarea %></li>
+      <li><strong><%= _("Fecha de Inicio") %>: </strong><%= I18n.l(@tarea.fecha_inicio) if @tarea.fecha_inicio %></li>
+      <li><strong><%= _("Fecha Prevista") %>: </strong><%= I18n.l(@tarea.fecha_prevista) if @tarea.fecha_prevista %></li>
+      <li><strong><%= _("Fecha de Finalización") %>: </strong><%= I18n.l(@tarea.fecha_fin) if @tarea.fecha_fin %></li>
+      <li><strong><%= _("Porcentaje realizado") %>: </strong><%= @tarea.porcentage_implementacion %> %</li>
+      <li><strong><%= _("Descripción") %>: </strong><%= @tarea.descripcion %></li>
+    </ul></p>

@@ -1,0 +1,48 @@
+<!-- Caja con informacion del Proyecto -->
+  <% enlazar = true unless defined?(enlazar) %>
+  <% if enlazar %>
+    <% url_relaciones = url_fechas = proyecto_path(proyecto.id) %>
+    <fieldset class="caja_info caja_gris enlace" onclick="window.location = '<%= url_relaciones %>'">
+  <% else %>
+    <% url_relaciones = url_for( seccion: "proyectos", menu: "configuracion", controller: "datos_proyecto", action: "relaciones", proyecto_id: proyecto.id) %>
+    <% url_fechas = url_for( seccion: "proyectos", menu: "configuracion", controller: "datos_proyecto", action: "etapas", proyecto_id: proyecto.id) %>
+    <fieldset class="caja_info caja_gris">
+  <% end %>
+
+      <div class="info_nombre" title="<%= proyecto.nombre %>"><%= truncate(proyecto.nombre,:length => 27) %></div>
+      <div class="info_contenido">
+        <div class="info_estado<%= '_ejecucion' if proyecto.definicion_estado && proyecto.definicion_estado.ejecucion && !proyecto.definicion_estado.cerrado %>">
+          <%= proyecto.estado.last.definicion_estado.nombre.capitalize if proyecto.estado.last %>
+        </div>
+        <div class="info_titulo_proyecto" title="<%= proyecto.titulo %>">
+          <%= proyecto.titulo %>
+          <%= ("<br/>(" + _("Convenio") + ": ").html_safe + link_to( h(@proyecto.convenio.nombre), {:menu => "resumen", :controller => :info, :proyecto_id => @proyecto.convenio.id }, :id => "convenio_asociado", :title => _("Ir al Convenio")) + ")" if params[:seccion] == "proyectos" && @proyecto.convenio %>
+        </div>
+
+        <% if params[:seccion] == "proyectos" %>
+          <%= render :partial => "usuarios_proyecto", :locals => { :proyecto => proyecto } %>
+        <% else %>
+          <%= render :partial => "porcentaje_tiempos", :locals => { :proyecto => proyecto } unless proyecto.estado_actual && (proyecto.estado_actual.definicion_estado.cerrado || !proyecto.estado_actual.definicion_estado.ejecucion) %>
+          <%= render :partial => "porcentaje_gasto", :locals => { :proyecto => proyecto } %>
+        <% end %>
+        <% txt_paises = proyecto.pais.collect { |pais| pais.nombre }.join(", ") %>
+        <a href="<%= url_relaciones %>" class="info_pais enlace-contextual" title="<%= txt_paises %>"><%= proyecto.agente.nombre + " / " + txt_paises %></a>
+        <div class="info_pie">
+          <% if proyecto.etapa.count > 0 %>
+            <% inicio = proyecto.fecha_de_inicio %>
+            <% fin = proyecto.fecha_de_fin %>
+            <a href="<%= url_fechas %>" class="enlace-contextual">
+              <%= proyecto.etapa.count.to_s + " " + _("Etapa") + ( proyecto.etapa.count == 1 ? "" : "s") %>
+              &nbsp;(
+                <span title="<%= _("Fecha de Inicio") + ": " + I18n.l(inicio, format: :long) %>"><%= I18n.l(inicio) %></span>
+                &nbsp;-&nbsp;
+                <span title="<%= _("Fecha de Fin") + ": " + I18n.l(fin, format: :long) %>"><%= I18n.l(fin) %></span>
+               )
+            </a>
+          <% else %>
+            <%= _("No hay etapas definidas") %>
+          <% end %>
+          <%= link_to( icono( "descargar", _("Ficha Resumen" )), ficha_resumen_path(@proyecto.id), style: 'left: 20px;position: absolute;') if @proyecto %>
+        </div>
+      </div>
+    </fieldset>

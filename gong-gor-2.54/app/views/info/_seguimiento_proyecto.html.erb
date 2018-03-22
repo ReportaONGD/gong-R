@@ -1,0 +1,45 @@
+    <% ind_total = Indicador.count(:include => ["objetivo_especifico", "resultado"], :conditions => ["objetivo_especifico.proyecto_id = ? OR resultado.proyecto_id = ?", @proyecto.id, @proyecto.id]) %>
+    <% ind_cumplidos = Indicador.count(:include => ["valor_intermedio_x_indicador", "objetivo_especifico", "resultado"], :conditions => ["porcentaje = 1 AND (objetivo_especifico.proyecto_id = ? OR resultado.proyecto_id = ?)", @proyecto.id, @proyecto.id]) %>
+    <% ind_valor = Indicador.all(:include => ["objetivo_especifico", "resultado"], :conditions => ["objetivo_especifico.proyecto_id = ? OR resultado.proyecto_id = ?", @proyecto.id, @proyecto.id]).inject(0){|sum,i| sum + i.porcentaje_actual } %>
+    <% fv_total = FuenteVerificacion.count(:include => ["objetivo_especifico", "resultado"], :conditions => ["objetivo_especifico.proyecto_id = ? OR resultado.proyecto_id = ?", @proyecto.id, @proyecto.id]) %>
+    <% fv_valor = FuenteVerificacion.count(:include => ["objetivo_especifico", "resultado"], :conditions => ["completada AND (objetivo_especifico.proyecto_id = ? OR resultado.proyecto_id = ?)", @proyecto.id, @proyecto.id]) %>
+    <% axe_total = ActividadXEtapa.count(:include => [:actividad], :conditions => ["actividad.proyecto_id = ?",@proyecto.id]) %>
+    <% axe_valor = ActividadXEtapa.count(:include => [:actividad,:valor_intermedio_x_actividad], :conditions => ["actividad.proyecto_id = ? AND realizada = TRUE",@proyecto.id]) %>
+    <% activ_total = @proyecto.actividad.count %>
+    <% activ_valor = @proyecto.actividad.sum do |a|
+         vixa = ValorIntermedioXActividad.joins(:actividad_x_etapa).
+                                          where("actividad_x_etapa.actividad_id" => a.id).
+                                          order("valor_intermedio_x_actividad.fecha").last
+         vixa ? vixa.porcentaje||0.0 : 0.0
+       end %>
+
+    <!-- Caja con seguimiento del proyecto -->
+    <fieldset class="caja_info caja_gris">
+      <div class="info_nombre"><%= _("Seguimiento del Proyecto") %></div>
+      <div class="info_contenido">
+        <% url_activ = url_for( seccion: "proyectos", proyecto_id: @proyecto.id, menu: "ejecucion_tecnica", controller: "actividad" ) %>
+        <%= caja_porcentaje total: activ_total, valor: activ_valor,
+                            titulo: _("Actividades") + ":",
+                            url: url_activ, 
+                            rotulo: _("%{num} de %{total} Actividades finalizadas") % {num: axe_valor, total: axe_total} %>
+        <!-- Solo presentamos subactividades si existe alguna -->
+        <% subactiv_total = Subactividad.count(:include => [:actividad], :conditions => ["actividad.proyecto_id = ?",@proyecto.id]) %>
+        <% if subactiv_total > 0 %>
+          <% subactiv_pct = Subactividad.joins(:actividad).where("actividad.proyecto_id = ?", @proyecto.id).sum{|s| s.valor_intermedio_x_subactividad.empty? ? 0.0 : s.valor_intermedio_x_subactividad.first.porcentaje } %>
+          <% subactiv_valor = Subactividad.count(:include => [:actividad,:valor_intermedio_x_subactividad], :conditions => ["actividad.proyecto_id = ? AND estado = ?",@proyecto.id, "Cerrada"]) %>
+          <%= caja_porcentaje :total => subactiv_total, :valor => subactiv_pct, :titulo => _("Subactividades") + ":", :rotulo => _("%{num} de %{total} Subactividades finalizadas") % {:num => subactiv_valor, :total => subactiv_total} %>
+        <% end %>
+
+        <% url_ind = url_for( seccion: "proyectos", proyecto_id: @proyecto.id, menu: "ejecucion_tecnica", controller: "indicador" ) %>
+        <%= caja_porcentaje total: ind_total, valor: ind_valor,
+                            titulo: _("Indicadores") + ":",
+                            url: url_ind,
+                            rotulo: _("%{num} de %{total} indicadores totalmente cumplidos.<br>%{pct} de cumplimiento medio.")%{num: ind_cumplidos, total: ind_total, pct: (ind_total > 0 ? (100*ind_valor/ind_total).to_i.to_s : "0") + "%" } %>
+
+        <% url_fv = url_for( seccion: "proyectos", proyecto_id: @proyecto.id, menu: "ejecucion_tecnica", controller: "fuente_verificacion", action: "listado_fuentes_verificacion" ) %>
+        <%= caja_porcentaje total: fv_total, valor: fv_valor,
+                            titulo: _("FV Justificadas") + ":",
+                            url: url_fv,
+                            rotulo: _("%{num} de %{total} Fuentes de Verificación justificadas")%{num: fv_valor, total: fv_total} %> 
+      </div>
+    </fieldset>

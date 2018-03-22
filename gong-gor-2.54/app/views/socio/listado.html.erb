@@ -1,0 +1,17 @@
+<%= cabecera_listado campos_listado("socio"), _("Nuevo socio"), {:action => 'editar_nuevo'}, {:id => "socio_anadir"} %>
+<% i = 0 %>
+<% for socio in @socios %>
+<div  id="socio_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado socio, campos_listado("socio"), "socio_"+ i.to_s %>
+    <div class="elementoderecha">
+      <%# ventana_popup socio, "tratamiento", "NIF", "NIF_representante", "sexo", "fecha_nacimiento", "direccion", "localidad", "codigo_postal", "provincia", "comunidad", "municipio", "codigo_provincia_fiscal", "email", "telefono_fijo", "telefono_movil", "comentarios", "naturaleza_socio.naturaleza" %>
+      <%= link_to_remote(icono("lista", _("Ver información del socio")),  :url => {:update => "socio_" + i.to_s + "_sub", :action => 'informacion_socio', :id => socio.id.to_s}, :loading => "Element.show('spinner_#{socio.id.to_s }')", :complete => "Element.hide('spinner_#{socio.id.to_s}')", :html => {:id => ("socio_" + i.to_s + "_informacion_socio")} )   %>
+      <%= link_to icono( "seleccionar", _("Seleccionar socio para ver pagos" ) ), {:update => "socio_" + i.to_s + "_sub", :action => 'listado_pago_socio', :id => socio.id}, :id => ("socio_" + i.to_s + "_listado_pago_socio")  %>
+       <%= modal(icono( "editar"), {:update => "socio_" + i.to_s + "_sub", :action => 'editar_nuevo', :id => socio}, _("Editar socio"), :id => "socio_" + i.to_s + "_editar" )   %>
+       <%= modal_borrado icono( "borrar", _( "eliminar" ) ), { :update => "socio_" + i.to_s + "_sub", :action => 'eliminar', :id => socio.id },  _('Eliminar el socio'),  socio.nombre, :id => ("socio_" + i.to_s + "_borrar") %>
+    </div>
+    <div id="spinner_<%= socio.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id='socio_<%= i.to_s %>_sub' class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>

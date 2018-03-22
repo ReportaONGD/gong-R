@@ -1,0 +1,22 @@
+
+
+<%= comienzo_sublistado _("Tareas"), params[:update] %>
+<div class="fila">
+<%= modal icono("anadir"), {:action => 'nueva_editar_tarea', :update =>  params[:update],:definicion_estado_id => params[:definicion_estado_id]},_("Nuevo tarea"), {:id => params[:update] + "_tarea_anadir"} %>  
+</div>
+
+<% i = 0 %>
+<% for tarea in @tareas %>
+   <div  id="<%= params[:update] %>_tareas_<%= (i += 1).to_s %>" class="fila" >
+    <%= fila_listado tarea, campos_listado("definicion_estado_tarea"), params[:update] + "_tareas_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= modal( icono( "editar" ), {:update => params[:update], :action => 'nueva_editar_tarea', :id => tarea.id, :definicion_estado_id => params[:definicion_estado_id]}, _("Editar tarea"), :id => params[:update]+"_tareas_"+ i.to_s + "_editar" ) %>
+      <%= modal_borrado icono( "borrar", _( "Eliminar tarea" )), { :update => params[:update], :action => 'eliminar_tarea', :id => tarea.id, :definicion_estado_id => params[:definicion_estado_id] }, _('Eliminar tarea'), tarea.titulo, :id => params[:update] + "_tareas_" + i.to_s + "_borrar", :ajax => true %>      
+    </div>
+    <div class="linea"></div>
+   </div>
+<% end %>
+<%= final_sublistado %> 
+<br>
+
+ 

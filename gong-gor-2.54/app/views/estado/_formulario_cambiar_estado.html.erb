@@ -1,0 +1,11 @@
+<% if @definicion_estado_siguiente.empty? %>
+  <div class="fila">
+  <%= _("El proyecto se encuentra cerrado en el estado actual") %>
+  </div>
+  <br>
+<% else %>
+  <%=  comienzo_formulario( {:action => 'modificar_estado', :id => @estado} , false ) %>
+  <%= selector _("Nuevo Estado"), 'definicion_estado', 'id', @definicion_estado_siguiente, false, "1" %>
+  <%= texto_area _("Observaciones sobre el Cambio del Estado"), 'estado', 'observacion', "4" if @estado_actual%>
+  <%= final_formulario :texto_alternatif => _("Cambiar")  %>
+<% end %>

@@ -1,0 +1,8 @@
+page.replace 'formulario', :inline => '<%= mensaje_error(@objeto) %><br>'
+page.visual_effect :highlight, params[:update], :duration => 6
+page.call("Modalbox.resizeToContent")
+if @objeto.class.name == "Presupuesto" || @objeto.class.name == "Gasto"
+  #page.replace_html 'activ_financ_' + @objeto.id.to_s, :partial => 'comunes/activ_financ'
+  page.replace params[:update] + "_proyectos", :partial => 'comunes/icono_proyectos', :locals => {:objeto => @objeto}
+end
+

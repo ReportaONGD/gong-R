@@ -1,0 +1,21 @@
+<%= comienzo_listado %>
+<% for actividad in @actividades %>
+  <% update = "actividad_" + actividad.id.to_s %>
+  <div id="<%= update %>">
+
+    <%# actividad_completada = ActividadXEtapa.find_by_actividad_id_and_etapa_id(actividad.id, params[:etapa_id]).realizada? %>
+    <% actividad_completada = false %>
+
+    <div class="filacabecera <%= actividad_completada ? '': 'rojo' %>" id="<%= update %>_cabecera">
+      <%= fila_listado actividad, campos_listado("actividad"),  update %>
+      <div class="elementoderecha">
+        <%= anadir :url => {:action => 'editar_nueva_subactividad', :actividad_id => actividad.id , :update_listado => update + "_subactividad", :update =>  ( update + "_subactividad_anadir") } unless params[:menu] == "ejecucion_tecnica" %>
+      </div>
+      <div class="linea"></div>
+    </div>
+
+    <%= render :partial => "subactividades", :locals => {:actividad => actividad, :update => update + "_subactividad"} %>
+  </div>
+ 
+<% end %>
+<%= final_listado %>

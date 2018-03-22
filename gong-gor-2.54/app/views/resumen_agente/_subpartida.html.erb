@@ -1,0 +1,37 @@
+<!-- FORMULARIO DE SELECCION DE VOLCADO-->
+
+
+
+<fieldset>
+<div class="legend" align= "left">
+  <%= _("Detalle de subpartidas para la partida seleccionada.") %> <br>
+  <%= _("Moneda") %>: <%= params[:moneda] == "todas" ?  _("Todas las monedas") : Moneda.find(params[:moneda]).abreviatura %><br>
+  <%= _("Tasa de Cambio") %>: <%= (params[:tasa_cambio] == "1" or params[:moneda] == "todas") ? _("Aplicada"): _("No aplicada") %><br>
+  <%= _("Etapa") %>: <%= @etapa.nombre %> : <%= @etapa.fecha_inicio %> / <%= @etapa.fecha_fin %><br>
+  <%= _("Partida") %>: <%= Partida.find(params[:partida]).codigo_nombre %>
+  <div class = "linea"></div></br>
+</div>
+
+<%= tabla_resumen @datos_agente, @columnas_agente, @filas_agente, :fila_suma => true %> 
+</fieldset>
+
+
+<fieldset>
+<div class="legend" align= "left">
+  <%= _("Detalle de proyectos para la partida seleccionada.") %> <br>
+  <%= _("Moneda") %>: <%= params[:moneda] == "todas" ?  _("Todas las monedas") : Moneda.find(params[:moneda]).abreviatura %><br>
+  <%= _("Tasa de Cambio") %>: <%= (params[:tasa_cambio] == "1" or params[:moneda] == "todas") ? _("Aplicada"): _("No aplicada") %><br>
+  <%= _("Etapa") %>: <%= @etapa.nombre %> : <%= @etapa.fecha_inicio %> / <%= @etapa.fecha_fin %><br>
+  <%= _("Partida") %>: <%= Partida.find(params[:partida]).codigo_nombre %>
+  <div class = "linea"></div></br>
+</div>
+
+<%= tabla_resumen @datos_proyecto, @columnas_proyecto, @filas_proyecto, :fila_suma => true %> 
+</fieldset>
+
+
+  
+
+
+
+

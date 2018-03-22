@@ -1,0 +1,3 @@
+<%=  formulario_comienzo :url => { :action => 'modificar_crear_previsto', :id => @partida_financiacion, :update => params[:update], :update_listado => params[:update_listado] } %>
+  <%= texto_numero( _("Importe previsto"), 'partida_financiacion', 'importe_convertido', "2_3" ) %>
+<%= formulario_final %>

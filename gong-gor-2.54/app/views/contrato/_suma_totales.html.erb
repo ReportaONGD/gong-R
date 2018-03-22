@@ -1,0 +1,25 @@
+
+<fieldset id="<%= clase %>">
+  <div class="filacabecerasinborde" id="<%= clase %>_cantidad_total">
+    <div class="elemento1_2">&nbsp;</div>
+    <div class="elemento3">
+      <% total = @num_contratos.delete(:total) %>
+      <%= _("Total contratos") %>:&nbsp;<%= total[:cantidad] %>
+      <% detalle = @num_contratos.collect{|k,v| v[:etiqueta] if v[:cantidad] > 0}.compact %>
+      <%= ( " (" + detalle.join(", ") + ")" ) unless detalle.empty? %>
+    </div>
+    <div class="elemento2_3_td">&nbsp;</div>
+    <div class="elemento1_5">&nbsp;</div>
+  </div>
+
+  <% for linea in @importes_totales %>
+    <% alerta = linea[:importe] < 0 %>
+    <div class="filacabecerasinborde <%= 'rojo' if alerta %>" id="<%= clase + '_' + linea[:nombre] %>">
+      <div class="elemento2">&nbsp;</div>
+      <div class="elemento3_2_td"><%= linea[:etiqueta] %>:</div>
+      <div class="elemento2_3_td"><%= float_a_moneda linea[:importe] %></div>
+      <div class="elemento1_5"><%= linea[:moneda] %></div>
+    </div>
+  <% end %>
+</fieldset>
+

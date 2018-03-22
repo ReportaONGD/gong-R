@@ -1,0 +1,6 @@
+# Construye la salida de una vista/resumen basada en tabla (en proyectos, presupuesto y gasto)
+
+@tablas.each do |tabla|    
+  xls_resumen_tabla(workbook,tabla)
+end
+

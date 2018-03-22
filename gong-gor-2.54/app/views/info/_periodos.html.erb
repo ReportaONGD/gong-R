@@ -1,0 +1,80 @@
+<% if @proyecto -%>
+  <% campos =  campos_listado("periodo") %>
+  <fieldset id="periodos_<%= tipo %>" class="fila caja_gris enlace" title="<%= _("Haz click para ir a periodos de seguimiento") %>"
+          onclick="window.location = 
+          '<%= url_for :controller => :datos_proyecto, :action => :etapas, :menu => :configuracion  %>'">
+<% else -%>
+  <% campos = [[_("Proyecto"), "1", "proyecto.nombre", false]] + campos_listado("periodo") %>
+  <% campos[1] = [_("Nombre"), "1_2", "tipo_periodo.nombre", false] %>
+  <% campos[2] = [_("Estado"), "1_2", "proyecto.definicion_estado.nombre", false] %>
+  <fieldset id="periodos_<%= tipo %>" class="fila caja_gris">
+ <% end -%>
+
+ <% campos.pop 2 if tipo == "prorrogas" -%>
+ <% de_proyecto = !@proyecto.nil? -%>
+
+  <div class="info_nombre">
+    <% if GorConfig.getValue(:SHOW_ONLY_PERIODS_TO_BE_ACCEPTED) == "FALSE" -%>
+      <% rotulo = case tipo
+                  when "oficiales"
+                    de_proyecto ? 
+                      _("Periodos de seguimiento y formulación oficiales del proyecto") : 
+                      _("Periodos de seguimiento y formulación oficiales")
+                  when "internos" 
+                    de_proyecto ? 
+                      _("Periodos de seguimiento internos del proyecto") : 
+                      _("Periodos de seguimiento internos de proyectos")
+                  when "prorrogas"
+                    _("Prorrogas")
+                  end %>
+    <% else -%>
+      <% rotulo = case tipo
+                  when "oficiales"
+                    de_proyecto ? 
+                      _("Periodos pendientes de seguimiento y formulación oficiales del proyecto") : 
+                      _("Periodos pendientes de seguimiento y formulación oficiales")
+                  when "internos" 
+                    de_proyecto ? 
+                      _("Periodos pendientes de seguimiento internos del proyecto") : 
+                      _("Periodos pendientes de seguimiento internos de proyectos")
+                  when "prorrogas"
+                    _("Prorrogas pendientes de ser aceptadas")
+                  end %>
+    <% end -%>
+    <%= rotulo %> (<%= periodos.size %>)
+  </div>      
+
+  <div class="info_contenido_auto">
+    <% unless periodos.size == 0 -%>
+      <%= cabecera_listado campos %>
+      <% for periodo in periodos %>
+        <div id="periodo_<%= periodo.id %>" class="<%= @proyecto ? 'filaDos' : 'fila' %> <%= periodo.estado_color %>">
+          <%= fila_listado periodo, campos, "periodos" %>
+          <div class="elementoderecha">
+            <% unless tipo == "prorrogas" %>
+              <% avisos, tareas, hoy = "", periodo.tarea, Date.today %>
+              <% avisos += " " + _("No hay tareas definidas para el periodo.") if tareas.empty? %>
+              <% avisos += " " + _("Alguna de las tareas no tiene definida fecha de finalización.") if tareas.find {|t| t.fecha_fin == nil && t.estado_tarea && t.estado_tarea.activo} %>
+              <% avisos += " " + _("Alguna de las tareas no tiene definida fecha de inicio.") if tareas.find {|t| t.fecha_inicio == nil && t.estado_tarea && t.estado_tarea.activo} %>
+              <% avisos += " " + _("Se ha excedido la fecha de finalizacion de alguna de las tareas del periodo.") if tareas.find {|t| t.fecha_fin && t.fecha_fin < hoy && t.estado_tarea && t.estado_tarea.activo} %>
+              <% avisos += " " + _("Alguna de las tareas del periodo no esta asignada a ningun usuario.") if tareas.find {|t| t.usuario_asignado_id == nil && t.estado_tarea && t.estado_tarea.activo} %>
+              <%= icono( "alerta", _("¡Atención!.") + avisos ) unless avisos == "" %> 							 
+            <% end %>
+            <% unless @proyecto %>
+              <%= link_to( icono( "seleccionar", _("Ir a la gestiíon de periodos en el proyecto '%{nombre}'")%{nombre: periodo.proyecto.nombre}), url_for(:seccion => "proyectos", :proyecto_id => periodo.proyecto.id.to_s,  :controller => :datos_proyecto, :action => :etapas, :menu => :configuracion)) if periodo.proyecto %>
+            <% end %>
+          </div>
+        </div> 
+      <% end -%>
+      <%= final_listado periodos, url: {controller: :info, action: :listado_periodo, tipo: tipo} %>
+    <% end -%>
+    <% if @proyecto and tipo == "prorrogas" %>
+      <%= render partial: "datos_proyecto/fechas_prorrogas", locals: {tipo_periodo: "prorroga", titulo: _("Prorrogas a la Ejecución.")} %>
+      <%= render partial: "datos_proyecto/fechas_prorrogas", locals: {tipo_periodo: "prorroga_justificacion", titulo: _("Prorrogas a la Justificación Final.")} %>
+    <% elsif tipo == "prorrogas" %>
+      <%= render partial: "fechas_peticion_prorrogas" if !@proyectos_fechas_prorroga.blank? %>
+    <% end %>
+  </div>
+</fieldset>
+
+

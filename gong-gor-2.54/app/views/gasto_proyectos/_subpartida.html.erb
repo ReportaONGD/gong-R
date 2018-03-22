@@ -1,0 +1,9 @@
+<% disabled = defined?(disabled) && disabled %>
+<div class="elemento2" id="subpartida">
+  <% if partida_id.blank? %>
+    <%= _("Subpartida") %><br><%= _("Seleccione partida para elegir subpartida") %>
+  <% else %>
+    <% subpartidas = @proyecto.subpartida.where(partida_id: partida_id).collect{|s| [s.nombre, s.id]} %>
+    <%= selector _("Subpartida"), 'gasto_x_proyecto', 'subpartida_id', subpartidas, true ,"2", disabled: disabled %>
+  <% end %>
+</div>

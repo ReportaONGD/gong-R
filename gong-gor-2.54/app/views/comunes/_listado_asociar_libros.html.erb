@@ -1,0 +1,32 @@
+<!-- Partial para asociar libros tanto a usuario como a proyectos.  
+     Trabaja via ajax con los metodos: anadir_libro, eleminar_libro.
+-->
+
+
+<div class="mensaje"><%= flash[:mensaje_ajax]%>
+  <div  class="elementoderecha"><%= image_tag("cargando.gif", :id  => 'indicador1', :style => 'display:none')%></div>
+  <div class="linea"></div>
+</div>
+<%=  comienzo_formulario( {:action => 'anadir_libro', :id => @objeto, :atributo => "indicador1", :cancelar => "cancelar_actividades_financiadores"  }, true ) %>
+  <div class="fila">
+    <%= selector _("Agentes"), 'agente', 'id', @agentes, true, "1"  %> 
+		<%= observe_field( "agente_id" , :update => "libros", :url => {:action => :libros_agente} , :with => "id" , :loading =>		"Element.show('indicador1')", :complete => "Element.hide('indicador1')") %>
+    <div id="libros"> </div>
+  </div>
+<%= final_formulario %>
+
+<div class="fila" ><strong> <%= _("Cuentas relacionados:") %></strong></div>
+<div class="linea"></div>
+
+<%= cabecera_listado campos_listado("libro") %>
+<% i = 0 %>
+<% for libro in @libros  %>
+  <div id="libros_<% i+=1 %>" class="fila" >
+    <%= fila_listado libro, campos_listado("libro"), "libros_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= link_to_remote _("Borrar"), :update =>"listado_libros", :url =>{:action => 'eliminar_libro', :id => libro} ,:loading => "Element.show('indicador1')", :complete => "Element.hide('indicador1')", :id => ("libros_" + i.to_s + "_borrar") %>
+    </div>
+  <div class="linea"></div>
+  </div>
+<% end %>
+<%= final_listado %>

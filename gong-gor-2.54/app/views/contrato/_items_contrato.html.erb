@@ -1,0 +1,23 @@
+  <div class="linea">
+    <%= etiqueta "#", "1_4" %>
+    <%= etiqueta _("Concepto"), "2" %>
+    <%= etiqueta _("Cantidad"), "1_3" %>
+    <%= etiqueta _("Coste Unitario"), "1_2" %>
+    <%= etiqueta _("Importe"), "1_2" %>
+  </div>
+
+  <div class="linea">
+    <% linea =  1 %>
+    <% items = @contrato.item_contrato %>
+    <% unless items.blank? %>
+      <% for @item in items %>
+        <%= render partial: "item", locals: {linea: linea, ultima: items.last == @item ? true : false} %>
+        <% linea += 1 %>
+      <% end %>
+    <% else %>
+      <%= render partial: "item", locals: {linea: linea, ultima: true} %>
+    <% end %>
+  </div>
+  <br>
+  <div class="linea"></div>
+

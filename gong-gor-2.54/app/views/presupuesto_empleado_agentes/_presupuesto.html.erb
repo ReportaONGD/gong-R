@@ -1,0 +1,22 @@
+<% ppto_detallado_ok = presupuesto.comprobar_presupuesto_detallado %>
+<% marca_fila = ppto_detallado_ok ? (presupuesto.marcado ? presupuesto.marcado.color : '') : 'rojo' %>
+<div id="<%= update %>" class="fila <%= marca_fila %> " >
+  <%= fila_listado presupuesto, campos_listado( "presupuesto_empleado" ), update %>
+  <div class="elementoderecha">
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("La suma por proyectos no es correcta.")) unless presupuesto.comprobar_proyectos %>
+		<% # Hacemos una reforma a los campos de informacion que se muestran
+		campos_informacion = campos_listado("presupuesto") + campos_info("presupuesto")
+		campos_informacion.pop(2)
+		campos_informacion +=[[_("Proyectos"), "1", "importes_por_proyectos"]]
+		%>
+		<%= remote icono("seleccionar", _("Ver gastos relacionados")), :url => {:update => update + "_sub",:controller => "presupuesto_empleado_agentes", :action => 'gastos_relacionados_presupuesto', :presupuesto_id => presupuesto.id.to_s } %>
+    <%= ventana_info_popup presupuesto, {:campos => campos_informacion, :id => update + "informacion" } %>
+    <%= remote icono( "etiquetas", _("Marcar la línea de presupuesto.")), :url => {:update => update, :controller => "marcado" , :action => 'editar', :id => presupuesto, :tipo => "presupuesto", :vista => "presupuesto_empleado_agentes/presupuesto" } %>
+    <%= remote icono("comentarios" + (presupuesto.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => presupuesto.id.to_s, :tipo => "Presupuesto" } %>
+    
+    <%= editar( :url => { :action => 'editar_nuevo', :controller => 'presupuesto_empleado_agentes', :id => presupuesto, :update => update, :empleado_id => (empleado ? empleado.id : 0) })%>
+    <%= borrado( :url => { :action => 'eliminar', :controller => 'presupuesto_empleado_agentes', :id => presupuesto, :empleado_id => (empleado ? empleado.id : 0), :update => update}, :texto => presupuesto.concepto + " - " + presupuesto.importe.to_s , :identificador => update )%>
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div>
+</div>
+

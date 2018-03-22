@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  actividad_id: 1
+  etapa_id: 1
+
+two:
+  actividad_id: 1
+  etapa_id: 1

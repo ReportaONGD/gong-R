@@ -1,0 +1,24 @@
+
+<div id="<%= params[:update] %>" class="linea">
+<%= comienzo_sublistado "Valores Medidos", params[:update] %>
+<div class="fila">
+<%= modal(icono("anadir"), {:action => 'nuevo_editar_valor_variable', :update =>  params[:update], :variable_id => params[:variable_id] },_("Nuevo Valor Medido"), {:id => params[:update] + "_valor_anadir"}) if @permitir_ejecucion %>  
+</div>
+
+<% i = 0 %>
+<% for valor in @valores %>
+   <div  id="<%= params[:update] %>_valores_<%= (i += 1).to_s %>" class="fila" >
+    <%= fila_listado valor, campos_listado ("valor_medido"), params[:update] + "_valor_" + i.to_s %>
+    <div class="elementoderecha">
+      <% if !valor.variable_indicador_id.nil? %>
+        <%= modal( icono( "editar" ), {:update => params[:update], :action => 'nuevo_editar_valor_variable', :id => valor.id, :variable_id => params[:variable_id]}, _("Editar medida"), :id => params[:update]+"_valor_"+ i.to_s + "_editar" ) if @permitir_ejecucion %>
+        <%= modal_borrado(icono( "borrar", _( "Eliminar medida" )), { :update => params[:update], :action => 'eliminar_valor_variable', :id => valor.id, :variable_id => params[:variable_id] }, _('Eliminar valor medido: '), valor.valor.to_s + " (" + valor.fecha.to_s + ")", :id => params[:update] + "_valor_" + i.to_s + "_borrar", :ajax => true) if @permitir_ejecucion %>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+   </div>
+<% end %>
+<%= final_sublistado %> 
+<br>
+</div>
+ 

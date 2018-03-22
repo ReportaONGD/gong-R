@@ -1,0 +1,29 @@
+<%= cabecera_listado campos_listado "proyecto" %>
+<% i = 0 %>
+<% for proyecto in @proyectos %>
+<div id="proyectos_<%= i += 1 %>" class="fila">
+    <%= fila_listado proyecto, campos_listado("proyecto"), "proyectos_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup proyecto, {:campos => campos_listado("proyecto") + campos_info("proyecto"), :id => "proyectos_" + i.to_s + "_informacion" } %>
+      <% if proyecto.convenio? %>
+        <%= link_to_remote(icono("lista", _("Ver PACs")), :url => {:controller => 'proyecto', :action => 'listado_proyectos_convenio', :convenio_id => proyecto, :objeto => "proyecto", :update => "proyecto_sub_" + i.to_s + "_pac"}, :html => {:id => "proyecto_" + i.to_s + "_proyectos"}, :loading => "Element.show('spinner_#{proyecto.id.to_s }')", :complete => "Element.hide('spinner_#{proyecto.id.to_s}')" ) %>
+      <% else %>
+        <div class="icono"></div>
+      <% end %>
+      <%= link_to( icono( "seleccionar", _("Seleccionar Proyecto") + " " + proyecto.nombre ), proyecto_path(proyecto.id), :id => ("proyectos_" + i.to_s + "_seleccionar")  )  %>
+      <!-- Solo permitimos editar o borrar si el agente es gestor del proyecto -->
+      <% if proyecto.gestor_id == @agente.id %>
+        <%= modal( icono( "editar"),  {:action => 'editar_nuevo', :id => proyecto}, _("Editar ") + _(params[:menu].capitalize),  :id => ("proyecto_" + i.to_s + "_editar") )   %>
+        <%= modal_borrado icono(( "borrar"), _('Eliminar proyecto')), {:action => 'eliminar', :id =>proyecto.id } , _('Eliminar proyecto'),  proyecto.nombre, :id => "proyecto_" + i.to_s + "_borrar" %>
+      <% else %>
+        <div class="icono"></div>
+        <div class="icono"></div>
+      <% end %>
+    </div>
+  <div class='linea'></div>
+  <div id="spinner_<%= proyecto.id.to_s %>" class="spinner" style="display:none" ></div>
+  <div id="proyecto_sub_<%= i %>_pac" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+

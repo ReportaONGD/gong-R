@@ -1,0 +1,28 @@
+<%= formulario_comienzo( :url => { :action => 'modificar_crear', :id => @presupuesto, :i => params[:i], :partida_id => @partida, :nueva_vinculacion => @nueva_vinculacion })%>
+
+  <div class="fila">
+    <%= selector _("Etapa"), 'presupuesto', 'etapa_id', [[@etapa.nombre, @etapa.id.to_s]], false, "1", {:obligatorio => true, :disabled => true} %>
+    <%= selector _("Partida"), 'presupuesto', 'partida_ingreso_id', [[@partida.nombre, @partida.id.to_s]], false ,"2", {:obligatorio => true, :disabled => true} %>
+  </div>
+
+  <div class="fila">
+    <%= texto _("Concepto/Detalle"), 'presupuesto', 'concepto', "3", :obligatorio => true %>
+    <% etiqueta_importe = (@partida && @partida.proyecto) ? _("Importe Ejecución") : _("Importe") %>
+    <%= texto_numero etiqueta_importe, 'presupuesto', 'importe_convertido',"2_3", :obligatorio => true %>
+    <%= selector _("Moneda"), 'presupuesto', 'moneda_id', @monedas, false, "1_3", {:selected => (@presupuesto.moneda ? nil : (@agente||@proyecto).moneda_id), :obligatorio => true} %>
+  </div>
+
+  <div class="fila">
+    <%= selector _("Financiador"), 'presupuesto', 'financiador_id', @financiadores, true, "3_2" %>
+    <% if @partida && @partida.proyecto %>
+      <%= observe_field( "presupuesto_financiador_id", update: "proyecto",
+                        url: {controller: :presupuesto_ingresos, action: :cambia_financiador},
+                        with: "financiador_id", loading: "Element.show('spinner')", :complete => "Element.hide('spinner')") %>
+      <%= render partial: "formulario_proyecto" %>
+      <%= texto_numero _("% Funcionamiento"), 'presupuesto', 'porcentaje_convertido',"2_3", :obligatorio => true %>
+    <% end %>
+  </div>
+
+  <%= texto _("Observaciones"), 'presupuesto', 'observaciones', "4" %>
+
+<%= formulario_final %>

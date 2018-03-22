@@ -1,0 +1,49 @@
+# Construye la salida de un listado
+
+    hoja = workbook.create_worksheet
+    hoja.name = "Cronograma" 
+
+    hoja.default_format = formato_xls_normal
+    hoja.row(0).default_format = formato_xls_cabecera
+    hoja.row(0).height = 25
+    hoja[0,0] = "Cronograma " + @proyecto.nombre + " - " + @etapa.nombre + " (" + @etapa.fecha_inicio.to_s + "/" + @etapa.fecha_fin.to_s + ")" 
+
+    # Los campos a sacar son los del listado + los de la informacion adicional
+    #campos = campos_listado(@tipo) 
+    #campos += campos_info(@tipo) if campos_info(@tipo)
+
+    # Mete las cabeceras de los campos 
+    fila = 2
+    hoja.row(fila).default_format = formato_xls_negrita_centrado
+    hoja[fila,0] = _("Actividad")
+    hoja.column(0).width = caracteres("3_2")
+    fecha_inicio = @etapa.fecha_inicio
+    for mes in (1..@etapa.periodos)
+      fecha_crono = I18n.l(fecha_inicio + (mes-1).month, :format => "%b %Y")
+      hoja[fila,mes] = fecha_crono 
+      hoja.column(mes).width = 4 
+    end
+
+    fila += 1
+
+    # Mete cada uno de los elementos proporcionados
+    @actividades.each do |actividad|
+      hoja[fila,0] = actividad.codigo_descripcion 
+      #altura = 13 * (1 + actividad.codigo_descripcion.size/caracteres("1").to_i)
+      #hoja.row(fila).height = altura if altura > hoja.row(fila).height
+      actividad.actividad_detallada.find(:all, :conditions => {:etapa_id => @etapa.id, :seguimiento => false}).each do |objeto|
+        hoja.row(fila).set_format(objeto.mes, formato_xls_centrado_activado)
+        hoja[fila,objeto.mes] = "X"
+      end
+      fila +=1
+      if @proyecto.definicion_estado && params[:menu] == "ejecucion_tecnica"
+        axe = actividad.actividad_x_etapa.find_by_etapa_id(@etapa.id)
+        hoja[fila,0] = "(" + (axe && axe.estado_actual && axe.estado_actual.realizada ? _("Realizada") : _("Pendiente")) + ")" 
+        actividad.actividad_detallada.find(:all, :conditions => {:etapa_id => @etapa.id, :seguimiento => true}).each do |objeto|
+          hoja.row(fila).set_format(objeto.mes, formato_xls_centrado_resaltado)
+          hoja[fila,objeto.mes] = "X"
+        end
+        fila +=1
+      end
+    end
+

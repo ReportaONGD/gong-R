@@ -1,0 +1,10 @@
+<p><%= _("Se ha creado el proyecto") %>&nbsp;'<%= link_to( @objeto.nombre, @url) %>':</p>
+<p><ul>
+  <li><strong><%= _("Nombre") %>: </strong><%= @objeto.nombre %></li>
+  <li><strong><%= _("Título") %>: </strong><%= @objeto.titulo %></li>
+  <li><strong><%= _("Convocatoria") %>: </strong><%= @objeto.convocatoria ? @objeto.convocatoria.codigo : "N/A" %></li>
+  <li><strong><%= _("URL") %>: </strong><%= url_for(@url) %></li>
+  <li><strong><%= _("Gestor de la subvención") %>: </strong><%= @objeto.gestor ? @objeto.gestor.nombre_completo : "N/A" %></li>
+  <li><strong><%= _("Creador") %>: </strong><%= @creador ? @creador.nombre_completo : "N/A" %></li>
+  <li><strong><%= _("Fecha de creación") %>: </strong><%= DateTime.now %></li>
+</ul></p>

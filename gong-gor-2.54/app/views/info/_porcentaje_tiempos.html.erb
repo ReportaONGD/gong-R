@@ -1,0 +1,17 @@
+    <!-- Porcentaje de tiempo del proyecto -->
+      <% if proyecto.etapa.count > 0 %>
+        <% inicio = proyecto.etapa.sort{ |a,b| a.fecha_inicio <=> b.fecha_inicio }.first.fecha_inicio %>
+        <% fin = proyecto.etapa.sort{ |a,b| a.fecha_fin <=> b.fecha_fin }.last.fecha_fin %>
+        <% if proyecto.estado_actual && proyecto.estado_actual.definicion_estado.cerrado %>
+          <% ultimo_estado = estado.where(estado_actual: false).includes(:definicion_estado).where("definicion_estado.cerrado" => false).order("estado.updated_at").last %>
+          <% ultima = estado.fecha_fin %>
+          <% ultima = Date.today unless ultimo_estado %>
+        <% else %>
+          <% ultima = Date.today %>
+        <% end %>
+        <% texto_tiempo = ultima < inicio ? (_("Faltan %{num} días para comenzar") % {:num => (inicio - ultima).to_i}) : ( ultima > fin ? _("%{num} días de retraso") % {:num => (ultima - fin).to_i} : _("%{num} días restantes") % {:num => (fin - ultima).to_i}) %>
+        <% url_tiempo = url_for( seccion: "proyectos", proyecto_id: proyecto.id, menu: "configuracion", controller: "datos_proyecto", action: "etapas" ) %>
+        <%= caja_porcentaje total: (fin - inicio), valor: (ultima - inicio),
+                            url: url_tiempo,
+                            titulo: _("Tiempo:"), rotulo: texto_tiempo %>
+      <% end %>

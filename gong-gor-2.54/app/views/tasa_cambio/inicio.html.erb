@@ -1,0 +1,10 @@
+
+
+<fieldset>
+<div class="legend"><%= _("Seleccione etapa, proyecto, y tipo para aplicar tasas de cambio") %>:&nbsp;</div>
+  <%= comienzo_formulario "seleccionar_criterios" %>
+  <%= selector _('Etapa'), 'selector', 'etapa', @etapas.collect {|e| [e.nombre, e.id]}, false , '1'  %>
+  <%= selector _('Tipo'), 'selector', 'tipo', [[_("Aplicar tasas a los gastos"),"gasto"], [_("Aplicar tasas al presupuesto"),"presupuesto"]], false , '1'  %>		
+<div class="elementoderecha1_2"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %> </div>
+</form>
+</fieldset>

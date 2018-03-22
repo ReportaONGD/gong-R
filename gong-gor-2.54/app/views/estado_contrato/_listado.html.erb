@@ -1,0 +1,18 @@
+
+<% modificable = true %>
+<% opciones_sublistado = { campos_listado: campos_listado("estado_contrato") } %>
+<% opciones_sublistado[:anadir] = { url: {action: 'editar_nuevo', update: update_listado + "_estado_formulario_anadir" , update_listado: update_listado, id: params[:id]} } if modificable %>
+<%= comienzo_sublistado _("Registro de estados"), update_listado, opciones_sublistado %>
+<div id="<%= update_listado %>_estado_formulario_anadir"></div>
+<% for estado in @estados %>
+  <% update_id = update_listado + "_estado_" + estado.id.to_s %>
+  <div id="<%= update_id %>" class="fila" >
+    <%= fila_listado estado, campos_listado("estado_contrato"), update_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup estado, {:campos => campos_listado("estado_contrato") + campos_info("estado_contrato"), :id => update_id + "_informacion" } %>
+    </div>
+  </div>
+<% end %>
+<%= final_sublistado %> 
+
+<BR>

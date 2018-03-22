@@ -1,0 +1,16 @@
+<% no_borrable = @dato_basico && @dato_basico.no_borrable %>
+<%= mensaje _("El tipo de periodo que esta editando no se puede borrar ni modificar sus caracteristicas. Solo es posible modificar el nombre y su descipción") if no_borrable %>
+<%= comienzo_formulario( {action: 'modificar_crear', id: @dato_basico}, false ) %>
+  <div class="fila">
+    <%= texto _("Nombre"), 'dato_basico', 'nombre', "1" %>
+    <%= texto_area _("Descripción"), 'dato_basico', 'descripcion', "3" %>
+  </div>
+  <div class="fila">
+    <%= checkbox _("Periodo de seguimiento oficial de financiador (no interno a nuestra ONG)"), 'dato_basico', 'oficial', "3", {izquierda: true, checked: (@dato_basico && @dato_basico.oficial), disabled: no_borrable } %>
+  </div>
+  <div class="fila">
+    <%= selector _("Grupo tipo Periodo"), 'dato_basico', 'grupo_tipo_periodo', TipoPeriodo::GRUPOS.invert.to_a, false, "1", {disabled: no_borrable} %>
+    <%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+  </div>
+  <div class="fila"></div>
+<%= final_formulario %>

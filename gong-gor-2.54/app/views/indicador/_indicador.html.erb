@@ -1,0 +1,11 @@
+<div id="<%= fila %>" class="filacabecerasinborde">
+  <%= fila_listado @indicador, campos_listado("indicador"), fila %>
+  <div class="elementoderecha">
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("El indicador no está completado al 100%")) if @indicador.porcentaje_actual != 1 && params[:menu] == "ejecucion_tecnica" %>
+    <%= link_to_remote( icono("comentarios" + (@indicador.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => fila + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => @indicador.id.to_s, :tipo => "Indicador"} , :html => {:id => fila + "_comentarios"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" )%>
+    <%= link_to_remote(icono("seleccionar", _("Ver mediciones del indicador")), :url => {:update => fila + "_sub", :action => 'valores_indicador', :indicador_id => @indicador.id, :update_objeto => fila}, :html => {:id => fila + "_valores"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) if params[:menu] == "ejecucion_tecnica" %>
+  </div>
+  <br/>
+  <div id="<%= fila %>_sub" class="linea"></div>
+</div>
+

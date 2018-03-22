@@ -1,0 +1,17 @@
+
+<!-- Template para seleccionar etapa: hay que pasar @etapas (listado de etapas y el rotulo y la accion) -->
+
+<fieldset > <div class="legend"><%= rotulo  %></div>
+<%= comienzo_listado %>
+<% i = 0 %>
+<% for proyecto in @proyectos %>
+  <div id="proyectos_<%= i+=1 %>" class="fila">
+      <%= fila_listado proyecto, campos_listado("proyecto"), "proyectos_" + i.to_s %>
+      <div class="elementoderecha">
+         <%= link_to icono("elegir", _("Seleccionar proyecto para gestionar tasas de cambio")), {:action => accion, :id => proyecto}, :id => ("proyectos_" + i.to_s + "_seleccionar") %> 
+      </div>
+      <div class="linea"></div>
+  </div>
+<% end %> 
+<%= final_listado %>
+</fieldset>

@@ -1,0 +1,81 @@
+
+<% unless params[:to_pdf] %>
+  <fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+  <%= form_tag( { :action => "resumen_ejecutivo"}, :multipart => true, :class => "formulario" ) %>
+    <div class="fila">
+      <%= selector _("Mostrar información de"), 'selector', 'tipo_resumen',
+                      [[_("Proyectos como implementador"),"implementador"], [_("Proyectos como gestor"),"gestor"]],
+                      false, "1",
+                      {obligatorio: true, selected: (params[:selector][:tipo_resumen] if params[:selector])} %>
+      <%= observe_field( "selector_tipo_resumen", :function => '
+          if ( document.getElementById("selector_tipo_resumen").selectedIndex == 1 ) {
+            Element.hide("aviso_tipo_proyecto_implementador");
+            Element.show("aviso_tipo_proyecto_gestor");
+          } else {
+            Element.hide("aviso_tipo_proyecto_gestor");
+            Element.show("aviso_tipo_proyecto_implementador");
+          }
+      ' ) %>
+      <%= selector _("Moneda"), 'selector', 'moneda_id', @monedas, false, "1_2",
+                      {obligatorio: true, selected: @moneda.id} %>
+    </div>
+    <div class="fila">
+      <%= checkbox _("Sacar el resultado a fichero "), 'selector', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+      <%= observe_field( "selector_fichero" , :function => '
+          selector = document.getElementById("selector_fichero");
+          if( selector.checked ) {
+            Element.show("tipo_fichero");
+          }else { Element.hide("tipo_fichero"); }
+      ' ) %>
+      <div id="tipo_fichero" style="display:none">
+      <%= selector(_('Tipo de fichero'), 'selector', 'tipo', ["pdf", "xls"], false, '1_2', {:selected => (params[:selector][:tipo] if params[:selector])})  %>
+      </div>
+      <!-- Caja con Avisos -->
+      <div class="elementoderecha">
+        <fieldset class="amarillo"> <div class="legend">
+          <%= rotulo = _("Avisos") %></div>
+          <strong><ul>
+            <li>
+                <div id="aviso_tipo_proyecto_implementador"
+                  style="<%= params[:selector] && params[:selector][:tipo_resumen] == 'gestor' ? 'display:none;' : '' %>">
+                    <%= _("En el resumen como implementador los importes corresponden a los presupuestos asignados a '%{agente}'.")%{agente: @agente.nombre} %>
+                </div>
+                <div id="aviso_tipo_proyecto_gestor"
+                     style="<%= params[:selector] && params[:selector][:tipo_resumen] == 'gestor' ? '' : 'display:none;' %>">
+                    <%= _("En el resumen como gestor los importes corresponden al presupuesto total.") %>
+                </div>
+            </li>
+            <li>
+              <%= _("La tasa de cambio de la moneda (%{mon}) debe estar establecida en cada proyecto.")%{mon: @moneda.abreviatura} %>
+            </li>
+            <li>
+              <%= _("La suma de porcentajes de las 'Áreas de Actuación' debe ser 100%") %>
+            </li>
+          </ul></strong>
+        </fieldset>
+      </div>
+    </div>
+    <div class="elementoderecha1_2"> <%= submit_tag(_("Mostrar"), :class => "boton1_2") %></div>
+  </form>
+  </fieldset>
+<% end %>
+
+
+<% @resumen.each do |resumen| %>
+  <% if resumen[:listado][:lineas] %>
+    <div class="fieldset resumen-ejecutivo">
+      <div class="legend" align= "left">
+        <%= _("Resumen Ejecutivo") + " (" + Time.now.strftime('%d/%m/%Y') + ")" %>
+      </div>
+      <br>
+
+      <%= dibuja_tabla resumen[:listado][:lineas] unless resumen[:listado][:resumen_error] %>
+      <%= mensaje_error resumen[:listado][:resumen_error] if resumen[:listado][:resumen_error] %>
+
+    </div>
+  <% end %> 
+<% end if @resumen %>
+
+<%= "</div>" if params[:sin_layout]%>
+

@@ -1,0 +1,12 @@
+<% alerta = objeto.class.name == "PartidaFinanciacion" && objeto.importe > 0 && objeto.suma_presupuesto.to_f > objeto.importe %>
+<div class="filacabecerasinborde <%= 'rojo' if alerta %>" id="suma_<%= objeto.id %>">
+  <div class="elemento2"><%= _("Líneas de presupuesto") %>: <%= objeto.numero_presupuesto %> </div>
+  <div class="elemento3_4">Total <%= controller.controller_name == "presupuesto_proyectos" ? "partida" :  "actividad" %></div>
+  <div class="elemento1_2_td"><%= _("Acumulado") %>:</div>
+  <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % objeto.suma_presupuesto).to_s , :separator => ",", :delimiter => ".") %></div>
+  <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %> </div>
+  <div class="elemento1_2_td" title="<%= _('Porcentaje sobre el total acumulado.') %>"><%= number_with_delimiter(('%.2f' % objeto.porcentaje_presupuesto).to_s , :separator => ",", :delimiter => ".") %> %</div>
+  <div class="elementoderecha">
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("El importe acumulado en la partida supera al previsto.")) if alerta %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @tipo_contrato, :i => params[:i] } %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'tipo_contrato', 'nombre', '3', :obligatorio => true %>
+    <div class="fila"><br></div>
+    <%= texto _("Descripción"), 'tipo_contrato', 'descripcion', '4' %>
+    <%= texto _("Duración máxima (meses)"), 'tipo_contrato', 'duracion', '1' %>
+    <%= texto_area _("Observaciones"), 'tipo_contrato', 'observaciones', '5' %>
+  </div>
+  <div class="linea"><br><br></div>
+<%= formulario_final %>

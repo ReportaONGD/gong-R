@@ -1,0 +1,33 @@
+<%= cabecera_listado campos_listado("agente"), _("Nuevo agente"), {:action => 'editar_nuevo'}, :id => "agente_anadir" %>
+<% i = 0 %>
+<% for agente in @agentes %>
+  <% update = "agente_" + ( i += 1 ).to_s %>
+  <div id="<%= update %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado agente, campos_listado("agente"), update %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup agente, {campos: campos_listado("agente") + campos_info("agente"), id: update + "_informacion"} %>
+      <% if agente.implementador %>
+        <%= link_to_remote(icono("usuarios", _("Ver usuarios asignados")),  :url => {:controller => 'relaciones_usuario', :action => 'usuarios', :id => agente, :objeto => "agente", :update => update + "_sub" }, :html => {:id => update + "_usuarios"}, :loading => "Element.show('spinner_#{agente.id.to_s }')", :complete => "Element.hide('spinner_#{agente.id.to_s}')" ) %>
+      <% else %>
+        <div class="icono"></div>
+      <% end %>
+
+      <% if agente.financiador && !agente.sistema %>
+        <%= link_to_remote(icono( (agente.partida_financiacion.empty? ? "seleccionar" : "seleccionar_r"), _("Ver partidas del financiador")),  :url => {:controller => 'partida_financiacion', :action => 'listado_financiador', :objeto_id => agente, :update_listado => update + "_sub" }, :html => {:id => update + "_partidas"}, :loading => "Element.show('spinner_#{agente.id.to_s }')", :complete => "Element.hide('spinner_#{agente.id.to_s}')" ) %>
+      <% else %>
+        <div class="icono"></div>
+      <% end %>
+
+      <% unless agente.sistema %>
+        <%= modal(icono( "editar"), {:action => 'editar_nuevo', :id => agente}, _("Editar agente"),  :id => (update + "_editar") )  %>
+        <%= borrado( :url => { :action => 'eliminar', :id => agente.id, :update => update },  :texto => (agente.nombre), :identificador => update )  %>
+      <% else %>
+        <div class="icono"></div><div class="icono"></div>
+      <% end -%>
+    </div>
+    <div class='linea'></div>
+    <div id="spinner_<%= agente.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id='<%= update %>_sub' class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>

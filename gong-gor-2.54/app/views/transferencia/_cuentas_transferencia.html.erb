@@ -1,0 +1,15 @@
+<!-- En este parcial se chequea si existe en alguno de los Plugins algun parcial relacionado con
+     introducir en el formulario de transferencia la asignacion de cuentas contables a la transferencia.
+     El plugin que quiera introducir en el final de formulario cuentas debe implementar:
+     * partial_cuentas_transferencia
+     (Este codigo surge inicialmente por la necesidad del Plugin CPT_CONTABILIDAD) -->
+
+   
+<% partial = nil %>
+
+<% Plugin.activos.each do |plugin| %>
+  <% partial = eval(plugin.clase)::partial_cuentas_transferencia if eval(plugin.clase).respond_to?('partial_cuentas_transferencia') %>
+<% end %>
+
+<%= render partial: partial if partial %>
+       

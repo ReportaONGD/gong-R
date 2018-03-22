@@ -1,0 +1,20 @@
+
+<%= cabecera_listado campos_listado("grupo_usuario"), _("Nuevo grupo"), {:action => 'editar_nuevo'}, :id => "grupo_anadir"%>
+<% i = 1 %>
+<% for grupo in @grupos %>
+  <% i, update = i + 1,  "grupo_" + i.to_s %>
+  <div id="<%= update %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado grupo, campos_listado( "grupo_usuario" ), update %>
+    <div class="elementoderecha">
+      <%= link_to_remote(icono("usuarios", _("Ver usuarios asignados")),  :url => {:controller => 'relaciones_usuario', :action => 'usuarios', :id => grupo, :objeto => "grupo_usuario", :update => update + "_sub"} , :html => {:id => update + "_usuarios"}, :loading => "Element.show('#{update}_spinner')", :complete => "Element.hide('#{update}_spinner')" ) %>
+       <%= modal( icono( "editar"),  {:action => 'editar_nuevo', :id => grupo}, _("Editar grupo"),  { :id => update + "_editar" } )   %>
+       <%= modal_borrado icono( "borrar", _( "eliminar" ) ), { :action => 'eliminar', :id => grupo.id },  _('Eliminar grupo'), grupo.nombre, {:id => update + "_borrar"}  %>
+    </div>
+    <div class="linea"></div>
+    <div id="<%= update + '_spinner' %>" class="spinner" style="display:none" ></div>
+    <div id="<%= update + '_sub' %>" class="linea"></div>
+  </div>
+	
+<% end %>
+<%= final_listado %>
+

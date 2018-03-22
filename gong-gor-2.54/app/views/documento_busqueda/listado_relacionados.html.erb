@@ -1,0 +1,23 @@
+<!-- Dependiendo del tipo de listado (listado normal, listado de gastos o listado de fuentes de verificación) mostramos unos campos u otros -->
+<% 
+campos = if params[:action] == "listado_gastos"  
+              "documento_gastos" 
+            elsif params[:action] == "listado_transferencias" 
+              "documento_transferencias"
+            end
+%>
+
+<%= listado campos_listado( campos ), :anadir =>  false %>
+  <% for documento in @documentos %>
+    <div id= "<%= documento.id %>" class="fila">
+      <%= fila_listado documento, campos_listado( campos ), documento.id.to_s %>
+      <div class="elementoderecha">
+          <%= link_to_remote( icono("comentarios" + (documento.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => documento.id.to_s + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => documento.id.to_s, :tipo => "Documento"}, :loading => "Element.show('spinner_#{documento.id.to_s }')", :complete => "Element.hide('spinner_#{documento.id.to_s}')" )%>
+          <%= link_to icono( "descargar", _( "descargar" ) ), { :action => 'descargar', :controller => "documento", :id => documento}  %>
+      </div>
+      <div id="spinner_<%= documento.id.to_s %>" class="spinner" style="display:none" ></div>
+      <div id="<%= documento.id.to_s + '_sub' %>" class="linea"></div>
+    </div>
+
+  <% end %>
+<%= final_listado %>

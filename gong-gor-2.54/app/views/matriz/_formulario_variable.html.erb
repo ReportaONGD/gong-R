@@ -1,0 +1,25 @@
+<%= comienzo_formulario( { :action => 'crear_modificar_variable', :indicador_id => params[:indicador_id], :id => @variable, :update => params[:update] }, false ) %>
+<div class="fila">
+  <%= selector _("Indicador"), 'variable', 'indicador_id', @indicadores, false , '1', {:selected => (params[:indicador_id].to_i if params[:indicador_id])}  %>
+  <%= texto _("Nombre"), 'variable', 'nombre', "2" %>
+</div>
+<div class="fila">
+  <%= texto _("Herramienta de Medición"), 'variable', 'herramienta_medicion', '2' %>
+  <%= texto _("Fuente de Información"), 'variable', 'fuente_informacion', '2' %>
+</div>
+<div class="fila">
+  <%= texto_area _("Contexto"), 'variable', 'contexto', "4" %>
+</div>
+<div class="fila">
+  <%= texto _("Valor Base"), 'valor_base', 'valor', '1' %>
+  <%= calendario_fecha _("Fecha Base"), 'valor_base', 'fecha' %>
+  <%= texto '', 'valor_base', 'comentario', '2' %>
+</div>
+<div class="fila">
+  <%= texto _("Valor Objetivo"), 'valor_objetivo', 'valor', '1' %>
+  <%= calendario_fecha _("Fecha Objetivo"), 'valor_objetivo', 'fecha' %>
+  <%= texto '', 'valor_objetivo', 'comentario', '2' %>
+</div>
+<%= final_formulario %>
+
+

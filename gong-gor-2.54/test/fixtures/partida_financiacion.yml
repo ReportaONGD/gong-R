@@ -1,0 +1,9 @@
+primera:
+  nombre: MyString
+  codigo: MyString
+  descripcion: MyString
+  financiacion_id: 1
+  tipo: MyString
+  puede_ser_padre: false
+  partida_financiacion_id: 1
+  padre: false

@@ -1,0 +1,65 @@
+
+<% unless params[:to_pdf] %>
+  <fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+  <%= form_tag( { :action => "inicio_actividades"}, :multipart => true, :class => "formulario" ) %>
+    <%= selector(_('PAC'), '', 'pac', @listado_pac, false, '1', {:selected => params[:pac].to_i }) if @proyecto.convenio? %>
+    
+    <div class="fila">
+      <%= checkbox _("Sacar el resultado a fichero "), 'selector', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+            <%= observe_field( "selector_fichero" , :function => '
+          selector = document.getElementById("selector_fichero");
+          if( selector.checked ) {
+            Element.show("tipo_fichero");
+          }else { Element.hide("tipo_fichero"); }
+      ' ) %>
+      <div id="tipo_fichero" style="display:none">
+      <%= selector(_('Tipo de fichero '), 'selector', 'tipo', [[_("pdf"), "pdf"]], false, '1', {:selected => (params[:selector][:tipo] if params[:selector])})  %>
+    </div>
+    
+  <div class="elementoderecha1_2"> <%= submit_tag(_("Mostrar"), :class => "boton1_2") %></div>
+  </form>
+  </fieldset>
+<% end %>
+<br/>
+
+<!-- INICIO ACTIVIDADES -->
+<% @inicio_actividades.each do |resumen| %>
+  <% if resumen[:listado][:lineas] %>
+    <div class="fieldset">
+      <div class="legend" align= "center">
+        <br/>
+        <br/>
+        <img src="/images/logoONG.png" alt="Logo ONG"> 
+        <br/>
+        <br/>
+        <h2>INFORME DE INICIO DE ACTIVIDADES PROYECTO</h2>
+        <br/>
+        <br/>
+      </div>
+      <br>
+
+      <%= dibuja_tabla resumen[:listado][:lineas] unless resumen[:listado][:resumen_error] %>
+      <%= mensaje_error resumen[:listado][:resumen_error] if resumen[:listado][:resumen_error] %>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <p align= "center">En la ciudad de _________________________________________________, a los ______ días del mes de ___________________________ del ____________</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <p align= "center">
+        Fdo. <%= UserInfo.current_user.nombre_completo.upcase %>
+      </p>
+      <br />
+      <br />
+    </div>
+  <% end %> 
+<% end if @inicio_actividades %>

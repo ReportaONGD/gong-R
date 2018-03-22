@@ -1,0 +1,6 @@
+<!-- FORMULARIO DE BACKUP-->
+<%= form_tag( { :action => "seleccionar"}, :multipart => true, :class => "formulario" ) %>
+<%= selector _('Hacer backup de:'), 'selector', 'tipo', [["Base de Datos","bbdd"],["Documentos Subidos","docus"]], false , '3_2'  %>
+<div class="elementoderecha1_2"><%= submit_tag(_("Obtener Backup"), :class => "boton1_2") %></div>
+</form>
+

@@ -1,0 +1,12 @@
+
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "resumen_empleados"}, :multipart => true, :class => "formulario" ) %>
+<%= checkbox _("Sacar el resultado a fichero "), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+<div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+<% for tabla in @tablas %>
+  <%=   resumen(tabla) %>
+<% end  unless @tablas.nil? %>

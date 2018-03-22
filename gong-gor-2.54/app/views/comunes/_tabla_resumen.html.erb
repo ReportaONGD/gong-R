@@ -1,0 +1,17 @@
+
+<!-- Esto es una chapuza para hacer que se pueda leer bien la tabla resumen: Hacemos el ancho variable en funcion de las columnas -->
+<div style = "width:<%= 250 + ((columnas.size + 1 )* 100) %>;">
+<div class = "tabla">
+  <%= fila_tabla_rotulo columnas_nombre.collect {|e| [e, "1_2_td"]}.insert(0, [tipo.capitalize, "3_2"])%>
+  <% for fila in filas%>
+    <%= fila_tabla columnas, fila.codigo_nombre, fila.id, ["3_2","1_2_td", ""] %> 
+  <% end %>
+  <% totales = [[_("Totales"), "3_2"]] %>
+  <% for columna in columnas%>
+    <% totales << [columna.inject(0) {|suma, p| suma + (p[:importe] || 0)}, "1_2_td"] %>
+  <% end %>
+  <%= fila_tabla_rotulo totales %>
+  <br>
+  <%= fila_tabla_rotulo transferencia if transferencia%>
+</div>
+</div>

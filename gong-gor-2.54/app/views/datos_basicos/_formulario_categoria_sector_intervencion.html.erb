@@ -1,0 +1,8 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+  <div class="fila">
+    <%= texto _("Nombre"), 'dato_basico', 'nombre', "3_2", obligatorio: true %>
+  </div><div class="fila"> 
+    <%= texto _("Descripción"), 'dato_basico', 'descripcion', "4" %>
+    <%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+  </div>
+<%= final_formulario %>

@@ -1,0 +1,12 @@
+<div id="suma_previsto_<%= objeto.id %>">
+  <% if objeto.importe > 0 %>
+    <div class="filacabecerasinborde" id="suma_previsto_<%= objeto.id %>_data">
+      <div class="elemento2">&nbsp;</div>
+      <div class="elemento3_4">&nbsp;</div>
+      <div class="elemento1_2_td"><%= _("Previsto") %>:</div>
+      <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % objeto.importe.to_s) , :separator => ",", :delimiter => ".") %></div>
+      <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %></div>
+      <div class="elemento1_2_td">&nbsp;</div>
+    </div>
+  <% end %>
+</div>

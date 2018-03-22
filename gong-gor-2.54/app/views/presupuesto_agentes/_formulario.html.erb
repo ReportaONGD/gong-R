@@ -1,0 +1,34 @@
+
+<%= formulario_comienzo( :url => { :action => 'modificar_crear', :id => @presupuesto, :i => params[:id] } )%>
+
+    <%= selector _("Etapa"), 'presupuesto', 'etapa_id', @etapas, true, "1", {:selected => (@presupuesto.etapa ? nil : session[:presupuesto_agentes_filtro_etapa].to_i), :obligatorio => true} %>
+    <%= selector _("Partida"), 'presupuesto', 'partida_id', @partidas, false ,"2", {:selected => (@presupuesto.partida ? nil : session[:presupuesto_agentes_filtro_partida].to_i), :obligatorio => true} %>
+    <%= texto _("Subpartida"), 'presupuesto', 'subpartida_nombre', "2", :autocomplete => true, :autocomplete_with_also => ["presupuesto_partida_id"]  %>
+
+    <%= texto _("Concepto/Detalle"), 'presupuesto', 'concepto', "5_2", :obligatorio => true%>
+    <%= texto _("Observaciones"), 'presupuesto', 'observaciones', "5_2" %>
+
+    <%= texto _("Unidad"), 'presupuesto', 'unidad',"2_3" %>
+    <%= texto_numero _("Nº unidades"), 'presupuesto', 'numero_unidades',"1_2", {:value => @presupuesto.numero_unidades||1, :obligatorio => true} %>
+
+      <%= observe_field( "presupuesto_numero_unidades", :url => {:action => :calcula_importe, :controller => :presupuesto_proyectos, :update => 'presupuesto'},
+	:with => "'presupuesto[numero_unidades]='+ escape($('presupuesto_numero_unidades').value) +
+		'&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value) " ) %>
+
+    <!-- Mierda... esto no funciona y seria mucho mejor para no utilizar AJAX... -->    
+    <%# observe_field( "presupuesto_numero_unidades", :function => "m1 = document.getElementById('presupuesto_numero_unidades').value;
+                                                               m2 = document.getElementById('presupuesto_coste_unitario_convertido').value;
+                                                               document.getElementById('presupuesto_importe_convertido').value =  m1*m2;") %>
+
+    <%= texto_numero _("Coste/unidad"), 'presupuesto', 'coste_unitario_convertido',"1_2", :obligatorio => true %>
+      <%= observe_field( "presupuesto_coste_unitario_convertido" , :url => {:action => :calcula_importe, :controller => :presupuesto_proyectos, :update => 'presupuesto'},
+	 :with => "'presupuesto[numero_unidades]='+ escape($('presupuesto_numero_unidades').value) +
+                '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value) " ) %>
+
+    <div class="elemento1_2" id ="presupuesto_importe_convertido" style="text-align:center;padding:2px;">
+      Importe <br /><b> <%= @presupuesto.importe_convertido if @presupuesto%> </b>
+    </div>
+    <%= hidden_field 'presupuesto', 'importe' %>
+    <%= selector _("Moneda"), 'presupuesto', 'moneda_id', @monedas, false, "1_3", {:selected => (@presupuesto.moneda ? nil : @agente.moneda_id), :obligatorio => true} %>
+
+<%= formulario_final %>

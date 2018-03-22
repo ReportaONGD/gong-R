@@ -1,0 +1,20 @@
+<div id="<%= update_listado %>">
+
+<% indicadores_pac = @indicador.indicador_pac %>
+
+<% unless indicadores_pac.empty? %>
+  <%= listado( [[_("PAC"), "1", 'proyecto.nombre']] + campos_listado("indicador"), :anadir => false ) unless params[:menu] == "formulacion" %>
+
+  <% for indicador_pac in indicadores_pac %>
+    <% fila = update_listado + "_" + indicador_pac.id.to_s %>
+    <div  id="<%= fila %>" class="fila">
+      <%= fila_listado indicador_pac, [[_("PAC"), "1", 'proyecto.nombre']] + campos_listado("indicador"), fila %>
+      <div class="linea"></div>
+    </div>
+  <% end %>
+
+  <%= final_listado %>
+<% end %>
+
+</div>
+

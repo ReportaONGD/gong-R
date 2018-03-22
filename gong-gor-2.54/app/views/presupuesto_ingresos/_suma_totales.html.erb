@@ -1,0 +1,61 @@
+<fieldset id="<%= clase %>">
+  <% elemento = @agente||@proyecto %>
+  <% total = (elemento.presupuesto_ingreso.joins(:tasa_cambio).where( etapa_id: @etapa ).sum("importe * tasa_cambio")).to_f %>
+  <div class="filacabecerasinborde" id="<%= clase %>_total">
+    <div class="elemento1"><%= _("Líneas de presupuesto") %>: <%= elemento.presupuesto_ingreso.where(etapa_id: @etapa).size %> </div>
+    <div class="elemento1_4">&nbsp;</div>
+    <div class="elemento2_td"><%= _("Total acumulado") %>:</div>
+    <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % total.to_s), :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= elemento.moneda_principal.abreviatura %> </div>
+  </div>
+  <!-- Suma en divisa (si la hay) fraccionando en moneda principal y resto de monedas para la aplicacion correcta de la TC -->
+  <% if elemento.moneda_intermedia %>
+    <% total_divisa = (elemento.presupuesto_ingreso.joins(:tasa_cambio).where( etapa_id: @etapa ).where('presupuesto_ingreso.moneda_id != ?', elemento.moneda_id).sum("importe * tasa_cambio_divisa")).to_f %>
+    <% subtotal = (elemento.presupuesto_ingreso.joins(:tasa_cambio).where( etapa_id: @etapa, moneda_id: elemento.moneda_id ).sum("importe")).to_f %>
+    <% tc = TasaCambio.tasa_cambio_para_presupuesto(@etapa, elemento.moneda_intermedia_id) %>
+    <% total_divisa += (subtotal / tc.tasa_cambio) if tc && tc.tasa_cambio > 0 %>
+    <div class="filacabecerasinborde" id="<%= clase %>_total_divisa">
+      <div class="elemento1">&nbsp;</div>
+      <div class="elemento1_4">&nbsp;</div>
+      <div class="elemento2_td">&nbsp;</div>
+      <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % total_divisa.to_s), :separator => ",", :delimiter => ".") %></div>
+      <div class="elemento1_5"><%= elemento.moneda_intermedia.abreviatura %></div>
+    </div>
+  <% end %>
+
+  <!-- Total volumen de ejecución objetivo -->
+  <div class="filacabecerasinborde" id="<%= clase %>_total_volumen_ejecucion_objetivo">
+    <div class="elemento1">&nbsp;</div>
+    <div class="elemento1_4">&nbsp;</div>
+    <div class="elemento2_td"><%= _("Objetivo de volumen de ejecución") %>:</div>
+    <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % @etapa.importe_previsto_subvencion.to_s), :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= elemento.moneda_principal.abreviatura %> </div>
+  </div>
+
+  <!-- Total volumen de ejecución presupuestado -->
+  <% volumen_ejecucion_total = (elemento.presupuesto_ingreso.joins(:partida_ingreso).where("partida_ingreso.proyecto" => true).joins(:tasa_cambio).where( etapa_id: @etapa ).sum("importe * tasa_cambio")).to_f %>
+  <div class="filacabecerasinborde" id="<%= clase %>_total_volumen_ejecucion_presupuestado">
+    <div class="elemento1">&nbsp;</div>
+    <div class="elemento1_4">&nbsp;</div>
+    <div class="elemento2_td"><%= _("Volumen de ejecución presupuestado") %>:</div>
+    <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % volumen_ejecucion_total.to_s), :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= elemento.moneda_principal.abreviatura %> </div>
+    <% if @etapa.importe_previsto_subvencion && @etapa.importe_previsto_subvencion != 0 %>
+      <% porcentaje = (volumen_ejecucion_total / @etapa.importe_previsto_subvencion) * 100 %>
+      <div class="elemento1_2_td" title="<%= _('Porcentaje del objetivo presupuestado') %>"><%= number_with_delimiter(('%.2f' % porcentaje.to_s), :separator => ",", :delimiter => ".") %> %</div>
+    <% end %>
+  </div>
+
+  <!-- Suma de importe de funcionamiento para partidas de proyecto -->
+  <% funcionamiento_total = (elemento.presupuesto_ingreso.joins(:partida_ingreso).where("partida_ingreso.proyecto" => true).joins(:tasa_cambio).where( etapa_id: @etapa ).sum("porcentaje * importe * tasa_cambio")).to_f %>
+  <div class="filacabecerasinborde" id="<%= clase %>_total_funcionamiento">
+    <div class="elemento1">&nbsp;</div>
+    <div class="elemento1_4">&nbsp;</div>
+    <div class="elemento2_td"><%= _("Total funcionamiento") %>:</div>
+    <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % funcionamiento_total.to_s), :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= elemento.moneda_principal.abreviatura %> </div>
+  </div>
+
+  <div id="<%= clase %>_sub"></div>
+</fieldset>
+

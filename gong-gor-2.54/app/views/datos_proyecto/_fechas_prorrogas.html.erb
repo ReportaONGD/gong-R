@@ -1,0 +1,21 @@
+<% tipo_periodo = "prorroga" unless defined? tipo_periodo %>
+<% momento_peticion = @proyecto.send("momento_peticion_" + tipo_periodo) %>
+<% fecha_limite = @proyecto.send("fecha_limite_peticion_" + tipo_periodo) %>
+<% fecha_aviso = @proyecto.send("fecha_inicio_aviso_peticion_" + tipo_periodo) %>
+<fieldset class="<%= "amarillo" if momento_peticion %>">
+  <div class="legend"> 
+    <div class="elementoderecha">				
+      <%= _("Fechas para posible petición de %s")%[titulo] unless momento_peticion %> 
+      <i><%= _("Estamos en periodo de petición de %s")%[titulo] if momento_peticion %></i>
+      &nbsp;&nbsp;&nbsp;
+      <div class="elementoderecha">
+        <%= modal( icono("editar"),
+                   {action: 'editar_fechas_peticion_prorroga', tipo_periodo: tipo_periodo},
+                   _("Añadir o editar las fechas de relacionadas con petición de prorroga"),
+                   id: "fechas_peticion_prorroga" ) if params[:controller] == "datos_proyecto" %>
+      </div>
+    </div>
+    <%=  _("Fecha límite para petición de prorroga: %{fecha}")%{fecha: I18n.l(fecha_limite)} if fecha_limite %>
+    <%= "<br>".html_safe + _("Fecha de inicio aviso petición de prorroga: %{fecha}")%{fecha: I18n.l(fecha_aviso)} if fecha_aviso %>
+  </div>
+</fieldset>	

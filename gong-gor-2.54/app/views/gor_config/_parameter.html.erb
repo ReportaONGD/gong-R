@@ -1,0 +1,8 @@
+<% update = "config_#{@parameter.id}" %>
+<div id="<%= update %>" class="fila" >
+  <%= fila_listado @parameter, campos_listado("gor_config"), update %>
+  <div class="elementoderecha">
+    <%= ventana_info_popup @parameter, {:campos => campos_listado("gor_config"), :id => update + "_informacion" } %>
+    <%= editar( :url => { :action => 'editar_nuevo', :id => @parameter, :update => update }) %> 
+  </div>
+</div>

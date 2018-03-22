@@ -1,0 +1,10 @@
+
+<%= mensaje_error(@mensaje_error) if @mensaje_error%><br>
+<div id="obj_<%= i.to_s %>" class=elemento1_3><%= @objetivo_especifico ? @objetivo_especifico.codigo : "&nbsp;" %></div><div id="res_<%= i.to_s %>" class=elemento1_3><%= @resultado ? @resultado.codigo : "&nbsp;" %></div><div id="act_<%= i.to_s %>" ><div id="act_codigo_<%= i.to_s %>" class=elemento1_3><%= @actividad.codigo %></div><div id="act_<%= i.to_s %>" class=elemento3><%= truncate(@actividad.descripcion, :length => 100) %></div>
+<div class="elementoderecha">
+  <%= ventana_popup @actividad , {:campos => ["codigo_descripcion", "fecha_inicio", "fecha_fin"], :id => "actividades_popup_" + i.to_s } %>
+  <%= modal( icono( "editar" ), {:update => "matriz_filtrado_"  + i.to_s, :action => 'nueva_editar_actividad', :id => @actividad.id, :resultado_id => @resultado ? @resultado.id : nil, :objetivo_especifico_id => @objetivo_especifico ? @objetivo_especifico.id : nil}, _("Editar actividad"), :id => "editar_actividades_"+ i.to_s ) %>
+  <%# modal_borrado icono( "borrar", _( "Eliminar actividad" )), { :update => "matriz_filtrado_" + i.to_s, :action => 'eliminar_actividad', :id => @actividad.id, :resultado_id => @resultado ? @resultado.id : nil, :objetivo_especifico => @objetivo_especifico ? @objetivo_especifico : nil }, _('Eliminar actividad: '), @actividad.codigo, :id => "eliminar_actividad_" + i.to_s, :ajax => true %>      
+</div>
+<div class="linea"></div>
+

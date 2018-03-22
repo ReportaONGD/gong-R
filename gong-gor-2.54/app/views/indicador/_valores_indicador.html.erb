@@ -1,0 +1,24 @@
+
+<%= comienzo_sublistado _("Porcentajes de Cumplimiento Medidos"), update_listado %>
+
+<div id = "<%= update_listado %>_valor_anadir" ></div>
+<div class="fila">
+<%= anadir :url => {:action => 'editar_nuevo_valor_indicador', :update_listado => update_listado, :update_objeto => params[:update_objeto], :indicador_id => params[:indicador_id], :update => (update_listado + "_valor_anadir") } %>
+</div>
+
+<% for valor in @valores %>
+   <% valor_id = update_listado +"_valor_" + valor.id.to_s %>
+   <div  id="<%= valor_id %>" class="fila" >
+    <%= fila_listado valor, campos_listado("valor_indicador"), valor_id + "_contenido" %>
+    <div class="elementoderecha">
+      <% if valor.indicador_id && @permitir_ejecucion %>
+        <%= editar( :url => {:update_listado => update_listado, :action => 'editar_nuevo_valor_indicador', :id => valor.id, :indicador_id => params[:indicador_id] , :update => valor_id, :update_objeto => params[:update_objeto]} ) %>
+        <%= borrado( :url => { :update => update_listado, :action => 'eliminar_valor_indicador', :update_objeto => params[:update_objeto], :id => valor.id, :indicador_id => params[:indicador_id] }, :texto => valor.porcentaje.to_s + " (" + valor.fecha.to_s + ")", :identificador => valor_id) %>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+   </div>
+<% end %>
+<%= final_sublistado %> 
+<br>
+ 

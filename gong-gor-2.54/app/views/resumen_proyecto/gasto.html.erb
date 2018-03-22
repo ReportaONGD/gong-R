@@ -1,0 +1,73 @@
+<!-- FORMULARIO DE SELECCION DE VOLCADO-->
+<!-- Si el resumen se va a ver sin layout introducimos etiquetas de estilo y havascript -->
+<% if params[:sin_layout] -%>
+<%= stylesheet_link_tag 'application', :media => "all" %>
+<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag '/javascripts/scriptaculous' %>
+<div class="centroresumen">  
+<% end -%>
+
+<fieldset id="criterios_resumen">
+<div class="legend"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "gasto"}, :multipart => true, :class => "formulario" ) %>
+  <div class="fila">
+    <%= selector(_('PAC'), '', 'pac', @listado_pac, false, '1', {:selected => params[:pac].to_i }) if @proyecto.convenio? %>
+    <%= selector _('País'), '', 'pais', @listado_pais, false, '1', {:selected => params[:pais]} %>
+    
+    <% titulo_res = @proyecto.convenio_accion == "resultado" ? _("Acciones") : _("Resultados") %>
+    <% titulo_oes = @proyecto.convenio_accion == "objetivo_especifico" ? _("Acciones") : _("Objetivos Específicos") %>
+    <%= selector _('Partida/Actividad'), '', 'partida_actividad', [[_("Partidas"),"partida"], [_("Partidas del proyecto"),"partida_proyecto"], [_("Actividades"),"actividad"], [titulo_res,"resultado"], [titulo_oes,"oe"] ], false , '1', {:selected => params[:partida_actividad]}  %>
+
+    <%= observe_field( "_partida_actividad" , :function => '
+    if( document.getElementById("_partida_actividad").selectedIndex > 1 ){
+      Element.show("filtrado_partidas");
+      Modalbox.resizeToContent();
+    } else {
+      Element.hide("filtrado_partidas");
+      Modalbox.resizeToContent();
+    }
+  ') %>
+
+    <div class="elemento3_2" id="filtrado_partidas" style="<%= 'display:none;' unless params[:partida_actividad] != 'partida' && params[:partida_actividad] != 'partida_proyecto' %>">
+      <%= selector _('Partida'), '', 'filtro_partida', [ [_("No filtrar por partida"), nil] ] + @proyecto.partida_financiacion.collect {|a|[a.codigo_nombre, a.id]}, false, '3_2', {:selected => params[:filtro_partida]} %>
+    </div>
+  </div>
+  <div class="fila">
+  <%= selector _('Imp./Finan.'), '', 'financiador_implementador', [[_("Implementadores"),"implementador"], [_("Financiadores"),"financiador"]], true , '1', {:selected => params[:financiador_implementador]}  %>
+  <%= observe_field( "_financiador_implementador" , :update => "agentes", :url => {:action => :agentes} , :with => "financiador_implementador" , :loading =>		"Element.show('spinner')", :complete => "Element.hide('spinner')") %>
+    <div class="elemento3_2" id="agentes">
+      <%= render :partial => "agentes" %> 
+    </div>
+    <%= selector _('Moneda'), '', 'moneda', @listado_moneda, false , '1', {:selected => params[:moneda].to_i}  %>
+    <%= checkbox _("Aplicar tasas de cambio"), '', 'tasa_cambio', "1", {:izquierda => true, :abajo => true}  %>
+  </div>
+  <div class="fila">
+  <%= mes_fecha _('Fecha inicio'), 'fecha_inicio', '', {:default => @fecha_de_inicio, :incluir_dia => true, :class => "5_4" }%> 
+  <%= mes_fecha _('Fecha fin'), 'fecha_fin', '', {:default => @fecha_de_fin, :incluir_dia => true, :class => "5_4"}  %>
+  <%= checkbox _("No mostrar filas sin valores "), '', 'sin_fila_vacia', "1", {:izquierda => true, :abajo => true, :checked => params[:sin_fila_vacia] == "1" ? true :false}  %>
+  <%= checkbox _("Sacar el resultado a fichero "), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+  <%= hidden_field "", "sin_layout", {:value => true} if  params[:sin_layout]%>
+  </div>
+<div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+
+<% if params[:partida_actividad] %> 
+  <%= resumen @tablas.first, {:id_grafica => "grafica_gasto"} %> 
+  <% if params[:partida_actividad] =~ /partida|partida_proyecto/ %>
+    <div class="fieldset">
+    <div class="legend" align= "left">
+      <%=   @titulo.inject("".html_safe){|sum, f| sum + f + "<br>".html_safe} %>
+      <div class = "linea"></div></br>
+    </div>
+    <br>
+    <%= dibuja_tabla @subpartidas %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= "</div>" if params[:sin_layout]%>
+
+
+

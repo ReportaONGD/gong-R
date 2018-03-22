@@ -1,0 +1,15 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @persona, :i => params[:i] } %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'persona', 'nombre', '3', :obligatorio => true %>
+    <%= selector _("Tipo de Personal"), 'persona', 'tipo_personal_id', @tipos_personal, true, '1', :obligatorio => true %>
+    <%= texto _("Tipo de Contrato"), 'persona', 'tipo_contrato', '1', :obligatorio => true %>
+    <%= texto _("Categoría Profesional"), 'persona', 'categoria', '2' %>
+    <%= texto _("Lugar de Residencia"), 'persona', 'residencia', '3' %>
+    <%= texto_numero _("Horas/Semana Imputadas"), 'persona', 'horas_imputadas', '1', :obligatorio => true %>
+    <%= texto_numero _("Salario Bruto Mensual"), 'persona', 'salario_mensual', '1', :obligatorio => true %>
+    <%= texto_numero _("Meses"), 'persona', 'meses', '1', :obligatorio => true %>
+    <%= texto_numero _("Salario Bruto Total"), 'persona', 'salario_total', '1', :obligatorio => true %>
+    <%= selector _("Moneda Salario"), 'persona', 'moneda_id', @proyecto.moneda.collect{|m| [m.abreviatura, m.id]}, true, '1_2', :obligatorio => true %>
+  </div>
+<%= formulario_final %>

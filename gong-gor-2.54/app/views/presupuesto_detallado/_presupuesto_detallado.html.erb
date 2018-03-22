@@ -1,0 +1,61 @@
+<% parametros = {actividad_id: params[:actividad_id], partida_id: params[:partida_id], partida_ingreso_id: params[:partida_ingreso_id], vista: params[:vista]} %>
+
+<!-- El detalle de presupuesto solo es modificable desde presupuesto por partidas o si el presupuesto solo esta en una actividad -->
+<% enabled = params[:actividad_id].blank? || @presupuesto.presupuesto_x_actividad.count == 1 %>
+<% if enabled %>
+  <% link_to_text = _("Dividir importe por meses") %>
+  <% link_to_url = parametros.merge({action: :dividir_x_mes, id: params[:id], update: params[:update]}) %>
+<% else %>
+  <% link_to_text = _("El concepto se encuentra repartido entre varias actividades por lo que el detalle sólo puede modificarse desde la página del presupuesto por partidas.") %>
+  <% link_to_url = "#" %>
+<% end %>
+
+<% if etapa = @presupuesto.etapa %>
+  <%= formulario_comienzo(url: parametros.merge({action: :guardar, id: @presupuesto.id})) %>
+    <div class="filacabecera">
+      <%= (_("Fechas de etapa del presupuesto") + ":&nbsp;" + etapa.fecha_inicio.strftime("%d-%m-%Y") + " / " + etapa.fecha_fin.strftime("%d-%m-%Y")).html_safe  %><br/>
+      <%= (_("Importe presupuestado") + ":&nbsp;" + @presupuesto.importe_convertido + "&nbsp;" + h(@presupuesto.moneda.abreviatura)).html_safe %>
+    </div>
+    <br>
+    <% fecha = Date.new(@fecha_inicio.year, @fecha_inicio.month, 1) %>
+    <% for mes in 1..etapa.periodos %>
+      <% @detalle = @presupuesto_detallados.detect{|p| p.mes == mes } %>
+      <% rotulo = (fecha >> mes - 1).strftime("%m / %Y")%>
+      <% label_action = enabled ? "
+           var elem=$('detalle[" + mes.to_s + "][importe_convertido]');
+           elem.disabled = !elem.disabled;
+           elem.value='0.0';
+           $('ocultar_" + mes.to_s + "').value = elem.disabled; " : "" %>
+      <% label_action_onchange = enabled ? "
+           var total = 0.00;
+           $$('input.mes_presupuesto').each(function(i) {
+             valor = i.getValue().replace(',','.');
+             if ( valor !== '' ) {
+               total += parseFloat(valor);
+             }
+           });
+           $('presupuesto_suma_total').update(total.toFixed(2).toString().replace('.',',')); " : "" %>
+      <% label_action_title = enabled ? _("Haz click para activar/desactivar el mes") : "" %>
+      <%= texto rotulo, "detalle", "importe_convertido", "1_3 mes_presupuesto",
+              name: "detalle[#{mes}][importe_convertido]",
+              id: "detalle[#{mes}][importe_convertido]",
+              label_action: label_action, 
+              label_action_title: label_action_title,
+              onchange: label_action_onchange %>
+      <%= hidden_field 'detalle', 'mes', {:value => mes, :name => "detalle[#{mes}][mes]" }%>
+      <% fecha_inicio = mes == 1 ? @fecha_inicio : fecha >> (mes - 1) %>
+      <%= hidden_field 'detalle', 'fecha_inicio', {:value => fecha_inicio,  :name => "detalle[#{mes}][fecha_inicio]"} %>
+      <% fecha_fin = mes != etapa.periodos ? (fecha >> mes) -1  : @fecha_fin %> 
+      <%= hidden_field 'detalle', 'fecha_fin', {:value => fecha_fin ,  :name => "detalle[#{mes}][fecha_fin]"}  %>
+      <%= hidden_field 'ocultar', mes.to_s, {:value => 'false'} %>
+    <% end %>
+    <div class="elemento1_3"> <%= _("Total") %> <br> <div id="presupuesto_suma_total"><%= @presupuesto_detallados.inject( 0 ){ |sum,p| sum+(p.importe||0.0) } %></div></div>
+    <div class="linea"></div>
+    <div class="fila">
+      <%= link_to_remote link_to_text, submit: "formulariocontenido", url: link_to_url, loading: "Element.show('espera')", complete: "Element.hide('espera')" %>
+      <div class="linea"></div>
+    </div>
+  <%= enabled ? formulario_final : "</form>".html_safe %>
+<% else %>
+  <%= mensaje_error _("La linea de presupuesto no esta asociada a ninguna etapa. No es posible asignarle detalle") %><br>
+<% end %>

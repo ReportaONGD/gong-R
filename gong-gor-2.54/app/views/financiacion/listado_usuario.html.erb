@@ -1,0 +1,12 @@
+<%= cabecera_listado campos_listado "financiacion" %>
+<% for financiacion in @financiaciones %>
+<% i = 0 %>
+<div id="financiacion_<%= i += 1 %>" class=" <%= cycle('fila', 'filaDos') %>  ">
+    <%= fila_listado financiacion, campos_listado( "financiacion" ), "financiacion_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= link_to( icono( "seleccionar", _("seleccionar" ) ), {:controller => :estado, :financiacion_id => financiacion.id}, :id => "financiacion_" + i.to_s + "_seleccionar" )  %>
+    </div>
+  <div class='linea'></div>
+</div>
+<% end %>
+<%= final_listado %>

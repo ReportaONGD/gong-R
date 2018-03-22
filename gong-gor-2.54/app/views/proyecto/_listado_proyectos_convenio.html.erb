@@ -1,0 +1,23 @@
+
+<%= comienzo_sublistado _("PACs"), params[:update] %>
+<div class="fila">
+<%= modal icono("anadir"), {:action => 'editar_nuevo', :update =>  params[:update], :convenio_id => params[:convenio_id]}, _("Crear PAC"), {:id => params[:update] + "_pac_anadir" } if params[:seccion] == "administracion" || params[:seccion] == "agentes" %>
+</div>
+<% i = 0 %>
+<% for proyecto in @proyectos %>
+  <div  id="<%= params[:update] %>_<%= (i += 1).to_s%>" class="fila" >
+    <%= fila_listado proyecto, campos_listado("pac"), params[:update] + "_pac_" + i.to_s %>
+    <div class="elementoderecha">
+      <% if params[:seccion] == "administracion" || params[:seccion] == "agentes" %>
+        <%= modal( icono( "editar"), {:action => 'editar_nuevo', :update => params[:update], :id => proyecto, :convenio_id => params[:convenio_id]}, _("Editar PAC"),  :id => (params[:update] + "_pac_" + i.to_s + "_editar") )   %>
+        <%= modal_borrado icono(( "borrar"), _('Eliminar PAC')), {:action => 'eliminar', :update => params[:update], :id => proyecto.id, :convenio_id => params[:convenio_id] } , _('Eliminar PAC'),  proyecto.nombre, :id => params[:update] + "_pac_" + i.to_s + "_borrar", :ajax => true %>
+      <% else %>
+        <%= link_to( icono( "seleccionar", _("Seleccionar PAC") + " " + proyecto.nombre ), {:menu => "resumen", :controller => :info, :proyecto_id => proyecto.id }, :id => ("proyectos_" + i.to_s + "_seleccionar")  )  %>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+  </div>
+<% end %>
+<%= final_sublistado %> 
+
+<BR>

@@ -1,0 +1,12 @@
+<%= comienzo_formulario( { action: 'modificar_crear', id: @dato_basico }, false ) %>
+  <div class="fila">
+    <%= texto _("Código"), 'dato_basico', 'codigo', "1", obligatorio: true %>
+    <%= texto _("Nombre"), 'dato_basico', 'nombre', "2", obligatorio: true %>
+    <%= texto _("Unidad de Medida"), 'dato_basico', 'unidad', "1" %>
+    <%= checkbox _("Activo"), 'dato_basico', 'activo', '1_2', { obligatorio: true, izquierda: true, abajo: true, checked: @dato_basico ? @dato_basico.activo : true } %>
+  </div>
+  <div class="fila">
+    <%= texto_area _("Descripción"), 'dato_basico', 'descripcion', '4' %>
+  </div>
+  <%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

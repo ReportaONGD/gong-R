@@ -1,0 +1,26 @@
+
+<%= comienzo_sublistado "Comentarios", update_listado %>
+<div id="<%= update_listado %>_comentario_anadir"></div>
+<div class="fila">
+<%= anadir( :url => {:controller => 'comentario', :action => 'anadir_comentario', :update =>  update_listado + "_comentario_anadir", :id => params[:objeto_id], :tipo => params[:tipo], :objeto_id => params[:objeto_id], :update_listado => update_listado, :update_objeto => params[:update_objeto] }) %>  
+</div>
+
+<% i = 0 %>
+<% for comentario in @comentarios %>
+  <% i += 1 %>
+  <% elemento_id = "#{update_listado}_comentario_#{i}" %>
+  <div id="<%= elemento_id %>" class="fila" >
+    <%= fila_listado comentario, campos_listado("comentario"), elemento_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup comentario, {:campos => campos_listado("comentario"), :id => elemento_id + "_informacion" } %>
+      <% mostrar_borrado = @usuario_identificado.administracion || !comentario.sistema %>
+      <%= borrado( :url =>  { :controller => 'comentario', :action => 'eliminar_comentario', :update => elemento_id, :id => comentario.id, :objeto_id => params[:objeto_id], :tipo => params[:tipo], :update_objeto => params[:update_objeto]  },  :texto => truncate(comentario.texto,:length => 500), :identificador => elemento_id ) if mostrar_borrado %>
+  </div>
+  <div class="linea"></div>
+  </div>
+<% end %>
+
+<%= final_sublistado %> 
+<br>
+
+

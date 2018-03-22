@@ -1,0 +1,40 @@
+<% documento ||= @documento %>
+<% @espacio ||= Espacio.find_by_id(@espacio_id) %>
+<!-- Recogemos editable desde la invocacion en app/views/documentos/_listado_asociados -->
+<% editable ||= false %>
+<% escritura_permitida = @espacio ? @espacio.escritura_permitida(@usuario_identificado) : true %>
+<div id="<%= update %>" class="fila">
+  <%= fila_listado documento, campos_listado("documento"), update %>
+  <div class="elementoderecha">
+      <%= ventana_info_popup documento, {:campos => campos_listado("documento") + campos_info("documento"), :id => update + "_informacion" } %>
+      <%= link_to_remote( icono("comentarios" + (documento.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => documento.id.to_s, :tipo => "Documento"} , :html => {:id => update + "_comentarios"}, :loading => "Element.show('spinner_#{documento.id.to_s}')", :complete => "Element.hide('spinner_#{documento.id.to_s}')" ) %>
+      <%= link_to icono( "descargar", _("descargar") ), { :action => 'descargar', :controller => "documento", :id => documento} , :id => update + "_descargar"  %>
+      <!-- Ponemos las condiciones para ver en que casos NO se puede modificar o borrar el documento desde esta vista -->
+      <% if (params[:seccion] == "documentos" and (!escritura_permitida or documento.espacio.find_by_nombre "Plantillas Exportación")) %>
+            <div class="icono"></div><div class="icono"></div>        
+      <% else %>
+          <% url_editar = {:controller => :documento, :action => 'editar_nuevo', :id => documento, :update => update, :update_listado => (update_listado ||= nil)} %>
+          <% url_borrado = { :action => 'eliminar', :controller => "documento", :update => update, :id => documento.id.to_s  } %>
+          <% texto_borrado =  _('Documento') + ": " + documento.adjunto_file_name %>
+          <% if defined? objeto_id %>
+            <% url_editar = url_editar.merge ({ :tipo => tipo, :objeto_id => objeto_id }) %>
+            <% url_borrado = url_borrado.merge ({ :tipo => tipo, :objeto_id => objeto_id }) %>
+          <% end %>
+          <!-- Si un documento esta vinculado a mas de un espacio, solo se puede editar
+                 a) si es "editable" (definido en listado_asociados)
+                 b) si el espacio en el que estamos es el primero de los introducidos -->
+          <% if ( documento.espacio.count == 1 || editable || ( documento.espacio.first == @espacio ) ) %>
+            <%= editar :url => url_editar %>
+          <% else %>
+            <div class="icono"></div>
+          <% end %> 
+          <%# if (params[:menu] == "documentos_proyecto" and (documento.proyecto_id.nil? or documento.proyecto_id != @proyecto.id)) or
+                (params[:menu] == "documentos_agente" and (documento.agente_id.nil? or documento.agente_id != @agente.id)) or
+                ((params[:menu] == "gasto_agente" or params[:menu] == "ejecucion_tecnica") and !editable) %>
+          <%# end %>
+          <%= borrado( :url => url_borrado, :texto => texto_borrado,  :identificador => update + "_borrar" ) %>
+      <% end %>
+  </div>
+  <div id="spinner_<%= documento.id.to_s %>" class="spinner" style="display:none" ></div>
+  <div id="<%= update %>_sub" class="linea"></div>
+</div>

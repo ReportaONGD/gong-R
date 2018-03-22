@@ -1,0 +1,20 @@
+<%= _("El próximo día '%{dia}' se cumple el plazo de finalización de la tarea '%{nombre}'")%{dia: I18n.l(@tarea.fecha_fin), nombre: @tarea.titulo} %>
+
+* <%= _("Título") %>: <%= @tarea.titulo %>
+* <%= _("URL") %>: <%= url_for(@url) %>
+* <%= _("Tipo") %>: <%= @tarea.tipo_tarea.nombre if @tarea.tipo_tarea %>
+* <%= _("Autor") %>: <%= @tarea.usuario.nombre_completo if @tarea.usuario %>
+* <%= _("Asignada a") %>: <%= @tarea.usuario_asignado.nombre_completo if @tarea.usuario_asignado %>
+* <%= _("Estado") %>: <%= @tarea.estado_tarea.nombre.capitalize %>
+* <%= _("Fecha de Inicio") %>: <%= I18n.l(@tarea.fecha_inicio) if @tarea.fecha_inicio %>
+* <%= _("Fecha Prevista") %>: <%= I18n.l(@tarea.fecha_prevista) if @tarea.fecha_prevista %>
+* <%= _("Fecha de Finalización") %>: <%= I18n.l(@tarea.fecha_fin) if @tarea.fecha_fin %>
+* <%= _("Porcentaje realizado") %>: <%= @tarea.porcentage_implementacion %> %
+* <%= _("Descripción") %>: <%= @tarea.descripcion %>
+
+
+--------------------
+
+<%= _("Esta notificación se ha enviado a todos los usuarios del proyecto.") %>
+<%= Time.now %>
+

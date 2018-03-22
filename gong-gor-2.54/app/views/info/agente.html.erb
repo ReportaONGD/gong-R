@@ -1,0 +1,16 @@
+
+<div class="contenedor_cajas">
+  <%= render :partial => "navegacion" %>
+
+  <div>
+    <%= render :partial => "datos_agente", :locals => { :agente => @agente } %>
+    <%= render :partial => "proyectos_agente" %>
+  </div>
+
+</div>
+
+<div class="fila">&nbsp;</div>
+
+<!-- Tareas del proyecto -->
+<%= render :partial => "tareas" %>
+

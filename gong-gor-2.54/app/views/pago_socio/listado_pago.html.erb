@@ -1,0 +1,23 @@
+<% if session[:socio_seleccionado] %>
+  <fieldset >
+    <div class="legend"><%= _("Listado de pagos del socio:") %></div>
+  
+    <div class=elemento><%=session[:socio_seleccionado].nombre_completo%></div>
+    <div class="elementoderecha"><%= link_to(_("<< Volver a listado general de socios"), :action => "index", :controller => "socio")%></div>
+  </fieldset>
+<% end %>
+
+<%= cabecera_listado campos_listado("pago_socio"), _("Nuevo pago"), {:action => 'editar_nuevo_pago', :socio_id => params[:socio_id] }, :id => "pago_socio_anadir" %>
+<% i = 0 %>
+<% for pago in @pagos %>
+  <div  id="pago_socio_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado pago, campos_listado("pago_socio"), "pagos_" + i.to_s %>
+    <div class="elementoderecha">
+       <%= ventana_info_popup pago, {:campos => campos_listado("pago_socio") + campos_info("pago_socio"), :id => "pago_socio_" + i.to_s + "_informacion" } %>
+       <%= modal(icono( "editar"), {:action => 'editar_nuevo_pago', :id => pago}, _("Editar pago"), :id => ("pago_socio_" + i.to_s + "_editar") )   %>
+       <%= modal_borrado icono( "borrar", _( "eliminar" ) ), { :action => 'eliminar_pago', :id => pago.id }, _('Va a eliminar el pago: '), pago.concepto, :id => ("pago_socio_" + i.to_s + "_borrar") %>
+    </div>
+    <div class='linea'></div> 
+  </div>
+<% end %>
+<%= final_listado %>

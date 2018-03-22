@@ -1,0 +1,27 @@
+<fieldset id="poblacion_beneficiaria_total" class="listado">
+  <div class="legend">
+    <%= _("Titulares de Derecho Totales") %>
+  </div>
+  <% for dato in @campos %>
+    <div class="fila">
+      <b><div class="elemento3_2"><%= dato[:rotulo] %>: </div></b>
+      <div class="elemento1_2_td"><%= @beneficiarios.sum(dato[:campo]) %></div>
+    </div>
+  <% end %>
+</fieldset>
+
+<%= cabecera_listado campos_listado("beneficiarios"), _("Añadir Titulares de Derecho"), {action: 'editar_nuevo'}, id: "beneficiario_anadir" %>
+  <% i = 0 %>
+  <% for titulares in @beneficiarios %>
+    <% update = "titulares_#{titulares.id}" %>
+    <div id="<%= titulares %>" class="fila">
+      <%= fila_listado titulares, campos_listado("beneficiarios"), update %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup titulares, {campos: campos_listado("beneficiarios") + campos_info("beneficiarios"), id: "#{update}_informacion"} %>
+        <%= modal icono("editar", _("Editar")),  {action: 'editar_nuevo', id: titulares.id}, _("Editar"),  id: "#{update}_editar" %>
+        <%= modal_borrado icono("borrar", _('Eliminar')), {action: 'eliminar', id: titulares.id}, _('Eliminar'), _("Titulares de derecho en %s")%[titulares.pais ? titulares.pais.nombre : "N/A"], id: "#{update}_borrar" %>
+      </div>
+    </div>
+  <% end %>
+
+<%= final_listado %>

@@ -1,0 +1,5 @@
+primera:
+  nombre: MyString
+  nombre_completo: MyString
+  financiador: false
+  implementador: false

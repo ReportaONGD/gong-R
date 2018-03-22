@@ -1,0 +1,32 @@
+<%# editable = @objeto && params[:tipo] != "Movimiento" && ( (@proyecto && @objeto.proyecto == @proyecto) || (@agente && @objeto.proyecto.nil?) ) %>
+<% 
+#Condiciones para ver si los documentos del listado asociado pueden ser editables en funcion de la situacion del objeto
+tipo ||= params[:tipo]
+if tipo == "Gasto" and @proyecto
+  # Si estamos en un proyecto, con un gasto y es de agente, permitimos editar si los plugins los permiten
+  editar = Gasto.campos_edicion_permitidos.include?("documentos_asociados") if @objeto.proyecto_origen.nil?
+  # Si es un gasto de proyecto, permitimos editar solo desde el proyecto propietario
+  editar = @objeto.proyecto_origen_id == @proyecto.id unless @objeto.proyecto_origen.nil?
+else
+  editar = (tipo != "Gasto") || (@agente && @objeto.proyecto_origen_id.nil?) 
+end
+%>
+
+
+
+
+<%= comienzo_sublistado _("Documentos"), update_listado, {:no_cerrar => (tipo == "FuenteVerificacion")} %>
+  <div id="<%= update_listado %>_documento_anadir"></div>
+  <div class="fila">
+    <%= anadir :url => {:controller => 'documento', :action => 'asociar_o_nuevo', :objeto_id => objeto_id, :tipo => tipo, :update_listado => update_listado, :update =>  ( update_listado + "_documento_anadir") } if editar %>
+  </div>
+
+<% i = 0 %>
+<% for documento in @documentos %>
+    <% i += 1 %>
+    <%= render :partial => "documento/documento", :locals => {:documento => documento, :update => update_listado + "_" + i.to_s, :objeto_id => objeto_id , :tipo => tipo, :editable => editar, :update_listado => update_listado }%>
+<% end %>
+<%= final_sublistado %> 
+<br>
+
+

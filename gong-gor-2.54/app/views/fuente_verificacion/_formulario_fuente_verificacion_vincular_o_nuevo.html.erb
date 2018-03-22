@@ -1,0 +1,14 @@
+
+<%= formulario_comienzo %>
+
+<div style = "text-align:center;">
+  <br/>
+  <b><%= link_to_remote _("Adjuntar un nuevo documento a la fuente de verificación"), :url=> {:action => 'editar_nuevo', :controller => "documento" , :objeto_id => params[:objeto_id], :tipo => "FuenteVerificacion", :update => params[:update], :update_listado => params[:update_listado], :pisa_formulario => true}, :html => {:id => "adjuntar_a_nuevo_documento"}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');"  %></b>
+  <br/><br/>
+  <b><%= link_to_remote _("Vincular a la fuente de verificación documento ya existente"), :url=> {:action => 'fuente_verificacion_editar_vincular_documento', :objeto_id => params[:objeto_id], :update => params[:update], :update_listado => params[:update_listado]}, :html => {:id => "adjuntar_a_documento_existente"}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');"  %></b>
+  <br/><br/><br/>
+</div>
+
+<%= formulario_final(nil) %>
+
+

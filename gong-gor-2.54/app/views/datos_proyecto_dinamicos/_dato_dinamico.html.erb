@@ -1,0 +1,13 @@
+    <fieldset>
+    <div class="legend"><%= dato.definicion_dato.rotulo %></div>
+    <div class="linea" id="<%= update||"" %>_contenido">
+      <div class="elementoderecha">
+      <%= modal( icono( "editar" ), {:action => 'editar_dato_dinamico', :dato_id => dato.id, :tipo => dato.definicion_dato.tipo, :grupo_datos_id => grupo_datos_id, :update => update}, _("Editar") ) if update %>
+      <% if @proyecto.usuario_admin?(@usuario_identificado) %>
+        <%= borrado(:url =>  { :action => 'eliminar', :update => update, :grupo_datos_id => grupo_datos_id, :dato_id => dato.id, :definicion_dato_id => dato.definicion_dato_id}, :texto => dato.definicion_dato.rotulo, :identificador => update ) %>
+      <% end if update%>
+      </div> 
+      <%= (dato.dato||"&nbsp;").html_safe %>
+      </div>
+    </fieldset>
+    <br/>

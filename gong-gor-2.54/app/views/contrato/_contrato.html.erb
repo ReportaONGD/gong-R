@@ -1,0 +1,22 @@
+<%= comienzo_fila_listado @contrato, { id: update, class: (@contrato.marcado ? @contrato.marcado.color : ""), campos: campos_listado("contrato") } %>
+  <div class="elementoderecha">
+    <% avisos = "" %>
+    <% avisos += " " + _("La suma por actividades no es correcta.") unless @contrato.comprobar_actividades %>
+    <% avisos += " " + _("La suma por financiadores no es correcta.") unless @contrato.comprobar_financiadores %>
+    <% avisos += " " + _("La suma por items no es correcta.") unless @contrato.item_contrato.empty? || @contrato.comprobar_items %>
+    <% avisos += " " + _("Los pagos previstos no coinciden con el total del contrato.") unless @contrato.comprobar_periodos %>
+    <% avisos += " " + _("El importe de ejecución del contrato ha sido superado.") if @contrato.importe_ejecutado > @contrato.importe %>
+    <% avisos += " " + _("El contrato está fuera de fecha.") if @contrato_aprobado && !@contrato.cerrado && Date.today > @contrato.fecha_fin %>
+    <%= icono( "alerta", _("¡Atención!.") + avisos ) unless avisos == "" %>
+    <%= remote icono( "informacion", _("Ver ficha de contrato.")), url: {update: update + '_sub', action: 'detalle', id: @contrato.id} %>
+    <%= remote icono( "etiquetas", _("Marcar el contrato.")), url: {update: update, controller: "marcado" , action: 'editar', id: @contrato, tipo: "contrato" } %>
+    <%= remote icono( "comentarios" + (@contrato.comentario.empty? ? "" : "_r"), _("Ver comentarios")), url: {update: update + "_sub", controller: 'comentario', action: 'comentarios', objeto_id: @contrato.id.to_s, tipo: "Contrato" } %>
+    <%= remote icono("lista", _("Estado del Contrato")), url: {update: update + '_sub', controller: :estado_contrato, action: :listado, id: @contrato}, html: {id: update + '_estado'} %>
+    <%= remote icono("documentos" + (@contrato.documento.empty? ? "" : "_r"), _("Ver documentos")), url: {update: update + '_sub', controller: :documento, action: :listado_asociados, objeto_id: @contrato, tipo: "Contrato"}, html: {id: update + '_documentos'} %>
+    <%= remote icono("gastos", _("Gastos asociados")), url: {update: update + '_sub', action: 'listado_gastos', id: @contrato}, html: {id: update + "_gastos"} %>
+
+    <%= editar( url: { action: 'editar_nuevo', id: @contrato, update: update }) %> 
+    <%= borrado( url: { action: 'eliminar', id: @contrato, update: update }, texto: @contrato.nombre, identificador: update )  %>     
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div> 
+</div>

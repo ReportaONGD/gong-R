@@ -1,0 +1,14 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( :url => { :action => 'modificar_crear_relacion', :id => @usuario.id, :elemento_id => @elemento.id, :tipo => params[:tipo]} ) %>
+  <%= selector params[:tipo].capitalize, 'elemento', params[:tipo] + '_id', @elementos.collect{|l| [l.nombre, l.id]}, false ,"3_2", :obligatorio => true, :disabled => !@elemento.id.nil? %>
+
+  <% if params[:tipo] == "proyecto" %>
+    <% roles = Rol.where(seccion: "proyectos").collect{|r| [r.nombre, r.id]} %>
+  <% elsif params[:tipo] == "agente" %>
+    <% roles = Rol.where(seccion: "agentes").collect{|r| [r.nombre, r.id]} %>
+  <% else %>
+    <% roles = nil %>
+  <% end %>
+
+  <%= selector  _("Rol"), 'elemento', 'rol_id', roles, false, "3_4" if roles %>  
+<%= formulario_final %>

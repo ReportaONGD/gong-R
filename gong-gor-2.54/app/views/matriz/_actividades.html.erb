@@ -1,0 +1,26 @@
+
+
+<%= comienzo_sublistado _("Actividades"), update_listado %>
+
+<div id = "<%= params[:update] %>_actividades_anadir" ></div>
+<div class="fila" >
+<%= anadir :url => {:action => 'nueva_editar_actividad', :update_listado => update_listado, :resultado_id => params[:resultado_id], :update =>  (params[:update] + "_actividades_anadir") } %>  
+</div>
+
+<% i = 0 %>
+<% for actividad in @actividades %>
+   <% actividad_id = params[:update] +"_actividades_" + (i += 1).to_s %>
+   <div  id="<%= actividad_id %>" class="fila" >
+    <%= fila_listado actividad, campos_listado("actividad"), actividad_id %>
+    <div class="elementoderecha">
+      <%= ventana_popup actividad , {:campos => ["descripcion"], :id => params[:update] + "_actividades_" + i.to_s + "_informacion"} %>
+      <%= editar :url => {:update_listado => update_listado, :action => 'nueva_editar_actividad', :id => actividad.id, :resultado_id => params[:resultado_id] , :update => actividad_id} %>      
+      <%= borrado :url => { :update => actividad_id, :action => 'eliminar_actividad', :id => actividad.id, :resultado_id => params[:resultado_id] }, :texto => actividad.codigo_nombre, :identificador => actividad_id %>
+    </div>
+    <div class="linea"></div>
+   </div>
+<% end %>
+<%= final_sublistado %> 
+<br>
+
+ 

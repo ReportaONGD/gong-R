@@ -1,0 +1,15 @@
+<%#comienzo_listado %>
+
+<% for dato in @rotulo_atributo %>
+<fieldset>
+<div class="legend" align= "left"><b><%= dato[0] %></b></div>
+  <div class="fila" id="<%=dato[1]%>">
+    <div class="elementoderecha"><%= modal( icono( "editar" ), {:action => 'editar', :id => @datos_proyecto.id, :rotulo => dato[0], :atributo => dato[1]}, _("Editar") ) %></div> 
+  </div>
+<%= render :partial => "atributo",:locals => { :atributo => dato[1] } %>
+</fieldset>
+<br>
+<% end %>
+
+<%# final_listado %>
+

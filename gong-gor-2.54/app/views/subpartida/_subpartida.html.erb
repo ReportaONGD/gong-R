@@ -1,0 +1,10 @@
+<% @subpartida ||= subpartida %>
+<div id="<%= update %>" class="fila" >
+    <%= fila_listado @subpartida, campos_listado("subpartida"), update %>
+      <div class="elementoderecha">
+           <%= editar( :url => { :action => 'editar_nuevo', :id => @subpartida, :update => update }) %> 
+           <%= borrado( :url => { :action => 'eliminar', :id => @subpartida.id, :update => update },  :texto => (@subpartida.nombre), :identificador => update )  %>     
+      </div>
+    <div class="linea" id="borrame_subpartida<%=@subpartida.id.to_s%>"></div>
+    <div id="spinner_<%= @subpartida.id.to_s %>" class="spinner" style="display:none" ></div>
+</div>

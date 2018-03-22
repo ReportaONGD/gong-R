@@ -1,0 +1,15 @@
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]} %>
+
+<div id="<%= 'resultado' + linea.to_s %>" class="linea">
+  <%= selector  _("Resultados"), "resultado", 'resultado_id', (@proyecto.resultado.sort! {|x, y|  x.codigo <=> y.codigo }).collect {|a|[a.codigo_nombre, a.id]}, true, "2", {:name => "resultados[#{linea}][resultado_id]"} %>
+  <%# texto_numero _("Nº unidades"), 'resultado', 'numero_unidades',"1_2", {:name => "resultados[#{linea}][numero_unidades]"} if controller.controller_name == "presupuesto_proyectos" %>
+  <%# texto_numero _("Importe"), 'resultado', 'importe_convertido',"1_2", {:name => "resultado[#{linea}][importe_convertido]"}  %>
+  <%= hidden_field 'resultado', 'proyecto_id', {:value => @proyecto.id, :name => "resultado[#{linea}][proyecto_id]"} unless controller.controller_name == "presupuesto_proyectos" %>
+</div>
+<% if ultima  %>
+  <div id="resultado_<%= (linea + 1).to_s %>">
+    <br><%=link_to_remote _("Añadir resultado"), :update => "resultado_#{(linea + 1).to_s}", :url => {:action => "anadir_resultado", :linea => (linea + 1)} ,:loading => "Element.show('spinner');Element.hide('botonguardar');", :complete => "Element.hide('spinner');Element.show('botonguardar');"%>
+  </div>
+<% end %>
+
+

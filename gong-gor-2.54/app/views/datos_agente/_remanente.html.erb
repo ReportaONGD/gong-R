@@ -1,0 +1,12 @@
+<%= comienzo_sublistado _("Listado de Remanentes de la Etapa"), params[:update] %>
+  <div class="linea"><br/></div>
+  <% if @resumen[:listado] %>
+    <%= dibuja_tabla @resumen[:listado][:lineas] if @resumen[:listado] %>
+    <div class="fila elementoderecha">
+      <%= confirmar :enlace => _("Aplicar Remanentes a la Etapa") + " '" + @etapa.etapa_siguiente.nombre + "'", :url => {:action => 'generar_remanente', :update => params[:update], :id => @etapa}, :texto => _("Se aplicarán los Remanentes a la Etapa") + ":<br/>" + @etapa.etapa_siguiente.nombre, :identificador => params[:update] %>
+    </div>
+  <% else %>
+    <%= _("No existen remanentes a aplicar") unless @resumen[:listado] %>
+  <% end %>
+<%= final_sublistado %>
+<div class="linea"><br/></div>

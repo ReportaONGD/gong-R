@@ -1,0 +1,22 @@
+<% colores = [[_("rojo"),"rojo"],[_("verde"),"verde"],[_("azul"),"azul"],[_("amarillo"),"amarillo"],[_("rosa"),"rosa"],[_("morado"),"morado"],[_("naranja"),"naranja"],  [_("gris"), "gris"]] %>
+
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+  <%= texto _("Nombre"), 'dato_basico', 'nombre', "1" %>
+  <%= texto _("Descripción"), 'dato_basico', 'descripcion', "3" %>
+  <%= selector _("Color"), 'dato_basico', 'color', colores, true, "1" %>
+  <%= selector _("Estado anterior"), 'dato_basico', 'marcado_padre_id', @estados_padre, true, "1" %>
+  <div class="fila"><br></div>
+  <div class="elemento3_4">
+    <br/>
+    <%= checkbox _("Estado inicial"), 'dato_basico', 'primer_estado', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.primer_estado : false)} %>
+  </div>
+  <div class="elemento3_4">
+    <br/>
+    <%= checkbox _("Marcado automático"), 'dato_basico', 'automatico', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.automatico : false)} %>
+  </div>
+  <div class="elemento3_4">
+    <br/>
+    <%= checkbox _("Marcado de errores"), 'dato_basico', 'error', "3_4", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.error : false)} %>
+  </div>
+  <%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

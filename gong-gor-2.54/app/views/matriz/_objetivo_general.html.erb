@@ -1,0 +1,12 @@
+  <div class="legend"><%= _("Objetivo General") %></div>
+  <div class="linea" id="objetivo_general_contenido">
+    <div class="elementoderecha">
+      <%= link_to icono("lista", _("Indicadores del Objetivo General")), {action: :listado, controller: :indicador} %>
+      <% if params[:menu] == "formulacion" && @proyecto.estado_actual && @proyecto.estado_actual.definicion_estado && @proyecto.estado_actual.definicion_estado.formulacion %>
+        <%= editar :url =>  {:action => 'editar_nuevo_objetivo_general', :update => "objetivo_general_dato", :update_listado => "objetivo_general" } %>
+      <% end %>
+    </div>
+    <div id="objetivo_general_dato">
+      <%= @proyecto.objetivo_general ? h(@proyecto.objetivo_general.descripcion).gsub(/[\n\r]/,"<br>\n").html_safe : "" %>
+    </div>
+  </div>

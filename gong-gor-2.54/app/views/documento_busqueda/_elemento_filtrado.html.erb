@@ -1,0 +1,16 @@
+<div class = "linea" id = "elemento_filtrado_<%= indice.to_s %>" <%= 'style="display:none;"' if valor.to_i == 0 %> >
+  <%# select( 'selector', 'etiqueta[' + indice + ']', @etiquetas, {:include_blank => true, :selected => valor.to_i, :disabled => (valor.to_i != 0)}, {:class => "selector1 elemento", :size => 1 }  ) %>
+  <div class="elemento selector1">
+    <%= Etiqueta.find_by_id(valor.to_i).nombre if valor.to_i != 0 %>
+    <%= hidden_field('filtro_etiqueta', indice, {:value => valor}) if valor.to_i != 0 %>
+  </div>
+  <%= link_to_remote( icono("cerrar", _("Quitar filtro")), :url => {:update => "elemento_filtrado_" + indice.to_s, :action => 'quitar_filtro'} , :html => {:id => "quitar_filtro_" + indice.to_s}, :loading => "Element.show('spinner_filtrado')", :complete => "Element.hide('spinner_filtrado')" ) %>
+</div>
+<% if ultimo %>
+  <% indice += 1 %>
+  <div class = "linea" id = "nuevo_elemento_<%= indice.to_s %>">
+    <%= select( 'selector', 'etiqueta_nueva', @etiquetas, {:include_blank => true}, {:class => "selector1 elemento", :size => 1 }  ) %>
+      <%= observe_field( "selector_etiqueta_nueva" , :function => 'if( document.getElementById("selector_etiqueta_nueva").selectedIndex == 0 ){ Element.hide("anadir_filtro"); } else { Element.show("anadir_filtro"); }' ) %>
+    <%= link_to_remote( icono("anadir", _("Añadir filtro")), :url => {:update => "nuevo_elemento_" + indice.to_s, :action => 'anadir_filtro', :indice => indice.to_s }, :with => "$('selector_etiqueta_nueva').serialize()", :html => {:id => "anadir_filtro", :style => "display:none;"}, :loading => "Element.show('spinner_filtrado')", :complete => "Element.hide('spinner_filtrado')" ) %>
+  </div>
+<% end %>

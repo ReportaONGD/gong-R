@@ -1,0 +1,233 @@
+# La estructura es la siguiente:
+#
+#secciones:
+#  $nombre_seccion_1
+#    $nombre_controlador_1_1
+#      info:
+#      acciones:
+#        $nombre_accion_1_1_1
+#          rotulo:
+#          info: 
+#        $nombre_accion_1_1_2
+#    $nombre_controlador_1_2
+#      info:
+#      acciones:
+#        $nombre_accion_1_2_1
+#          rotulo:
+#          info:
+#  $nombre_seccion_2
+#    $nombre_controlador_2_1
+#      info:
+#      acciones:
+#        $nombre_accion_2_1_1
+#          rotulo:
+#          info:
+#    $nombre_controlador_2_2
+#...
+
+
+secciones:
+  inicio:
+    controladores:
+      info:
+        info: Desde esta página pode visualizar os <b>Projetos ativos</b> e as <b>Tarefas</b> atribuídas ao seu usuário.
+      tarea:
+        info: Este é o listado das <b>Tarefas</b> que foram atribuídas a você.<br>Selecione uma delas para consultar desde qual projeto lhe foi encomendada.
+  info:
+    controladores:
+      documento:
+        info: Documentos comuns a todo o Sistema.
+  administracion:
+    controladores:
+      agente:
+        info: Desse esta página pode criar, modificar e eliminar os <b>Agentes</b> existentes no Sistema, assim como atribuir os usuários autorizados ao seu gerenciamento.
+      libro:
+        info: Desde esta página pode inserir novas <b>Contas</b> no Sistema e vincular os usuários que estarão autorizados para o gerenciamento das mesmas.
+      proyecto:
+        info: Desde esta página pode inserir novos <b>Projetos</b> no Sistema e vincular os usuários que estarão autorizados para o gerenciamento dos mesmos.
+      usuario:
+        info: Desde esta página pode gerenciar os <b>Usuários</b> do Sistema.
+      datos_basicos:
+        info: Desde esta página pode gerenciar as <b>Informações Essenciais</b> da Configuração do Sistema.
+      etiqueta:
+        info: >
+          Desde esta página pode gerenciar as <b>Etiquetas</b> para classificar os documentos que sejam subidos no Sistema. 
+          As etiquetas definidas permitem aos demais usuários classificar documentos e facilitam a localização dos mesmos.
+      documento:
+        info: Desde esta página pode definir <b>Planilhas de Exportação</b> dos orçamentos e das despesas de cada um dos projetos.
+      backup:
+        info: Desde esta página pode realizar as cópias de segurança do Sistema.
+  cuadrodemando:
+  socios:
+    controladores:
+      agente:
+        info: Desde esta página pode gerenciar os <b>Parceiros</b> da Entidade.
+      pago_socio:
+        info: Desde esta página pode gerenciar os <b>Pagamentos</b> realizados por cada parceiro da Entidade.
+      resumen_socio:
+        info: Desde esta página pode gerar <b>Relatórios</b> dos parceiros da Entidade. 
+      exportación:
+        info: Desde esta página pode <b>Exportar</b> as informações a planilhas de cálculo.
+  agentes:
+    controladores:
+      agente:
+        info: >
+          Desde esta página pode acessar ao gerenciamento financeiro dos agentes que foram atribuídos ao seu usuário.<br>
+          Selecione um agente para acessar ao gerenciamento financeiro do mesmo.
+      datos_agente:
+        info: Desde esta página pode gerenciar as informações do agente.
+        acciones:
+          etapas:
+            rotulo: Etapas e Taxas de Câmbio
+            info: Gerenciamento de <b>Etapas</b> e <b>Taxas de Câmbio</b> definidas para o agente.
+      presupuesto_agentes:
+        info: >
+          Desde esta página pode acessar ao gerenciamento do orçamento do agente selecionado.<br>
+          <b>ESCLARECIMENTO:</b> De inicio, esta página mostra o orçamento da primeira etapa do projeto.
+          Para visualizar o orçamento de outra etapa, mude a "etapa" no final desta página.
+      gasto_agentes:
+        info: >
+          Desde esta página pode acessar ao gerenciamento das despesas do agente selecionado.<br>
+          <b>ESCLARECIMENTO:</b> De inicio, esta página mostra as despesas da primeira etapa do projeto. 
+          Para visualizar as despesas de outra etapa, mude a "etapa" no final desta página.
+      transferencia:
+        info: >
+          Desde esta página pode acessar às transferências para o agente selecionado.<br><br>
+          A descrição da tipologia das transferências existentes, pode ser consultada
+          <a href="https://www.gong.org.es/projects/gor/wiki/Tipologia_movimientos" target="_blank">aquí</a>.
+      exportacion:
+        info: Desde esta página pode exportar as informações do Orçamento e das Despesas de um projeto a planilhas de cálculo.
+      importacion:
+        info: Desde esta página pode importar as informações do Orçamento e das Despesas de um projeto a planilhas de cálculo.
+      resumen_agente:
+        info: Desde esta página poderá visualizar a síntese do Agente.
+        acciones:
+          gasto:
+            rotulo: Monitoramento da despesa 
+            info: Visualização da síntese das despesas
+          arqueo_caja:
+            rotulo: Fechamento do Caixa
+            info: Síntese das despesas e das transferências para uma conta do Agente.
+  proyectos:
+    controladores:
+      proyecto:
+        info: >
+          Desde esta página pode ter acesso ao gerenciamento dos projetos atribuídos ao seu usuário.<br>
+          Selecione um projeto para ter acesso ao gerenciamento do mesmo.
+      info:
+        info: Síntese das principais informações do Projeto.
+      estado:
+        info: >
+          Desde esta página pode gerenciar o <b>Estado</b> deste projeto.<br><br>
+          <b>ESCLARECIMENTO:</b> <br>Leve em consideração que as opções que aparecem para cada projeto dependem do Estado em que se encontre definido no Sistema.
+      tarea:
+        info: Tarefas atribuídas atualmente.<br>Desde esta página pode gerenciar as tarefas do projeto selecionado.
+      documento:
+        info: Desde esta página pode gerenciar os documentos do projeto selecionado.
+      datos_proyecto_dinamicos:
+        info: Desde esta página pode consultar ou modificar as <b>Informações da Identificação</b> o as <b>Informações de Monitoramento</b> do projeto.
+      datos_proyecto:
+        info: Síntese das principais informações do Projeto
+        acciones:
+          relaciones:
+            rotulo: Relacionamentos
+            info: Desde esta página pode definir ou modificar os relacionamentos do projeto.
+          etapas:
+            rotulo: Etapas e Taxas de Câmbio
+            info: Desde esta página pode criar, modificar e eliminar as <b>Etapas</b> do projeto, assim como as <b>Taxas de Câmbio</b> definidas para cada una das Etapas.
+          proyecto_cofinanciador:
+            rotulo: Projetos Cofinanciadores
+            info: Projectos cofinanciadores
+      personal:
+        info: Personal
+      beneficiarios:
+        rotulo: Destinatários
+        info: Desde esta página pode consultar ou modificar as <b>Informações sobre os destinatários</b> do projeto.
+      matriz:
+        info: Matriz do projeto
+        acciones:
+          listado:
+            rotulo: Matriz Geral
+            info: >
+              Matriz Geral do Projeto.<br>
+              Selecionando um dos objetivos específicos pode ter acesso aos Resultados e às Atividades do mesmo.
+          listado_filtrado:
+            rotulo: Matriz por País e Etapa
+            info: Filtrado da Matriz do projeto segundo o País e/ou a Etapa selecionada.
+          cronograma:
+            rotulo: Cronograma
+            info: Cronograma de Atividades
+          variables:
+            rotulo: Variáveis dos Indicadores
+            info: Desde esta página pode monitorar as variáveis vinculadas aos Indicadores dos Objetivos Específicos e dos Resultados do Projeto.
+      presupuesto_proyectos:
+        info: >
+          Desde esta página pode gerenciar o orçamento do projeto selecionado.<br>
+          <b>ESCLARECIMENTO:</b> De inicio, esta página mostra o orçamento da primeira etapa do projeto. 
+          Para visualizar o orçamento de outra etapa, mude a <b>etapa</b> no final desta página..            
+        acciones:
+          listado:
+            rótulo: Orçamento por Partidas
+            info: Gerenciamento do orçamento desde as partidas do mesmo.
+          listado_por_actividades:
+            rótulo: Orçamento por Atividades
+            info: Gerenciamento do orçamento desde as atividades do projeto.
+      gasto_proyectos:
+        info: Despesas e Comprovantes de despesa do Projeto.
+        acciones:
+          listado:
+            rotulo: Gerenciamento das Despesas
+            info: >
+              Desde esta página pode ter acesso ao gerenciamento das despesas do projeto selecionado.<br>              
+              <b>ESCLARECIMENTO:</b> De inicio, esta página mostra as despesas da primeira etapa do projeto. 
+              Para visualizar as despesas de outra etapa, mude a <b>etapa</b> no final desta página.
+          listado_facturas:
+            rotulo: Numeração das Notas e/ou dos Comprovantes de despesa
+            info: >
+              Desde esta página pode conferir as notas e/ou comprovantes das despesas do projeto.<br>
+              É possível ordenar as notas e comprovantes apenas por Data ou, então, por Partida e Data.
+              <b>ESCLARECIMENTO:</b> De inicio, esta página mostra as Notas e comprovantes de despesa da primeira etapa do projeto. 
+              Para visualizar as Notas ou os comprovantes de despesa de outra etapa, mude a <b>etapa</b> no final desta página.
+      transferencia:
+        info: >
+          Desde esta página pode acessar às transferências para o projeto selecionado.<br>
+          <b>ESCLARECIMENTO:</b> De inicio, esta página mostra as transferências da primeira etapa do projeto. 
+          Para visualizar as transferências de outra etapa, mude a <b>etapa</b> no final desta página.
+      exportacion:
+        info: >
+          Desde esta página pode exportar as informações da Matriz, do Orçamento ou das Despesas do projeto<br>
+          a uma planilha de cálculo.
+          Para <i>Orçamentos</i> e <i>Despesas</i> podem ser utilizadas aquelas planilhas que foram subidas na seção <i>Documentos</i><br>
+          e que foram classificadas com as etiquetas <i>Planilha Orçamento</i> ou <i>Planilha Despesa</i>, respetivamente.
+      importacion:
+        info: Desde esta página pode importar informações da Matriz, do Orçamento ou das Despesas que estejam em uma planilha de cálculo.
+      resumen_proyecto:
+        info: Síntese do monitoramento do andamento do projeto.
+        acciones:
+          presupuesto:
+            rotulo: Orçamento
+            info: >
+              Síntese do orçamento do projeto.<br>
+              Escolha a divisa, a etapa e a tipologia (por atividade ou partida) da síntese que deseja visualizar.
+          gasto:
+            rotulo: Despesa
+            info: >
+              Escolha a divisa, o agente, as datas de inicio e fim e a tipologia (por atividade ou partida), para visualizar as informações desejadas.<br><br> 
+              ESCLARECIMENTO: Caso tenha elaborado o orçamento inserindo o detalhe do mesmo por meses, pode utilizar esse critério para visualizar as informações mês a mês.<br>
+              Caso não tenha inserido o orçamento por meses, escolha a opção 'sem detalhe mensal'. 
+          arqueo_caja:
+            rotulo: Fechamento do Caixa
+            info: Desde esta página pode visualizar uma síntese das transferências e dos pagamentos realizados para/desde uma conta do projeto.
+      tasa_cambio:
+        info: >
+          Desde esta página pode acessar ao gerenciamento das taxas de câmbio do projeto selecionado.<br><br>
+          Para realizar os cálculos automáticos das taxas de câmbio aplicadas às despesas, se utilizam todas as transferências<br>
+          do período selecionado.
+      partida_financiacion:
+        info: >
+          Desde esta página pode gerenciar as partidas vinculadas ao financiamento selecionado.<br>
+          Em primeiro lugar, crie a partida e depois vai em editar/página para completar os relacionamentos com outras partidas:<br>
+          * Relacione a partida com as partidas gerais do Sistema, caso a partida não seja do tipo 'mãe'.<br>
+          * Relacione a partida com outras partidas, caso seja do tipo 'mãe'.
+      informe:
+        info: Desde esta página pode gerar relatórios do projeto. 

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  presupuesto_id: 1
+  proyecto_id: 1
+  importe: 9.99
+
+two:
+  presupuesto_id: 1
+  proyecto_id: 1
+  importe: 9.99

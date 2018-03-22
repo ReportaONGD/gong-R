@@ -1,0 +1,17 @@
+# Construye la salida de un listado
+
+    nombre = (@proyecto ? @proyecto.nombre : params[:seccion].capitalize) + " - " + params[:controller].capitalize + (params[:action] == "index" ? "" : " - " + params[:action].capitalize)
+    titulo = [ nombre ]
+    titulo += @estado_filtrado if @estado_filtrado
+
+    # Mete la línea de ordenado
+    if session[(params[:controller]+"_cadena_orden").to_sym]
+      nombre_campo = session[(params[:controller]+"_cadena_orden").to_sym]
+      campos_listado(@tipo).each { |campo| nombre_campo = campo[0] if campo[2] == session[(params[:controller]+"_cadena_orden").to_sym] }
+      ordenado_por = _("Ordenado por: ") + nombre_campo.capitalize
+      ordenado_por += " (" + session[(params[:controller]+"_asc_desc").to_sym].downcase + ")" if session[(params[:controller]+"_asc_desc").to_sym]
+      titulo.push(ordenado_por)
+    end
+
+    xls_resumen_objeto(workbook,{:tipo => @tipo, :nombre => nombre, :titulo => titulo, :objetos => @objetos, :subobjetos => @subobjetos} )
+

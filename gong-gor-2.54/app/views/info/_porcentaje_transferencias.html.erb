@@ -1,0 +1,23 @@
+
+  <% proyecto.moneda.each do |mon| %>
+    <% if proyecto.moneda_principal == mon %>
+      <% presupuestado = proyecto.presupuesto_total(nil,proyecto.agente) %>
+      <% transferido = proyecto.transferido_total(mon,nil,proyecto.agente,"entrante","subvencion") %>
+      <%= caja_porcentaje(:total => presupuestado, :valor => transferido,
+		:titulo => _("Subvención:"),
+		:rotulo =>	_("Subvención recibida respecto al presupuesto total del financiador principal") + "<br/><br/>" +  
+				_("Recibido") + ":&nbsp;<b>" + celda_formateada(transferido) + " " + mon.abreviatura + "</b><br/>" +
+				_("Presupuestado") + ":&nbsp;<b>" + celda_formateada(presupuestado) + " " + mon.abreviatura + "</b>") if presupuestado != 0 %>
+    <% else %>
+      <% presupuestado = proyecto.presupuesto_total(mon,proyecto.agente) %>
+      <% transferido_entrante = proyecto.transferido_total(mon,nil,nil,"entrante") %>
+      <% transferido_saliente = proyecto.transferido_total(mon,nil,nil,"saliente") %>
+      <% transferido = transferido_entrante - transferido_saliente %>
+      <%= caja_porcentaje(:total => presupuestado, :valor => transferido,
+		:titulo => mon.abreviatura + " " + _("Transferidos:"),
+		:rotulo => 	_("Transferencias realizadas a %{mon} respecto al presupuesto del financiador principal para esa moneda") % {:mon => mon.nombre} + "<br/><br/>" +
+				_("Transferido") + ":&nbsp;<b>" + celda_formateada(transferido) + " " + mon.abreviatura + "</b><br/>" +
+				_("Presupuestado") + ":&nbsp;<b>" + celda_formateada(presupuestado) + " " + mon.abreviatura + "</b>") if presupuestado != 0 || transferido != 0 %>
+    <% end %>
+  <% end %>
+

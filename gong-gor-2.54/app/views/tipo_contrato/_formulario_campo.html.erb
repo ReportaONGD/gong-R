@@ -1,0 +1,18 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( url: { action: 'modificar_crear_campo', id: @tipo_contrato.id, campo_id: @campo.id }) %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'campo', 'nombre', '1', {obligatorio: true} %>
+    <%= texto _("Etiqueta"), 'campo', 'etiqueta', '1', {obligatorio: true} %>
+    <div class="elementoderecha">
+      <%= checkbox _("Activo"), 'campo', 'activo', '1_2', {checked: @campo.activo} %>
+    </div>
+  <div class="linea">
+    <%= texto _("Descripción"), 'campo', 'descripcion', '4' %>
+  </div>
+  <div class="linea">
+    <%= selector _('Tipo de Campo'), 'campo', 'tipo_campo', CampoTipoContrato::TIPOS_DE_CAMPO.keys, false, '2_3', {obligatorio: true} %>
+      <%= observe_field( "campo_tipo_campo", update: "condiciones_campo", url: {action: :cambia_tipo_condicion, campo_id: @campo.id}, with: "tipo_campo", loading: "Element.show('spinner')", complete: "Element.hide('spinner')") %>
+    <%= render partial: 'condicion_campo' %>
+  </div>
+  <div class="linea">&nbsp;</div>
+<%= formulario_final %>

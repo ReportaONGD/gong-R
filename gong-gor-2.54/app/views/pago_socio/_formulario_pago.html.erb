@@ -1,0 +1,11 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear_pago', :id => @pago }, false ) %>
+    <%= selector _("Socio"), "pago", "socio_id", @socios, false, "1" %>
+    <%= texto _("Importe"), "pago", "importe", "1"  %>
+    <%= texto _("Concepto"), "pago", "concepto", "2"  %>
+    <%# selector _( "Pago en Especie" ), "pago", "especie", [[_("No"), false],[_("Sí"), true]], false, "1" %>
+    <%= selector _("Forma de Pago"), "pago", "forma_pago_socio_id", @formas_pago, false, "1" %>
+    <%= texto_area _("Comentario"), "pago", "comentario", "4"  %>
+    <%= calendario_fecha _("Fecha Emisión"), "pago", "fecha_emision", :year_range => [1970, Time.now.year + 2] %>
+    <%= calendario_fecha _("Fecha Pago"), "pago", "fecha_pago", :year_range => [1970, Time.now.year + 2] %>
+    <%= calendario_fecha _("Fecha Alta Sistema"), "pago", "fecha_alta_sistema" %>
+<%= final_formulario %>

@@ -1,0 +1,50 @@
+<% base_params = {:tipo => params[:tipo], :objeto_id => params[:objeto_id], :update => params[:update], :i => params[:i]} %>
+
+<div class = "filacabecera">
+  <div class = "elemento">
+    <%= _("Seleccione un documento a vincular en el espacio %s") % [@espacio_donde_vincular.ruta + " / " + @espacio_donde_vincular.nombre] %>
+  </div>
+</div>
+<div>
+  <br/>
+  <div class = "elemento">
+    <% @ruta = @espacio.ruta_con_id if @espacio %>
+    <% if @ruta %>
+      <% @ruta.each do |rid| %>
+        <%= " / " %>
+        <%= link_to_remote rid[:nombre], :url => base_params.merge({:action => "asociar_documentos", :espacio_id => rid[:id]||0}), :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+      <% end %>
+      <%= " / " + @espacio.nombre if @espacio %>
+    <% else %>
+      <%= _("Se encuentra en la 'raíz' de documentos") %>
+    <% end %>
+  </div>
+  <br/>
+</div>
+
+
+<br>
+<% ico_esp = image_tag("/images/iconos_bn/carpeta.png", :border => 0, :class => "iconoespacio", :title => "Ir a Espacio" || "", :onmouseover => "this.src='/images/iconos_bn/carpeta_s.png';", :onmouseout => "this.src='/images/iconos_bn/carpeta.png';" ) %>
+<% ico_doc = image_tag("/images/iconos_bn/documentos_r.png", :border => 0, :class => "iconoespacio", :title => "Seleccionar Documento" || "", :onmouseover => "this.src='/images/iconos_bn/documentos_r_s.png';", :onmouseout => "this.src='/images/iconos_bn/documentos_r.png';" ) %>
+<% if @espacio %>
+  <% espacio_padre_id = @espacio.espacio_padre ? @espacio.espacio_padre.id : 0 %>
+  <div id="espacio_<%= espacio_padre_id %>" class = "fila">
+    <%= link_to_remote (ico_esp + " .."), :url => base_params.merge({ :action => "asociar_documentos", :espacio_id => espacio_padre_id }), :html => {:id => ("espacio_" + espacio_padre_id.to_s + "_seleccionar")}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+    <div class='linea'></div>
+  </div>
+<% end %>
+<% for espacio in @espacios %>
+  <div id="espacio_<%= espacio[:id] %>" class = "fila">
+    <%= link_to_remote (ico_esp+ " " + espacio[:nombre]), :url => base_params.merge({ :action => "asociar_documentos", :espacio_id => espacio[:id] }), :html => {:id => ("espacio_" + espacio[:id].to_s + "_seleccionar")}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+    <div class='linea'></div>
+  </div>
+<% end %>
+
+<% for documento in @documentos %>
+  <div id="documento_<%= documento.id %>" class="fila">
+    <%= link_to_remote (ico_doc + " " + documento.adjunto_file_name + (documento.descripcion && documento.descripcion != "" ? " (" + documento.descripcion + ")" : "")), :url => base_params.merge({ :action => "asociar", "documento[id]" => documento.id }), :html => {:id => ("documento_" + documento.id.to_s + "_seleccionar")}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+    <div class='linea'></div>
+  </div>
+<% end %>
+
+<br/><br/>

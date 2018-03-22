@@ -1,0 +1,12 @@
+<% update = update_listado + "_campo" %>
+<% opciones_sublistado = { campos_listado: campos_listado('campo_tipo_contrato') } %>
+<% opciones_sublistado[:anadir] = { url: {action: 'editar_nuevo_campo', update: update + "_formulario_anadir", update_listado: update, id: params[:id]} } if (@agente && @tipo_contrato.agente_id == @agente.id) || @agente.nil? %>
+<div id="<%= update %>">
+  <%= comienzo_sublistado _("Campos Particulares"), update, opciones_sublistado %>
+    <div id="<%= update %>_formulario_anadir"></div>
+    <% for campo in @campos %>
+      <%= render :partial => "campo", :locals => { update_listado: update, campo: campo } %>
+    <% end %>
+  <%= final_sublistado %>
+  <br>
+</div>

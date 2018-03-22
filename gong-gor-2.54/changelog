@@ -1,0 +1,1341 @@
+2017-xx-xx xxxx xxxx <xxx@xxx.xx> Version 2.55dev
+
+ * 
+
+2017-29-05 Jaime Ortiz  <jaime@semillasl.com> Version 2.54
+
+ * Funcionalidad #2785: Gestión de gastos imputacion mensual: Añadir las funcionalidades de empleado
+ * Funcionalidad #2792: Programas Marco (agrupación de proyectos, líneas estratégicas, ...)
+ * Funcionalidad #2793: Definición de métricas de Programas Marco
+ * Funcionalidad #2827: Generación de Alertas para Proyectos
+ * Funcionalidad #2862: Alertas en presupuesto de empleados al dar de alta gastos
+ * Funcionalidad #2890: Imputación de personal a proyectos: Vista resumen con gastos y comparativas con presupuesto
+ * Funcionalidad #2904: Gestión de transferencias automaticas en funcion de gastos de empleados
+ * Funcionalidad #2912: Vincular a los empleados la entidad salarios por horas.
+ * Funcionalidad #2913: Incluir en los resumenes de empleado la posiblidad de ver las horas
+ * Funcionalidad #2914: Incluir un resumen de horas de empleado en proyecto
+ * Funcionalidad #2932: Fallo en la numeracion de facturas en proyecto
+ * Correccion - Mejora #2723: Cambiar el literal "Total número de presupuestos: "
+ * Correccion - Mejora #2789: Agentes: separar el resumen ejecutivo de proyectos entre gestionados y ejecutados
+ * Correccion - Mejora #2795: Cambiar el numero de unidades del presupuesto para permitir decimales
+ * Correccion - Mejora #2808: Dibujar las fechas de listados y sublistados en el formato del idioma elegido
+ * Correccion - Mejora #2824: Imputación de gasto
+ * Correccion - Mejora #2832: Permitir la validacion de que un proyecto tiene periodo de justificación final antes de aprobarse
+ * Correccion - Mejora #2835: Mostrar en la página de entrada y de info del proyecto los periodos aceptados
+ * Correccion - Mejora #2837: Optimización de consultas
+ * Correccion - Mejora #2840: Eliminar deprecation warnings
+ * Correccion - Mejora #2847: Posibilidad de definir país de aplicación para población beneficiaria (titulares de derecho)
+ * Correccion - Mejora #2853: No existen los campos "created_at" y "updated_at" para proyectos
+ * Correccion - Mejora #2889: Acceder a Indicadores Generales desde Matriz
+ * Correccion - Mejora #2895: Actualización a Ruby 2.2
+ * Correccion - Mejora #2897: Actualización del entorno de Testing
+ * Correccion - Mejora #2903: Modificar despesas sem ter q informar atividade
+ * Correccion - Mejora #2907: Incluir actividades sin etapa en seguimiento de actividades
+ * Correccion - Mejora #2908: Modificação subpartida em branco
+ * Correccion - Mejora #2909: Erro: os valores financiados nao somam o total da despesa
+ * Correccion - Mejora #2917: Recoger datos de la modificacion en tareas programadas
+ * Errores #2404: Cambio fecha en etapa
+ * Errores #2719: Valores extraños en el infomre Resumen Ejecutivo
+ * Errores #2815: No se puede desvincular un implementador de un proyecto
+ * Errores #2816: Error en el cálculo de porcentaje de actividad de un proyecto para el resumen ejecutivo de agente
+ * Errores #2825: Resumen ejecutivo de agentes: No se muestran correctamente las fechas de inicio/fin
+ * Errores #2833: Error en listado de gastos con plugin CPT_CONTABILIDAD no activo
+ * Errores #2836: Error en validaciones de fechas de periodo
+ * Errores #2838: Al pinchar en el menu superior sobre Administracion > Parametros > Workflow de Contratos aparece el listado de Países.
+ * Errores #2845: Error usando open_uri desde la aplicación
+ * Errores #2848: Erro Importação Despesas do Excel
+ * Errores #2891: No se cargan las subpartidas de una partida en la edición de gastos
+ * Errores #2894: Error al acceder a un agente sobre el que no se tienen permisos
+ * Errores #2901: El sistema permite el borrado de una partida a pesar de que tenga vinculadas subpartidas
+ * Errores #2906: O detalhe da síntese da despesa mostra divisa errada
+ * Errores #2916: Documentos no visibles si el usuario de subida no existe
+ * Errores #2920: Msg de Erro "os valores dos financiadores não somam o total da despesa" não corresponde
+
+2017-01-09 Jaime Ortiz <jaime@semillasl.com> Version 2.53
+
+ * Funcionalidad #2769: Mejoras en identificación OAuth
+ * Funcionalidad #2773: Imputacion de personal a proyectos: elaboracion de presupuesto
+ * Funcionalidad #2782: Imputacion de personal a proyectos: Vista resumen
+ * Funcionalidad #2783: Validacion de porcentajes en cambio de estado de proyecto a aprobado
+ * Correccion - Mejora #2767: Ordenar los estados por peso en el cambio de estado
+ * Correccion - Mejora #2770: Autocompletado de codigo para resultados y actividades
+ * Correccion - Mejora #2771: Mejorar textos en formulario de nuevo presupuesto por actividad
+ * Correccion - Mejora #2786: Impedir modificación del presupuesto detallado en presupuesto por actividad
+ * Errores #2768: Error en mensaje de gasto prohibido en periodo
+ * Errores #2775: No se muestran las tareas generadas en delegaciones
+ * Errores #2778: Error en el borrado de proyecto
+ * Errores #2781: Fallo en el resumen de transferencias de proyecto
+ * Errores #2784: Bug al obtener el resumen de prevision de gastos de un proyecto (presupuesto detallado)
+
+
+2016-12-01 Santiago Ramos <sramos@oei.es> Version 2.52
+
+ * Funcionalidad #2729: Desglose vista Resumen Gasto
+ * Funcionalidad #2735: Asignar grupos automaticamente a proyectos nuevos
+ * Funcionalidad #2743: Generar y Enviar a Rául el PO para traducir correctamente a Portugués
+ * Funcionalidad #2745: Poder definir y asignar tipologías de financiadores
+ * Funcionalidad #2746: Tipologías de proyectos: categoria de area de actuacion
+ * Funcionalidad #2747: Resumen de gastos previstos para proyecto por meses (presupuesto detallado)
+ * Funcionalidad #2748: Enlace para llamadas via skype
+ * Funcionalidad #2754: Filtrado de listado de gastos según usuario que lo consulta
+ * Funcionalidad #2755: Parámetros de configuración del sistema
+ * Correccion - Mejora #2473: Hacer una carga paginada del listado de "Periodos pendientes de seguimiento y formulación oficiales"
+ * Correccion - Mejora #2702: Forzar la fuente a utilizar en toda la aplicación
+ * Correccion - Mejora #2712: Listar un proyecto al darlo de alta
+ * Correccion - Mejora #2730: Moneda Resumen Gasto
+ * Correccion - Mejora #2732: Incluir el nombre completo del proyecto en el volcado a XLS del resumen ejecutivo de delegaciones
+ * Correccion - Mejora #2733: Incluir financiadores de sistema en resumen de inicio de actividades
+ * Correccion - Mejora #2734: Ocultar grupos en proyectos
+ * Correccion - Mejora #2736: Incluir automáticamente ciertos "datos de proyecto" en los nuevos proyectos creados
+ * Correccion - Mejora #2737: Enlaces a proyectos desde resúmenes de agentes
+ * Correccion - Mejora #2739: Incluir recalculo de tasas de cambio
+ * Correccion - Mejora #2741: Permitir gestion de PACs desde la administracion de proyectos de una oficina
+ * Correccion - Mejora #2742: Incluir convocatoria en las relaciones de proyecto
+ * Correccion - Mejora #2744: Permitir asignar como financiador principal a financiadores que también son implementadores
+ * Correccion - Mejora #2749: Mejoras en caja de info de proyecto
+ * Correccion - Mejora #2750: Incluir usuarios en listado de documentos
+ * Correccion - Mejora #2751: Resumen financiero por financiadores
+ * Correccion - Mejora #2752: Aclarar mensaje de error en cambio de estado de proyecto con tareas abiertas
+ * Correccion - Mejora #2756: En el resumen ejecutivo de proyectos, modificar el % de indicadores
+ * Correccion - Mejora #2757: Filtrar proyectos segun financiador en el formulario de presupuesto de ingresos de delegación
+ * Correccion - Mejora #2758: Validación de la formulación en el cambio de estado a aprobado
+ * Correccion - Mejora #2760: Incluir nuevo menu en administración para separar la parametrización de la configuración básica del sistema
+ * Correccion - Mejora #2762: Mejoras en gestión de prorrogas
+ * Correccion - Mejora #2763: Recoger las fechas originales de inicio y fin para proyectos aprobados
+ * Correccion - Mejora #2764: Incluir descripción del estado en listado de estados del proyecto
+ * Correccion - Mejora #2765: Actividades Generales: Cambios estéticos
+ * Correccion - Mejora #2766: Poder separar en Agentes por permisos los resumenes de gastos de los resumenes de proyectos
+ * Errores #2500: Error en número de documentos de un proyecto
+ * Errores #2699: Error al cambiar número de elementos del paginado
+ * Errores #2740: Imagen rota en cabecera de la página
+ * Errores #2753: Los iconos de "ordenado" no se muestran correctamente en los listados
+ * Errores #2759: Error al mostrar el % de ejecucion de actividades en la ficha de seguimiento del proyecto
+
+
+2016-06-01 Jaime Ortiz <jaime@semillasl.com> Version 2.51
+
+ * Funcionalidad #2410: Permisos de implementador
+ * Funcionalidad #2453: Actualización de la traducción al portugués
+ * Funcionalidad #2474: Ocultar los menus en funcion de los roles
+ * Funcionalidad #2487: Incluir la calculadora de numero de unidades en la asignacion de actividades para el presupuesto por actividad
+ * Funcionalidad #2708: Ordenación delas subpartidas en el informe Resumen de Presupuesto
+ * Correccion - Mejora #2223: Resumen Gasto por Partidas
+ * Correccion - Mejora #2461: Campos de creación y modificación en modelo de usuarios
+ * Correccion - Mejora #2465: Configuracion del path de plugins
+ * Correccion - Mejora #2466: Imagen de "GONG" obtenible via https
+ * Correccion - Mejora #2467: Despliegues de produccion con diferentes gemsets rvm
+ * Correccion - Mejora #2477: Mejoras en formato de datos para resumen ejecutivo de agentes
+ * Correccion - Mejora #2482: Mostrar % medio de avance de subactividades en un proyecto.
+ * Correccion - Mejora #2485: Mapeo de partidas: ocultar no visibles en proyectos
+ * Correccion - Mejora #2486: Para usuarios con delegacion asignada, permitir imputar gastos de socias locales.
+ * Correccion - Mejora #2488: Mejora del resumen ejecutivo de agente
+ * Correccion - Mejora #2546: Auditoria de usuarios: timestamps
+ * Correccion - Mejora #2547: Poder usar el autoregistro de modificaciones en modelos de plugins
+ * Correccion - Mejora #2704: Advertencia de tasas de cambio no definidas en proyectos aprobados
+ * Correccion - Mejora #2707: Opción "Cálculo de remanentes" aparece en menú rápido de proyectos
+ * Correccion - Mejora #2715: Permitir la descarga del listado de proyectos de un usuario
+ * Errores #2404: Cambio fecha en etapa
+ * Errores #2429: Fallo al imprimir informe de segiumiento tecnico
+ * Errores #2464: EXPORTACION NOTA DE GASTO
+ * Errores #2476: Error 500 al cambiar de estado un proyecto
+ * Errores #2478: No se pueden desvincular/borrar documentos.
+ * Errores #2479: No se pueden crear periodos de informe final fuera de las etapas del proyecto
+ * Errores #2480: Error al dar de alta un nuevo tipo de periodo
+ * Errores #2483: Error al exportar a xls el resumen de presupuesto de un proyecto
+ * Errores #2491: Error en mas info de listado de gastos asociados a un contrato
+ * Errores #2499: Error en migraciones para MySQL 5.7
+ * Errores #2700: En las opciones de navegación de Configuración de la página de Resumen de proyectos que NO son convenios, aparece la posibilidad del cálculo de Remanentes
+ * Errores #2706: No se puede sacar el resultado a fichero (resumen ejecución técnica)
+ * Errores #2709: Error validando desglose de gasto por actividad
+ * Errores #2710: No se registra el desglose por actividades para una línea de gasto
+ * Errores #2716: Error de permisos al añadir comentarios a tareas en proyectos y agentes
+
+
+2016-02-18 Jaime Ortiz <jaime@semillasl.com> Version 2.50
+
+ * Funcionalidad #2147: visualizar que carpetas del gestor documental tienen documentos
+ * Funcionalidad #2190: duplicar partidas de un agente financiador a otro en administración del sistema
+ * Funcionalidad #2221: Texto del campo descripción de una tarea de un período de un proyecto
+ * Funcionalidad #2346: poder configurar los tipos de período justificación y prorrogas
+ * Funcionalidad #2368: Texto en período de justificación
+ * Funcionalidad #2402: Tareas pendientes en proyectos cerrados
+ * Funcionalidad #2410: Permisos de implementador
+ * Funcionalidad #2427: Cambiar advertencia mensajes de codigo del financiador y periodo de justificación para estados de reporte
+ * Funcionalidad #2428: Sectores de Intervencion: Categorización de códigos CAD/CRS
+ * Funcionalidad #2437: Detalhe despesas desde Síntese
+ * Funcionalidad #2441: crear ficha resumen con datos básicos de proyecto
+ * Funcionalidad #2459: Asignación de usuarios a delegaciones y gestión de ellos desde estas
+ * Correccion - Mejora #2138: gama de colores en Períodos de justificación y prorrogas
+ * Correccion - Mejora #2144: Editar Tipo de Periodos de Justificação e Prorrogações
+ * Correccion - Mejora #2193: Poder desactivar todas las notificaciones de proyectos
+ * Correccion - Mejora #2195: Periodos de Informes: tareas definidas
+ * Correccion - Mejora #2196: Mensajes
+ * Correccion - Mejora #2223: Resumen Gasto por Partidas
+ * Correccion - Mejora #2224: Mostrar en relación de gastos del proyecto el número interno de cada línea
+ * Correccion - Mejora #2238: Resumen Gasto: Sacar solo las partidas con importe
+ * Correccion - Mejora #2283: Poder seleccionar fechas de Etapas más allá del año 2020
+ * Correccion - Mejora #2422: Impedir el borrado de un Tipo de Tarea si existen tareas dadas de alta con ese tipo
+ * Correccion - Mejora #2433: Nuevo metaestado "ejecucion" para workflow de proyectos
+ * Correccion - Mejora #2442: Tasas de cambio para gastos fuera de fecha.
+ * Correccion - Mejora #2444: Incluir "ejecucion" como metaestado del workflow de contratos
+ * Correccion - Mejora #2454: Incluir campo de cuenta bancaria para proveedores
+ * Errores #2336: Error no controlado al intentar crear un periodode justificación si el proyecto no tiene ningún estado asignado todavía.
+ * Errores #2370: Error al intentar mostrar el nombre completo de un agente cuando no lo tiene
+ * Errores #2440: Error en comprobacion de financiacion de contratos
+ * Errores #2443: Error en entrada de usuario
+ * Errores #2445: Error en filtrado del listado de proyectos por año
+ * Errores #2446: Error en campo "concepto" del formulario de presupuesto por actividades
+ * Errores #2460: No se puede borrar un proyecto que no tenga estado
+
+
+2015-11-19 Santiago Ramos <sramos@semillasl.com> Version 2.49
+
+ * Funcionalidad #2166: Tipos de Contrato (1)
+ * Funcionalidad #2167: Tipos de Contrato (2) . Vinculacion con documentos
+ * Funcionalidad #2168: Tipos de Contrato (3) . Condiciones.
+ * Funcionalidad #2169: Workflow de contratos (1)
+ * Funcionalidad #2226: listado de proyectos gestionados e implementados en Agente/Delegación
+ * Funcionalidad #2229: Entidad Contratos
+ * Funcionalidad #2230: Gestión de los estados de un contrato de acuerdo a su workflow
+ * Funcionalidad #2231: Permisos de gestión de Contratos
+ * Funcionalidad #2233: Indicadores en Seguimiento del Proyecto
+ * Funcionalidad #2247: Periodos e hitos de contrato
+ * Funcionalidad #2252: Workflow de contratos (2). Condiciones particulares por delegación.
+ * Funcionalidad #2258: Workflow de contratos (3). Aplicación de condiciones y filtros.
+ * Funcionalidad #2264: Plantillas de Contratos
+ * Funcionalidad #2265: Plantillas de pagos de hitos de contrato
+ * Funcionalidad #2285: Vinculación de Gastos y Contratos
+ * Funcionalidad #2286: Resumen de Contratos ( 1: Delegación )
+ * Funcionalidad #2287: Resumen de Contratos ( 2: Proyecto )
+ * Funcionalidad #2293: Versiones de Contrato
+ * Funcionalidad #2367: Filtros con multiples valor para paises de proyectos
+ * Funcionalidad #2369: submenú "Gastos" en proyectos y en agentes y delegaciones
+ * Funcionalidad #2381: Items de contratos
+ * Funcionalidad #2386: generar un documento de "Informe Final" de proyecto en pdf
+ * Funcionalidad #2388: Nuevo campos en informe excel de Proyectos Gestionados
+ * Funcionalidad #2394: Personalización de roles en proyectos y delegaciones
+ * Funcionalidad #2418: Asociar contratos a financiadores
+ * Correccion - Mejora #1966: Desplegables con búsqueda
+ * Correccion - Mejora #2210: porcentaje de actividades en Cuadro Resumen
+ * Correccion - Mejora #2248: Asignación de documentos a contratos
+ * Correccion - Mejora #2249: Generación de espacios documentales para contratos
+ * Correccion - Mejora #2253: Separar la identificación de los proyectos en un menú aparte
+ * Correccion - Mejora #2259: Mejoras en el listado de ingresos de agente
+ * Correccion - Mejora #2262: Borrado de un Agente (financiador o implementador) aunque tenga presupuestos o gastos asignados.
+ * Correccion - Mejora #2266: Poder ver la versión de los plugins instalada
+ * Correccion - Mejora #2284: Filtros de nombre para listados de proyecto
+ * Correccion - Mejora #2288: Presupuesto: con errores en el presupuesto detallado, marcar la línea en "rojo"
+ * Correccion - Mejora #2290: Permitir ocultar algunas partidas de sistema en proyectos
+ * Correccion - Mejora #2341: Copiar el Objetivo General de un Convenio a su PACS porque en principio el objetivo general debe ser úncio para el Convenio y el mismo para todas las PACs
+ * Correccion - Mejora #2345: detalle de financiadores en presupuesto por actividades
+ * Correccion - Mejora #2377: En formularios de gastos, deshabilitar campos no editables
+ * Correccion - Mejora #2379: Filtros en listado de agentes
+ * Correccion - Mejora #2383: Mostrar error si el financiador de un gasto no esta asignado al proyecto
+ * Correccion - Mejora #2393: Nuevo filtro de proyectos por tipo de convocatoria
+ * Correccion - Mejora #2395: Porcentaje de cumplimiento medio de indicadores
+ * Correccion - Mejora #2414: Incluir filtros de fechas en ingresos
+ * Errores #2269: Correccion de campos para plantillas de gasto
+ * Errores #2281: Bug al redimensionar etapa con presupuestos detallados metidos
+ * Errores #2291: Error en campos de proyecto cuando se elimina su grupo de datos
+ * Errores #2361: Error no controlado al intentar acceder a las variables de un indicador desde la matriz del proyecto
+ * Errores #2378: Al incluir un usuario a un grupo no se propagan bien los permisos sobre agentes
+ * Errores #2382: Error en resumenes de proyecto
+ * Errores #2400: Error al asignar un gasto a un proyecto que no tiene estado de workflow
+ * Errores #2411: Modificación gasto sin permiso en cuenta
+
+
+2015-06-25 Jaime Ortiz <jaime@semillasl.com> Version 2.48.2
+
+ * Correccion - Mejora #2120: Vinculacion gastos cofinanciadores por partidas de proyectos
+ * Correccion - Mejora #2181: Factura gasto cofinanciado en 2 proyectos
+
+
+2015-06-22 Jaime Ortiz <jaime@semillasl.com> Version 2.48.1
+
+ * Errores #2251: Problema al modificar un gasto desde agente
+
+
+2015-06-16 Santiago Ramos <sramos@semillasl.com> Version 2.48
+
+ * Funcionalidad #2161: Gestión de Proveedores
+ * Funcionalidad #2164: "Resumen Ejecutivo" en el menú de Resumen de Proyectos
+ * Funcionalidad #2171: Bloqueo de usuarios
+ * Funcionalidad #2175: Generar entidad para presupuesto de ingresos (delegaciones)
+ * Funcionalidad #2183: Generar entidad para ingresos de delegaciones
+ * Funcionalidad #2187: Generar entidad "partidas de ingresos"
+ * Funcionalidad #2189: "Resumen Ejecutivo" en el menú de Resumen de una Delegación
+ * Funcionalidad #2197: Incluir icono de acceso a "más info" en cabecera
+ * Funcionalidad #2202: Posibilidad de bloqueo del presupuesto de una etapa de agente
+ * Funcionalidad #2217: generar un documento de formulación de proyecto en pdf
+ * Funcionalidad #2234: Informe de Inicio de Actividades
+ * Correccion - Mejora #2163: Impedir modificacion de financiadores de un gasto con plugin de contabilidad activo
+ * Correccion - Mejora #2172: Advertencias en borrado de usuario
+ * Correccion - Mejora #2173: Cambiar url acceso manuales Ayuda
+ * Correccion - Mejora #2174: Cambiar comentarios a modelo polimorfico
+ * Correccion - Mejora #2176: Adaptar "Objetivo Subvenciones" a modelo de presupuesto de ingresos
+ * Correccion - Mejora #2177: Avisar del borrado de un proyecto con gastos vinculados a delegaciones
+ * Correccion - Mejora #2186: Nuevo estado "presupuestable" en etapa de agente
+ * Correccion - Mejora #2188: Incluir divisa para uso en delegaciones
+ * Correccion - Mejora #2200: Total de presupuesto por actividades no se muestra correctamente
+ * Correccion - Mejora #2203: Poder definir divisa del agente (delegación)
+ * Correccion - Mejora #2208: Permitir transferencias con importes negativos
+ * Correccion - Mejora #2216: Permitir definir grupos de datos de proyecto para elaborar un informe final
+ * Correccion - Mejora #2218: Filtro de año en listado de proyectos
+ * Correccion - Mejora #2219: orden al agregar datos de proyecto en información de seguimiento
+ * Correccion - Mejora #2227: Exportación/Importación de Gastos: incluir todos los campos
+ * Correccion - Mejora #2228: Poder ocultar el formulario de filtrado en los listados
+ * Correccion - Mejora #2242: desplegable de tipo de tarea ordenado alfabéticamente
+ * Correccion - Mejora #2246: Filtro de referencia contable en listado de gastos de agente
+ * Correccion - Mejora #2250: Enviar correo electrónico a los administradores cuando se crea un proyecto desde delegaciones
+ * Errores #2160: Error en resumen de seguimiento tecnico cuando un usuario es borrado con comentarios
+ * Errores #2165: Error en numero de proyectos para el listado de proyectos de un usuario
+ * Errores #2170: Error en edición de texto enriquecido (tinymce)
+ * Errores #2182: No se registran los gastos como valorizados
+ * Errores #2192: Error al ordenar cuentas por tipo (banco/caja chica)
+ * Errores #2194: Error en pagina de inicio de proyecto cuando no se especifica importe cofinanciado
+ * Errores #2198: Gastos cofinanciables: fallo del filtro de financiador
+ * Errores #2201: Falta info en mail de texto de cambio de estado de proyecto
+ * Errores #2204: Error en la información de un nuevo socio
+ * Errores #2206: En pantalla inicial del agente, mostrar resumen de gasto para etapa actual
+ * Errores #2207: Error en paginado de presupuesto de agente
+ * Errores #2214: Aviso de gasto valorizado no pagado en gestion de agentes
+ * Errores #2215: PAGO DE UN GASTO CON IMPORTE 0
+ * Errores #2239: Error en paginado de sublistado
+ * Errores #2240: Error en despliegue de tasas de cambio de una etapa
+ * Errores #2245: Gastos: fallo en filtrado por financiador
+
+
+2015-02-10 Santiago Ramos <sramos@semillasl.com> Version 2.47
+
+ * Funcionalidad #1960: Gastos de Proyecto: borrado de todos los gastos
+ * Funcionalidad #2031: Gestionar permisos de un usuario para proyectos, agentes y cuentas desde la administracion de usuario
+ * Funcionalidad #2071: ver los usuarios asignados al proyecto
+ * Funcionalidad #2148: Incluir comentarios en cambio de marcado
+ * Funcionalidad #2153: Traducciones al Frances
+ * Correccion - Mejora #2028: Eliminar convocatorias antiguas en formulario de alta de proyectos
+ * Correccion - Mejora #2068: Orden en seguimiento de indicadores
+ * Correccion - Mejora #2070: Cuadro Resumen - Seguimiento del Proyecto
+ * Correccion - Mejora #2124: Actualización de textos de ayuda
+ * Correccion - Mejora #2139: Incluir el nombre corto del proyecto en el listado de Periodos de seguimiento pendientes en la Página inicial de GONG
+ * Correccion - Mejora #2145: Plugin Contabilidad: Bloqueo de cambios en pagos
+ * Correccion - Mejora #2154: Gastos de Proyecto: incluir el campo "referencia contable" en la información del gasto
+ * Errores #2142: El sistema permite la eliminacion de partidas de financiador con el proyecto en ejecución
+ * Errores #2143: Timeouts y redirecciones tras login
+ * Errores #2146: Al borrar un usuario se queda inestable la gestión de grupos
+ * Errores #2150: Al pedir la contraseña de la demo no da información sobre el resultado de la operación si se consigue
+ * Errores #2151: Bug en la entrada "directa" a la administración de usuarios
+ * Errores #2152: error al ver el resumen de gasto
+ * Errores #2158: Gastos: Comportamiento raro en filtrado por fechas
+
+
+2014-11-18 Santiago ramos <sramos@semillasl.com> Version 2.46
+
+ * Funcionalidad #2042: Resumen de Presupuesto agrupado por Resultados
+ * Funcionalidad #2119: Bloqueo de facturas por períodos justificados
+ * Funcionalidad #2121: Opción de exportación a excell de gastos cofinanciadores
+ * Funcionalidad #2123: Generar un informe de Estado de Tesorería por Periodos para Delegaciones
+ * Funcionalidad #2132: Resúmenes de gasto por país
+ * Funcionalidad #2133: Resúmenes de presupuesto por país
+ * Funcionalidad #2136: Pagina de login GONG
+ * Funcionalidad #2137: Perfil "Auditor" para delegaciones
+ * Correccion - Mejora #2004: Etiquetas en la vista de resumen de gasto de proyectos
+ * Correccion - Mejora #2122: Evitar des-vinculación de gastos cofinandores en proyectos cerrados
+ * Correccion - Mejora #2130: Ordenar el listado de convocatorias en formulario de edición de proyecto
+ * Correccion - Mejora #2135: Al cambiar el marcado de un elemento que se genere registro en los comentarios del elemento
+ * Errores #2027: Numeriación de facturas se queda "colgada" en chrome
+ * Errores #2118: Evitar des-vinculación de gastos cofinandores en proyectos cerrados
+ * Errores #2131: Ordenamiento por Importe en Ejecución Económica/Gastos
+ * Errores #2134: En proyectos cerrados la barra de tiempos muestra el avance hasta el presente y no hasta su cierre
+
+
+2014-10-07 Santiago Ramos <sramos@semillasl.com> Version 2.45
+
+ * Funcionalidad #1656: Logo y referencias en la pagina de entrada
+ * Funcionalidad #2069: Nuevo filtro de búsqueda en Listado de Proyectos y Convenios
+ * Funcionalidad #2090: Nueva tipología de movimiento: Reintegro de Subvención
+ * Funcionalidad #2094: Volcado a XLS de listado de proyectos gestionados
+ * Funcionalidad #2095: Relación de Personal
+ * Funcionalidad #2108: Sistema de plugins
+ * Funcionalidad #2114: Tipos de Convocatorias
+ * Correccion - Mejora #1850: Incluir códigos en paises
+ * Correccion - Mejora #2012: Incluir campo de "Asiento de Contabilidad"
+ * Correccion - Mejora #2032: Eliminar ordenado por cuentas y tipo en listado de transferencias
+ * Correccion - Mejora #2034: Borrado de nombre al modificar un proyecto
+ * Correccion - Mejora #2064: Financiador por defecto en nuevo gasto
+ * Correccion - Mejora #2065: gestión documental/comentarios: alerta que indique que ha sido guardado
+ * Correccion - Mejora #2072: Orden de los proyecto en la Vista General
+ * Correccion - Mejora #2076: Incluir campos en listado de facturas numeradas
+ * Correccion - Mejora #2083: Problemas en Identificador de codigo de financiador
+ * Correccion - Mejora #2087: Cambiar Resultado vinculado a una Actividad
+ * Correccion - Mejora #2088: listado de gastos modificación columna: Importe x TC (mmi)
+ * Correccion - Mejora #2092: Campo "Entidad Bancaria" para cuentas bancarias
+ * Correccion - Mejora #2099: Sustituir fichero de conexion a BBDD por ejemplo
+ * Correccion - Mejora #2102: Agrupa finaciadores em Síntese das Transferências
+ * Correccion - Mejora #2115: NIF para agentes (financiadores e implementadores)
+ * Correccion - Mejora #2117: Asignación automática de moneda a delegaciones
+ * Errores #2084: Error al pasar el seeds
+ * Errores #2101: Errores en resumen de tesorería para proyectos en España
+ * Errores #2105: Error en exportación de Gastos (Agente)
+ * Errores #2109: Error en resumen de gastos de agente filtrando por etapas
+
+
+2014-04-30 Santiago Ramos <sramos@semillasl.com> Version 2.44
+
+ * Funcionalidad #1747: Diseñar y desarrollar el CM Tecnico
+ * Funcionalidad #1967: Generación de hojas de Gasto
+ * Correccion - Mejora #1422: Revisión del cuadro de mando económico
+ * Correccion - Mejora #1744: Eliminar "Infinitos" en las fórmulas del CM Económico
+ * Correccion - Mejora #1956: Modificación tipología movimientos
+ * Correccion - Mejora #1974: Subpartidas en formulario de presupuesto por Actividades
+ * Correccion - Mejora #1975: filtro de proyectos
+ * Correccion - Mejora #1977: Eliminar el total de la dimension Monedas en CM Economico
+ * Correccion - Mejora #1978: Eliminar Partidas del CM Tecnico
+ * Correccion - Mejora #1980: Eliminar el título duplicado en cuadro de mando
+ * Correccion - Mejora #1990: Variables de Indicadores cualitativas
+ * Correccion - Mejora #1995: Cambio de máquina para tests automatizados
+ * Correccion - Mejora #1997: Listado cuentas en relaciones de proyecto
+ * Correccion - Mejora #1999: Proyectos: Evitar estado aprobado sin tener definida cuenta de justificación
+ * Errores #1932: Gastos proyectos: TC al cambiar el país
+ * Errores #1953: Bug en el selector de fechas de TC
+ * Errores #1971: Seguimiento de Fuentes de verificación no permite añadir un nuevo documento
+ * Errores #1979: Proteger divisiones por cero en Cuadro de Mando
+ * Errores #1989: Bug en la creacion de PACs
+ * Errores #1996: Bug en la ruta de notificaciones de agente
+ * Errores #1998: Barra de tiempos del proyecto
+ * Errores #2002: Algunas actividades no se muestran en el Resumen de Matriz de Convenios
+
+
+2014-03-14 Santiago Ramos <sramos@semillasl.com> Version 2.43.2
+
+    * Traducciones al portugues
+    * Bugs menores
+
+
+2014-03-10 Santiago Ramos <sramos@semillasl.com> Version 2.43
+
+    * Funcionalidad #1862: Renovação Seção Agentes
+    * Funcionalidad #1883: Nueva sección de financiaciones
+    * Funcionalidad #1885: Administradores de delegaciones
+    * Funcionalidad #1906: Recuperación de IVA
+    * Funcionalidad #1925: Gastos de proyecto: Tasa de cambio manual por países
+    * Correccion - Mejora #1894: Importar/exportar país en los gastos de proyecto
+    * Correccion - Mejora #1896: Borrado de financiadores. Advertencia de que está financiado proyectos.
+    * Correccion - Mejora #1901: Bloqueo de tasas de cambio
+    * Correccion - Mejora #1902: Creación de proyectos: cuenta de subvención
+    * Correccion - Mejora #1903: Creacion de proyectos: definicion de gestor de la subvencion
+    * Correccion - Mejora #1904: Partida de financiador: en el formulario obligar a seleccionar directa/indirecta
+    * Correccion - Mejora #1905: Resumen de presupuesto – Financiadores genéricos
+    * Correccion - Mejora #1910: Edición de importe en Ejecución económica/Movimientos
+    * Correccion - Mejora #1911: Transferencia: Indicar error de suma por financiadores
+    * Correccion - Mejora #1912: Gastos proyecto: permitir gastos en sede
+    * Correccion - Mejora #1914: Alta proyecto: Formulario de entrada de datos
+    * Correccion - Mejora #1918: Se pueden marcar fechas en el seguimiento de indicadores que no corresponden a la etapa
+    * Correccion - Mejora #1921: En la ventana para el registro de gastos resaltar de alguna forma los campos que son obligatorios para GONG
+    * Correccion - Mejora #1924: Revisar roles de usuarios en proyecto
+    * Correccion - Mejora #1926: Ajustar estilos para impresion (cabecera)
+    * Correccion - Mejora #1927: AL asignar un gasto a una transferencia, no sale la moneda de ese gasto
+    * Correccion - Mejora #1930: En delegaciones que se diferencien visualmente de alguna manera los proyectos creados por tu delegación de los proyectos en los que participa 
+
+
+2014-02-04 Santiago Ramos <sramos@semillasl.com> Version 2.42
+
+    * Funcionalidad #1760: Subir de una vez de más de un documento a un espacio
+    * Funcionalidad #1858: Subpartidas de agentes y subpartidas de proyecto
+    * Funcionalidad #1872: Resumen de seguimiento de gastos acumulado para convenios
+    * Funcionalidad #1877: Resumen de gasto por resultados y objetivos
+    * Funcionalidad #1878: Filtros de partidas en seguimiento de gastos por actividades, resultados y acciones
+    * Correccion - Mejora #1791: Cambiar el recortado de texto de listados a CSS
+    * Correccion - Mejora #1848: Enlace a proyectos desde los gastos de agente
+    * Correccion - Mejora #1849: Volcado de paises y mapeo de partidas en hoja de datos de exportacion de gastos de proyectos
+    * Correccion - Mejora #1855: Indicar falta de cuentas en creacion de pago
+    * Correccion - Mejora #1857: Eliminar gastos huerfanos tras borrado de proyecto
+    * Correccion - Mejora #1864: Importacion de gastos en proyectos: subpartidas no presupuestadas
+    * Correccion - Mejora #1865: Transferencias fuera de las etapas de proyecto
+    * Correccion - Mejora #1867: Gastos de Proyectos: Incluir nuevos filtros
+    * Correccion - Mejora #1870: Ampliación espacio para mostrar entero el nombre del proyecto
+    * Correccion - Mejora #1875: Script de actualizacion de Cuadro de Mando
+    * Correccion - Mejora #1881: Incluir país en gasto
+    * Correccion - Mejora #1882: Cambios en resumen de tesoreria
+    * Correccion - Mejora #1884: Numeracion de facturas: sacar pais de gasto y no de pago
+    * Errores #1853: Erro modificando datas etapa
+    * Errores #1869: Fechas en el calendario del formulario de gastos
+
+
+2013-12-23 Santiago Ramos <sramos@semillasl.com> Version 2.41
+
+    * Funcionalidad #1824: Resumen de transferencias a terreno con justificación de gasto
+    * Correccion - Mejora #1825: A síntese da despesa: por defeito o valor total do orçamento (do projeto todo)
+    * Correccion - Mejora #1827: Síntese da despesa: Colocar soma no final da coluna diferença
+    * Correccion - Mejora #1828: Descarga de documento: nombre del documento
+    * Correccion - Mejora #1834: importación matriz: eliminar resultados que ya existen
+    * Correccion - Mejora #1835: Exportación: nombre del fichero exportado
+    * Correccion - Mejora #1836: Al importar la matriz del Pac no se rellena la Actividad del convenio relacionada
+    * Correccion - Mejora #1839: Eliminar actividades y resultados eliminando OEs
+    * Correccion - Mejora #1840: Acceso a convenio desde cualquier lugar del PAC
+    * Correccion - Mejora #1841: Creación de tareas: permitir no definir usuario asignado
+    * Correccion - Mejora #1844: Ajuste de directorio temporal
+    * Correccion - Mejora #1847: Edición presupuesto y gasto: Poder asignar la línea a resultados
+    * Errores #1837: Creación de PACs: Problemas con el copiado del mapeo de partidas
+    * Errores #1838: Error en el Resumen de Seguimiento Técnico
+    * Errores #1845: Exportacion de presupuesto: hoja de calculo vacia
+    * Errores #1846: Agentes: Edición de gastos provenientes de proyectos
+
+
+2013-11-28 Santiago Ramos <sramos@semillasl.com> Version 2.40
+
+    * Funcionalidad #1759: Grupos de Usuarios para Proyectos, Agentes y Libros
+    * Funcionalidad #1771: Fornecedores - Listado
+    * Funcionalidad #1800: Porcentajes de sectores (intervención y población) por proyecto
+    * Correccion - Mejora #1799: Limpieza de migraciones (2)
+    * Correccion - Mejora #1807: Permitir crear cuentas al editar un agente como implantador
+    * Correccion - Mejora #1808: Formato de codigos de oe, resultados y actividades
+    * Correccion - Mejora #1809: Importación de presupuesto y gasto con varias actividades por línea
+    * Correccion - Mejora #1815: Mostrar mes y año en el Cronograma, tanto por pantalla como en hoja de cálculo
+    * Correccion - Mejora #1817: Posibilidad de exportar la matriz sin comentarios
+    * Correccion - Mejora #1820: Scroll en formulario de notificación de proyectos asignados
+    * Errores #1802: Error inesperado (500) en Presupuesto por partidas
+    * Errores #1803: Error en aviso de suma de importes para listado filtrado de gastos de agente
+    * Errores #1810: Comportamiento extraño del total de cumplimento de un indicador en el resumen de ejecución técnica
+
+
+2013-11-11 Santiago Ramos <sramos@semillasl.com> Version 2.39
+
+    * Funcionalidad #1761: Mostrar Objetivo General en la Matriz del Proyecto
+    * Funcionalidad #1762: Asignación de totales en partidas de financiador
+    * Funcionalidad #1789: Generación automática de libros para agentes y proyectos
+    * Funcionalidad #1795: Porcentajes máximos para partidas de financiador
+    * Funcionalidad #1796: Definir subvención máxima del financiador principal
+    * Funcionalidad #1798: Definir importe total previsto de un proyecto
+    * Correccion - Mejora #1786: Revisar visualizacion del listado de movimientos
+    * Correccion - Mejora #1788: Borrado de comentarios en textos largos
+    * Correccion - Mejora #1792: Limpieza de migraciones
+    * Correccion - Mejora #1794: Configuración/Proyectos cofinanciadores: Ordenar alfabéticamente el desplegable
+    * Correccion - Mejora #1797: Listado Partidas del financiador en Proyecto
+    * Errores #1752: Imposible eliminar cuentas en relaciones de proyecto
+    * Errores #1785: Impossível voltar a Estado anterior
+    * Errores #1787: Não podemos eliminar atividades
+    * Errores #1793: No deja asociar partida ONG a partida del financiador
+
+
+2013-10-14 Santiago Ramos <sramos@semillasl.com> Version 2.38
+
+    * Funcionalidad #1737: Mapeamento geral das partidas dos financiadores
+    * Funcionalidad #1757: Exportacion codigos de partidas/subpartidas/actividades de proyecto
+    * Funcionalidad #1758: Cuentas "cerradas" sin posibilidad de asignacion de pagos o movimientos
+    * Funcionalidad #1765: Subir fotos e gráficos nos espaços de texto
+    * Funcionalidad #1778: Exportacion a PDF de datos de identificación y resumen de seguimiento.
+    * Funcionalidad #1779: Configuración de notificaciones de comentarios en proyecto por mail
+    * Correccion - Mejora #1754: Mostrar la lista de partidas con estructura de árbol
+    * Correccion - Mejora #1755: Mejora del mensaje de error al borrar una etapa con actividades o presupuestos
+    * Correccion - Mejora #1763: Presentacion en orden alfabetico al asignar a un proyecto
+    * Correccion - Mejora #1768: Mejora del mensaje de importación del Presupuesto
+    * Correccion - Mejora #1769: Monedas disponibles en gastos de agente
+    * Correccion - Mejora #1772: Movimientos - Fechas
+    * Correccion - Mejora #1773: Resumen arqueo cuenta - concepto
+    * Correccion - Mejora #1775: Visualizacion de legend en cajas de busqueda y tablas resumen
+    * Correccion - Mejora #1776: Promover un proyecto a diferente estado con un usuario NO coordinador
+    * Correccion - Mejora #1777: Gestión del formulario de gastos cuando los datos tienen error
+    * Correccion - Mejora #1781: Visualização FV's
+    * Correccion - Mejora #1780: Anexar relatórios de atividades
+    * Correccion - Mejora #1783: Idioma por defecto según instalación
+    * Errores #1742: Mostrar el combo de Implementador en lugar del de Cuenta en el formulario de Gastos
+    * Errores #1750: Mensagem de "erro" ao inserir novos projetos
+    * Errores #1751: Error en el resumen de seguimiento tecnico
+    * Errores #1766: Refresco pantalla asignación usuarios a cuenta
+    * Errores #1767: Validacion de datos en importaciones de gastos de agentes
+    * Errores #1770: Resumen seguimiento gasto en delegacion
+
+
+2013-07-25 Santiago Ramos <sramos@semillasl.com> Version 2.37
+
+    * Funcionalidad #1712: Etiquetas Técnicas para Actividades
+    * Funcionalidad #1726: Espaço de texto &quot;aberto&quot; em monitoramento
+    * Funcionalidad #1733: Monitoramento OE's e R's
+    * Correccion - Mejora #1722: Cambiar colores en las barras porcentuales
+    * Correccion - Mejora #1723: Permitir uso de coma decimal en formulario de transferencias
+    * Correccion - Mejora #1724: Permisos especiales para coordinadores desde asignación a proyecto
+    * Correccion - Mejora #1725: Cambio en orden de los callbacks before_destroy en modelos
+    * Correccion - Mejora #1727: Formato campo &quot;comentário&quot; no monitoramento atividades
+    * Correccion - Mejora #1731: Síntese de Monitoramento Técnico
+    * Correccion - Mejora #1734: Sugestão de ordem nos menus-listados
+    * Correccion - Mejora #1735: Mostrar presupuestos no vinculados a partidas del financiador
+    * Correccion - Mejora #1736: Borrado de partidas: Aviso de proyectos con presupuestos o gastos en esas partidas
+    * Correccion - Mejora #1738: Autocompletado de emisor en introducción de gastos
+    * Correccion - Mejora #1740: Correccion de texto en formulario de Movimiento tipo &quot;Cambio&quot;
+    * Correccion - Mejora #1741: Permisos sobre libros en asignacion de usuarios a agente
+    * Errores #1728: Salvar documentos subidos
+    * Errores #1739: Error inesperado (500) al seleccionar proyectos por estado
+
+
+2013-07-08 Santiago Ramos <sramos@semillasl.com> Version 2.36
+
+    * Funcionalidad #1511: Relacion de agente y proyecto con rol (formulación y ejecución)
+    * Funcionalidad #1704: Porcentajes de areas de actuación por proyecto
+    * Funcionalidad #1716: Manuales de usuario en ayudas contextuales
+    * Correccion - Mejora #1076: Al asociar a una transferencia gastos cambiar el desplegable con todos los gastos por otra solucion.
+    * Correccion - Mejora #1657: Revisar ayudas contextuales
+    * Correccion - Mejora #1666: Distribución de presupuesto por meses en ejecución
+    * Correccion - Mejora #1698: Navegación por espacios al mover documentos de un espacio a otro
+    * Correccion - Mejora #1700: Dividir importe entre algunos meses en presupuesto detallado
+    * Correccion - Mejora #1706: Elegir automáticamente la etapa, en la formación del presupuesto
+    * Correccion - Mejora #1707: Cambiar el orden en la configuración del estado del proyecto
+    * Correccion - Mejora #1719: Cambio en .clone de Rails3
+    * Errores #1699: 500 al entrar en la búsqueda por espacios
+    * Errores #1701: Error inesperado al solicitar la visualización de Documentos de transferencias en la documentación de un proyecto
+    * Errores #1710: Formulario eliminacion en Ejecucion/Seguimiento de actividades
+    * Errores #1714: Error al sacar a fichero el resumen del presupuesto
+    * Errores #1715: Error al importar presupuesto en líneas financiadas por varias entidades.
+
+
+2013-06-11 Santiago Ramos <sramos@semillasl.com> Version 2.35
+
+    * Funcionalidad #1558: Plantillas de importación guiada
+    * Funcionalidad #1667: Possibilidade de dispor de informações linkadas de outros projetos já inseridos
+    * Funcionalidad #1692: Permitir importación de gastos usando como referencia número de orden de factura
+    * Correccion - Mejora #1687: Presentación de espacios y documentos
+    * Correccion - Mejora #1688: Título del espacio de delegaciones en administración del sistema
+    * Correccion - Mejora #1690: Incluir nuevas numeraciones en numeración de facturas
+    * Correccion - Mejora #1691: Ajustar condiciones de borrado para proyectos
+    * Correccion - Mejora #1693: Modificación listado Seguimiento gasto
+    * Correccion - Mejora #1694: Permitir modificación de actividades y subactividades en ejecución
+    * Errores #1684: Errores diversos en Resumen de gastos de delegación
+    * Errores #1697: Calculo de porcentaje de desviación en resumen de gasto de proyecto
+
+
+2013-05-28 Santiago Ramos <sramos@semillasl.com> Version 2.34
+
+    * Funcionalidad #1562: Permitir marcado de gasto por proyecto o agente
+    * Funcionalidad #1597: Separar la definición de espacios automáticos para delegaciones y socias locales
+    * Funcionalidad #1634: Copiado de Gastos
+    * Funcionalidad #1664: Tests de Navegación
+    * Funcionalidad #1665: Filtrado de cuentas en Administración
+    * Funcionalidad #1669: Agrupar información de identificación de Proyectos
+    * Funcionalidad #1670: Personalizacion de la agrupacion de datos de proyecto
+    * Funcionalidad #1674: Possibilidade visualizar matriz de seguimento de um projeto
+    * Funcionalidad #1679: Posibilidad de filtrar listados de Gastos por tipo de Etiqueta aplicada
+    * Funcionalidad #1681: Marcado automatico de gastos con errores
+    * Correccion - Mejora #1661: Al grabar gastos, mostrar solo las partidas vinculadas a las partidas del financiador
+    * Correccion - Mejora #1673: Inactivar el combo de País si el proyecto NO es multipaís al crear un Proyecto
+    * Correccion - Mejora #1678: Indicar moneda mostrada en resumenes de presupuesto y gasto de proyectos
+    * Correccion - Mejora #1682: Filtro para listado Agente/Resumen seguimiento gasto
+    * Correccion - Mejora #1683: Visualización fechas de inicio y fin de tasa de cambio
+    * Errores #1662: Resumen de Presupuesto. Error al seleccionar todas las etapas
+    * Errores #1668: Error en icono de sumas de importes para gasto
+
+
+2013-04-25 Santiago Ramos <sramos@semillasl.com> Version 2.33
+
+    * Funcionalidad #1405: Perfil de auditor de proyecto
+    * Funcionalidad #1493: Informes de seguimiento técnico
+    * Funcionalidad #1550: Confirmación de tarea cerrada por moderador o usuario que asigna
+    * Funcionalidad #1564: Permitir uso de documentos generales en workflow de proyectos
+    * Funcionalidad #1589: Filtrado por etapas en listado de documentos de transferencias y gastos de agentes
+    * Funcionalidad #1655: Mostrar logo de ONG
+    * Correccion - Mejora #1627: El formulario de agentes en administración está descuadrado
+    * Correccion - Mejora #1632: Permitir asignar gastos cofinanciados a todas las actividades de la etapa
+    * Correccion - Mejora #1635: Volver a habilitar comentarios automáticos tras modificación de gasto, presupuesto, transferencia, ...
+    * Correccion - Mejora #1640: Reasigna documentos de usuarios borrados
+    * Correccion - Mejora #1651: Traducciones al portugues
+    * Correccion - Mejora #1652: Ordenado de Pais y moneda en listados
+    * Errores #1576: Errores en el resumen de presupuesto en delegación
+    * Errores #1628: Fallo al crear un proyecto
+    * Errores #1629: Error en navegación de espacios de proyecto
+    * Errores #1630: Error en los campos de identificación del proyecto (campos dinamicos wysiwyg)
+    * Errores #1631: Fallos en la vista de Fuentes de verificación
+    * Errores #1633: Error al entrar a los gastos en solo &quot;un proyecto&quot;
+    * Errores #1636: Error al entrar al listado de agentes asignados (en la versión en portugues)
+    * Errores #1637: Corregir dependencias de vinculos de usuario cuando se borra uno
+    * Errores #1654: Propagación de permisos en espacios de financiadores
+
+
+2013-03-04 Santiago Ramos <sramos@semillasl.com> Version 2.32
+
+    * Funcionalidad #1590: Permitir subespacios en los espacios de proyecto, agentes y paises
+    * Funcionalidad #1593: ESPACIOS: Visibilidad general de espacios
+    * Funcionalidad #1594: Soportar redireccion tras acceso sin registro
+    * Funcionalidad #1598: Vinculación de documentos
+    * Correccion - Mejora #1568: Permitir importación de presupuesto para todos los agentes/etapas
+    * Correccion - Mejora #1592: Volver a habilitar el envio de correos
+    * Correccion - Mejora #1595: Permitir navegación por espacios de país y agentes a todos los usuarios de documentacion
+    * Correccion - Mejora #1596: Tratamiento de fechas en importaciones
+    * Correccion - Mejora #1599: Permitir etiquetas de proyecto en documentos de proyecto desde sección de documentación general
+    * Correccion - Mejora #1600: Actualizar traducciones al portugués
+    * Errores #1577: Cuadro de mando con errores en rails3
+
+
+2013-02-04 Santiago Ramos <sramos@semillasl.com> Version 2.31
+
+    * Funcionalidad #1534: Comprobar funcionamiento en Chrome
+    * Funcionalidad #1557: ACLs sobre proyectos y agentes en documentacion
+    * Funcionalidad #1570: Espacios para financiadores y estructura de implementadores por paises
+    * Funcionalidad #1588: Activar el listado de documentos de transferencias para delegaciones
+    * Correccion - Mejora #1463: Migas de pan en los Documentos
+    * Correccion - Mejora #1509: Totales para financiador principal y totales para partida en presupuesto
+    * Correccion - Mejora #1566: Bloquear modificaciones del presupuesto en ejecución
+    * Correccion - Mejora #1579: Edición de usuario, en el módulo de administración
+    * Correccion - Mejora #1582: Clasificar Espacios por nombre
+    * Correccion - Mejora #1583: Formulación: Basurilla en visualización de datos numéricos de titulares de derechos
+    * Correccion - Mejora #1587: No se refresca el total en presupuesto tras modificar unidades o importe por unidad
+    * Errores #1578: Error en importacion de gastos para proyecto
+    * Errores #1580: En Proyectos: no se abre ventana para añadir documentos.
+    * Errores #1581: Administración: fallo al querer dar de baja un agente recién creado
+    * Errores #1584: Formulación: error al pinchar en la lupa de objetivo específico de la Matriz (ver resumen)
+    * Errores #1585: Administración: Configuración del sistema/datos del proyecto, no terminan de aparecer las ventanas de edición y añadir datos
+    * Errores #1586: Error al guardar gasto (agentes)
+    * Errores #1591: Error en backup
+
+
+2013-01-10 Santiago Ramos <sramos@semillasl.com> Version 2.30
+
+    * Funcionalidad #1573: Marcar de alguna forma que un gasto o movimiento tiene adjuntos.
+    * Correccion - Mejora #1559: Eliminar mensaje de inactividad en página de entrada
+    * Correccion - Mejora #1563: Corregir fechas tasa de cambio de gasto de moneda principal
+    * Correccion - Mejora #1565: Asignar automaticamente actividades a etapas en proyectos de etapas unicas
+    * Correccion - Mejora #1567: Corregir listado de workflow
+    * Correccion - Mejora #1569: Edicion de presupuestos sin partidas mapeadas o sin actividades
+    * Correccion - Mejora #1574: Migración a Rails3
+    * Correccion - Mejora #1575: Movimiento de entrada hacia caja chica sin cuenta origen
+
+
+2012-11-12 Santiago Ramos <sramos@semillasl.com> Version 2.20
+
+    * Funcionalidad #1192: Lugar para dar de alta tareas no relativas a proyectos [GUI]
+    * Funcionalidad #1472: Numeracion de facturas desde delegación.
+    * Funcionalidad #1517: Imputación de parte de un gasto a la delegación
+    * Funcionalidad #1527: Impresión desde el navegador de resumenes.
+    * Funcionalidad #1528: Introducir una nueva caja en el resumen de gasto de delegación, e incluir imputado a delegación y proyecto.
+    * Funcionalidad #1539: Modificar detalle de presupuesto e incorporar el mes en la visualización del mismo
+    * Funcionalidad #1546: Valores intermedios del valor de indicador y de actividades
+    * Funcionalidad #1547: Incluir comentarios en Actividades, Indicadores y Fuentes de Verificacion
+    * Funcionalidad #1551: Generacion automatica de comentarios en gastos y presupuesto
+    * Funcionalidad #1552: Marcado automatico de gastos y presupuestos
+    * Funcionalidad #1556: Subtipos de movimientos vinculados a tipos de movimientos
+    * Correccion - Mejora #1401: Filtrado de gastos por mas criterios
+    * Correccion - Mejora #1453: Arqueos de caja pagos, movimientos y cuentas de proyecto o delegación.
+    * Correccion - Mejora #1465: Cambiar el cursor cuando se pasa sobre las cajas de proyectos en la home
+    * Correccion - Mejora #1529: Movimientos: Cambiar el nombre de la tipología "Adelanto" por alguno más amplio
+    * Correccion - Mejora #1530: Cuando un movimiento no tiene la información completa (los 2 movimientos) ofrecer mas informacion.
+    * Correccion - Mejora #1537: Impedir que se pueda acceder a una carpeta oculta sabiendo el id (por ruta)
+    * Correccion - Mejora #1538: Bug en Firefox con impresiones
+    * Correccion - Mejora #1540: Cambiar la usabilidad de la eleccion de espacio padre en la administración de espacios
+    * Correccion - Mejora #1541: Permitir entrada de coma decimal en tasas de cambio manuales
+    * Correccion - Mejora #1548: Cambiar etiqueta en formulario de tareas
+    * Correccion - Mejora #1549: Tareas: Campos del formulario de edicion
+    * Correccion - Mejora #1554: Mostrar opción de cálculo de remanentes en agentes solo si es necesario
+    * Correccion - Mejora #1555: Impedir modificacion de pagos si la etapa esta cerrada
+    * Errores #1542: Error en resumen de presupuesto
+    * Errores #1543: Error en numeración de facturas
+    * Errores #1544: Error en resumen de transferencias cuando existen transferencias no completadas
+    * Errores #1545: Falla al seleccionar plantilla de exportación
+    * Errores #1553: Mala visualizacion de nuevo gasto de proyecto
+
+
+2012-10-22 Santiago Ramos <sramos@semillasl.com> Version 2.19
+
+    * Funcionalidad #1172: Timeout por inactividad [OP][SEG]
+    * Funcionalidad #1411: Permisos para los espacios de gestión documental general
+    * Funcionalidad #1439: Remanentes de un año para otro en delegaciones
+    * Funcionalidad #1456: Seguimiento de actividades para convenios
+    * Funcionalidad #1519: Introducir listado de documentos de transferencias en documentos
+    * Funcionalidad #1523: Cerrar/Abrir etapas de delegación
+    * Funcionalidad #1524: En el detalle de presupuesto poner la fecha de arranque y fin de la etapa a la que pertenece
+    * Funcionalidad #1531: Evitar modificacion de gastos cofinanciados en proyectos cerrados
+    * Correccion - Mejora #1485: Error en la indicacion de gasto no pagado
+    * Correccion - Mejora #1488: Meses mal calculados en listado de etapas
+    * Correccion - Mejora #1490: RESUMEN GASTOS
+    * Correccion - Mejora #1513: Impedir que se puedan solapar etapas
+    * Correccion - Mejora #1515: Al exportar resumenes no exporta el resumen por subpartidas
+    * Correccion - Mejora #1516: Cambio de texto en formulario de gastos: DNI/CIF por DNI
+    * Correccion - Mejora #1521: Al editar un gasto sin pagar aparece como seleccionado el check de gasto pagado
+    * Correccion - Mejora #1522: Volver a habilitar inclusion de documentos en transferencias
+    * Correccion - Mejora #1526: Arqueo de caja, introducir 2 campos
+    * Errores #1520: Corregir asociar documento a fuente de verificacion
+    * Errores #1532: Filtro de gastos cofinanciables envia a todos los gastos
+
+
+2012-10-04 Santiago Ramos <sramos@semillasl.com> Version 2.18.2
+
+    * Corrección de migrates
+    * Corrección de seeds
+    * Nuevas traducciones al portugues
+
+2012-09-28 Santiago Ramos <sramos@semillasl.com> Version 2.18
+
+    * Funcionalidad #1505: Espacio de documentacion para agentes
+    * Funcionalidad #1518: Traduccion al portugues
+    * Correccion - Mejora #1303: Nuevo formato de asignación de etiquetas a documentos
+
+2012-08-06 Santiago Ramos <sramos@semillasl.com> Version 2.17
+
+    * Funcionalidad #1404: Revisión de los controles de listados: paginación y filtros (Temas de estilo y usabilidad)
+    * Funcionalidad #1414: Crear una seccion donde el usuario pueda cambiar su contraseña y numero de elementos por listado
+    * Funcionalidad #1440: Resumen de presupuesto: poder seleccionar todas las etapas.
+    * Funcionalidad #1502: Importacion/Exportacion de subpartidas
+    * Funcionalidad #1503: Propagacion de subpartidas en convenios
+    * Funcionalidad #1510: Generacion de pagos periodicos de socios
+    * Correccion - Mejora #1399: Filtrado del listado de proyectos
+    * Correccion - Mejora #1432: Presentacion del detalle de los resumenes de agente
+    * Correccion - Mejora #1488: Meses mal calculados en listado de etapas
+    * Correccion - Mejora #1489: Limitacion de fechas para tasas de cambio
+    * Correccion - Mejora #1491: Cambio visual formulario gasto
+    * Correccion - Mejora #1500: Importacion/Exportacion de Movimientos
+    * Correccion - Mejora #1507: Aviso erroneo de suma de importes en gasto
+    * Correccion - Mejora #1508: Poder borrar indicadores, hipotesis y fuentes de verificacion en los pacs
+    * Errores #1447: PARTIDAS AGENTE
+    * Errores #1496: Fallo en las vistas de presupuesto.
+    * Errores #1506: Error en resumen de gastos
+    * Errores #1512: Error al desglosar gasto por todas las actividades de la etapa
+
+
+2012-08-07 Santiago Ramos <sramos@semillasl.com> Version 2.16
+
+    * Funcionalidad #1406: Cronograma de subactividades
+    * Funcionalidad #1455: Remanentes del PAC anterior
+    * Funcionalidad #1470: Separar formulacion de subactividades de su seguimiento
+    * Funcionalidad #1476: Modificación Objetivos Específicos convenio PACs
+    * Funcionalidad #1483: Gestion de Subpartidas para Agente y Proyectos
+    * Funcionalidad #1486: Subtipo de Movimientos
+    * Funcionalidad #1499: Incluir varios financiadores para una transferencia
+    * Correccion - Mejora #1305: Mejora en formularios de transferencias
+    * Correccion - Mejora #1460: Revisión pendiente de usabilidad a los temas de movimientos
+    * Correccion - Mejora #1462: Asignacion libros proyecto: Mensaje aclaratorio
+    * Correccion - Mejora #1471: En los arqueos de caja poner un vinculo o una "i" de información al gasto o al movimiento.
+    * Correccion - Mejora #1479: Mostrar los libros bloqueados en las busquedas por usuario
+    * Correccion - Mejora #1484: LISTADOS DE GASTO
+    * Correccion - Mejora #1487: ERROR EN FILTRO
+    * Correccion - Mejora #1501: Revision de resumenes por cambio en movimientos
+    * Errores #1480: No se puede editar linea de presupuesto tras editar presupuesto detallado
+    * Errores #1481: Error en edición de gastos
+    * Errores #1482: Error en edicion de gastos cofinanciables
+    * Errores #1495: Al guardar un presupuesto con un conepto repetido.
+
+
+2012-06-18 Santiago Ramos <sramos@semillasl.com> Version 2.15
+
+    * Funcionalidad #1377: Cambios en la gestion de presupuesto por actividad [1203_PRESUPUESTO]
+    * Funcionalidad #1402: Adjuntar documento a Gasto y movimientos
+    * Funcionalidad #1410: Espacios de documentos en proyectos asociados a los estados
+    * Funcionalidad #1425: Habilitar HTTPS en instancias de GONG
+    * Funcionalidad #1427: Seguimiento de indicadores para convenios
+    * Funcionalidad #1429: Seguimiento de fuentes de verificacion para convenios
+    * Funcionalidad #1435: Reformulacion de convenio y como afecta a las PACs
+    * Funcionalidad #1448: TAREAS AREA AGENTES/DELEGACIONES
+    * Funcionalidad #1454: Secuencia cronologica de PACs en el convenio
+    * Correccion - Mejora #1179: Revisar concepto etapas en gastos de proyectos
+    * Correccion - Mejora #1195: Reedición gasto en agente
+    * Correccion - Mejora #1245: Recogida de ingresos de los proyectos gestionados por delegación (DELEGACIONES)
+    * Correccion - Mejora #1301: Facilitar la vinculacion de gastos confinanciadores
+    * Correccion - Mejora #1336: Exportar a excell los resumenes con subpartidas
+    * Correccion - Mejora #1342: Resumen de gasto que incluya el último mes.
+    * Correccion - Mejora #1352: Poner financiador en presupuesto por actividad
+    * Correccion - Mejora #1379: Revisar el marcado de presupuesto por agente y de gasto
+    * Correccion - Mejora #1385: Cambios de dependencias de documentos en el workflow
+    * Correccion - Mejora #1391: Cambiar el literal "Cualquier X" por "Todas las X" en las cajas de filtrado de Presupuesto Por Partidas
+    * Correccion - Mejora #1392: Mostrar cuánto supone una partida sobre el total del presupusto en Presupuesto por Partidas
+    * Correccion - Mejora #1397: Chequeo del envio de correos en tareas, cambio de estado, asignación a proyectos.
+    * Correccion - Mejora #1420: Optimizacion de tiempos cuadro resumen de proyecto.
+    * Correccion - Mejora #1421: Que convenio no se agregue para el presupuesto de ingresos del agente
+    * Correccion - Mejora #1424: Evitar desvinculacion de proyecto cofinanciador si hay gastos suyos asociados
+    * Correccion - Mejora #1426: Poner todos los resúmenes de Socios en una misma página
+    * Correccion - Mejora #1428: Meter los espacios de los PACs dentro del espacio de Convenios
+    * Correccion - Mejora #1431: Presupuesto por Agente: Convertir la edición a formularios inline.
+    * Correccion - Mejora #1434: Corregir el formato de importación y exportacion de la matriz.
+    * Correccion - Mejora #1437: GASTO FUERA DE ETAPA
+    * Correccion - Mejora #1438: GASTOS AGENTE - DELEGACION
+    * Correccion - Mejora #1443: Advertencia de "suma por proyectos" en gasto por agente
+    * Correccion - Mejora #1445: ICONO "VER COMENTARIOS"
+    * Correccion - Mejora #1446: Pasar edicion de documentos nuevos/existentes a formularios inline
+    * Correccion - Mejora #1449: CONFIGURACION - RELACIONES DEL PROYECTO
+    * Correccion - Mejora #1451: Movimientos asociados a delegación.
+    * Errores #1052: Error en la información ampliada de un alinea de presupuesto en Presupuesto Por Actividades
+    * Errores #1224: Error al guardar el detalle de presupuesto
+    * Errores #1350: Poder repetir un concepto en el prespuesto de 2 delegaciones.
+    * Errores #1357: No se pueden borrar relaciones de sector_poblacion, sector_intervencion y area_actuacion
+    * Errores #1359: Error general al intentar elaborar el Resumen de Presupuesto por alguna de sus monedas
+    * Errores #1395: Error al exportar Partidas de Proyecto
+    * Errores #1396: Imposibilidad de retroceder el estado de un proyecto cuando se ha modificado el WorkFlow
+    * Errores #1430: Presupuesto por Agente: Errores JS por la calculadora
+    * Errores #1436: ARQUEO CAJA CHICA GASTOS DELEGACION
+    * Errores #1442: Al realizar un presupuesto sin actividades
+    * Errores #1450: Problemas al desasignar una cuenta de un proyecto.
+    * Errores #1459: Error al subir un documento a un espacio de la documentación general
+    * Errores #1461: Error al asignar cuentas y paises en proyecto
+
+
+2012-05-10 Santiago Ramos <sramos@semillasl.com> Version 2.14
+
+    * Funcionalidad #1387: Dividir presupuesto por todas las actividades seleccionadas
+    * Funcionalidad #1389: Que el listado de Estados del WorkFlow aparezca ordenado por defecto por el campo "Orden"
+    * Correcciones - Mejoras #1329: Cambiar el remite de los correos enviados por GONG
+    * Correcciones - Mejoras #1330: Numero de decimales de tasas de cambio en informes
+    * Correcciones - Mejoras #1338: Ordenar las partidas por el "codigo de la partidas del proyecto" para gestion de gasto y presupuesto
+    * Correcciones - Mejoras #1393: corregir en el glosario la definicion de sector de intervención
+    * Correcciones - Mejoras #1394: Ordenar alfabéticamente el desplegable de Partidas de Sistema
+    * Correcciones - Mejoras #1416: Eliminar los dos "DOBLES PUNTOS" de la ventana de Confirmar Borrado
+    * Correcciones - Mejoras #1417: Aparición y Desaparición de la prohibición de editar un proyecto debido a su Estado.
+    * Correcciones - Mejoras #1419: Poner un enlace desde un PAC hacia su Convenio
+    * Correcciones - Mejoras #1423: Mostrar resumenes por defecto
+    * Errores #1386: Error al intentar ordenar por Tipo en Configuracion Sisterma/Etiquetas
+    * Errores #1388: Error al crear nueva "Cuenta"
+    * Errores #1418: Opciones del menú de Configuración diferentes según se accede por menú o por cuadro inicial en las Acciones de Convenios
+
+2012-04-11 Santiago Ramos <sramos@semillasl.com> Version 2.13
+
+    * Funcionalidad #1256: Mejoras al glosario
+    * Funcionalidad #1331: Cambiar listado de movimientos: agrupar entrante y saliente en una sola linea (1103_MOVIMIENTOS)
+    * Funcionalidad #1335: Incluir forma de pago en los pagos [1203_PAGOS]
+    * Funcionalidad #1346: Mejora de la visualización del grado de avance de los indicadores dependiendo del Estado
+    * Funcionalidad #1355: Convenios [1203_CONVENIOS]
+    * Funcionalidad #1363: Incluir pais en la numeracion de facturas. [1203_FACTURAS]
+    * Funcionalidad #1365: Bloqueo de libros (cuentas) [1203_CUENTAS]
+    * Funcionalidad #1367: Quitar las modales y hacer que se cargen los formularios "inline" en la matriz ( 1203_USABILIDAD)
+    * Funcionalidad #1368: Actividades globales [1202_ACTIVIDAD]
+    * Funcionalidad #1369: Importación/Exportación de actividades globales [1203_ACTIVIDAD]
+    * Funcionalidad #1374: Seguimiento de actividades [ 1112_ACTIVIDADES]
+    * Funcionalidad #1375: Cambiar el literal "Beneficiarios" por "Titulares de Derecho" [1110-INF-01]
+    * Funcionalidad #1376: Cambios en la gestion de presupuesto [1203_PRESUPUESTO]
+    * Funcionalidad #1378: Vincular agentes a paises
+    * Funcionalidad #1380: Añadir Gasto y Presupuesto en Cuadro de Mando
+    * Funcionalidad: Desglose de actividades por accion en resumen de matriz de convenios y pacs
+    * Funcionalidad: Resumen consolidado para resumen de transferencias y arqueo de caja en convenios
+    * Correcciones #1297: Separador de miles y punto decimal en Gestion de Gastos
+    * Correcciones #1327: Añadir columna de porcentaje en el resumen de Gastos
+    * Correcciones #1328: Cambiar el orden de cálculo de "Diferencia" en el Resumen de Gastos
+    * Correcciones #1332: Hacer que en el workflow se pueda volver a un estado.
+    * Correcciones #1334: Incluir desviación en el resumen de gastoIncluir desviación en el resumen de gasto
+    * Correcciones #1337: Mostrar sólo los financiadores asociados a un proyecto al dar de alta una transferencia
+    * Correcciones #1341: Hacer que la importación de partidas sea "total"
+    * Correcciones #1344: Separar el valor de la fecha en el listado de valores medidos de un indicador
+    * Correcciones #1345: Posibilidad d eordenar el listado de Estados del Workflow por su orden logico
+    * Correcciones #1351: Reordenar campos de presupuesto.
+    * Correcciones #1354: Centrado de los mensajes en la ventana modal de confirmación para borrar un elemento.
+    * Correcciones #1360: Mejora estética en la ventana de detalle de un Socio
+    * Correcciones #1361: Mejora en los mensajes de error generados al intentar borrar un Socio para el que existe detalle.
+    * Correcciones #1364: Tasa de cambio a divisa
+    * Correcciones #1372: Cambiar el literal "Actividades Globales" por "Actividades Generales"
+    * Correcciones #1373: Dividir presupuesto por todas las actividades
+    * Errores #1295: No funciona el Glosario
+    * Errores #1347: Problemas con los datos dinamicos
+    * Errores #1348: Poner bien el enlace que da acceso al Glosario
+    * Errores #1353: Error en el resumen de transferencias.
+    * Errores #1356: Error al borrar relacion de financiacion
+
+2012-02-27 Santiago Ramos <sramos@semillasl.com> Version 2.12
+
+    * Funcionalidad #1290: Vinculación forzada entre los agentes financiadores [1112-COFINANCIACION-01]
+    * Funcionalidad #1291: Resúmenes de tasas de cambio incluyendo las transferencias [1112-TCAMBIO-01]
+    * Funcionalidad #1296: Resumen (informe) tesorería AECID [1112_TESORERIA]
+    * Funcionalidad #1307: Crear agentes permanentes para el sistema (otras apartaciones privadas/publicas) [1112_COFINANCIACION_02]
+    * Funcionalidad #1308: Adaptar proeyctos cofinanciadores y barrita en el cuadro resumen de proyecto (1112_COFINANCIACION_02)
+    * Funcionalidad #1309: Añadir totales y porcentajes a las columnas y filas del resumen de presupuesto (1112_RESUMENES_03)
+    * Funcionalidad #1310: Incluir las subpartidas en los resúmenes de (presupuesto y gasto) de proyectos (1112-SUBPARTIDAS-01)
+    * Funcionalidad #1315: Asociar monedas automaticamente a proyectos
+    * Funcionalidad #1319: Mejorar navegación de proyecto (1112-NAVEGACION)
+    * Funcionalidad #1322: Diferenciar la gestion de los indicadores desde "Formulación" y "Ejecución"
+    * Funcionalidad #1326: Crear opción de menú para establecer las relaciones de proyectos cofinanciables que se perdió en la "mudanza"
+    * Correcciones #1314: Ordenado de desplegables
+    * Correcciones #1320: Diferenciar gestion del cronograma en "Ejecución" y en "Formulación"
+    * Correcciones #1321: Diferenciar exportacion e importacion en Formulación y en Ejecución
+    * Correcciones #1324: Rehacer caja de acciones en "info"
+    * Errores #1293: MATRIZ
+    * Errores #1294: Error al dar de alta un agente
+    * Errores #1304: Error al generar la transferencia de vuelta
+    * Errores #1312: Error al importar gastos
+    * Errores #1313: Error al borrar documentos de proyecto
+    * Errores #1316: Desplegable sublistado de tareas en el workflow
+    * Errores #1318: Fallo al guardar un nuevo presupuesto en presupuesto por actividad
+    * Errores #1323: Error al borrar proyectos
+    * Errores #1325: Error en el estado de tesoreria
+ 
+2012-02-01 Santiago Ramos <sramos@semillasl.com> Version 2.11
+
+    * Funcionalidad #1272: Resúmenes de arqueos de tesorería (1112-ARQUEO)
+    * Funcionalidad #1273: Configuración general de tasas de cambio (1112-TCAMBIO-02)
+    * Funcionalidad #1274: Página de entrada al proyecto (1112-INICIOPROYECTO)
+    * Funcionalidad #1279: Página de entrada al sistema (1112-ENTRADASISTEMA)
+    * Funcionalidad #1280: Mostrar los porcentajes en los listados con un gráfico
+    * Funcionalidad #1281: Visualilzar la vinculación entre "entrantes" y "salientes" en movimientos (1112-MOVIMIENTOS-01 )
+    * Funcionalidad #1283: Añadir "meta-estados" a los estados de proyecto (1112-WORKFLOW)
+    * Funcionalidad #1284: Vincular fuentes de verificación a documentos (1112-FVERIFICACION)
+    * Funcionalidad #1286: Abrir resumenes en nueva ventana desde presupuesto, gasto, y movimientos (1112-RESUMENES-01)
+    * Funcionalidad #1287: Generar detalle de presupuesto en importacion
+    * Funcionalidad #1288: Modificacion de cronogramas segun estado
+    * Errores #1282: Error al seleccionar cuenta en el formulario en movimiento en la seccion de agentes
+    * Errores #1285: Error en el mensaje al cambiar el rol que vincula un usuario a un proyecto.
+    * Errores #1289: Error en controlador de movimientos para agentes
+
+2012-01-16 Santiago Ramos <sramos@semillasl.com> Version 2.10
+
+    * Funcionalidad #1131: Referencias Circulares en la paternidad de Partidas
+    * Funcionalidad #1167: Varios sobre ventana de definición de estados de workflow [GUI]
+    * Funcionalidad #1236: Incluir moneda intermedia en los proyectos [1111-MONEDA]
+    * Funcionalidad #1237: Listados de tasas de cambio de gastos [1111-MONEDA]
+    * Funcionalidad #1238: Cambio manual de tasas de cambio con monedas intermedias [1111-MONEDA]
+    * Funcionalidad #1239: Cambio automático de tasas de cambio con monedas intermedias [1111-MONEDA]
+    * Funcionalidad #1240: Gestion basica de documentos por espacios (1109-DOCUMENTOS)
+    * Funcionalidad #1243: Partidas sobrantes en resumen del presupuesto en AGENTE/DELEGACION (1109-DELEGACIONES)
+    * Funcionalidad #1246: Presupuesto de gastos de delegación imputado a delegación y no a proyectos (1109-DELEGACIONES)
+    * Funcionalidad #1247: Necesidad de dos filtros para vista de gastos (1109-DELEGACIONES)
+    * Funcionalidad #1250: Incluir porcentajes como info en gastos
+    * Funcionalidad #1253: Resumen de matriz: opcion de "Todos los paises" y "todas las etapas"
+    * Funcionalidad #1257: Incluir totales de actividad en resumen de matriz
+    * Funcionalidad #1262: Exportación/Importación de Partidas (1109-IO)
+    * Funcionalidad #1263: Cronograma de seguimiento (1112-CRONOGRAMA)
+    * Funcionalidad #1264: Añadir en resumen de seguimiento de gasto de agente detalle de subpartidas (1109-DELEGACIONES)
+    * Funcionalidad #1265: Exportar a excel las variables de indicadores.
+    * Funcionalidad #1267: Exportación/Importación de Variables de Indicadores (1112-IO)
+    * Funcionalidad #1269: Creacion de espacios para proyectos y gestion de documentos (1109-DOCUMENTOS)
+    * Funcionalidad #1270: Añadir comentarios a presupuestos y gastos (1109-COMENTARIOS)
+    * Funcionalidad #1275: Generación de movimiento entrante asociado (1112-MOVIMIENTOS-02)
+    * Funcionalidad #1276: Tasas de cambio sólo en movimientos entrantes (1112-MOVIMIENTOS-03)
+    * Correcciones #1228: Evitar que se pueda dar de alta un comentario sin contenido
+    * Correcciones #1229: Evitar el mensaje de confirmación si se asigna un usuairo vacío a un proyecto
+    * Correcciones #1254: En relaciones de proyecto, quitar la relacion "proyecto cofinanciador del proyecto"
+    * Correcciones #1258: Rehacer las vistas de resumenes de presupuesto y de gasto en proyecto.
+    * Correcciones #1259: Quitar el pijama de los listados de exportacion (e importacion)
+    * Correcciones #1261: Impedir que un gasto preveniente de un proyecto sea modificado desde agente
+    * Correcciones #1271: Cambios estéticos en cabecera
+    * Errores #1136: Error de datos en la exportación a Excel
+    * Errores #1241: Error en la division automatica para el el detalle del presupuesto con numeros con decimales.
+    * Errores #1244: Resumen de presupuesto de agentes (DELEGACIONES)
+    * Errores #1248: Listado de Datos Básicos de Proyecto duplicado
+    * Errores #1251: Error al repartir una linea de presupuesto por meses
+    * Errores #1252: Ausencia de la barra de Scroll en la ventana de copiar linea de Presupuesto en algún caso
+    * Errores #1260: Error en importación total de gastos
+    * Errores #1268: En importacion de gasto desde proyecto, los gastos no se importan como del proyecto
+    * Errores #1277: Error al ordenar el listado de proyectos por Agente
+    * Errores #1278: Error en el arqueo de caja o cuenta.
+
+2011-11-17 Santiago Ramos <sramos@semillasl.com> Version 2.9
+
+    * Funcionalidad #304: Poner las primeras letras de los literales en Mayúsculas
+    * Funcionalidad #1148: Importar pagos
+    * Funcionalidad #1197: Que el sistema te alerte de que no todas las partidas del sistema han sido asignadas a partidas de proyecto
+    * Funcionalidad #1202: Elaborar el presupuesto para la delegacion (1109-DELEGACIONES)
+    * Funcionalidad #1203: Cambiar la vinculación de libros desde gastos hasta pagos
+    * Funcionalidad #1206: Vinculación de gastos de un proyecto a otro para cubrir las co-financiaciones (1109-COFINANCIACION)
+    * Funcionalidad #1207: Vinculación de proyectos (1109-COFINANCIACION)
+    * Funcionalidad #1208: Vinculación de gastos (1109-COFINANCIACION)
+    * Funcionalidad #1209: Aplicar tasas de cambio al presupuesto de la delegacion (1109-DELEGACIONES)
+    * Funcionalidad #1210: Relacionar monedas con las delegaciones para la gestion economica (1109-DELEGACION)
+    * Funcionalidad #1211: Resumenes financieros del presupuesto de la delegacion (1109-DELEGACIONES)
+    * Funcionalidad #1213: Aplicar tasas de cambio al gasto del agente (1109-DELEGACIONES)
+    * Funcionalidad #1215: Incluir paises y etapas de actividades en la exportación/importación de matriz
+    * Funcionalidad #1216: Resumenes financieros detallados del presupuesto de la delegacion (1109-DELEGACIONES)
+    * Funcionalidad #1218: Resumenes financieros del gasto de la delegacion (1109-DELEGACIONES)
+    * Funcionalidad #1219: Cambio de menuses
+    * Funcionalidad #1226: Añadir el glosario a la aplicación
+    * Correcciones #1222: Cambia "Información " por el icono "i"
+    * Correcciones #1227: Corregir pequeños errores en la ventana de informacion del listado de tareas
+    * Errores #1180: Bug en cálculo de totales en resumen?
+    * Errores #1201: Ordenar listado de proyectos por agente
+    * Errores #1212: Al añadir un nuevo proyecto en el formulario de gasto por agente.
+    * Errores #1214: Error en la importación de presupuestos de proyectos
+    * Errores #1221: Actividades repetidas en el cronograma
+    * Errores #1223: Sublistado de usuarios de un agente no refresca tras añadir uno
+    * Errores #1225: [GUI] Actualización de marcado nuevo
+
+
+2011-09-20 Santiago Ramos <sramos@semillasl.com> Version 2.8
+
+    * Tareas #1111: Pegatinas para facturas
+    * Tareas #1122: Tareas correo electrónico
+    * Tareas #1126: Cronograma
+    * Tareas #1132: Borrar el mensaje de error tras una importación fallida
+    * Tareas #1143: Cambiar el literal Fecha de Inicio por Fecha de Creación (o de alta)
+    * Tareas #1160: Cambiar el nombre del perfil Moderador por "Coordinador/a"
+    * Tareas #1162: Actualizar el resumen de arqueo de cuenta => tipologias.
+    * Tareas #1163: Filtrar el listado de movimientos por cuenta
+    * Tareas #1164: Cmabiar el literal "Estado Padre" en la definición de estados de WorkFlow por "Estado Anterior" o algo similar.
+    * Tareas #1165: Etiqueta: falta una 's' [GUI]
+    * Tareas #1166: Pantalla incoherente "Datos básicos de tareas" [GUI]
+    * Tareas #1168: Rol de usuario a agente, cuenta, proyecto [GUI]
+    * Tareas #1175: Códigos Swift e Iban en cuentas [GUI]
+    * Tareas #1181: Filtro de partidas en gastos
+    * Tareas #1182: Filtro de partidas en presupuesto por partidas
+    * Tareas #1183: Permitir coma como separador decimal en tasas de cambio
+    * Tareas #1188: Poder dar de alta un Socio sin Apellido (por ejemplo, para Personas Jurídicas)
+    * Tareas #1196: Comprobar al borrar una etapa que no existe ningun presupuesto asignado
+    * Tareas #1198: Permitir nuevo movimiento desde filtrado == todos
+    * Tareas #1200: Error al ordenar el listado de presupuestos por partida (en presupuestos por partida)
+    * Errores #1058: Error al ordenar el listado de Socios por Naturaleza
+    * Errores #1119: Al borrar una defincion_estado al que esta asociado un proyecto da errores
+    * Errores #1173: Lentitud en edición de datos básicos de proyecto [OP]
+    * Errores #1178: Error al meter un gasto en Agentes [ERR]
+    * Errores #1184: No se genera el pago en gasto nuevo
+    * Errores #1189: Error al intentar acceder a un resumen de Socios
+    * Errores #1193: En la exportacion de presupuesto aparecen lineas sin etapa a pesar de tener todas asignadas
+    * Errores #1194: Aviso de sumas por actividad y financiador en presupuestos
+    * Errores #1199: Error en edicion de movimientos para agentes
+
+2011-07-19 Santiago Ramos <sramos@semillasl.com> Version 2.7.1
+
+    * Revision de vistas de informes
+    * Mejoras visuales
+    * Eliminados warnings de codigo
+    * Errores #1156: Error al ordenar el listado de tareas por el campo Asignado A
+    * Errores #1157: Error al intentar acceder al listado de Datos Básicos
+    * Errores #1158: Imposibilidad de ordenar el listado de usuarios por Nombre de Usuario
+
+2011-07-18 Santiago Ramos <sramos@semillasl.com> Version 2.7
+
+    * Tareas #1029: Generalizar y homogeneizar los mensajes flash y la recuperacion de datos para la edicion.
+    * Tareas #1089: Quitar ingrasos de los poisbles controladores del menu
+    * Tareas #1092: Volver a poner y comprobar el tema de que no se pueda repetir una subpartida para dos partidas de un proyecto
+    * Tareas #1111: Pegatinas para facturas
+    * Tareas #1113: Subactividades
+    * Tareas #1114: Ponerle a los indicadores un pequeño icono que muestre sus variables y su estado.
+    * Tareas #1117: Exportación/Importación de transferencias
+    * Tareas #1118: Hacer una tipologia de transferencia, que permita otros movimientos (los cheques)
+    * Tareas #1120: Mejoras tasas de cambio
+    * Tareas #1121: Quitar la tipologia para lo del workflow
+    * Tareas #1128: Añadir al workflow la comprobacion de documentos y la creacion automatica de tareas
+    * Tareas #1129: Orden de las partidas
+    * Tareas #1130: Mejorar la legibilidad del diálogo que da de alta Partidas.
+    * Tareas #1137: Eliminar la petición de IBAN en las Transferencias
+    * Tareas #1140: Mostrar Tooltip en los elementos de los listados
+    * Tareas #1142: Mostrar el usuario que asigna la tarea en el listado de tareas
+    * Tareas #1144: Añadir un campo a las tareas que sea la Fecha en que debe comenzarse la tarea
+    * Tareas #1145: Cambiar el literal Estado Padre de la definición de Marcado
+    * Tareas #1146: Cambiar el literal Nombre por Descripcion al dar de alta un Marcado
+    * Tareas #1149: Poner en el menu de datos basicos de administración las "puertas traseras"
+    * Errores #1059: Error al intentar generar la vista resumen de Socios
+    * Errores #1091: Que se pueda borrar una subpartida asociada a un presupuesto
+    * Errores #1135: Error al ordenar el listado de Partidas del Sistema por Codigo
+
+2011-06-29 Santiago Ramos <sramos@semillasl.com> Version 2.6
+
+    * Tareas #1064: Tiempos de presupuesto por actividad
+    * Tareas #1067: Seguimiento por indicadores
+    * Tareas #1085: Scroll horizontal en la ventana de cronograma para proyectos muy largos
+    * Tareas #1088: En el cronograma, sacar las actividades ordenadas por su codigo
+    * Tareas #1090: Poner un botón de información en el listado de numeración de facturas
+    * Tareas #1096: Fallo al editar o añdir transferencia (cuando esta filtrado el listado por "todas")
+    * Tareas #1101: Aumentar el numero de decimales de tasa de cambio
+    * Tareas #1102: Crear subactividades, modelo y funcionalidades de gestión
+    * Tareas #1104: Marcado de listados de gastos y presupuestos
+    * Errores #1061: Error al intentar generar el fichero modelo 182 de Socios
+    * Errores #1095: Fallos al importar matriz
+    * Errores #1097: Error al aplicar tasas de cambio a gasto
+    * Errores #1098: El arqueo de caja no muestra los gastos
+    * Errores #1099: Error al intentar crear un transferencia
+    * Errores #1100: Error al intentar acceder a Presupuesto por Actividades en FAD
+
+2011-06-13 Santiago Ramos <sramos@semillasl.com> Version 2.5
+
+    * Tareas #985: Revisar las vistas resumen de Agente
+    * Tareas #1009: Incluir ficheros en el backup
+    * Tareas #1025: Exportacion => Plantillas
+    * Tareas #1034: Problemas con edicion de presupuesto cuando todas las actividades estan vinculadas
+    * Tareas #1035: Acceso a la documentación general del sistema
+    * Tareas #1037: Modificar el concepto de etapa y su relacion con actividades y presupuestos
+    * Tareas #1039: Ajustes de vistas de partidas
+    * Tareas #1042: Aplicación automática de una numeración a las subpartidas
+    * Tareas #1044: Evitar que se repitan subpartidas para distintas partidas
+    * Tareas #1046: Adaptar el cronograma de actividades al nuevo concepto de etapa
+    * Tareas #1049: Al cambiar un presupuesto de etapa debe borrar todo el detalle de presupuesto anterior.
+    * Tareas #1050: Al desasignar una actividad de una etapa debe borrar el detalle de actividades para esa etapa
+    * Tareas #1062: Adecuar las vistas resumen al nuevo concepto de etapa
+    * Tareas #1063: Tipificación de etiquetas
+    * Tareas #1065: Adecuar exportacion e importacion de presupuestos al uso de etapas
+    * Tareas #1066: Busquedas por multiples etiquetas en documentos
+    * Tareas #1069: Que la seccion documentacion general se habilite por usuario en administracion
+    * Tareas #1072: Poner la primera letra de Tipo, Directo e Indirecto en mayúsucula en el listadode Partidas de un Proyecto
+    * Tareas #1074: Poner todas las etapas en el filtrado de listado de gastos
+
+2011-05-24 Santiago Ramos <sramos@semillasl.com> Version 2.4.1
+
+    * Tareas #840: Resolver con en los auto_complete que se pueda hacer un "resize" de la ventana modal
+    * Tareas #956: Poder recuperar un presupuesto que ha fallado al grabarse
+    * Tareas #959: Poner el javascript de calculadora de presupuesto tambien en presupuesto por actividad
+    * Tareas #993: Importación para agentes
+    * Tareas #995: Control de errores en importacion
+    * Tareas #1007: Que se pueda asignar un presupuesto y un gasto a todas las actividades existentes
+    * Tareas #1013: Que se pueda asignar un gasto a todas las actividades existentes
+    * Tareas #1021: Poder recuperar un gasto que ha fallado al grabarse
+    * Tareas #1024: Importacion => Carga total de datos
+    * Tareas #1030: Nueva Hoja en Informe AECID - Transferencias_Cambios
+    * Errores #1012: Quitar proyecto_id del modelo de presupuesto_x_actividad y presupuesto_x_agente
+    * Errores #1019: Correccion de bug en INFORME AECID en el xml y en la ruta de acceso al template
+    * Errores #1023: Proyecto->Importacion de Presupuesto : ActiveRecord::StatementInvalid in ImportacionController#index
+    * Errores #1028: (Matriz) Error al crear una nueva actividad
+
+2011-05-10 Santiago Ramos <sramos@semillasl.com> Version 2.4
+
+    * Tareas #937: Rehacer el concepto de subpartida para gasto.
+    * Tareas #940: pasar el sistema de importación de proyectos a ror
+    * Tareas #942: hay que quitar proyecto como parametro de los metodos de presupuesto
+    * Tareas #976: Poder asignar una linea de presupuesto a todas las activides existentes con un único botón
+    * Tareas #977: Que el sistema divida bajo peticon de un boton, el importe de una linea de ppto entre sus actividades
+    * Tareas #981: Incoherencia entre el nivel de detalle de la fecha en Actividades y en lineas de presupuesto
+    * Tareas #986: Rehacer las vistas resumen
+    * Tareas #987: Las actividades de un gasto no tienen que llevar numero de unidades
+    * Tareas #988: Poner la version de gong en el pie de la aplicación.
+    * Tareas #989: Eliminar numero de unidades de exportaciones de gastos
+    * Tareas #990: Presentacion de los botones de datos de proyecto.
+    * Tareas #991: Exportar indicador vinculado a fuente de verificación
+    * Tareas #992: Exportacion para agentes
+    * Tareas #996: Evitar que un gasto asignado a varios proyectos se pueda modificar desde gasto_proyectos.
+    * Tareas #999: Incluir descripcion en listados de sector de intervencion y area de actuacion
+    * Tareas #1001: Simplificar el formulario de presupuesto cuando estamos asignando a una sola actividad y un solo financiador
+    * Tareas #1002: Errores en datos dinamicos
+    * Tareas #1004: Error al exportar presupuesto
+    * Errores #980: En Proyectos>Datos Pone "Indentificaión" en lugar de "Identificación"
+    * Errores #998: Un usuario "normal" puede hacer retroceder el estado de un proyecto
+    * Errores #1003: Edicion de definicion_estado -> No aparen los datos ya seleccionados no estan activados en los checkboxes
+    * Errores #1005: Partida erronea en linea de Ppto creada en Administracion Financiera
+    * Errores #1008: Al no tener un proyecto moneda base falla el formulario de tasa de cambio
+    * Errores #1011: Varios fallos en ordenacion de presupuesto
+
+2011-03-22 Santiago Ramos <sramos@semillasl.com> Version 2.3
+
+    * Tareas #640: Numero de orden para las facturas
+    * Tareas #684: Definir y crear la tabla de BD de comunicación entre RoR y Python
+    * Tareas #737: Arqueo de Caja
+    * Tareas #826: Problemas al pegar texto desde documento word
+    * Tareas #889: Cambiar el listado de Estados de un proyecto quitando Fecha Inicio y Fecha Fin y poner sólo Fecha de Cambio
+    * Tareas #916: No funcionan los resumenes de gasto detallados por actividad.
+    * Tareas #933: Crear la JSP de limieza de la Cache de Mondrian para ser llamada tras la actualización
+    * Tareas #939: exportación en ror
+    * Tareas #941: Backup de BBDD
+    * Tareas #943: Filtrado de listados de presupuesto y gasto por pais
+    * Tareas #945: Matriz por pais y etapa -> Cambiar de seleccion de fechas a etapas del proyecto
+    * Tareas #946: Adecuacion de los resumenes de proyecto a las nuevas vistas
+    * Tareas #947: Camiar los mensajes de información a un icono de informacion en la barra superior
+    * Tareas #957: Cambiar en el formulario de presupuesto la forma de edicion de los importes (0.00).
+    * Tareas #958: Al borrar todas las lineas de un presupuesto por actividad, borre el presupuesto.
+    * Errores #679: importación
+    * Errores #680: importación de matriz
+    * Errores #949: Error en vista resumen de presupuesto
+    * Errores #955: Error al modificar o dar de alta un nuevo presupuesto (en produccion mundubat)
+    * Errores #960: El backup de administracion no funciona en produccion (mundubat)
+    * Errores #961: Error al intentar borrar una Moneda
+    * Errores #962: Error al intentar borrar un Sector de Población
+    * Errores #963: Administracion de usuarios: secciones
+    * Errores #965: En una nueva instalación, falla el rake db:seed
+    * Errores #967: Proyecto->Exportacion: matriz
+    * Errores #968: Error al dar de alta tareas
+    * Errores #969: Error al borrar proyectos
+    * Errores #970: Error al dar de alta un Usuario
+    * Errores #971: Al borrar una etiqueta, el mensaje mostrado dice "datos guardados correctamente"
+    * Errores #972: Proyecto->Exportacion: gasto
+    * Errores #973: Errores al guardar un presupuesto
+
+
+
+2011-03-22 Santiago Ramos <sramos@semillasl.com> Version 2.2.1
+
+    * Bug en migrate de proyecto_x_pais que impide actualizar la aplicación
+    * Cambios menores por bugs en vistas
+
+2011-03-21 Santiago Ramos <sramos@semillasl.com> Version 2.2
+
+    * Soporte #915: quitar presupuesto_x_proyecto
+    * Tareas #607: Valores por defecto en criterios de vista de resumen de presupuesto
+    * Tareas #629: Devolución de errores desde el script Python de Exportación/Importación
+    * Tareas #749: Limpieza de ficheros de importacion/exportacion
+    * Tareas #860: Validar Informe AECID y ver su estado de desarrollo
+    * Tareas #861: Diferenciación entre pagos y facturas
+    * Tareas #880: Javascript calculadora para el formulario de presupuesto.
+    * Tareas #881: Filtrar el presupuesto por actividad por etapa tal y como esta filtrado el presupuesto por partida
+    * Tareas #885: Que el detalle de presupuesto se guarde automaticamente
+    * Tareas #888: Vista para la elaboración detallada del cronograma
+    * Tareas #894: Error al dar de alta o modificar Fuentes de Verificacion en determinadas concidciones
+    * Tareas #908: Cambio de la relación proyecto, financiacion
+    * Tareas #912: Analizar la necesidad de reiniciar Tomcat tras la carga de datos de Cuadro de Mando haciendo un flush de la caché
+    * Tareas #920: Actualizar gasto de proyecto al nuevo modelo de gasto_x_actividad y gasto_x_financiacion
+    * Tareas #922: Borrado y presentacion de datos dinamicos
+    * Tareas #924: Actualizar la secciona agente (presupuesto y gasto) a los cambios del modelo
+    * Tareas #925: reforma del helper de checkbox
+    * Tareas #928: quitar financiación para definicion estado y tareas
+    * Errores #876: Imposibildad de crear una linea de ppto para el mismo mes en que comienza una etapa
+    * Errores #913: Partidas financiacion no refrescan
+    * Errores #914: Error en listado de presupuesto por agentes
+    * Errores #917: Desplegable de subpartida en gastos de proyecto
+    * Errores #918: Error al crear un gasto de un proyecto
+    * Errores #919: Error al crear un gasto de un agente
+
+2011-02-24 Santiago Ramos <sramos@semillasl.com> Version 2.1
+
+    * Tareas #432: Arreglar los ficheros: README, AUTHORS, INSTALL, etc.
+    * Tareas #615: Que al fallar en gasto o presupuesto (y quiza alguna otra entidad) te de la opcion de volver a cargar los datos.
+    * Tareas #654: PRESUPUESTO
+    * Tareas #686: Crear el proceso de actualización de Cuadro de Mando
+    * Tareas #687: Subir los Scripts de creación de BD de CM al SVN
+    * Tareas #688: Subir los SP de actualizacion dela BD de CM al SVN
+    * Tareas #689: Editar la INstall.txt de instalación de CM
+    * Tareas #725: importación y exportación (y informes) estan afectados por la nueva estructura
+    * Tareas #735: Crear enlace desde RoR a JPivot de Mondrian
+    * Tareas #736: Pruebas de Rails como proxy
+    * Tareas #738: Crear enlace desde JPivot a GOR para regresar.
+    * Tareas #774: Comprobación de errores en invocaciones a python
+    * Tareas #787: Limpiar en svn gor/vendor/python
+    * Tareas #809: Cambios en documento: gestión por usuario (no poder borrar)
+    * Tareas #817: Elaboración del presupuesto desde la matriz
+    * Tareas #857: campos inamicos en datos de proyectos
+    * Tareas #884: Correcciones en detalle de presupuesto.
+    * Errores #854: Problemas con la seleccion de implementadores
+    * Errores #528: documentos no aparece en un proyecto en estado "contacto"
+    * Errores #600: Dentro de un proyecto se pueden asignar cuentas bancarias de un agente que no participa en este
+    * Errores #644: orden en presupuesto_proyecto listado
+    * Errores #690: Cambio de estado de un proyecto
+    * Errores #743: La información del estado no muestra las observaciones
+    * Errores #747: Los documentos subidos y las importaciones/exportaciones son accesibles públicamente
+    * Errores #808: Error en python de informe_aecid
+    * Errores #838: Error al asociar un gasto a una transferencia
+    * Errores #847: Filtros de etiquetas
+
+2011-02-09 Santiago Ramos <sramos@semillasl.com> Version 2.0.4 
+
+ * Tareas #550: Cambiar los identificadores (ids html) de la aplicacion para adecuarlos al testing
+ * Tareas #657: Listado de Tasas de Cambio: cambiar el formato numérico anglosajón por el latino
+ * Tareas #710: Creacion de enlace a generacion de informe AECID desde GONG
+ * Tareas #739: subpartida con autocomplete
+ * Tareas #757: Cambiar la "x" de cierre de formulario por "cancelar"
+ * Tareas #767: Actualizar la versión de demo de gong2.cenatic.es
+ * Errores #623: Ordenación de gastos por fechas
+ * Errores #741: (Matriz) Fuentes de verificación no funcionan
+ * Errores #742: Presupuesto detallado hace desaparecer la línea de presupuesto
+ * Errores #748: Los ficheros temporales creados para importacion/exportacion se solapan
+ * Errores #750: fallo a asignar proyecto a un presupuesto
+ * Errores #753: partida se borra aunque haya elementos dependiendo de ella
+ * Errores #763: fallo del highlight por el cambio de id
+ * Errores #766: no se puede subir nuevos documentos
+ * Errores #768: Si no existe etapa definida, error en tasas de cambio de financiacion
+ * Errores #773: Error en el listado de presupuestos por proyecto y por agente
+ * Errores #778: Subpartidas raras al añadir un gasto
+
+2010-12-14 Jaime Ortiz <jaime@iepala.es> Version 2.0.2
+Tareas y errores corregidas para esta versión
+ * Soporte #612: en administracion, agente, el botón de asignar usuario aparece solamente si el agente es implementador
+ * Soporte #643: Borrado de ficheros asociados a proyecto
+ * Soporte #645: Partida - eliminar alert al modificar una fecha
+ * Soporte #646: Asociacion de un gasto a una trasnferencia
+ * Tareas #520: Revisar gestion de borrar estado (regresar al estado anterior)
+ * Tareas #529: Arreglar el filtrado de tareas por una tipologia diferente
+ * Tareas #605: Gastos del proyecto de pruebas para la Formación
+ * Tareas #610: Diferenciar en gasto entre fecha contable y fecha de informe
+ * Tareas #614: Que al introducir gasto y presupuesto el formulario muestre alguna información basica del anterior
+ * Tareas #627: Cambiar "TODO ESTADO" por "Cualquier Estado"
+ * Tareas #650: Cambiar "tiene que logonearse" por un mensaje más legible
+ * Errores #532: Transferencia de proyecto no funciona.
+ * Errores #539: Error al exportar
+ * Errores #540: Error en Importación
+ * Errores #546: tarea proyecto no son filtrado por proyecto
+ * Errores #549: etapa y filtrado en proyecto
+ * Errores #551: proyectos/presupuesto_proyecto formulario las fechas dan un alert "fecha"
+ * Errores #596: el ajax del detalle presupuesto no encontra el id para reemplazar
+ * Errores #601: No se pueden editar/añadir actividades
+ * Errores #603: Actividades "fantasmas" en subpartidas del presupuesto
+ * Errores #604: Supartidas aparecen recortadas en el presupuesto
+ * Errores #606: el filtrado por tarea no esta hecho en proyectos/gasto
+ * Errores #619: gasto proyecto (y agente) si no se pone la fecha entonces el metodo "comprobar etapa" del modelo da "undefined method"
+ * Errores #620: los procedures mysql no estan cargadas en la bd
+ * Errores #621: financiacion se puede cambiar solamente a el estado "contacto"
+ * Errores #636: Resumen de presupuesto de proyecto no tiene una presentacion correcta a partir de 5 agentes.
+ * Errores #637: Fallo en tasas de cambio: TypeError in Tasa_cambio#tasas_gasto
+ * Errores #638: Problema con el ancho del menu de controladores en proyecto con algun navegador o tipologia
+ * Errores #649: en gasto_proyecto @libro esta vacio
+ * Errores #671: Fallo Javascript al añadir comentarios
+ * Errores #681: La aplicación no se instala (migrate de procedures)
+

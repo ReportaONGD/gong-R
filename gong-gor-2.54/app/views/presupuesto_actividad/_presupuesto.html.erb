@@ -1,0 +1,21 @@
+<% update = "presupuesto_" + actividad.id.to_s + "_sub_" + presupuesto.presupuesto_x_actividad.first.id.to_s %>
+<% ppto_detallado_ok = presupuesto.comprobar_presupuesto_detallado %>
+<!-- Dejamos el codigo de marcado de fila ante errores de presupuesto detallado comentado hasta que se resuelva el ticket #1899 -->
+<% marca_fila = presupuesto.marcado ? presupuesto.marcado.color : '' %>
+<%# marca_fila = ppto_detallado_ok ? (presupuesto.marcado ? presupuesto.marcado.color : '') : 'rojo' %>
+
+<div id="<%= update %>" class="fila <%= marca_fila %> " >
+  <%= fila_listado presupuesto, campos_listado( "presupuesto_actividad" ), update %>
+  <div class="elementoderecha">
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("La suma por financiadores no es correcta.")) unless presupuesto.comprobar_financiadores %>
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("No existe etapa asignada.")) unless presupuesto.etapa %>
+    <%= ventana_info_popup presupuesto, {:campos => campos_listado("presupuesto") + campos_info("presupuesto"), :id => update + "_informacion" } %>
+    <% imagen, titulo = ppto_detallado_ok ? ["temporal", _("Editar detalle de presupuesto")] : ["alerta", _("¡Atención! El detalle del presupuesto no es correcto")] %>
+    <%= remote icono( "etiquetas", _("Marcar la línea de presupuesto.")), :url => { :update => update, :controller => "marcado" , :action => 'editar', :id => presupuesto, :tipo => "presupuesto", :actividad_id => actividad.id } %>
+    <%= remote icono("comentarios", _("Ver comentarios")), :url => { :update => update + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => presupuesto.id.to_s, :tipo => "Presupuesto" } %>
+    <%= remote icono( imagen, titulo), :url => {:update => update, :controller => "presupuesto_detallado" , :action => 'editar', :id => presupuesto, :actividad_id => actividad.id} %>
+    <%= editar( :url => { :action => 'editar_nuevo', :controller => 'presupuesto_actividad', :id => presupuesto.id.to_s, :actividad_id => actividad.id, :update => update })%>
+    <%= borrado( :url => { :action => 'eliminar',  :controller => 'presupuesto_actividad', :id => presupuesto.id.to_s, :actividad_id => actividad.id, :update => update}, :texto => presupuesto.concepto + " - " + presupuesto.presupuesto_x_actividad.first.importe.to_s , :identificador => update )%>
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div>
+</div>

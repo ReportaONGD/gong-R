@@ -1,0 +1,24 @@
+
+<div id="actividades_detalle">
+  <div class="linea"> <div class="filacabecera">
+    Resultados 
+    <div class="elementoderecha notapie"><%= link_to_remote "(" + _("Cambiar a Actividades") + ")", :url => {:action => "detallar_actividades", :detallado => params[:detallado], :id =>  @objeto.id }, :loading => "Element.show('espera')", :complete => "Element.hide('espera')"  %></div>
+  </div></div>
+
+  <% linea =  0 %>
+  <% unless @resultados.empty? %>
+    <% for @resultado in @resultados %>
+      <%= render :partial => "comunes/resultado", :locals => {:linea => linea, :ultima =>  (@resultados.last == @resultado)} %>
+      <% linea += 1  %>
+    <% end %>
+  <% else %>
+      <%= render :partial => "comunes/resultado", :locals => {:linea => linea, :ultima =>  true} %>
+  <% end %>
+  <div class="fila notapie elemento4">
+    <%# checkbox(_("Dividir entre todos los resultados seleccionados"), 'dividir_resultados', 'todas', "2", {:izquierda => true, :checked => (@objeto.class.name == "Presupuesto" ? @objeto.todas_actividades? : @objeto.todas_actividades?(@proyecto))}) %>
+    <%= _("NOTA: El importe total se dividirá entre todas las actividades de los resultados seleccionados.") %>
+    <br>
+  </div>
+  <br><br>
+</div> 
+

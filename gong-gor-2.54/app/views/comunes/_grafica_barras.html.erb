@@ -1,0 +1,49 @@
+<% contenedor_id ||= "container" %>
+<!--- El estilo tiene que venir por el css --->
+<div id="<%= contenedor_id %>" style="width:450px;height:200px;margin:auto;"></div>
+
+<script>
+  var graph;
+  document.observe('dom:loaded', function(){
+    /**
+    * The following configuration disables mouse tracking for series d1,
+    * and configures mousetracking for series d2 and d3.
+    */
+    graph = Flotr.draw(
+      $('<%= contenedor_id %>'), series, {
+        bars: {
+            show: true,
+            barWidth: 1,
+            shadowSize: 0,
+        },
+        xaxis: {
+            ticks: ticks,
+            //autoscaleMargin: 1,
+        },
+        mouse:{
+          track: true,
+          lineColor: 'purple',
+          relative: true,
+          position: 'ne',
+          sensibility: 500, // => The smaller this value, the more precise you've to point
+          trackDecimals: 2,
+          trackFormatter: function(obj){ return tickFormatter(obj.x) +': ' + obj.y; }
+        },
+      }
+    );
+    Element.hide('<%= contenedor_id %>');
+  });
+
+  function tickFormatter(input) {
+    val = Math.floor(input) + 0.5;
+    output = input;
+    ticks.map( function(item) {
+      if ( item[0] == val ) { output = item[1]; }
+    });
+    return output;
+  }
+
+  // graph.flotr.saveImage("png", graph.flotr.canvasWidth-1, graph.flotr.canvasHeight-1, true);
+</script>
+
+<%# link_to_function _("Descargar"), "graph.saveImage('png', graph.canvasWidth, graph.canvasWidth, true);" %>

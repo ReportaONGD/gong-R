@@ -1,0 +1,3 @@
+<% imagen, titulo = objeto.comprobar_presupuesto_detallado ? ["temporal", _("Editar detalle de presupuesto")] : ["alerta", _("¡Atención! El detalle del presupuesto no es correcto")] %>
+<%# modal ( icono( imagen),  {:action => 'presupuesto_detallado', :id => objeto.id},  titulo ) %>
+<%= modal icono( imagen),  {:update => params[:update], :action => 'editar', :id => objeto.id},  titulo, :id => params[:update] + '_presupuesto_detallado' %>

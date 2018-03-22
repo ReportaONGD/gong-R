@@ -1,0 +1,11 @@
+
+  <!-- Para transferencias vinculadas a proyecto, muestra el financiador -->
+  <div id="financiadores">
+    <% if @financiadores %>
+      <div class="fila">
+        <div class="filacabecera"><%= _("Financiadores") %></div>
+        <%= render :partial => "comunes/financiadores" %>
+      </div>
+    <% end %>
+  </div>
+

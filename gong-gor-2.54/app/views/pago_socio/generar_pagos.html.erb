@@ -1,0 +1,41 @@
+
+
+  <fieldset>
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios para Generación de Pagos") %></div>
+    <%= form_tag( { :action => "generar_pagos"}, :multipart => true, :class => "formulario" ) %>
+    <div class="fila">
+      <%= selector _('Pagos vía'), '', 'tipo', @listado_tipo, false, '1', {:selected => params[:tipo]} %>
+      <%= selector _('Rango de fechas'), '', 'fecha', @listado_fechas, false, '1', {:selected => params[:fechas]} %>
+    </div>
+    <div class="fila">
+      <!-- De momento comentamos esto por que no esta operativo -->
+      <%# checkbox _("Sacar el resultado a fichero "), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+      <%= hidden_field "", "sin_layout", {:value => true} if  params[:sin_layout]%>
+    </div>
+    <div class="elementoderecha">
+      <%= submit_tag(_("Vista Previa"), :class => "boton1_2") %>
+      <%= submit_tag(_("Generar Pagos Nuevos"), :class => "boton1_2") %>
+    </div>
+    </form>
+  </fieldset>
+
+<% if @pagos && !@pagos.empty? %>
+  <% if params[:commit] == _("Generar Pagos Nuevos") %>
+    <%= mensaje_error(@import_error) if @import_error != "" %>
+    <%= mensaje(_("Se han generado correctamente los siguientes pagos."), true) if @import_error == "" %>
+  <% end %>
+  <%= cabecera_listado campos_listado("pago_socio") %>
+    <% i = 0 %>
+    <% for pago in @pagos %>
+      <div  id="pago_socio_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>">
+        <%= fila_listado pago, campos_listado("pago_socio"), "pagos_" + i.to_s %>
+        <div class="elementoderecha">
+          <%= ventana_info_popup pago, {:campos => campos_listado("pago_socio") + campos_info("pago_socio"), :id => "pago_socio_" + i.to_s + "_informacion" } %>
+        </div>
+        <div class='linea'></div>
+      </div>
+    <% end %>
+  <%= final_listado %>
+<% else %>
+  <%= mensaje _("No hay pagos pendientes en ese periodo.") %>
+<% end %>

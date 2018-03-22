@@ -1,0 +1,300 @@
+/**************************************************************************************************
+  CONTENEDOR DE LA CABECERA Y EL PIE
+**************************************************************************************************/
+
+#cabecera {
+  position: fixed;
+  min-width: 1024px;
+  width: 100%;
+  background: #333333;
+  z-index: 999;
+}
+
+#pie {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  z-index: 999;
+  width: 100%;
+  height: 40px;
+}
+
+/**************************************************************************************************
+MENUS EN GENERAL
+**************************************************************************************************/
+
+#info_superior {
+  background: #333333;
+  color: #BBBBBB;
+  font-size: 1em;
+  min-height: 1.5em;
+  padding: 0.3em;
+  text-align: right;
+}
+
+#info_superior a, #info_superior a:link, #info_superior a:visited{
+  color:lightgrey;
+  text-decoration:none
+}
+
+
+/**************************************************************************************************
+MENUS EN GENERAL
+**************************************************************************************************/
+
+.menu_ruta a, menu_ruta a:link, menu_ruta a:visited {
+  color:#fff;
+  text-decoration:none;
+}
+
+.menu_ruta a:hover {
+  color:#ffffff;
+}
+
+div.menu_ruta:hover > a {
+  background:#737CA1;
+  color:#FFFFFF;
+}
+
+div.menu_ruta:hover > ul {
+  display:block;
+}
+
+div.menu_ruta_navegacion:hover .menu_ruta_navegacion_grupo {
+  display: block;
+}
+
+div .menu_ruta_navegacion a {
+  padding-right: 5px;
+}
+
+div .menu_ruta_navegacion a:hover {
+  color: #000;
+}
+
+.menu_ruta_navegacion_grupo {
+  display: none;
+  margin: 0 0 0 0;
+  padding: 5px;
+}
+
+.menu_ruta_navegacion_grupo li {
+  list-style-position: inside;
+  list-style-type: none;
+  padding-left: 20px;
+  /*margin: 0 0 0 0;*/
+}
+
+/**************************************************************************************************
+MENU DE SECCIONES
+**************************************************************************************************/
+
+ul.menu_superior
+{
+	background: #333333;
+	border:none;
+	display: block;
+	height:2.8em;
+   	list-style:none inside none;
+	min-width:100%;
+   	margin:0.0em;
+	padding:0.1em;
+   	position:static; 
+	vertical-align:middle;
+
+}
+
+ul.menu_superior > li 				
+{
+   	float:right;
+	padding:0.2em;
+   	top:0em;
+	width:3em;
+}
+
+/**************************************************************************************************
+INFORMACION SECCION
+**************************************************************************************************/
+
+div.info_seccion{
+  float: left;
+  text-align: left;
+  width: 640px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #BBBBBB;
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden;
+}
+
+
+/**************************************************************************************************
+MENUS DESPLEGABLES 
+**************************************************************************************************/
+
+/* CONTENIDOS */
+#centra_ruta {
+    position: relative;
+    clear:both;
+    width:980px;
+    margin:0 auto 0 auto;
+    height: 20px;
+}
+
+ul.menu li:hover > a
+{
+color:#FFFFFF;
+}
+
+
+ul.menu
+{
+	background: #333333;
+	border:1px black solid;
+	display:none;
+   	left:inherit;
+   	list-style:none inside none;
+   	margin:0.0em;		
+	padding:0.1em;
+   	position:absolute; 
+   	top:inherit;
+   	min-width:15em;
+   	z-index:10;
+}
+
+
+ul.menu li					
+{
+	color: white;
+	font-weight: bold;
+	height:1.3em;
+	padding-left:1em;
+padding-top:0.2em;
+   	position:relative; 		
+   	vertical-align:middle;
+	font-size:1em;
+}
+
+/* Destacar elemento activo */
+ul.menu li:hover
+{
+   	background:#737CA1;
+	color:#FFFFFF;
+}
+
+/* ...pero no en el primer menu */
+ul.menu_superior li:hover
+{
+	background:inherit;
+}
+
+div.menu
+{
+	float:left;
+	width:10em;
+}
+
+div.bar_menu {
+background: #333333;
+color: #BBBBBB;
+font-size: 1em;
+text-align: right;
+
+}
+
+div.bar_space {
+	border-top: dotted 1px #888888;
+  background: #333333;
+	
+}
+
+div.bar_ruta 
+{
+
+	color:#DDDDDD; 
+	left:0%; 
+	text-align:left;
+	width:600px; 
+}
+
+div.menu_ruta, div.ruta_separador
+{
+
+	float:left;
+  height:20px;
+	font-size: 1.3em;
+	font-weight: bold;
+	padding-left:0.2em;
+	padding-right:0.2em;	
+  padding-top:0.2em;
+	text-align:left;
+}
+
+div.ruta_separador
+{
+
+	font-size: 1.2em;
+  color: #999;
+
+}
+
+
+
+
+/**************************************************************************************************
+LOGO DE GONG 
+**************************************************************************************************/
+
+
+#logogong {
+background-image: url("/images/logo_gong_2.png");
+background-repeat: no-repeat;
+left: 1px;
+height: 70px;
+margin: 1 0 0 0 ;
+padding: 0.1em;
+position:absolute;
+width: 140px;
+}
+
+
+/**************************************************************************************************
+INFORMACION DE LA PAGINA
+**************************************************************************************************/
+
+div.mas_info {
+  float:right;
+  margin: 0.2em 0.1em 0.1em 2em;
+}
+
+div.mas_info_fecha {
+  float:right;
+	margin: 0 15 0 0;
+}
+
+div.mas_info:hover div, div.mas_info_fecha:hover div {
+  display:block;
+  cursor: help;
+}
+
+div.pop_mas_info, div.pop_mas_info_fecha {
+  background: #FFFFEE;
+  border: 1px solid #bbbbbb;
+  color: #000000;
+  display:none;
+  font-weight: normal;
+  font-size: 1em;
+  padding: 0.2em;
+  position: absolute;
+  text-align: center; 
+  min-height: 3em;
+  right:0.1em;
+  top:inherit;
+  width: 20em;
+  z-index:10;
+}
+

@@ -1,0 +1,12 @@
+<%= _("Hola") %> <%= @usuario.nombre if @usuario %>!
+
+<%= yield %>
+
+
+--------------------
+
+<% if @usuario %>
+  <%= _("Estás suscrito a las notificaciones de %s con la cuenta %s") % [(GorConfig.getValue("APP_NAME")||"GONG"), @usuario.correoe] %>
+  <%= _("Esta notificación se ha enviado a todos los usuarios del proyecto.") %>
+  <%= Time.now %>
+<% end %>

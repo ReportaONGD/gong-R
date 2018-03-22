@@ -1,0 +1,12 @@
+
+  <% tipo ||= (@proyecto ? "gasto" : "gasto_agentes") %>
+  <% gasto_id = update + "_gasto_" + gasto.id.to_s %>
+  <div id="<%= gasto_id %>" class="fila" >
+    <%= fila_listado gasto, campos_listado(tipo) - [["Cambio", "1_4", "updated_at", true]], gasto_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup gasto, {campos: campos_listado(tipo) + campos_info(tipo), id: gasto_id + "_informacion" } %>
+      <% texto_borrado = _("Gasto de %{importe} %{moneda} con fecha %{fecha}: '%{concepto}'") % {importe: gasto.importe_convertido, moneda: gasto.moneda.abreviatura, fecha: I18n.l(gasto.fecha), concepto: gasto.concepto} %>
+      <%= borrado( url: { action: 'eliminar_gasto', update: gasto_id, id: params[:id], gasto_id: gasto.id }, texto: texto_borrado, identificador: gasto_id ) %>
+    </div>
+  </div>
+

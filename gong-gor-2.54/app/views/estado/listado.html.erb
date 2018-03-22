@@ -1,0 +1,14 @@
+<%= cabecera_listado campos_listado("estado"), _("Cambiar de Estado"), {:action => 'anadir_estado'}, {:id => "estado_anadir"} %>
+<% i = 0 %>
+<% for dato in @estados %>
+  <div id="estado_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado dato, campos_listado('estado'), "estado_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup dato, {campos: campos_listado('estado') + campos_info('estado'), id: "estado_#{i}_informacion"} %>
+      <%= modal_borrado icono( "borrar", _( "Retroceder Estado Anterior" ) ), { :action => 'eliminar_estado', :id => dato.id  },_("Volver al Estado anterior"), _('Va a retroceder al estado anterior'), :id => ("estado_" + i.to_s + "_borrar") if dato.estado_actual %>
+    </div>
+</div>
+<% end %>
+<%= final_listado %>
+
+

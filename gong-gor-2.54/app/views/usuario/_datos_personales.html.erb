@@ -1,0 +1,72 @@
+
+<%= comienzo_formulario( { :controller => 'usuario', :action => 'cambiar_datos_personales' }, true ) %>
+  <div clas="linea">
+    <div class="elemento3_2">
+      <%= texto _("Correo"), 'usuario', 'correoe', "3_2" %>
+      <div class="linea"></div>
+      <%= texto _("Skype ID"), 'usuario', 'skype_id', "3_2" %>
+      <div class="linea"></div>
+      <%= texto _("Nombre completo"), 'usuario', 'nombre_completo', "3_2" %>
+      <div class="linea"><br></div>
+    </div>
+
+	    <% unless Rails.configuration.external_auth.first && @usuario.external_id %>
+			<div class="elemento1_5">&nbsp;</div>
+	    <div class="elemento1" id ="selector_contrasena"><br>
+	      <%= link_to_function(  _("Cambiar contraseña"), nil) {|page| page.show 'contrasena'; page.hide 'selector_contrasena' }  %>      
+	    </div>
+			<div id="contrasena"  style="display:none;">
+				<div class="elemento1">
+			      <%= contrasena _("Contraseña actual"), 'comprobar', 'contrasena_antigua', "1"   %> 
+				</div>
+				<div class="elemento1">
+			     <%= contrasena _("Nueva contraseña"), 'comprobar', 'contrasena_nueva', "1"   %>
+		      <%= contrasena _("Repetir contraseña"), 'comprobar', 'contrasena_repetida', "1"   %> 
+				</div>
+			</div>
+			<% end %>
+		</div>
+		
+		
+    <div class="linea"> <div class="filacabecerasinborde"><%= _("Recibir correos de comentarios de los siguientes proyectos") %>
+			<div class="elementoderecha">
+	    	<input class="submit" type="button" value="<%= _('Desmarcar todos') %>" onclick="checkAll(this, 'comentario', false)" />
+	    	<input class="submit" type="button" value="<%= _('Marcar todos') %>" onclick="checkAll(this, 'comentario', true)" />
+			</div>
+		</div></div>
+
+		
+    <div id="notificaciones" class="contenedor_scroll_vertical">
+      <% for proyecto in @usuario.proyecto.order(:nombre).uniq %>
+        <% uxp = @usuario.usuario_x_proyecto.find_by_proyecto_id(proyecto.id) %>
+        <%= checkbox proyecto.nombre, 'comentario', proyecto.id, "5_4", { :izquierda => true, :checked => uxp.notificar_comentario }  %>
+      <% end %>
+    </div>
+    <div class="linea"> <div class="filacabecerasinborde"><%= _("Recibir correos de cambio de estado de los siguientes proyectos") %>			
+			<div class="elementoderecha">
+	    	<input class="submit" type="button" value="<%= _('Desmarcar todos') %>" onclick="checkAll(this, 'estado', false)" />
+	    	<input class="submit" type="button" value="<%= _('Marcar todos') %>" onclick="checkAll(this, 'estado', true)" />
+			</div>
+		</div></div>
+		
+    <div id="notificaciones" class="contenedor_scroll_vertical">
+      <% for proyecto in @usuario.proyecto.order(:nombre).uniq %>
+        <% uxp = @usuario.usuario_x_proyecto.find_by_proyecto_id(proyecto.id) %>
+        <%= checkbox proyecto.nombre, 'estado', proyecto.id, "5_4", { :izquierda => true, :checked => uxp.notificar_estado }  %>
+      <% end %>
+    </div>
+    <div class="linea"> <div class="filacabecerasinborde"><%= _("Recibir correos de nuevas asignaciones de usuario a los siguientes Proyectos") %>			
+		 <div class="elementoderecha">
+	    	<input class="submit" type="button" value="<%= _('Desmarcar todos') %>" onclick="checkAll(this, 'asignar_usuario', false)" />
+	    	<input class="submit" type="button" value="<%= _('Marcar todos') %>" onclick="checkAll(this, 'asignar_usuario', true)" />
+			</div>
+		</div></div>
+		
+    <div id="notificaciones" class="contenedor_scroll_vertical">
+      <% for proyecto in @usuario.proyecto.order(:nombre).uniq %>
+        <% uxp = @usuario.usuario_x_proyecto.find_by_proyecto_id(proyecto.id) %>
+        <%= checkbox proyecto.nombre, 'asignar_usuario', proyecto.id, "5_4", { :izquierda => true, :checked => uxp.notificar_usuario }  %>
+      <% end %>
+    </div>
+		
+<%= final_formulario %>

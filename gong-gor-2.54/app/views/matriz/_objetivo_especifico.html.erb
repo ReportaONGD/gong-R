@@ -1,0 +1,17 @@
+
+<div class="filacabecerasinborde">
+  <%= fila_listado @objetivo_especifico, campos_listado("objetivo_especifico"), fila %>
+  <div class="elementoderecha">
+    <% _("Codigo") %>
+    <% _("Descripcion") %>
+    <%= ventana_popup @objetivo_especifico, {:campos => ["codigo","descripcion"], :id => fila + "_informacion"} %>
+    <% if params[:menu] == "formulacion" %>
+      <%= remote(icono("lista", _("Ver indicadores, fuentes de verificación y hipótesis")),  :url => {:update => fila + "_sub", :action => 'indicadores_fuentes_objetivo_especifico', :objetivo_especifico_id => @objetivo_especifico.id.to_s})   %>
+      <%= editar :url =>  {:action => 'editar_nuevo_objetivo_especifico', :id => @objetivo_especifico.id, :update_listado => "matriz", :update => fila } %>
+      <%= borrado :url => { :action => 'eliminar_objetivo_especifico', :id => @objetivo_especifico.id, :update => fila }, :texto => @objetivo_especifico.codigo_nombre, :identificador => fila + "_borrar" %>
+    <% else %>
+      <%= link_to_remote( icono("comentarios" + (@objetivo_especifico.comentario.empty? ? "" : "_r"), _("Ver comentarios"), fila + "_comentario_icono"), :url => {:update => fila + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => @objetivo_especifico.id.to_s, :tipo => "ObjetivoEspecifico", :update_objeto => fila} , :html => {:id => fila + "_comentarios"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" )%>
+    <% end %>
+  </div>
+</div>
+<div id="<%= fila %>_sub" class="linea"></div>

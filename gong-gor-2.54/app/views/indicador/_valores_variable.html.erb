@@ -1,0 +1,25 @@
+
+<%= comienzo_sublistado _("Valores Medidos"), update_listado %>
+
+  <div id = "<%= params[:update] %>_variable_anadir" ></div>
+  <div class="fila">
+    <%= anadir url: {action: 'editar_nuevo_valor_variable', update_listado: update_listado, variable_indicador_id: params[:variable_indicador_id], update: (params[:update] + "_variable_anadir") } %>
+  </div>
+
+  <% i = 0 %>
+  <% for valor in @valores %>
+    <% valor_id = params[:update] +"_valores_" + (i += 1).to_s %>
+    <div  id="<%= valor_id %>" class="fila" >
+     <%= fila_listado valor, campos_listado("valor_medido"), params[:update] + "_valor_" + i.to_s %>
+     <div class="elementoderecha">
+       <% if !valor.variable_indicador_id.nil? %>
+         <%= editar( :url => {:update_listado => update_listado, :action => 'editar_nuevo_valor_variable', :id => valor.id, :variable_indicador_id => params[:variable_indicador_id] , :update => valor_id}) if @permitir_ejecucion %>
+         <%= borrado( :url => { :update => update_listado, :action => 'eliminar_valor_variable', :id => valor.id, :variable_indicador_id => params[:variable_indicador_id] }, :texto => valor.valor.to_s + " (" + valor.fecha.to_s + ")", :identificador => valor_id) if @permitir_ejecucion %>
+       <% end %>
+     </div>
+     <div class="linea"></div>
+    </div>
+  <% end %>
+<%= final_sublistado %> 
+<br>
+ 

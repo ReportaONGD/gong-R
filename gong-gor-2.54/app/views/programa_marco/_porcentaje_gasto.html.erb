@@ -1,0 +1,26 @@
+<!-- Porcentaje de presupuesto ejecutado -->
+<%
+  # Obtenemos el total gastado para proyectos con moneda principal igual a la del convenio
+  proyectos = proyectos_aprobados.where(moneda_id: programa_marco.moneda_id)
+  presupuestado = VPresupuesto.sum_total(proyecto: proyectos).first[:importe]||0.0
+  gastado = VGasto.sum_total(proyecto: proyectos).first[:importe]||0.0
+
+  # Y recorremos el resto de proyectos haciendo el calculo de TC a mano
+  proyectos_aprobados.where("moneda_id != ?", programa_marco.moneda_id).each do |proyecto|
+    tc = TasaCambio.where(etapa_id: proyecto.etapa.first, objeto: "presupuesto", moneda_id: programa_marco.moneda_id).first
+    p_ppto = VPresupuesto.sum_total(proyecto: proyecto).first[:importe]||0.0
+    p_gsto = VGasto.sum_total(proyecto: proyecto).first[:importe]||0.0
+    if tc && tc.tasa_cambio && tc.tasa_cambio != 0
+      presupuestado += (p_ppto / tc.tasa_cambio).round(2)
+      gastado += (p_gsto / tc.tasa_cambio).round(2)
+    end
+  end
+%>
+<%= caja_porcentaje total: presupuestado, valor: gastado,
+                    titulo: _("Gasto Total:"),
+                    rotulo: _("Gasto realizado") + " " + 
+                            _("sobre el total de lo presupuestado") + "<br/><br/>" +
+                            _("Gastado") + ":&nbsp;<b>" + celda_formateada(gastado) + " " + programa_marco.moneda.abreviatura + "</b><br/>" +
+                            _("Presupuestado") + ":&nbsp;<b>" + celda_formateada(presupuestado) + " " + programa_marco.moneda.abreviatura + "</b>"
+%>
+

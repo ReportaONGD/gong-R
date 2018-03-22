@@ -1,0 +1,18 @@
+<% objeto = params[:objetivo_especifico_id] ? "objetivo_especifico" : "resultado" %>
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]}%>
+
+<%= formulario_comienzo :url => { :action => 'crear_modificar_indicador', :id => @indicador } %>
+<div class="fila">
+  
+  <%= texto( _("Código"), 'indicador', 'codigo', "1") if params[:menu] == "formulacion" %>
+  <%= selector( _("Indicador de Convenio Relacionado"), 'indicador', 'indicador_convenio_id', @indicadores_convenio, true, "1") if @indicadores_convenio %>
+  <%= selector( _("Porcentaje"), 'indicador', 'porcentaje', porcentajes, false ,"1_2") unless params[:menu] == "formulacion"  %>
+
+<div>
+<div class="fila">
+  <%= texto_area( _("Descripción"), 'indicador', 'descripcion', "3") if params[:menu] == "formulacion"%>
+  <input type="hidden" name="<%= objeto %>_id" value="<%= params[(objeto + "_id").to_sym] %>" >
+<div>
+<%= formulario_final %>
+
+

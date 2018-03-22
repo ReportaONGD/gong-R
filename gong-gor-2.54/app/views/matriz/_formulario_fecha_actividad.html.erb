@@ -1,0 +1,16 @@
+<%= comienzo_formulario( { :action => 'modificar_fecha_actividad', :id => @actividad, :update => params[:update] }, false ) %>
+<div class="fila">
+  <%= _("Código") %>: <%= @actividad.codigo %>
+</div>
+<div class="fila">
+  <%= _("Descripción") %>: <%= @actividad.descripcion %>
+<div>
+<div class="fila"><br/></div>
+<div class="fila">
+  <%= mes_fecha _("Fecha inicio"), 'actividad', 'fecha_inicio' %>
+  <%= mes_fecha _("Fecha fin") , 'actividad', 'fecha_fin', :after_close => "fecha_inicio = document.getElementById('actividad_fecha_inicio').value; if (this.value < fecha_inicio) alert('" + _("la fecha de fin tiene que ser mayor que la fecha de inicio") + "')" %>
+<div>
+
+<%= final_formulario %>
+
+

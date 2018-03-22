@@ -1,0 +1,4 @@
+<div id="proyecto">
+  <%= selector _("Proyecto"), 'presupuesto', 'proyecto_id', @proyectos, true, "3_2", {enriquecido: true} %>
+  <%= javascript_tag("activaSelectoresChosen();") if defined? reiniciar_javascript_chosen %>
+</div>

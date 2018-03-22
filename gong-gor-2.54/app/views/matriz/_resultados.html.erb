@@ -1,0 +1,31 @@
+
+
+
+
+
+<div id="<%= update_listado %>">
+<div id="<%= update_listado %>_anadir"> </div>
+
+<%= listado( [[_("Resultados"), "", "2"]], :anadir => (params[:menu] == "formulacion"), :url =>  {:action => 'editar_nuevo_resultado', :objetivo_especifico_id => @objetivo_especifico.id, :update_listado => update_listado,  :update => update_listado + "_anadir"}) %>
+<% j = 0 %>
+<% for resultado in @objetivo_especifico.resultado %>
+<% fila = update_listado + (j += 1).to_s %>
+<div  id="<%= fila %>" class="fila">
+    <%= fila_listado resultado, campos_listado("resultado"), fila %>
+    <div class="elementoderecha">
+      <%= ventana_popup resultado, {:campos => ["descripcion"], :id => fila + "_informacion"}%>
+      <% if params[:menu] == "formulacion" %>
+        <%= link_to_remote(icono("actividades", _("Ver actividades")), :url => {:update => fila + "_sub", :action => 'actividades', :resultado_id => resultado.id.to_s},  :html => {}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')"  )   %>
+        <%= link_to_remote(icono("lista", _("Ver indicadores y fuentes de verificación")),  :url => {:update => fila + "_sub", :action => 'indicadores_fuentes_resultado', :resultado_id => resultado.id.to_s}, :html => {:id => fila +"_indicadores_fuentes_resultado"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')"  )   %>
+        <%= editar :url => { :action => 'editar_nuevo_resultado', :id => resultado.id, :objetivo_especifico_id => @objetivo_especifico.id, :update => fila, :update_listado => update_listado } %>
+        <%= borrado :url => { :action => 'eliminar_resultado', :id => resultado.id, :objetivo_especifico_id => @objetivo_especifico.id,  :update => fila }, :texto => resultado.codigo + " " + resultado.descripcion , :identificador => fila  %>
+      <% else %>
+        <%= link_to_remote( icono("comentarios" + (resultado.comentario.empty? ? "" : "_r"), _("Ver comentarios"), fila + "_comentario_icono"), :url => {:update => fila + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => resultado.id.to_s, :tipo => "Resultado", :update_objeto => fila} , :html => {:id => fila + "_comentarios"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" )%>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+    <div id="<%= fila %>_sub" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+</div>

@@ -1,0 +1,17 @@
+<%= cabecera_listado campos_listado("empleado"), _("Nuevo Empleado"), {:action => 'editar_nuevo'}, :id => "empleado_anadir" %>
+<% i = 0  %>
+<% for empleado in @empleados %>
+  <% i += 1 %>
+  <% fila = "empleado_" + i.to_s  %>
+  <div id="<%= fila  %>" class="fila <%= empleado.activo ? '' : 'rojo' %>">
+    <%= fila_listado empleado, campos_listado("empleado"), "empleado_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= modal icono( "editar" ),  {:action => 'editar_nuevo', :id => empleado}, _("Editar empleado"), :id => ("empleado_" + i.to_s + "_editar")  %>
+      <%= link_to_remote(icono("lista", _("Ver salarios hora empleado")), :url => {:update => fila + "_sub", :action => 'empleado_salarios', :empleado_id => empleado.id.to_s},  :html => {}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')"  )   %>
+      <%= modal_borrado icono( "borrar", _( "borrar:" ) ), { :action => 'eliminar', :id => empleado.id }, _('Eliminar empleado'), empleado.nombre, :id => ("empleado_" + i.to_s + "_borrar") %>
+    </div>
+    <div id="<%= fila %>_sub" class="linea"></div>
+  </div>
+<% end %>
+<%= final_listado %>
+

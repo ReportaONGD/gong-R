@@ -1,0 +1,54 @@
+<%= comienzo_formulario( { controller: 'relaciones_usuario', action: 'crear_modificar_asignacion', id: @objeto, uxo_id: @uxo, objeto: params[:objeto], update: params[:update] }, true ) %>
+<%= @objeto_nombre %> : <%= @objeto.nombre %><br>
+<div class="fila">
+<% if @uxo.usuario %>
+  <div class="elemento3_2"><%= _("Usuario") %>&nbsp;:&nbsp;<%= @uxo.usuario.nombre %></div>
+  <%= hidden_field_tag  'uxo[usuario_id]', @uxo.usuario_id %>
+  <div class="fila">&nbsp;</div>
+<% else %>
+  <%= selector  _("Usuario"), "uxo", 'usuario_id', @listado_usuarios, false, "3_2", {obligatorio: true, enriquecido: true} %>
+<% end %>
+
+<% if @roles %>
+  <%= selector  _("Rol"), "uxo", "rol_id", @roles, false, "3_4", { obligatorio: true } %>
+  <div id="div_selector_roles_agente" style="display:none;">
+    <%= selector  _("Rol en agentes relacionados"), "selector", "rol_agentes", @roles_agente, false, "1", { obligatorio: true } if @roles_agente %>
+  </div>
+
+  <div class="linea"><br></div>
+  <div class="linea" id="linea_propaga_permisos">
+    <%= checkbox _("Forzar revisión de permisos del usuario sobre elementos relacionados"), 'selector', 'forzar_permisos', "3", {:checked => false, :izquierda => true } %>
+      <%= observe_field( "selector_forzar_permisos" , :function => '
+
+  selector = document.getElementById("selector_forzar_permisos");
+  if( selector.checked ) {
+    Element.show("advertencia_permisos_borradofondo");
+    Element.show("advertencia_permisos_borrado");
+    Element.show("div_selector_roles_agente");
+  } else {
+    Element.hide("div_selector_roles_agente");
+  }
+
+    ' ) %>
+
+    <%= mensaje_advertencia :identificador => "advertencia_permisos", :texto => _("Seleccionando esta opción se asignará al usuario permiso de uso (si no lo tuviera previamente) sobre cada Libro y Agente Implementador existente en el sistema.") + "<br><br>" + _("Si posteriormente incluye nuevos Libros o Implementadores, deberá volver a ejecutar esta opción") + "<br><br>" + _("Sea cauteloso: Si desea revocar permisos deberá hacerse individualmente sobre cada elemento.") if params[:objeto] == "proyecto" %>
+
+    <%= mensaje_advertencia :identificador => "advertencia_permisos", :texto => _("Seleccionando esta opción se asignará al usuario permiso de uso (si no lo tuviera previamente) sobre cada Libro del Agente.") + "<br><br>" + _("Si posteriormente incluye nuevos Libros en él, deberá volver a ejecutar esta opción") + "<br><br>" + _("Sea cauteloso: Si desea revocar permisos deberá hacerse individualmente sobre cada elemento.") if params[:objeto] == "agente" %>
+  </div>
+	
+	
+  <div class="linea" id="recibir_notificaciones_comentarios">
+    <%= checkbox _("Recibir notificaciones de comentarios del proyecto"), 'uxo', 'notificar_comentario', "3", {checked: @uxo.notificar_comentario, izquierda: true} if params[:objeto] == "proyecto" %>
+  </div>
+  <div class="linea" id="recibir_notificaciones_estado">
+    <%= checkbox _("Recibir notificaciones de cambios de estado del proyecto"), 'uxo', 'notificar_estado', "3", {checked: @uxo.notificar_estado, izquierda: true} if params[:objeto] == "proyecto" %>
+  </div>
+  <div class="linea" id="recibir_notificaciones_usuarios">
+    <%= checkbox _("Recibir notificaciones de asignación de usuario al proyecto"), 'uxo', 'notificar_usuario', "3", {checked: @uxo.notificar_usuario, izquierda: true} if params[:objeto] == "proyecto" %>
+  </div>
+	
+<% end %>
+
+<div>
+<%= final_formulario %>
+

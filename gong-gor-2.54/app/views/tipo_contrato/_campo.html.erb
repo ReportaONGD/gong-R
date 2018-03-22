@@ -1,0 +1,19 @@
+
+  <% editable = (@agente && @tipo_contrato.agente_id == @agente.id) || @agente.nil? %>
+  <% update_id = update_listado + "_" + campo.id.to_s %>
+  <% tipo = 'campo_tipo_contrato' %>
+  <div id="<%= update_id %>" class="fila" >
+    <%= fila_listado campo, campos_listado(tipo), update_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup campo, {campos: campos_listado(tipo) + campos_info(tipo), id: update_id + "_informacion" } %>
+      <% if (@agente && @tipo_contrato.agente_id == @agente.id) || @agente.nil? %>
+        <%= editar(url: { action: 'editar_nuevo_campo', id: params[:id], campo_id: campo.id, update: update_id, update_listado: update_listado }) %>
+        <% texto_borrado = _("'%{nombre}' de tipo '%{tipo}'") % {nombre: campo.etiqueta, tipo: campo.tipo_campo} %>
+        <%= borrado( url: { action: 'eliminar_campo', update: update_id, id: params[:id], campo_id: campo.id }, texto: texto_borrado, identificador: update_id ) %>
+      <% else %>
+        <div class="icono"></div>
+        <div class="icono"></div>
+      <% end %>
+    </div>
+  </div>
+

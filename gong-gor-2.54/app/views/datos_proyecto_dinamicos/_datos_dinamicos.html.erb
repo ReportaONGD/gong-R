@@ -1,0 +1,19 @@
+
+  <% if update_listado %>
+    <div id="<%= update_listado %>_anadir"></div>
+    <div class="linea" style="padding:3px;"><div class="elementoderecha">
+      <%= link_to_function( icono("cerrar", _("Ocultar datos")), nil) {|page| page.hide update_listado; page.hide update_listado + "_anadir_anadir"; page.show update_listado + "_ocultar"} %>
+    </div><br/></div>
+  <% else %>
+    <%= stylesheet_link_tag 'application', :media => "all" %>
+    <div class="centro">
+  <% end %>
+  <% for dato in datos %>
+    <% update = update_listado ? update_listado + "_" + dato.id.to_s : nil %>
+    <div class="linea" id="<%= update||dato.id.to_s %>">
+      <%= render :partial => "dato_dinamico", :locals => { :grupo_datos_id => grupo_datos_id, :dato => dato, :update => update} %>
+    </div>
+  <% end %>
+  <% unless update_listado %>
+    </div>
+  <% end %>

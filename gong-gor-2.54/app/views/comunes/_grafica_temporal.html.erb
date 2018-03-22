@@ -1,0 +1,64 @@
+<!--- El estilo tiene que venir por el css --->
+<div id="container" style="width:450px;height:200px;"></div>
+
+<!--- Los datos los tiene que generar un helper -->
+<!--- con los datos de las X en segundos --->
+<script>
+        /**
+         * Fill series d1 and d2.
+         */
+        var d1 = [];
+        var d2 = [];
+        var d3 = [];
+        var d4 = [];
+    for(var i = 0; i < 20; i += 0.5){
+                d1.push([i, 2*i]);
+                d2.push([i, i*1.5+1.5*Math.sin(i)]);
+        d3.push([i, 3*Math.cos(i)+10]);
+        }
+        d4=d3;
+
+    var series = [{data:d1,label:'test1'}, {data:d2,label:'test2'}, {data:d3,label:'test3'}, {data:d4,label:'test4'}];
+</script>
+<!--- ------------------------ --->
+
+<script>
+  /**
+   * Wait till dom's finished loading.
+   */
+  var graph;
+  document.observe('dom:loaded', function(){
+    /**
+    * The following configuration disables mouse tracking for series d1,
+    * and configures mousetracking for series d2 and d3.
+    */
+    graph = Flotr.draw(
+      $('container'), series, {
+        points: {show: true},
+        lines: {show: true},
+        xaxis: {tickFormatter: timestampHoursTickFormatter},
+        mouse:{
+          track: true,
+          lineColor: 'purple',
+          relative: true,
+          position: 'ne',
+          sensibility: 1, // => The smaller this value, the more precise you've to point
+          trackDecimals: 2,
+          trackFormatter: function(obj){ return timestampHoursTickFormatter(obj.x) +': ' + obj.y; }
+        },
+      }
+    );
+  });
+
+  function timestampHoursTickFormatter(inputTimeStamp) {
+    mydate = new Date();
+    // mydate.setTime(inputTimeStamp);
+    mydate.setTime(inputTimeStamp *60*60*1000);
+    var output = mydate.toLocaleDateString();;
+    return output;
+  }
+
+  // graph.flotr.saveImage("png", graph.flotr.canvasWidth-1, graph.flotr.canvasHeight-1, true);
+</script>
+
+<%= link_to_function _("Descargar"), "graph.saveImage('png', graph.canvasWidth, graph.canvasHeight, true);" %>

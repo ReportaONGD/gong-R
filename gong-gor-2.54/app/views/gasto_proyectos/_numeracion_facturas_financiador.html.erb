@@ -1,0 +1,5 @@
+<!-- FORMULARIO DE SELECCION DE ORDEN DE FACTURAS-->
+<%= _("Esta opción solo se habilita para estados de 'reporte' del proyecto (para generación de informes)") %>
+  <%=  comienzo_formulario( { :action => "orden_facturas_financiador" }, false ) %>
+    <%= selector _('Tipo de Orden'), 'selector', 'tipo', [ [_("Numerar por Fecha (sin código de proyecto)"), "simple"], [_("Numerar por Fecha"),"fecha"], [_("Numerar por País y Fecha"),"proyecto"],[_("Numerar por País, Partida y Fecha"),"partida"],[_("Numerar por País, Partida, Subpartida y Fecha"),"subpartida"]], false , '3_2'  %>
+  <%= final_formulario :texto_alternatif => _("Reordenar"), :confirmar => _("Al reordenar las facturas se perderán todos los códigos de factura para el financiador") + "<br/><br/>" + _("¿Está seguro de querer hacer esto?") %>

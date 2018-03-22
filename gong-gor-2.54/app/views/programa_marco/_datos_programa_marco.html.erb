@@ -1,0 +1,36 @@
+  <!-- Caja con informacion del Programa Marco -->
+
+  <% url_relaciones = programa_marco_path(programa_marco.id) %>
+  <fieldset class="caja_info caja_gris enlace" onclick="window.location = '<%= url_relaciones %>'">
+    <div class="info_nombre" title="<%= programa_marco.nombre %>"><%= truncate(programa_marco.nombre,:length => 27) %></div>
+      <div class="info_contenido">
+        <div class="info_estado<%= '_ejecucion' if programa_marco.activo %>">
+          <%= programa_marco.activo ? _("Activo") : _("Cerrado") %>
+        </div>
+        <div class="info_titulo_proyecto" title="<%= programa_marco.objetivo_general %>">
+          <%= programa_marco.objetivo_general %>
+        </div>
+
+        <% proyectos_aprobados = programa_marco.proyecto.reorder(:id).
+                                                joins(:definicion_estado).
+                                                where("definicion_estado.aprobado" => true) %>
+        <%= render partial: "porcentaje_proyectos",
+                   locals: { programa_marco: programa_marco,
+                             proyectos_aprobados: proyectos_aprobados } %>
+        <%= render partial: "porcentaje_gasto",
+                   locals: { programa_marco: programa_marco,
+                             proyectos_aprobados: proyectos_aprobados } %>
+
+        <% txt_paises = programa_marco.nombres_paises %>
+        <div class="info_pais_multilinea" title="<%= txt_paises %>"><%= txt_paises %></div>
+        <div class="info_pie">
+          <% if inicio = programa_marco.fecha_de_inicio %>
+            <span title="<%= _("Fecha de Inicio") + ": " + I18n.l(inicio, format: :long) %>"><%= I18n.l(inicio) %></span>
+          <% end %>
+          &nbsp;-&nbsp;
+          <% if fin = programa_marco.fecha_de_fin %>
+            <span title="<%= _("Fecha de Fin") + ": " + I18n.l(fin, format: :long) %>"><%= I18n.l(fin) %></span>
+          <% end %>
+        </div>
+      </div>
+    </fieldset>

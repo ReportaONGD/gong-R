@@ -1,0 +1,114 @@
+
+<%= stylesheet_link_tag 'application', :media => "all" if params[:salida] == "pdf" %>
+
+<% estado = @contrato.estado_actual %>
+<% valores_identificacion = {
+ _("Código") => @contrato.codigo, _("Nombre") => @contrato.nombre, _("Tipo") => (@contrato.tipo_contrato ? @contrato.tipo_contrato.nombre : ""),
+ _("Descripción") => @contrato.descripcion,
+ _("Objetivo") => @contrato.objetivo, _("Justificación") => @contrato.justificacion, _("Observaciones") => @contrato.observaciones,
+ _("Gestor del Contrato") => @contrato.agente.nombre,
+ _("Estado") => (estado ? _("%{estado} (desde: %{fecha}, cambiado por: %{usuario})")%{estado: estado.workflow_contrato.nombre, fecha: I18n.l(estado.fecha_inicio, format: :long), usuario: estado.usuario.nombre_completo} : "N/A"), 
+ _("Importe total") => @contrato.importe_convertido + " " + @contrato.moneda.abreviatura,
+ _("Desde") => I18n.l(@contrato.fecha_inicio, format: :long), _("Hasta") => I18n.l(@contrato.fecha_fin, format: :long),
+ _("Proveedor") => (@contrato.proveedor ? @contrato.proveedor.nombre_nif : "N/A")
+} %>
+<% valores_identificacion[_("Fecha de aprobación")] = I18n.l(@contrato.fecha_aprobado, format: :long) if @contrato.fecha_aprobado %>
+
+<div class="linea">
+  <%= comienzo_sublistado "Información del contrato", params[:update], {descargar_pdf: params[:salida]!="pdf", no_cerrar: params[:salida]=="pdf"}  %>
+    <div style='padding:2em;text-align:left;'>
+      <!-- Campos de identificacion generales -->
+      <% valores_identificacion.each do |k,v| %>
+        <%= etiqueta (k + ":"), '3_4_td elemento_listado texto_resaltado' %>
+        <%= etiqueta v, '13_4' %><br>
+      <% end %>
+      <!-- Campos de identificacion particulares segun tipo de contrato -->
+      <% if @contrato.tipo_contrato %>
+        <% @contrato.tipo_contrato.campo_tipo_contrato.each do |campo| %>
+          <%= etiqueta (campo.etiqueta + ":"), '3_4_td elemento_listado texto_resaltado' %>
+          <% valor_campo = @contrato.contrato_x_campo_tipo_contrato.find_by_campo_tipo_contrato_id campo.id %>
+          <%= etiqueta (valor_campo ? valor_campo.valor_adaptado : ""), '13_4' %><br>
+        <% end %>
+      <% end %> 
+
+      <div class="linea"><br><br></div>
+
+      <% if @contrato.aprobado? %>
+        <b><%= _("Seguimiento económico") %></b><br><hr><br>
+        <%= etiqueta _("Comprometido") + ":", '3_4_td texto_resaltado' %>
+        <%= etiqueta ( @contrato.importe_convertido + " " + @contrato.moneda.abreviatura ), '3_4_td' %><br>
+        <%= etiqueta _("Ejecutado") + ":", '3_4_td texto_resaltado' %>
+        <%= etiqueta ( float_a_moneda(@contrato.importe_ejecutado) + " " + @contrato.moneda.abreviatura ), '3_4_td' %><br>
+        <%= etiqueta _("Pagado") + ":", '3_4_td texto_resaltado' %>
+        <%= etiqueta ( float_a_moneda(@contrato.importe_pagado) + " " + @contrato.moneda.abreviatura ), '3_4_td' %><br>
+        <% unless @contrato.cerrado? %>
+          <%= etiqueta _("Pendiente") + ":", '3_4_td texto_resaltado' %>
+          <%= etiqueta ( float_a_moneda(@contrato.importe - @contrato.importe_ejecutado) + " " + @contrato.moneda.abreviatura ), '3_4_td' %><br>
+        <% end %>
+        <div class="linea"><br><br></div>
+      <% end %>
+
+      <% params[:disabled] = true %>
+      <% params[:detallado] =  "siempre" %>
+
+      <% if @contrato.proyecto %>
+        <!-- permitimos ver el detalle de elementos particulares del proyecto en la seccion de agentes -->
+        <% @proyecto = @contrato.proyecto unless params[:seccion] == "proyectos" %>
+        <%= etiqueta @contrato.proyecto.nombre, '3_4 elemento_listado texto_resaltado' %>
+        <%= etiqueta @contrato.proyecto.titulo, '13_4 elemento_listado' %>
+        <br><hr><br>
+
+        <% @actividades = @contrato.contrato_x_actividad %>
+        <%= render partial: "comunes/actividades_detalle" %>
+   
+        <% @financiadores = @contrato.contrato_x_financiador %>
+        <%= render partial: "comunes/financiadores_detalle" %>
+        <div class="linea"><br><br></div>
+      <% end %>
+
+
+      <% unless @contrato.item_contrato.empty? %>
+        <b><%= _("Items") %></b><br><hr><br>
+        <%= render partial: 'items_contrato' %>
+        <div class="linea"><br><br></div>
+      <% end %>
+
+      <b><%= _("Periodos y pagos previstos") %></b><br><hr><br>
+      <%= render partial: 'periodos_contrato' %>
+      <div class="linea"><br><br></div>
+
+      <% plantillas = (@contrato.tipo_contrato && (@contrato.formulacion? || !@contrato.cerrado?) ) ? @contrato.tipo_contrato.documento : [] %>
+      <% unless @contrato.documento.empty? && plantillas.empty? %>
+        <b><%= _("Documentación asociada") %></b><br><hr>
+        <ul><% plantillas.each do |docu| %>
+          <li><%= (docu.descripcion + ": ") unless docu.descripcion.blank? %>
+              <div class="texto_Resaltado"><%= link_to docu.adjunto_file_name, documento_contrato_path(@contrato.agente_id,@contrato.id,docu.id) %></div></li>
+        <% end %></ul>
+        <ul><% @contrato.documento.each do |docu| %>
+          <li><%= (docu.descripcion + ": ") unless docu.descripcion.blank? %>
+              <div class="texto_resaltado"><%= link_to docu.adjunto_file_name, { action: :descargar, controller: :documento, id: docu.id} %></div></li>
+        <% end %></ul>
+        <div class="linea"><br><br></div>
+      <% end %>
+
+        <% unless @contrato.version_contrato.empty? %>
+          <b><%= _("Versiones del Contrato") %></b><br><hr>
+          <%= etiqueta _("Cambio"), '1_2 texto_resaltado' %><%= etiqueta _("Importe"), '3_4_td texto_resaltado' %>
+          <%= etiqueta _("Inicio"), '1_2_td texto_resaltado' %><%= etiqueta _("Fin"), '1_2_td texto_resaltado' %>
+          <div class="elemento1_20">&nbsp;</div>
+          <%= etiqueta _("Observaciones al cambio"), '3_2 texto_resaltado' %><br>
+          <% @contrato.version_contrato.each do |version| %>
+            <%= etiqueta I18n.l(version.updated_at, format: :short), '1_2' %>
+            <%= etiqueta version.importe_convertido + " " + version.moneda.abreviatura, '3_4_td' %>
+            <%= etiqueta I18n.l(version.fecha_inicio), '1_2_td' %>
+            <%= etiqueta I18n.l(version.fecha_inicio), '1_2_td' %>
+          <div class="elemento1_20">&nbsp;</div>
+            <%= etiqueta version.observaciones, '3_2' %><br>
+          <% end %>
+          <div class="linea"><br><br></div>
+        <% end %>
+    </div>
+  <%= final_sublistado %>
+</div>
+<BR>
+

@@ -1,0 +1,7 @@
+<%= form_tag( {:action => 'modificar_crear', :id => @etiqueta},  :multipart => true   ) %>
+
+<%= texto _("Nombre"), 'etiqueta', 'nombre', "1"  %>
+<%= selector _("Tipo"), 'etiqueta', 'tipo', Etiqueta.tipos_etiqueta, false, "1" %>
+<%= texto_area _("Descripción"), 'etiqueta', 'descripcion', "2" %>
+<%= final_formulario %>
+

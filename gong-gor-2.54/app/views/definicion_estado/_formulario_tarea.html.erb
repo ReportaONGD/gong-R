@@ -1,0 +1,7 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear_tarea', :id => @tarea, :update => params[:update], :definicion_estado_id => params[:definicion_estado_id] } , true ) %>
+   <%= texto _("Titulo"), 'tarea', 'titulo', "2" %>
+  <%= selector _("Tipo de tarea"), 'tarea', 'tipo_tarea_id', @tipo_tarea, false, "1" %>
+  <%= selector _("Estado de tarea"), 'tarea', 'estado_tarea_id', @estado_tarea, false, "1" %>
+   <%= texto_area _("Descripción"), 'tarea', 'descripcion', "4" %>
+
+<%= final_formulario %>

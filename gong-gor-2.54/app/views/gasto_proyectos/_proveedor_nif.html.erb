@@ -1,0 +1,3 @@
+  <% disabled = defined?(disabled) && disabled %>
+  <%= texto _("NIF Emisor"), 'gasto', 'proveedor_nif', '1_2', value: obj_value, autocomplete: true, disabled: disabled,
+        after_update: "function(element,value){" + remote_function( url: { action: :completa_proveedor_nombre }, with: "'search='+element.value") + "}" %>

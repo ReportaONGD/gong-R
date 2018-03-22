@@ -1,0 +1,53 @@
+
+<%= formulario_comienzo :url => { :action => 'crear_modificar_actividad', :id => @actividad } %>
+
+  <%= hidden_field "resultado_id", "", :value => params[:resultado_id] %>
+
+  <% if @actividad.id.nil? %>
+    <%= hidden_field "actividad", "resultado_id", :value => params[:resultado_id] %>
+  <% else %>
+    <%= selector( _("Resultado"), 'actividad', 'resultado_id', [["Actividad Global",nil]] + @proyecto.resultado.collect{ |a| [a.codigo, a.id] }, false, "1") %>
+    <div class="fila"></div>
+  <% end %>
+
+  <%= texto _("Código"), 'actividad', 'codigo', "1" %>
+  <%= texto _("Descripción"), 'actividad', 'descripcion', "2" %>
+  <%= selector( _("Actividad de Convenio Relacionada"), 'actividad', 'actividad_convenio_id', @actividades_convenio, true, "1") if @actividades_convenio %>
+
+<br><br><br>
+<div class="fila">
+  <div class="elemento3_2">
+    <div class="filacabecera"><%= _("Paises de la actividad") %></div>
+    <% for pais in @paises %>
+      <%= checkbox pais.nombre, 'pais', pais.id, "3_4", { :izquierda => true, :checked => (@actividad.pais_ids.include?(pais.id) || @actividad.id.nil?)}  %>
+    <% end %>
+  </div>
+
+  <div class="elemento1">&nbsp;</div>
+
+  <div class="elemento3_2">
+    <div class="filacabecera"><%= _("Etapas de la actividad") %></div>
+    <% for etapa in @etapas %>
+      <%= checkbox etapa.nombre, 'etapa', etapa.id, "3_4", { :izquierda => true, :checked => (@actividad.etapa_ids.include?(etapa.id) || @actividad.id.nil?)}  %>
+    <% end %>
+  </div>
+</div>
+
+<div class="fila">
+  <br>
+  <div class="elemento4">
+    <div class="filacabecera"><%= _("Etiquetas Técnicas") %></div>
+    <% for etiqueta in EtiquetaTecnica.all %>
+      <%= checkbox etiqueta.nombre, 'etiqueta_tecnica', etiqueta.id, "3_4", { :izquierda => true, :checked => @actividad.etiqueta_tecnica_ids.include?(etiqueta.id) }  %>
+    <% end %>
+  </div>
+</div>
+
+<div class="linea">&nbsp;</div>
+
+
+
+<%= formulario_final %>
+
+
+

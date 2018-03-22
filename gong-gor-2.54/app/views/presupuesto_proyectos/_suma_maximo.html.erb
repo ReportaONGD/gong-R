@@ -1,0 +1,18 @@
+<% if objeto.porcentaje_maximo && objeto.porcentaje_maximo > 0 %>
+  <% maximo_acumulado = @proyecto.presupuesto_total_con_financiador(@proyecto.agente) %>
+  <% maximo_previsto = @proyecto.importe_previsto_subvencion || 0.0 %>
+  <% importe = objeto.suma_presupuesto_financiador(@proyecto.agente.id) %>
+  <% maximo = (maximo_previsto > 0 ? maximo_previsto : maximo_acumulado) * objeto.porcentaje_maximo %>
+  <% alerta = maximo_previsto > 0 && importe.to_f > (maximo_previsto * objeto.porcentaje_maximo) %>
+  <div class="filacabecerasinborde <%= 'rojo' if alerta %>" id="suma_maximo_<%= objeto.id %>">
+    <div class="elemento2">&nbsp;</div>
+    <div class="elemento3_4">&nbsp;</div>
+    <div class="elemento1_2_td"><%= _("Máximo") %>:</div>
+    <div class="elemento1_2_td" title="<%= maximo_previsto > 0 ? _('Máximo según subvención prevista') : _('Máximo según acumulado')  %>"><%= number_with_delimiter(('%.2f' % maximo.to_s) , :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %></div>
+    <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % (objeto.porcentaje_maximo * 100)).to_s, :separator => ",", :delimiter => ".") %> %</div>
+    <div class="elementoderecha">
+      <%= icono( "alerta", _("¡Atención!.") + " " + _("El presupuesto asignado en la partida a %{agente} supera el porcentaje máximo sobre la subvención prevista.")%{:agente => @proyecto.agente.nombre}) if alerta %>
+    </div>
+  </div>
+<% end %>

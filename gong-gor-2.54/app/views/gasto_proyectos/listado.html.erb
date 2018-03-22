@@ -1,0 +1,22 @@
+<!-- Listado de gastos -->
+
+<div id="listado_gastos">
+  <div id="nuevos_gastos" style="display:none">
+    <%= cabecera_listado campos_listado("gasto")%>
+    <div id="gasto_proyecto_copia"></div>
+    <div id="gasto_proyecto_nuevo_1"></div>
+    <%= final_listado %>
+    <%= mensaje _("El listado nuevos gastos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+    <div class="linea"></div>
+  </div>
+
+  <div id="formulario_anadir" class="linea"></div>
+
+  <%= listado campos_listado("gasto"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}, :listado_borrar_todo => {:action => 'eliminar_todo'}  %>
+    <% i = 0 %>
+    <% for @gasto in @gastos %>
+     <% i += 1 %>
+     <%= render :partial => "gasto", :locals => {:update => "gasto_proyectos_" + i.to_s } %>
+    <% end %>
+  <%= final_listado %>
+</div>

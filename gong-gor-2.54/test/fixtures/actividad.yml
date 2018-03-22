@@ -1,0 +1,9 @@
+primera:
+  codigo: MyString
+  descripcion: MyText
+  recursos: MyText
+  costes: MyText
+  fecha_inicio: 2010-02-16
+  fecha_fin: 2010-12-16
+  proyecto_id: 1
+  resultado_id: 1

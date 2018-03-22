@@ -1,0 +1,33 @@
+<%= cabecera_listado campos_listado("programa_marco"), _("Añadir Programa Marco"), {:action => 'editar_nuevo'}, :id => "programa_marco_anadir" %>
+<% i = 0 %>
+
+<% for programa_marco in @programas_marco %>
+  <% html_id = "programa_marco_" + programa_marco.id.to_s %>
+  <div  id="<%= html_id %>" class="fila">
+    <%= fila_listado programa_marco, campos_listado("programa_marco"), html_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup programa_marco, { campos: campos_listado("programa_marco") + campos_info("programa_marco"),
+                                               id: html_id + "_informacion" } %>
+      <%= link_to_remote icono("lista", _("Ver Proyectos Asociados")),
+                         url: {action: 'listado_asociados',
+                               programa_marco_id: programa_marco, update: html_id + "_sub"},
+                         html: {id: html_id + "_proyectos"},
+                         loading: "Element.show('espera')",
+                         complete: "Element.hide('espera')" %>
+      <%= link_to_remote icono("actividades", _('Indicadores Generales del Programa')),
+                         url: {action: 'listado_indicadores',
+                               programa_marco_id: programa_marco, update: html_id + "_sub"},
+                         html: {id: html_id + "_indicadores"},
+                         loading: "Element.show('espera')",
+                         complete: "Element.hide('espera')" %>
+      <%= modal icono( "editar", _("Editar Programa Marco")), { action: 'editar_nuevo', id: programa_marco },
+                _("Editar Programa Marco"), id: html_id + "_editar" %>
+      <%= modal_borrado icono("borrar", _('Eliminar Programa Marco')), { action: 'eliminar', id: programa_marco.id },
+                        _('Eliminar Programa Marco'), programa_marco.nombre, id: html_id + "_borrar" %>
+    </div>
+  <div class='linea'></div>
+  <div id="<%= html_id %>_sub" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+

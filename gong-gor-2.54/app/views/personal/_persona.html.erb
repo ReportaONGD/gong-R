@@ -1,0 +1,11 @@
+<% @persona ||= persona %>
+<div id="<%= update %>" class="fila" >
+    <%= fila_listado @persona, campos_listado("personal"), update %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup @persona, {:campos => campos_listado("personal") + campos_info("personal"), :id => update + "_informacion" } %>
+        <%= editar( :url => { :action => 'editar_nuevo', :id => @persona, :update => update }) %> 
+        <%= borrado( :url => { :action => 'eliminar', :id => @persona.id, :update => update },  :texto => (@persona.nombre), :identificador => update )  %>     
+      </div>
+    <div class="linea" id="borrame_persona<%=@persona.id.to_s%>"></div>
+    <div id="spinner_<%= @persona.id.to_s %>" class="spinner" style="display:none" ></div>
+</div>

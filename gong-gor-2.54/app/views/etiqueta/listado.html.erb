@@ -1,0 +1,15 @@
+<%= cabecera_listado campos_listado("etiqueta"), _("Nueva Etiqueta"), {:action => 'editar_nuevo'}, :id => "etiqueta_anadir" %>
+<% i = 0 %>
+<% for etiqueta in @etiquetas %>
+  <div id="etiqueta_<%= i += 1 %>" class="<%= cycle('fila', 'filaDos') %>  ">
+    <%= fila_listado etiqueta, campos_listado("etiqueta"), "etiqueta_" + i.to_s %>
+    <div class="elementoderecha">
+      <% if etiqueta.tipo == "proyecto" || etiqueta.tipo == "comunes" || etiqueta.tipo == "contrato" %>
+        <%= modal icono( "editar" ),  {:action => 'editar_nuevo', :id => etiqueta}, _("Editar etiqueta"), :id => ("etiqueta_" + i.to_s + "_editar")  %>
+        <%= modal_borrado icono( "borrar", _( "eliminar" ) ), { :action => 'eliminar', :id => etiqueta.id }, _('Eliminar etiqueta'), etiqueta.nombre, :id => ("etiqueta_" + i.to_s + "_borrar") %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<%= final_listado %>
+

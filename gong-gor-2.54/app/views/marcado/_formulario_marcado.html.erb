@@ -1,0 +1,13 @@
+<% if @objeto.marcado.nil? and @listado_marcados.empty? %>
+  <%= mensaje_error _("No hay definido ningun tipo de marcado. Hable con su administrador del sistema.") %>
+<% else %>
+<%= formulario_comienzo( url: { action: 'modificar', id: @objeto, tipo: params[:tipo], i: params[:i], actividad_id: params[:actividad_id], vista: params[:vista] } ) %>
+    <div class="elemento3_4"><%= _("Marcado actual") %>: <br> <b><%= @objeto.marcado ? @objeto.marcado.nombre : _("Ninguno") %> </b> </div>
+    <%= selector(_("Cambiar marcado"), 'marcado', 'id', @listado_marcados, false ,"3_2") unless @listado_marcados.empty? %>
+    <br><%= checkbox _("Eliminar marcado"), 'marcado', 'eliminar', "1", {:izquierda => true} if @objeto.marcado %>
+    <div class="linea">
+      <%= texto_area _("Comentario"), 'marcado', 'texto', "4" %>
+    </div> 
+<%= formulario_final %>
+<% end %>
+

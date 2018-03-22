@@ -1,0 +1,19 @@
+<% texto_vincular = _("Vincular concepto ya existente a esta actividad.") %>
+<div style="text-align:center;">
+  <%= formulario_comienzo( :url => { :action => 'editar_nuevo', :controller => "presupuesto_actividad",:actividad_id => params[:actividad_id], :update => params[:update] } )%>
+    <div id="nuevo_concepto">
+      <b> <%= remote _("Dar de alta un nuevo concepto para esta actividad."), :url => { :action => 'editar_nuevo',  :actividad_id => params[:actividad_id], :update => params[:update] } %> </b>
+      <br>ó<br>
+      <%= link_to_function( texto_vincular, nil) {|page| page.show 'concepto_ya_existente'; page.hide 'nuevo_concepto'} %>  
+    </div>
+    <div id="concepto_ya_existente" style="display:none">
+      <div class="elemento1">&nbsp;</div>
+      <%= texto texto_vincular + " " + _("Escribe el concepto:"), 'presupuesto', 'concepto', "3", :autocomplete => true, :busca => "concepto"%>
+      <div class="fila" id="botonguardar"><div class="elementoderecha">
+        <%= submit_tag _("Vincular"), class: "boton", "data-disable-with" => _("Enviando...") %>
+      </div></div>
+      <div class="fila"></div>
+    </div>
+  </form>
+</div>
+<div class="linea"></div>

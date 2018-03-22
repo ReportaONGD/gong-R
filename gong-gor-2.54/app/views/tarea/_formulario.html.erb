@@ -1,0 +1,19 @@
+<% if params[:menu] == "configuracion" -%>
+  <%=  formulario_comienzo( :url => { :action => 'modificar_crear_tarea_periodo', :id => @tarea, :update => params[:update_listado], :periodo_id => params[:periodo_id] } ) %>
+<% else -%>
+  <%=  comienzo_formulario( { :action => 'modificar_crear', :id => @tarea } ,   false ) %>
+<% end -%>
+    <%= texto _("Título"), 'tarea', 'titulo', "3" %>
+    <%= selector _("Asignada a"), 'tarea', 'usuario_asignado_id',  @usuarios , true, "1"  %>
+    <%= selector _("Tipo de tarea"), 'tarea', 'tipo_tarea_id', @tipo_tarea, false, "2" %>
+    <%= selector _("Estado"), 'tarea', 'estado_tarea_id', @estado_tarea, false, "1" %>
+    <%= selector "%", 'tarea', 'porcentage_implementacion', Array.new(21){|x| [(x * 5).to_s + "%", (x * 5)] } , false, "1_2" %>
+    <%= calendario_fecha _("Fecha Inicio"), 'tarea', 'fecha_inicio' %>
+    <%= calendario_fecha _("Fecha fin"), 'tarea', "fecha_fin"%>
+    <%= texto_area _("Descripción"), 'tarea', 'descripcion', "4" %>
+<% if params[:menu] == "configuracion" -%>
+   <div class="linea">&nbsp;</div>
+   <%= formulario_final%>
+<% else -%>
+  <%= final_formulario %>
+<% end -%>

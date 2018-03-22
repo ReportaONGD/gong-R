@@ -1,0 +1,5 @@
+<%=  comienzo_formulario( {:action => 'modificar_crear_proyecto_x_financiacion', :id => @proyecto_x_financiacion }, false ) %>
+    <%= selector _("Nombre"), 'proyecto_x_financiacion', 'proyecto_id', @proyectos, false, "2" %>
+    <%= texto _("Nombre en la financiación"), 'proyecto_x_financiacion', 'nombre_en_financiacion', "2" %>
+    <%= texto _("Título en la financiación"), 'proyecto_x_financiacion', 'titulo_en_financiacion', "4" %>
+<%= final_formulario %>

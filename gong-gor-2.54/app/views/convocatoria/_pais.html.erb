@@ -1,0 +1,12 @@
+<div id="<%= 'pais' + linea.to_s %>" >
+  <%= selector  _("País"), "pais", 'pais_id', Pais.all.collect {|a|[a.nombre, a.id]}, true, "3_4", {:name => "paises[#{linea}][pais_id]"} %>
+</div>
+
+<div class="elemento1_4">&nbsp;</div>
+
+<% if ultima  %>
+  <div class="elemento3_4" id="pais_<%= (linea + 1).to_s %>">
+    <br><%=link_to_remote _("Añadir País"), :update => "pais_#{(linea + 1).to_s}", :url => {:action => "anadir_pais", :linea => (linea + 1) } ,:loading => "Element.show('espera')", :complete => "Element.hide('espera')"%>
+  </div>
+<% end %>
+

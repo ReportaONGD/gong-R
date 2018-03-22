@@ -1,0 +1,3 @@
+<%= formulario_comienzo :url => { :action => 'fuente_verificacion_vincular_documento', :objeto_id => params[:objeto_id], :update => params[:update] } %>
+    <%= selector _("Listado de documentos en el proyecto."), 'documento', 'id', @documentos, true, "2"  %>
+<%= formulario_final %>

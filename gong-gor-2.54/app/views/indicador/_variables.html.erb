@@ -1,0 +1,29 @@
+<div id="<%= update_listado %>">
+<div id="<%= update_listado %>_anadir"> </div>
+
+<%= listado( campos_listado("variable_indicador"), :url =>  {:action => 'editar_variable', :indicador_id => @indicador.id, :update_listado => update_listado,  :update => update_listado + "_anadir"}) if params[:menu] == "formulacion" %>
+<%= listado( campos_listado("variable_indicador"), :anadir => false ) unless params[:menu] == "formulacion" %>
+
+<% j = 0 %>
+
+
+<% for variable in @indicador.variable_indicador.order("nombre ASC") %>
+  <% fila = update_listado + "_" + (j += 1).to_s %>
+  <div  id="<%= fila %>" class="fila">
+    <%= fila_listado variable, campos_listado("variable_indicador"), fila %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup variable, {:campos => campos_listado("variable_indicador") + campos_info("variable_indicador"), :id => fila + "_informacion"} %>
+      <%= link_to_remote(icono("lista", _("Ver valores medidos")),  :url => {:update => fila + "_sub", :action => 'valores_variable', :variable_indicador_id => variable.id.to_s}, :html => {:id =>"variable_" + j.to_s + "_valores"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) if @permitir_ejecucion %>
+      <%= editar( :url => {:action => 'editar_variable', :id => variable.id, :update => fila, :update_listado => update_listado }) if @permitir_formulacion %>
+      <%= borrado( :url => { :action => 'eliminar_variable', :id => variable.id, :indicador_id => @indicador.id,  :update => fila }, :texto => variable.nombre + ' - ' + variable.indicador.codigo_completo, :identificador => fila) if @permitir_formulacion %>
+    </div>
+    <div id="spinner_<%= j.to_s %>" class="spinner" style="display:none" ></div>
+    <div class="linea"></div>
+    <div id="<%= fila %>_sub" class="linea"></div>
+  </div>
+<% end %>
+
+<%= final_listado %>
+
+</div>
+

@@ -1,0 +1,20 @@
+<% cerrada = @etapa && @etapa.cerrada %>
+<%=  comienzo_formulario( {action: 'modificar_crear_etapa', id: @etapa } , false ) %>
+  <%= texto _("Nombre"), 'etapa', 'nombre', "2" %>
+  <%= calendario_fecha _("Fecha inicio"), "etapa", "fecha_inicio", {disabled: cerrada} %>
+  <%= calendario_fecha( _("Fecha fin"), "etapa", "fecha_fin", {disabled: cerrada}) %>
+  <%= checkbox( _("Cerrada"), 'etapa', 'cerrada', "1_2", {checked: cerrada, izquierda: true, abajo: true}) if @etapa && @etapa.agente %>
+  <% if @agente && @etapa %>
+    <div class="elemento3"><br/></div>
+    <div class="elemento1_2"><br/></div>
+    <%= checkbox( _("Presupuest."), 'etapa', 'presupuestable', "1_2", {checked: @etapa.presupuestable, izquierda: true, disabled: cerrada}) %>
+  <% end %>
+  <%= texto_area _("Descripción"), 'etapa', 'descripcion', "4" %>
+  <% if @agente %>
+    <%= texto_numero _("Objetivo Importe Subvenciones"), 'etapa', 'importe_previsto_subvencion_convertido', "1", {disabled: cerrada} if @agente %>
+    <div class="elemento1_3" id="moneda_subvencion">
+      &nbsp;<br><%= @agente.moneda_principal.abreviatura %>
+    </div>
+  <% end %>
+<%= final_formulario %>
+

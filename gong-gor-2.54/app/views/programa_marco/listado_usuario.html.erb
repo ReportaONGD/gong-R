@@ -1,0 +1,7 @@
+<div class="contenedor_cajas">
+  <% @programas_marco.each do |programa_marco| %>
+    <%= render partial: "datos_programa_marco", locals: { programa_marco: programa_marco } %>
+  <% end %>
+</div>
+
+<div class="fila">&nbsp;</div>

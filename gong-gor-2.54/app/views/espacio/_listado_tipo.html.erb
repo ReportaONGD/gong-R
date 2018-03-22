@@ -1,0 +1,44 @@
+<% if @espacio %>
+  <% espacio_asociado = @espacio.nombre %>
+  <% nombre_ruta = _("Ruta") + ": " + @espacio.ruta + " / " + @espacio.nombre %>
+  <% descripcion = @espacio.descripcion %>
+<% else %>
+  <% espacio_asociado = _("Raiz de espacios de %s") % nombre_tipo %>
+  <% nombre_ruta = espacio_asociado + " " + _("(pincha sobre un espacio para navegar y gestionar los subespacios del mismo)") %>
+<% end %>
+
+<fieldset id="espacios_<%= tipo %>">
+  <div class = "filacabecera">
+    <div class = "elemento">
+      <%= _("Espacios de %s") % nombre_tipo %><br/><%= nombre_ruta %>
+      <% if @espacio %>
+        <br/><%= descripcion%>
+      <% end %>
+    </div>
+    <div class="elementoderecha">
+      <%= link_to((" <<  " + _("Volver al espacio superior") + " "), {:action => :seleccionar_espacio, :id => @espacio.espacio_padre, :tipo => tipo}, :id =>("espacio_seleccionar")) if @espacio %> 
+    </div>
+    <div class="linea"></div>
+  </div><br/>
+  <%= cabecera_listado campos_listado("espacio"), _("Nuevo subespacio en %{espacio}") % {:espacio => espacio_asociado}, {:action => 'editar_nuevo', :tipo => tipo}, :id => "espacio_" + tipo + "_anadir" %>
+  <% for subespacio in espacios %>
+    <% i = tipo + "_" + subespacio.id.to_s %>
+    <div id="espacio_<%= i %>" class="fila">
+      <% icono = image_tag("/images/iconos_bn/carpeta.png", :border => 0, :class => "iconoespacio", :title => "seleccionar espacio", :onmouseover => "this.src='/images/iconos_bn/carpeta_s.png';", :onmouseout => "this.src='/images/iconos_bn/carpeta.png';" ) %>
+      <div class="elemento2">
+        <%= link_to( (icono + " " + truncate(subespacio.nombre, :length => 54) ), { :action => :seleccionar_espacio, :id => subespacio.id, :tipo => tipo }, :id => ("espacio_" + i.to_s + "_seleccionar"), :title => subespacio.nombre ) %>
+      </div>
+      <div class="elemento2" title="<%= subespacio.descripcion %>"><%= truncate(subespacio.descripcion, :length => 64) %></div>
+      <div class="elementoderecha">
+         <%= link_to_remote(icono("usuarios", _("Ver usuarios asignados")),  :url => {:controller => 'relaciones_usuario', :action => 'usuarios', :id => subespacio, :objeto => "espacio", :update => "espacio_sub_" + i.to_s}, :html => {:id => "espacio_" + i.to_s + "_usuarios"}, :loading => "Element.show('spinner_#{subespacio.id.to_s }')", :complete => "Element.hide('spinner_#{subespacio.id.to_s}')"  ) unless subespacio.definicion_espacio_agente or subespacio.definicion_espacio_socia or subespacio.definicion_espacio_proyecto %>
+         <%= modal(icono( "editar"), {:action => 'editar_nuevo', :id => subespacio, :tipo => tipo}, _("Editar espacio"),  :id => ("espacio_" + i.to_s + "_editar") )  %>
+         <%= modal_borrado icono(("borrar"), _( "Eliminar espacio" )), { :action => 'eliminar', :id => subespacio.id }, _('Eliminar el espacio'), subespacio.nombre, :id => ("espacio_" + i.to_s + "_borrar") %>
+      </div>
+      <div class='linea'></div>
+      <div id="spinner_<%= subespacio.id.to_s %>" class="spinner" style="display:none" ></div>
+      <div id="espacio_sub_<%= i %>" class="linea"></div>
+    </div>
+  <% end %>
+  <%= final_listado %>
+  <br/>
+</fieldset>

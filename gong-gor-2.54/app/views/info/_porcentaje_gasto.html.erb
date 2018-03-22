@@ -1,0 +1,24 @@
+<% if (defined? financiador) %>
+  <% titulo = _("Gasto") + " " + financiador.nombre + ":" %>
+<% else %>
+  <% titulo = @agente ? proyecto.nombre : _("Gasto Total:") %>
+  <% financiador = nil %>
+<% end %>
+<% presupuestado = proyecto.presupuesto_total_con_financiador(financiador) if financiador %>
+<% presupuestado = proyecto.presupuesto_total_sin_financiador unless financiador %>
+<% gastado = proyecto.gasto_total_con_financiador(financiador) if financiador %>
+<% gastado = proyecto.gasto_total_sin_financiador unless financiador %>
+<%=  caja_porcentaje :total => presupuestado, :valor => gastado,
+	:titulo => titulo,
+	:rotulo =>	(@agente ? "<b>" + proyecto.nombre + "</b><br/><br/>" : "") + _("Gasto realizado") + (proyecto.convenio_accion ? " " + _("en los PACs") : "")  + " " + 
+                        _("sobre el total de lo presupuestado") + ( financiador ? _(" para ") + financiador.nombre : "") + "<br/><br/>" +
+			_("Gastado") + ":&nbsp;<b>" + celda_formateada(gastado) + " " + proyecto.moneda_principal.abreviatura + "</b><br/>" +
+			_("Presupuestado") + ":&nbsp;<b>" + celda_formateada(presupuestado) + " " + proyecto.moneda_principal.abreviatura + "</b>"
+%>
+<%=  caja_porcentaje(:total => proyecto.presupuesto_total - presupuestado, :valor => proyecto.gasto_total_sin_financiador - gastado,
+        :titulo => _("Gasto Otros:"),
+        :rotulo =>	_("Gasto realizado") + (proyecto.convenio_accion ? " " + _("en los PACs") : "") + " " + _("sobre el total de otros financiadores") + "<br/><br/>" +
+			_("Gastado") + ":&nbsp;<b>" + celda_formateada(proyecto.gasto_total_sin_financiador - gastado) + " " + proyecto.moneda_principal.abreviatura + "</b><br/>" +
+                        _("Presupuestado") + ":&nbsp;<b>"+ celda_formateada(proyecto.presupuesto_total_sin_financiador - presupuestado) + " " + proyecto.moneda_principal.abreviatura + "</b>"
+	) unless financiador == nil
+%>

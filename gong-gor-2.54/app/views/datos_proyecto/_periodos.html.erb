@@ -1,0 +1,8 @@
+
+<%= cabecera_listado campos_listado( "periodo" ), _( "Añadir periodo"), {:action => 'editar_nuevo_periodo'}, {:id => "periodo_anadir"}   %>
+
+<% i = 0 %>
+<% for periodo in @periodos %>
+<%= render :partial => "periodo_linea", :locals => {periodo: periodo} %>
+<% end %>
+<%= final_listado %>

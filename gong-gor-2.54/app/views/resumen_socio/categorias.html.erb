@@ -1,0 +1,75 @@
+<br/>
+
+<div style="width:33%;float:left;">
+
+<fieldset><div class="legend" align= "left"><%= _("Socios por Sexos") %></div>
+<%= cabecera_listado [["Sexo", "1_2", "", false],["Nº de socios", "derecha", "", false]] %>
+    <% for socio in @socios_sexo %>
+      <div class="<%= cycle('fila', 'filaDos')%>" > 
+	<div class = "elemento"> <%= socio[0] == "" ? "Otro" : socio[0].to_s %></div> 
+	<div class = "elementoderecha"> <%=socio[1].to_s%></div> 
+      </div>    
+    <% end %>
+</fieldset>
+
+</div>
+
+<div style="width:32%;float:left;padding-left:1%;">
+
+<fieldset><div class="legend" align= "left"><%= _("Socios por Naturaleza") %></div>
+<%= cabecera_listado [[_("Naturaleza"), "1_2", "", false],[_("Nº de socios"), "derecha", "", false]] %>
+    <% for socio in @socios_naturaleza_socio %>
+      <div class="<%= cycle('fila', 'filaDos')%>" > 
+	<div class = "elemento"> <%= socio[0] == "" ? "Otro" : socio[0].to_s %></div> 
+	<div class = "elementoderecha"> <%=socio[1].to_s%></div> 
+      </div>    
+    <% end %>
+</fieldset>
+
+</div>
+
+<div style="width:33%;float:right;">
+
+<fieldset><div class="legend" align= "left"><%= _("Socios por Tipo de Cuota") %></div>
+<%= cabecera_listado [[_("Tipo de Cuota"), "1_2", "", false],[_("Nº de socios"), "derecha", "", false]] %>
+    <% for socio in @socios_tipo_cuota %>
+      <div class="<%= cycle('fila', 'filaDos')%>" > 
+	<div class = "elemento"> <%= socio[0] == "" ? _("Otro") : socio[0].to_s %></div> 
+	<div class = "elementoderecha"> <%=socio[1].to_s%></div> 
+      </div>    
+    <% end %>
+</fieldset>
+
+</div>
+
+<div class="linea"> </div>
+
+<div style="width:33%;float:left;">
+
+<fieldset><div class="legend" align= "left"><%= _("Socios por Provincias") %></div>
+<%= cabecera_listado [[_("Provincia"), "1_2", "", false],[_("Nº de socios"), "derecha", "", false]] %>
+    <% for socio in @socios_provincia %>
+      <div class="<%= cycle('fila', 'filaDos')%>" > 
+	<div class = "elemento"> <%= socio[0] == "" ? "Otro" : socio[0].to_s %></div> 
+	<div class = "elementoderecha"> <%=socio[1].to_s%></div> 
+      </div>    
+    <% end %>
+</fieldset>
+
+</div>
+
+<div style="width:33%;float:right;">
+
+<fieldset><div class="legend" align= "left"><%= _("Socios por Tramo de Edad") %></div>
+<%= cabecera_listado [[_("Edades"), "1_2", "", false],[_("Nº de socios"), "derecha", "", false]] %>
+    <% for socio in @socios_edad %>
+      <div class="<%= cycle('fila', 'filaDos')%>" > 
+	<div class = "elemento"> <%= socio[0] == "" ? "Otro" : socio[0].to_s %></div> 
+	<div class = "elementoderecha"> <%=socio[1].to_s%></div> 
+      </div>    
+    <% end %>
+</fieldset>
+</div>
+
+</div>
+

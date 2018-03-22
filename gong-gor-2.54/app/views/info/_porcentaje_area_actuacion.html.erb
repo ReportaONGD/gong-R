@@ -1,0 +1,12 @@
+
+<% area_actuacion = pxaa.area_actuacion %>
+
+<% gastado = @proyecto.gasto_total_sin_financiador %>
+<%=  caja_porcentaje(	total: 1, valor: pxaa.porcentaje || 0,
+        		titulo: area_actuacion.nombre,
+                        url: url_for(seccion: "proyectos", menu: "configuracion", controller: "datos_proyecto", action: "relaciones", proyecto_id: @proyecto.id),
+        		rotulo: _("Importe presupuestado para %{nombre}") % {:nombre => area_actuacion.nombre} + "<br/><br/>" +
+            area_actuacion.nombre + ":&nbsp;<b>" + celda_formateada(@proyecto.presupuesto_total_sin_financiador * (pxaa.porcentaje || 0)) + " " + @proyecto.moneda_principal.abreviatura + "</b><br/>" +
+            _("Presupuesto total") + ":&nbsp;<b>"+ celda_formateada(@proyecto.presupuesto_total_sin_financiador) + " " + @proyecto.moneda_principal.abreviatura + "</b>"
+	) 
+%>  

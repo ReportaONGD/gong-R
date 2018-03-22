@@ -1,0 +1,49 @@
+
+<% unless @resumen.empty? %>
+  <fieldset>
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+    <%= form_tag( { :action => "index"}, :multipart => true, :class => "formulario" ) %>
+    <div class="fila">
+      <%= selector _('Remanentes por:'), '', 'tipo', @listado_tipo, false, '1', {:selected => params[:tipo]} %>
+      <%= observe_field( "_tipo" , :function => 'if( document.getElementById("_tipo").selectedIndex == 1 ){ Element.show("remanente_ejecucion");  } else { Element.hide("remanente_ejecucion") }'  ) %>
+      <div id="remanente_ejecucion" style="<%= params[:tipo] != "tesoreria" ? '' : 'display:none;' %>">
+        <%= selector _('Cálculo de Remanentes en:'), '', 'moneda', @listado_moneda, false, '1', {:selected => params[:moneda]} %>
+        <%= selector _('Ver Ejecución:'), '', 'partida_actividad', @listado_vista, false, '1', {:selected => params[:partida_actividad]} %>
+      </div>
+    </div>
+    <div class="fila">
+      <%= checkbox _("Sacar el resultado a fichero"), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+      <%= hidden_field "", "sin_layout", {:value => true} if  params[:sin_layout]%>
+    </div>
+    <div class="elementoderecha">
+      <%= submit_tag(_("Vista Previa"), :class => "boton1_2") %>
+      <%= submit_tag(_("Aplicar Remanentes"), :class => "boton1_2") %>
+    </div>
+    </form>
+  </fieldset>
+
+  <% @resumen.each do |tabla| %>
+    <% if tabla[:listado] %>
+      <fieldset>
+        <div class="legend" align= "left">
+          <%= tabla[:listado][:titulo] %></br>
+          Financiador: <%= @proyecto.agente.nombre %></br>
+          <div class = "linea"></div></br>
+        </div>
+        <br>
+        <%= dibuja_tabla( tabla[:listado][:lineas],true) unless tabla[:listado][:resumen_error] %>
+        <%= mensaje_error tabla[:listado][:resumen_error] if tabla[:listado][:resumen_error] %>
+      </fieldset>
+    <% end %>
+    <%= resumen tabla[:tabla] if tabla[:tabla] %>
+  <% end %>
+
+<% else %>
+
+  <fieldset>
+    <div class="fila"><center><strong><br/>
+    <%= _("No se pudo realizar el cálculo de Remanentes") %>
+    </strong></center></div>
+  </fieldset>
+<% end %>
+

@@ -1,0 +1,23 @@
+<%#  comienzo_formulario( { :action => 'modificar_crear', :id => @libro }, false ) %>
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @libro, :i => params[:i] } %>
+    <%= texto _("Nombre"), 'libro', 'nombre', "3_2" %>
+    <%= selector _("Agente"), 'libro', 'agente_id', @listado_agentes, false ,"1"  %>
+    <%= selector _("Moneda"), 'libro', 'moneda_id', @listado_monedas, false, "1_2"  %>
+    <%= selector _("País"), 'libro', 'pais_id', @listado_paises, false, "1"  %>
+    <%= texto _("Descripción"), 'libro', 'descripcion', "2" %>
+    <%= selector _("Tipo"), 'libro', 'tipo', {_("Banco") => "banco", _('Caja "chica"') => 'caja "chica"' }, false, "1_2"  %>
+      <%= observe_field( "libro_tipo" , :function => 'if( document.getElementById("libro_tipo").selectedIndex == 0 ){ Element.show("propiedades_banco"); Modalbox.resizeToContent(); } else { Element.hide("propiedades_banco"); Modalbox.resizeToContent();}' ) %>
+
+    <div id="propiedades_banco" style="<%= "display:none;" if @libro.nil? || @libro.tipo == 'caja "chica"' %>" >
+      <%= texto _("Entidad"), 'libro', 'entidad', "3_2" %>
+      <%= texto _("Cuenta"), 'libro', 'cuenta', "3_2" %>
+      <%= texto _("Swift"), 'libro', 'swift', "5_4" %>
+      <%= texto _("Iban"), 'libro', 'iban', "5_4" %>
+    </div>
+
+    <div class="fila">
+      <%= checkbox _("Bloqueada"), 'libro', 'bloqueado', "1_2", {:izquierda => true, :abajo =>true, :checked => @libro.bloqueado } %>
+      <%= checkbox _("Ocultar en Proyectos"), 'libro', 'oculto', "1_2", {:izquierda => true, :abajo =>true, :checked => @libro.oculto } %>
+    </div>
+<%= formulario_final %>
+<%# final_formulario %>

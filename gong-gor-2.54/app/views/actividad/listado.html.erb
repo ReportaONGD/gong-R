@@ -1,0 +1,25 @@
+<% unless @actividades_sin_etapa.blank? %>
+  <%= mensaje_error _("Hay actividades definidas sin vinculación con etapas.") + "<br>" +
+    _("Las siguientes actividades no se pueden gestionar:") + "<br><strong>" +
+    @actividades_sin_etapa.join("<br>") + "</strong>" %><br>
+<% end %>
+
+<div id="actividades">
+  <div class="filacabecerasinborde">
+    <%= _("Listado de Actividades") + " - " + @estado_filtrado[0] %>
+    <div class="linea"></div>
+  </div>
+
+  <% for @actividad_x_etapa in @actividades %>
+    <% fila = "actividad_x_etapa_" + @actividad_x_etapa.id.to_s %>
+    <fieldset>
+      <%= render :partial => "actividad", :locals => { :fila => fila } %>
+      <%= render( :partial => "actividades_pacs", :locals => { :update_listado => fila + "_pac"}) if params[:menu] == "ejecucion_tecnica" && @proyecto.convenio? %>
+      <%= render( :partial => "subactividades", :locals => { :update_listado => fila + "_variable"}) unless @actividad_x_etapa.actividad.subactividad.empty? %>
+    </fieldset>
+  <% end %>
+  <% if @actividades.empty? %>
+    <fieldset><div class="filacabecerasinborde"><%= _("No existen actividades definidas para la etapa.") %></div></fieldset>
+  <% end %>
+</div>
+

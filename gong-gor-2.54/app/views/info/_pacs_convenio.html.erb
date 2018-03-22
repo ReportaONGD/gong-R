@@ -1,0 +1,11 @@
+    <!-- Caja con pacs del proyecto -->
+    <fieldset class="caja_info caja_gris">
+      <div class="info_nombre"><%= _("PACs") %></div>
+      <div class="info_contenido">
+        <ul> 
+        <% @proyecto.pacs.each do |pac| %>
+          <li><%= link_to pac.nombre, :seccion => 'proyectos', :proyecto_id => pac.id, :menu => :resumen, :controller => :info %></li>
+        <% end %>
+        </ul>
+      </div>
+    </fieldset>

@@ -1,0 +1,4 @@
+primera:
+  nombre: MyString
+  descripcion: MyText
+  activo: false

@@ -1,0 +1,16 @@
+<div class="linea" id="<%=params[:update_listado]%>_formulario_anadir" ></div>
+  <% if @partida %>
+    <%= listado( [["Presupuestos de la partida", "", "2"]], :url =>  {:action => 'editar_nuevo', :partida_id => (@partida ? @partida.id : nil), :update_listado => params[:update_listado],  :update => params[:update_listado] + "_formulario_anadir"}, :cerrar_listado => true, :id_listado => params[:update_listado] ) %>
+  <% else %>
+    <%= listado( [["Presupuestos de la partida", "", "2"]], :cerrar_listado => true, :anadir => false, :id_listado => params[:update_listado] ) %>
+  <% end %>
+
+   <div class="linea" id="<%=params[:update_listado]%>_nuevo">   
+ </div> 
+ <% j = 0 %>
+ <% for presupuesto in @presupuestos %>
+    <% fila = params[:update_listado] +"_"+ (j += 1).to_s %>
+    <%= render :partial => "presupuesto", :locals => {:update => fila, :presupuesto => presupuesto, :partida => @partida} %>
+ <% end %>
+<%= final_listado %>
+   

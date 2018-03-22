@@ -1,0 +1,26 @@
+<div id="financiadores">
+<% params[:detallado] ||= (@objeto.id && (@financiadores.size > 1 || !@objeto.comprobar_financiadores)) ? "si" : "no" %>
+
+<% if params[:detallado] == "no" %>
+  <% @financiador = @financiadores.first %>
+  <%= selector  _("Financiador"), "financiador", 'agente_id', @proyecto.financiador.collect {|a|[a.nombre, a.id]}, true, "1", {:name => "financiadores[0][agente_id]"} %>
+  <div class="elementoderecha"><br>
+  <div class="elemento3_2">
+    <%= link_to_remote( ">> " + _("Detalle financiadores"),:url => {:action => "financiadores", :detallado => "si", :id =>  @objeto.id }, :loading =>		"Element.show('espera')", :complete => "Element.hide('espera')" )  %>  </div>
+  </div>
+  <%= hidden_field 'financiadores_detallado', 'detallado', {:value => "no" } %>
+  <br><br>
+<% elsif params[:detallado] == "si" %>
+   <div class="linea"> 
+    <div class="elementoderecha"><br>
+    <%= link_to_remote( "<< " + _("Detalle financiadores"), :url => {:action => "financiadores", :detallado => "no", :id =>  @objeto.id }, :loading =>		"Element.show('espera')", :complete => "Element.hide('espera')")  %>
+    </div> 
+   </div> 
+    <div class="fila">
+        <div class="filacabecera"><%= _("Financiadores del presupuesto") %></div>      
+       <%=render :partial => "comunes/financiadores" %>
+    </div>
+ <div class="linea"></div>
+  <%= hidden_field 'financiadores_detallado', 'detallado', {:value => "si" } %>
+<% end %>
+</div>

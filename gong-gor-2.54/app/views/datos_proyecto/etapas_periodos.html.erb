@@ -1,0 +1,116 @@
+
+<% otros = _( "Añadir periodo"), {:action => 'editar_nuevo_periodo'}, {:id => "periodo_anadir"} %>
+
+<fieldset id="fieldset_periodos_formulacion">
+  <% otros[1]["tipo_periodo"] = "formulacion" %>
+  <div class="legend">
+    <%= _("Periodos de formulación") %>  
+    <div class="elementoderecha">
+      <%= modal( icono("anadir"), otros[1], otros[0], otros[2]) if @formulaciones.blank? %>
+    </div>
+  </div>
+  <% unless @formulaciones.blank? %>
+    <%= cabecera_listado campos_listado( "periodo" ), *otros  %>
+      <% for periodo in @formulaciones %>
+        <%= render :partial => "periodo_linea", :locals => {periodo: periodo, tipo_periodo: "formulacion"} %>
+      <% end %>
+    <%= final_listado %>
+  <% end %>
+</fieldset>
+
+<br><br>
+
+<fieldset id="fieldset_etapas">
+  <div class="legend">
+    <%= _("Etapas del proyecto y tasas de cambio asociadas") %>
+    <% if @proyecto %>
+      <% estado_actual = (@proyecto.estado_actual && @proyecto.estado_actual.definicion_estado) ? @proyecto.estado_actual.definicion_estado : nil %>
+      <% if (estado_actual ? estado_actual.ejecucion && !estado_actual.cerrado : false) %>
+        <% texto = _("Revisar la aplicación de tasas de cambio en todos los gastos del proyecto") %>
+        <% descripcion = _("Si confirma esta acción, se recalculará la tasa de cambio a aplicar a cada uno de los gastos del proyecto.") %>
+        <% url = {controller: "tasa_cambio", action: 'modificar_crear_aplicar_tasa_cambio'} %>
+        <div class="elementoderecha">
+          <%= confirmar({enlace: icono("reuse", texto), texto: (texto + "<br><br>" + descripcion).html_safe, identificador: "aplicar_tasas_cambio", url: url}) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render :partial => 'comunes/etapas' %>
+</fieldset>
+
+<fieldset id="fieldset_periodos_prorroga">
+  <% otros[1]["tipo_periodo"] = "prorroga" %>
+  <% titulo = _("Prorrogas a la Ejecución.") %>
+  <div class="legend"> <%= titulo %> 
+    <div class="elementoderecha">
+      <%= modal( icono("anadir"), otros[1], otros[0], otros[2]) if @prorrogas.blank? %>
+    </div>
+  </div>
+  <% campos = campos_listado("periodo") %>
+  <% campos.pop 2 %>
+  <% unless @prorrogas.blank? %>
+    <%= cabecera_listado campos, *otros   %>
+      <% for periodo in @prorrogas %>
+        <%= render partial: "periodo_linea", locals: {periodo: periodo, tipo_periodo: otros[1]["tipo_periodo"]} %>
+      <% end %>
+    <%= final_listado %>
+  <% end %>
+  <%= render partial: "fechas_prorrogas", locals: {titulo: titulo, tipo_periodo: otros[1]["tipo_periodo"]} %>
+</fieldset>
+
+<br><br>
+
+<fieldset id="fieldset_periodos_seguimiento">
+  <% otros[1]["tipo_periodo"] = "seguimiento" %>
+  <div class="legend">
+    <%= _("Periodos de Seguimiento y Justificación") %> 
+    <div class="elementoderecha">
+      <%= modal( icono("anadir"), otros[1], otros[0], otros[2]) if @periodos_seguimiento.blank? %>
+    </div>
+  </div>
+  <% unless @periodos_seguimiento.blank? %>
+    <%= cabecera_listado campos_listado( "periodo" ), *otros  %>
+      <% for periodo in @periodos_seguimiento %>
+        <%= render partial: "periodo_linea", locals: {periodo: periodo, tipo_periodo: otros[1]["tipo_periodo"]} %>
+      <% end %>
+    <%= final_listado %>
+  <% end %>
+</fieldset>
+
+<fieldset id="fieldset_periodos_prorroga_justificacion">
+  <% otros[1]["tipo_periodo"] = "prorroga_justificacion" %>
+  <% titulo = _("Prorrogas a la Justificación Final.") %>
+  <div class="legend"> <%= titulo %> 
+    <div class="elementoderecha">
+      <%= modal( icono("anadir"), otros[1], otros[0], otros[2]) if @prorrogas_justificacion.blank? %>
+    </div>
+  </div>
+  <% campos = campos_listado("periodo") %>
+  <% campos.pop 2 %>
+  <% unless @prorrogas_justificacion.blank? %>
+    <%= cabecera_listado campos, *otros   %>
+      <% for periodo in @prorrogas_justificacion %>
+        <%= render partial: "periodo_linea", locals: {periodo: periodo, tipo_periodo: otros[1]["tipo_periodo"]} %>
+      <% end %>
+    <%= final_listado %>
+  <% end %>
+  <%= render partial: "fechas_prorrogas", locals: {titulo: titulo, tipo_periodo: otros[1]["tipo_periodo"]} %>
+</fieldset>
+
+<br><br>
+
+<fieldset id="fieldset_perido_seguimiento_interno">
+  <% otros[1]["tipo_periodo"] = "seguimiento_interno" %>
+  <div class="legend"> <%= _("Periodos de seguimiento internos") %> 
+    <div class="elementoderecha">
+      <%= modal( icono("anadir"), otros[1], otros[0], otros[2]) if @periodos_seguimiento_interno.blank? %>
+    </div>
+  </div>
+  <% unless @periodos_seguimiento_interno.blank? %>
+    <%= cabecera_listado campos_listado( "periodo" ), *otros  %>
+      <% for periodo in @periodos_seguimiento_interno %>
+        <%= render partial: "periodo_linea", locals: {periodo: periodo, tipo_periodo: otros[1]["tipo_periodo"]} %>
+      <% end %>
+    <%= final_listado %>
+  <% end %>
+</fieldset>

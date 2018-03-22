@@ -1,0 +1,30 @@
+<%
+  if params[:action] == "gastos_relacionados_presupuesto"
+    texto = "Gastos relacionados con el presupuesto"
+  elsif params[:action] == "gastos_marcados_empleado"
+    texto = "Gastos marcados sin presupuesto asignado del empleado"
+  end
+%>
+
+<%= comienzo_sublistado texto, update_listado %>
+
+<div class="fila"></div>
+<% i = 0 %>
+<% campos_visibles =  campos_listado("gasto_agentes").slice(0,6) %>
+<% for gasto in @gastos %>
+  <% i += 1 %>
+  <% elemento_id = "#{update_listado}_gasto_#{i}" %>
+  <div id="<%= elemento_id %>" class="fila" >
+    <%= fila_listado gasto, campos_visibles, elemento_id %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup gasto, {:campos =>  campos_listado("gasto_agentes_empleado") + campos_info("gasto_agentes"), :id => elemento_id + "_informacion" } %>
+  </div>
+  <div class="linea"></div>
+  </div>
+<% end %>
+
+<%= final_sublistado %> 
+<br>
+<br>
+
+

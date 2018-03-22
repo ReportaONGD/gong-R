@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <ppto fecha_creacion="2010-06-14 2010T12:19:47">
+    <linea_ppto agente_nombre="MUJ-NIC" subpartida="consultaria inicial" coste_unitario="" numero_unidades="1" fecha_fin="2010-12-01" fecha_inicio="2010-04-01" id="1" importe="1000.00" moneda_abreviatura="PES"  partida_codigo="001" observaciones="">
+    <actividad codigo="R1A1" porcentaje="1.0000"/>
+    <financiador nombre="IEPALA" porcentaje="1.0000"/>
+    </linea_ppto>
+    <linea_ppto agente_id="2" agente_nombre="IEPALA" subpartida="viajes del tecnico" coste_unitario="" numero_unidades="1" fecha_fin="2010-06-01" fecha_inicio="2010-05-01" id="2" importe="90000.00" moneda_abreviatura="EUR"  partida_codigo="002" observaciones="">
+    <actividad codigo="R1A2" porcentaje="1.0000"/>
+    <financiador nombre="AECID" porcentaje="1.0000"/>
+    </linea_ppto>
+    </ppto>

@@ -1,0 +1,10 @@
+<div class="filacabecera <%= fuente_verificacion.completada ? '': 'rojo' %>" id="<%= update %>">
+  <%= fila_listado fuente_verificacion, campos_listado("fuente_verificacion_seguimiento"), update %>
+  <div class="elementoderecha">
+     <%= ventana_popup fuente_verificacion, {:campos => ["descripcion", "indicador.codigo", "indicador.descripcion", "objetivo_resultado"], :id => update + "_informacion"} %>
+     <%= modal (fuente_verificacion.completada ? icono( "elegir", _("Definir como no Completada")) : icono("alerta", _("Completar Fuente de Verificación"))),  { :action => 'fuente_verificacion_editar_completada', :id => fuente_verificacion, :update => update }, _("Fuente de verificación completada") , :id => (update + (fuente_verificacion.completada ? '_descompletar' : '_completar')) %>
+     <%= link_to_remote( icono("comentarios" + (fuente_verificacion.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => fuente_verificacion.id.to_s, :tipo => "FuenteVerificacion"} , :html => {:id => update + "_comentarios"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" )%>
+     <%# anadir :url => {:action => 'fuente_verificacion_vincular_o_nuevo', :objeto_id => fuente_verificacion.id , :update_listado => update + "_documento", :update =>  ( update + "_documento_anadir") } %>
+  </div>
+ </div>
+ <div id="<%= update %>_sub" class="linea"></div>

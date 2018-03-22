@@ -1,0 +1,6 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<%= texto _("Código"), 'dato_basico', 'codigo', "1_2" %>
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "3" %>
+<%= selector _("Área Geográfica"), 'dato_basico', 'area_geografica_id', @area_geografica, true,  "3_2" %>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

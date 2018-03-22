@@ -1,0 +1,12 @@
+<% update = update_listado + "_documento" %>
+<% opciones_sublistado = { campos_listado: campos_listado('documento_tipo_contrato') } %>
+<% opciones_sublistado[:anadir] = { url: {action: 'editar_nuevo_documento', update: update + "_formulario_anadir", update_listado: update, id: params[:id]} } if (@agente && @tipo_contrato.agente_id == @agente.id) || @agente.nil? %>
+<div id="<%= update %>">
+  <%= comienzo_sublistado _("Plantillas de Contrato Asociadas"), update, opciones_sublistado %>
+    <div id="<%= update %>_formulario_anadir"></div>
+    <% for documento in @documentos %>
+      <%= render :partial => "documento", :locals => { update_listado: update, documento: documento } %>
+    <% end %>
+  <%= final_sublistado %>
+  <br>
+</div>

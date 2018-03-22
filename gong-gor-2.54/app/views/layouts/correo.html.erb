@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    <table style="border:1px solid #cccccc;font-family:Helvetica;" align="center" border="0" width="600">
+      <tbody>
+        <tr>
+          <td>
+            <table border="0" width="600">
+              <tbody>
+                <tr>
+                  <td width="102"><%= image_tag attachments['logo_gong_boletin.jpg'].url, :alt => 'Logo Gong', :longdesc => "http://gong.es/", :width => 288, :height => 157 %></td>
+                  <td width="488"><%= image_tag attachments['cabecera_boletin.jpg'].url, :alt => 'Detalle Cabecera', :width => 312, :height => 157 %></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table style="color: #000000; font-size: 0.8em;" border="0"
+              height="324" width="600">
+              <tbody>
+                <tr>
+                  <td width="109">&nbsp;</td>
+                  <td width="404">&nbsp;</td>
+                  <td width="73">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <p><%= _("Hola") %>&nbsp;<%= @usuario.nombre if @usuario%>!</p>
+                    <%= yield %>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <table style="margin:15px 0px 5px 0px;" border="0"
+                      width="308">
+                      <tbody>
+                        <tr>
+                          <td><br>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <table border="0" width="405">
+                      <tbody>
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td style="text-align:center;background-color:#02a1bd;" height="31" width="163">
+                            <%= link_to(_("Ir a Gong"), main_app.url_for(@url)) %>
+                          </td>
+                          <td width="242">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><br>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td style="color:#666666; font-size: 0.8em;">
+                    <% if @usuario -%>
+                      <p><%= _("Estás suscrito a las notificaciones de %s con la cuenta %s") % [(GorConfig.getValue("APP_NAME")||"GONG"), @usuario.correoe] %></p>
+                      <p><%= _("Esta notificación se ha enviado a todos los usuarios implicados.") %><br/><%= Time.now %></p>  
+                    <% end -%>
+                    
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <table bgcolor="#3b4d57" border="0" width="612">
+              <tbody>
+                <tr>
+                  <td width="131"><%= image_tag attachments['logo_gong_pie.jpg'].url, :alt => 'Logo Gong', :width => 131, :height => 112 %></td>
+                  <td style="color: #FFFFFF; font-size: 0.6em;font-weight: bold;padding:5px;" width="471">
+                    <p>
+                      <a href="mailto:info@gong.es" style="color:#02a1bd;text-decoration:none">info@gong.es</a><br>
+                      <a href="http://gong.es/" style="color:#02a1bd;text-decoration:none">gong.es</a>
+                    </p> 
+                    <p>
+                      <a href="http://creativecommons.org/licenses/by-sa/3.0/es/deed.es">
+                        <%= image_tag attachments['licencia_creativecommons.jpg'].url, :alt => 'Creative Commos BY-SA', :width => 59, :height => 11 %>
+                      </a>
+                      <%= _("Licencia Creative Commons 2008 - 2013 - GONG") %><br>
+                      <%= _("Página web de Gong por Comunidad de desarrollo Gong se encuentra bajo una Licencia Creative Commons Atribución-CompartirIgual 3.0 España") %>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <title><%= _("Notificaciones") %> ::: GONG</title>
+  </body>
+</html>

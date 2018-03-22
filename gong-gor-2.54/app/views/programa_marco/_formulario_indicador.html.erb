@@ -1,0 +1,5 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( url: { action: 'modificar_crear_indicador', programa_marco_id: params[:programa_marco_id]} ) %>
+  <%= selector _("Indicador a Asociar"), 'indicador','id', @indicadores, false ,"3_2", { obligatorio: true, enriquecido: true } %>
+<%= formulario_final %>
+

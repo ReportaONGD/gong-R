@@ -1,0 +1,284 @@
+
+<% unless params[:to_pdf] %>
+  <fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+  <%= form_tag( { :action => "documento_formulacion"}, :multipart => true, :class => "formulario" ) %>
+    <%= selector(_('PAC'), '', 'pac', @listado_pac, false, '1', {:selected => params[:pac].to_i }) if @proyecto.convenio? %>
+    <div class="fila">
+      <%= checkbox _("Sacar el resultado a fichero "), 'selector', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+            <%= observe_field( "selector_fichero" , :function => '
+          selector = document.getElementById("selector_fichero");
+          if( selector.checked ) {
+            Element.show("tipo_fichero");
+          }else { Element.hide("tipo_fichero"); }
+      ' ) %>
+      <div id="tipo_fichero" style="display:none">
+      <%= selector(_('Tipo de fichero '), 'selector', 'tipo', [[_("pdf"), "pdf"]], false, '1', {:selected => (params[:selector][:tipo] if params[:selector])})  %>
+    </div>
+  <div class="elementoderecha1_2"> <%= submit_tag(_("Mostrar"), :class => "boton1_2") %></div>
+  </form>
+  </fieldset>
+<% end %>
+<br/>
+
+<!-- PORTADA-->
+<div class="fieldset">
+  <div class="legend" align= "center">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <img src="/images/logoONG.png" alt="Logo ONG"> 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h2>DOCUMENTO DE FORMULACIÓN DE PROYECTO</h2>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h3><%= @proyecto.titulo.upcase %></h3>
+    <br/>
+    <h4><%= @list_implementadores.join(', ') %></h4>
+    <br/>
+    <h4><%= Time.now.strftime('(%d/%m/%Y)') %></h4>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+  <br>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- RESUMEN EJECUTIVO-->
+<% @resumen_ejecutivo.each do |resumen| %>
+  <% if resumen[:listado][:lineas] %>
+    <div class="fieldset">
+      <div class="legend" align= "left">
+        <%= _("FICHA EJECUTIVA DEL PROYECTO") %>
+      </div>
+      <br>
+
+      <%= dibuja_tabla resumen[:listado][:lineas] unless resumen[:listado][:resumen_error] %>
+      <%= mensaje_error resumen[:listado][:resumen_error] if resumen[:listado][:resumen_error] %>
+
+    </div>
+  <% end %> 
+<% end if @resumen_ejecutivo %>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- DATOS INFORMACION PROYECTO-->
+<%= comienzo_listado %>
+<% for grupo in @grupos_datos %>
+<br/>
+  <div class="filacabecera">
+    <!--<%= (fila_listado grupo, [[_("Nombre"),'1','nombre']], "grupo").upcase %>-->
+    <div class="elemento_listado elemento1" title='grupo'><%= grupo.nombre.to_s.upcase %></div> 
+  </div>
+
+  <% datos = @proyecto.datos_dinamicos grupo %>
+  <% for dato in datos %>
+    <fieldset>
+      <div class="legend"><%= dato.definicion_dato.rotulo %></div>
+      <div class="linea" %>
+        <%= (dato.dato||"&nbsp;").html_safe %>
+      </div>
+    </fieldset>
+    <br/>
+  <% end %>
+
+<% end if @grupos_datos %>
+<%= final_listado %>
+
+
+<!-- MATRIZ -->
+<% @resumen_matriz.each do |resumen| %>
+  <% if resumen[:listado][:lineas] %>
+    <div class="fieldset">
+      <div class="legend" align= "left">
+        MATRIZ DE FORMULACIÓN<br>
+        País: Todos<br>
+        Etapa: Todas<br>
+        <div class = "linea"></div></br>
+      </div>
+      <br>
+
+      <%= dibuja_tabla resumen[:listado][:lineas] unless resumen[:listado][:resumen_error] %>
+      <%= mensaje_error resumen[:listado][:resumen_error] if resumen[:listado][:resumen_error] %>
+
+    </div>
+  <% end %> 
+<% end if @resumen_matriz %>
+<br/>
+
+<!-- CRONOGRAMA -->
+<div class="fieldset">
+<div class="legend" align= "left">
+  CRONOGRAMA DE FORMULACIÓN<br>
+  <div class = "linea"></div></br>
+</div>
+<br />
+<% if @etapa && @actividades %>
+  <%= cronograma_inicio :etiqueta => _("Actividad"), :duracion => @etapa.periodos, :fecha_inicio => @etapa.fecha_inicio, :sin_truncar => true %>
+    <% @actividades.each do |actividad| %>
+      <!-- Linea de la actividad con sin_truncar=true -->
+      <%= cronograma_actividad @etapa, actividad, true %>
+      <!-- Listado de subactividades con sin_truncar=true -->
+      <% actividad.subactividad.each do |subactividad| %>
+        <%= cronograma_subactividad @etapa, actividad, subactividad, true %>
+      <% end %>
+    <% end %>
+  <%= cronograma_fin %>
+<% end %>
+</div>
+</div>
+<br />
+
+<!-- PRESUPUESTO PARTIDAS -->
+<%= resumen @tablas.first, :sin_truncar => true %>
+<br />
+
+<!-- PRESUPUESTO ACTIVIDADES -->
+<%= resumen @tablas_activ.first, :sin_truncar => true  %>
+<br />
+
+<!-- TEXTO INFERIOR Y FIRMA -->
+<br />
+<fieldset>
+<br />
+<b><u> DECLARACIÓN RESPONSABLE </u></b>
+<br />
+<br />
+<p>La persona que suscribe, como Responsable Técnico de la ejecución del presente proyecto declaro que son ciertos cuantos datos figuran en el presente documento de formulación del proyecto.</p>
+<br />
+<p>En la ciudad de _________________________________________________, a los ______ días del mes de ___________________________ del ____________</p>
+
+<div class="elemento2">
+  <fieldset>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    El coordinador/a del Proyecto
+  </fieldset>
+</div>
+<div class="elemento2 elementoderecha">
+  <fieldset>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    El Director/a Responsable
+  </fieldset>
+</div>
+
+</fieldset>
+<br />
+
+
+
+<%= "</div>" if params[:sin_layout]%>

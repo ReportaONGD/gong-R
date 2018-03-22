@@ -1,0 +1,46 @@
+<% if relacion == "area_actuacion" 
+    categorias = relaciones.blank? ? [] : relaciones.joins(:categoria_area_actuacion).
+                                                     group("categoria_area_actuacion.nombre").
+                                                     reorder("categoria_area_actuacion.nombre").
+                                                     sum("proyecto_x_area_actuacion.porcentaje")
+    etiqueta = _("Área de Actuación")
+  else
+    categorias = relaciones.blank? ? [] : relaciones.joins(:categoria_sector_intervencion).
+                                                     group("categoria_sector_intervencion.nombre").
+                                                     reorder("categoria_sector_intervencion.nombre").
+                                                     sum("proyecto_x_sector_intervencion.porcentaje")
+    etiqueta = _("Sector de Intervención")
+  end
+ %>
+
+<% reset_cycle %>
+<div id="listado_area_actuacion">
+  <fieldset>
+    <div class="legend"><%= etiqueta %></div>
+    <% campos_relacion = relacion + "_relaciones" %> 
+    <%= cabecera_listado campos_listado(campos_relacion), etiqueta, {:action => 'anadir_' + relacion}, :id => relacion + "_anadir" %>
+    <% i = 0 %>
+    <% for elemento in relaciones %>
+      <div id="area_actuacion_<%= i+=1 %>" class="<%= cycle( 'fila', 'filaDos' ) %>" >
+        <%= fila_listado elemento, campos_listado(campos_relacion), relacion + "_" + i.to_s  %>
+        <div class="elementoderecha">
+          <%= modal_borrado icono( "borrar", _( "Eliminar" ) ), { :update => relacion, :action => 'eliminar_relacion', :id => elemento, :atributo => relacion }, _('Eliminar'), _('Eliminar %{elemento} del proyecto') % {:elemento => elemento.nombre}, :id => ( relacion + "_" + i.to_s + "_borrar"), :ajax => true %>
+        </div><div class="linea"></div>
+      </div> 
+    <% end %>
+    <%= final_listado %>
+    <% unless categorias.blank? %>
+      <% reset_cycle %>
+      <%= cabecera_listado campos_listado("categoria_relaciones") %>
+        <% categorias.each do |categoria, porcentaje| %>
+          <div class="<%= cycle( 'fila', 'filaDos' ) %>" >
+            <div class="elemento_listado elemento1 value_string" title="<%= categoria %>"><%= categoria %></div>
+            <div class="elemento_listado elemento1_2">
+              <%= caja_porcentaje(:total => 1, :valor => porcentaje) %>
+            </div>
+          </div>
+        <% end %>
+      <%= final_listado %>
+    <% end %>
+  </fieldset>
+</div>

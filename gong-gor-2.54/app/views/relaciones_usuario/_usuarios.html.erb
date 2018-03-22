@@ -1,0 +1,26 @@
+
+<div id="<%= params[:update] %>_usuarios">
+  <%= comienzo_sublistado _("Usuarios"), params[:update] + "_usuarios" %>
+  <div class="fila">
+    <%= modal icono("anadir"), {:controller => 'relaciones_usuario', :action => 'asignar_usuario', :update =>  params[:update], :id => params[:id], :objeto => params[:objeto] }, _("Asignar usuario a %{objeto}") % {:objeto => h(@objeto.nombre)}, {:id => params[:update] + "_usuario_anadir" } %>  
+  </div>
+  <% i = 0 %>
+  <% for usuario_x in @usuarios_x %>
+   <div  id="<%= params[:update] %>_usuarios_<%= (i += 1).to_s%>" class="fila" >
+    <%= fila_listado usuario_x, campos_listado("usuario_x"), params[:update] + "_usuarios_" + i.to_s %>
+    <div class="elementoderecha">
+       <%= ventana_info_popup usuario_x.usuario, {:campos => campos_listado("usuario"), :id => params[:update] + "_usuarios_" + i.to_s + "_informacion" } %>
+       <% if usuario_x.usuario.nil? || usuario_x.usuario.bloqueado %>
+         <div class="icono"></div>
+       <% else %>
+         <%= modal( icono( "editar" ),  {:action => 'asignar_usuario', :update => params[:update], :objeto => params[:objeto], :id => params[:id], :usuario_id => usuario_x.usuario_id}, _("Editar asignacion"), :id => (params[:update] + "_usuarios_" + i.to_s + "_editar") ) %>
+       <% end %>
+       <%= modal_borrado icono(( "borrar"), _('Eliminar asignacion')),  { :controller => 'relaciones_usuario', :action => 'desasignar_usuario', :update =>  params[:update], :id => params[:id], :usuario_x_objeto_id => usuario_x.id, :objeto => params[:objeto]  } , _('Desasignar usuario'),  (usuario_x.usuario ? usuario_x.usuario.nombre : _("Eliminado")),  :id => (params[:update] + "_usuarios_" + i.to_s + "_borrar"), :ajax => true %>
+    </div>
+    <div class="linea"></div>
+    </div>
+  <% end %>
+  <%= final_sublistado %> 
+  <BR>
+</div>
+

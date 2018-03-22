@@ -1,0 +1,19 @@
+<div class="linea" id="formulario_anadir_<%= @actividad ? @actividad.id : '0'%>" ></div>
+<% if @actividad %>
+  <%= listado( [[_("Presupuestos de la actividad"), "", "2"]], :url =>  {:action => 'nuevo_o_elegir_concepto', :actividad_id => @actividad.id, :update =>  "formulario_anadir_" + @actividad.id.to_s }, :cerrar_listado => true, :id_listado => "actividad_sub_" + @actividad.id.to_s ) %>
+<% else %>
+  <%= listado( [[_("Líneas de presupuesto sin actividad"), "", "2"]], :cerrar_listado => true, :anadir => false, :id_listado => "actividad_sub_0" ) %>
+<% end %>
+
+ <div class="linea" id="nuevo_<%= @actividad ? @actividad.id.to_s : 0 %>"></div> 
+ <% j = 0 %>
+ <% for presupuesto in @presupuestos %>
+    <% if @actividad %>
+      <%= render :partial => "presupuesto", :locals => { :presupuesto => presupuesto, :actividad => @actividad} %>
+    <% else %>
+      <% fila = "actividad_sub_0_"+ (j += 1).to_s %>
+      <%= render :partial => "presupuesto_proyectos/presupuesto", :locals => {:update => fila, :presupuesto => presupuesto, :partida => nil} %>
+    <% end %>
+ <% end %>
+<%= final_listado %>
+   

@@ -1,0 +1,9 @@
+<%= formulario_comienzo :url => { :action => 'modificar_crear', :grupo_datos_id => params[:grupo_datos_id] } %>
+<div class="linea filacabecera"><%= _("Añadir Nuevo Campo") %></div>
+<div class="fila">
+  <% for definicion_dato in @definiciones_dato %> 
+  <div class="fila" style="float:left,width=810px;">
+    <%= check_box_tag "definicion_dato_ids[]", definicion_dato.id, @proyecto.definicion_dato.include?(definicion_dato) %> <%= definicion_dato.rotulo %>
+  </div>
+  <% end %>
+<%= formulario_final %>

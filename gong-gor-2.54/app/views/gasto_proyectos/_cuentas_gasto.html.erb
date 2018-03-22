@@ -1,0 +1,15 @@
+<!-- En este parcial se chequea si existe en alguno de los Plugins algun parcial relacionado con
+     introducir en el formulario de gasto la asignacion de cuentas contables al gasto.
+     El plugin que quiera introducir en el final de formulario cuentas debe implementar:
+     * partial_cuentas_gasto
+     (Este codigo surge inicialmente por la necesidad del Plugin CPT_CONTABILIDAD) -->
+
+   
+<% partial = nil %>
+
+<% Plugin.activos.each do |plugin| %>
+  <% partial = eval(plugin.clase)::partial_cuentas_gasto if eval(plugin.clase).respond_to?('partial_cuentas_gasto') %>
+<% end %>
+
+<%= render partial: partial if partial %>
+       

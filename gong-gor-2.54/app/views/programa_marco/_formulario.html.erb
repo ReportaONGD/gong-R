@@ -1,0 +1,14 @@
+<!-- Formulario -->
+<%= comienzo_formulario( {action: 'modificar_crear', id: @programa_marco, update: params[:update]} ) %>
+  <div class="fila">
+    <%= texto _("Nombre"), 'programa_marco', 'nombre', '2', obligatorio: true %>
+    <%= selector _("Moneda base"), 'programa_marco', 'moneda_id', @monedas, false, "1", { obligatorio: true } %>
+    <%= checkbox _("Activo"), 'programa_marco', 'activo', '1', { izquierda: true, abajo: true, checked: @programa_marco.activo } %>
+  </div>
+  <div class="fila">
+    <%= texto _("Objetivo General"), 'programa_marco', 'objetivo_general', '4', obligatorio: true %>
+  </div>
+  <div class="fila">
+    <%= texto_area _("Descripción"), 'programa_marco', 'descripcion', '4' %>
+  </div>
+<%= final_formulario %>

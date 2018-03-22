@@ -1,0 +1,19 @@
+<%=  formulario_comienzo( :url => {:controller => 'comentario', :action => 'editar_crear_comentario', :id => @comentario, :tipo => params[:tipo], :update_objeto => params[:update_objeto]} ) %>
+<%= texto_area _("Comentario"), 'comentario', 'texto', "4" %>
+
+<% unless @listado_marcados.nil? %>
+  <div class='linea'></div><br>
+
+  <% if @marcado_actual.nil? and @listado_marcados.empty? %>
+    <%= mensaje_error _("No hay definido ningun tipo de marcado. Hable con su administrador del sistema.") %>
+  <% else %>
+    <div class="elemento3_4"> Marcado actual: <br> <b><%= @marcado_actual ? @marcado_actual.nombre : "Ninguno" %> </b> </div>
+    <%= selector(_("Nuevo marcado"), 'marcado', 'id', @listado_marcados, false ,"3_2") unless @listado_marcados.empty? %>
+    <br><%= checkbox( ("Eliminar marcado"), 'marcado', 'eliminar', "1", {:izquierda => true}) if @marcado_actual %>
+  <% end %>
+<% end %>
+
+<input type="hidden" name="objeto_id" value="<%= params[:objeto_id] %>" >
+<div class='linea'></div><br>
+<%= formulario_final %>
+

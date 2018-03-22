@@ -1,0 +1,25 @@
+<p><%= _("Bienvenido a la instancia de demostración de GONG") %></p>
+
+<p><%= _("Sus datos de registro son") %>:</p>
+<p><ul>
+<li> <%= _("Nombre y apellidos") %>: <%= @registro[:nombre] %></li>
+<li> <%= _("Empresa/entidad") %>: <%= @registro[:empresa] %></li>
+<li> <%= _("Correo electronico") %>: <%= @registro[:correoe] %></li>
+<li> <%= _("Pais") %>: <%= @registro[:pais] %></li>
+<li> <%= _("Interés por GONG") %>: <%= @registro[:interes] %></li>
+</ul></p>
+
+<p><%= _("El usuario y contraseña son") %>: </p>
+<ul><p>
+<li> <%= _("Usuario") %>: <%= @nombre_usuario %></li>
+<li> <%= _("Contraseña") %>: <%= @contrasena %></li>
+</ul></p>
+
+<p><%= _("OBSERVACIONES") %></p>
+<ul><p>
+<li> <%= _("A una instancia de prueba/demostración acceden diferentes usuarios, con lo que no garantizamos la integridad o control de la información.") %></li>
+<li> <%= _("El usuario puede ser renovado o eliminado según la configuración de la instancia de demo. Vuelva a solicitarlo si fuese necesario.") %></li>
+</ul></p>
+
+
+<p><%= _("Fecha") %>: <%= Time.now %></p>

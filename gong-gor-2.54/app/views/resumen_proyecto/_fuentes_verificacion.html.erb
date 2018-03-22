@@ -1,0 +1,25 @@
+  <% fuentes_verificacion = objeto.fuente_verificacion if objeto.class.name == "Indicador" %>
+  <!-- Para Resultados y OE solo mostramos las FV que no estan vinculados a indicadores !-->
+  <% fuentes_verificacion = objeto.fuente_verificacion.all(:conditions => {:indicador_id => nil}) unless objeto.class.name == "Indicador" %>
+  <% unless fuentes_verificacion.empty? %>
+    <% if objeto.class.name == "Indicador" %>
+      <%= _("Documentos de Verificación") %>:
+    <% else %>
+      <h3><br/>
+        <%= (objeto.class.name == "Resultado" ? _("Documentos de Verificación del Resultado") : _("Documentos de Verificación del Objetivo Específico")) + " " + objeto.codigo %>:
+      </h3>
+    <% end %>
+    <ul><% fuentes_verificacion.each do |fv| %>
+      <li>
+        <% documentos = fv.documento.all(:order => "documento.updated_at asc", :conditions => ["documento.created_at <= ?", @fecha_de_fin]) %>
+        <strong><%= (fv.completada && documentos.size == fv.documento.size) ? "(" + _("Completada") + ") " : "" %><%= fv.codigo %></strong>&nbsp;-&nbsp;<%= fv.descripcion %>
+        <ul><% documentos.each do |doc| %>
+          <li>
+            <%= doc.updated_at.strftime('%d/%m/%Y') %>&nbsp;(<%= doc.usuario.nombre %>)&nbsp;
+            <strong><%= doc.adjunto_file_name %></strong>
+            <% if doc.descripcion && doc.descripcion != "" %>&nbsp;:&nbsp;<%= doc.descripcion %><% end %> 
+          </li>
+        <% end %></ul>
+      </li>
+    <% end %></ul>
+  <% end %>

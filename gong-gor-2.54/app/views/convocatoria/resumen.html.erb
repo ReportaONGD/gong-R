@@ -1,0 +1,37 @@
+<fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+  <%= form_tag( { :action => "resumen"}, :multipart => true, :class => "formulario" ) %>
+    <%= selector _('ONGD/Delegación'), '', 'delegacion', @listado_delegacion, false, '1', {:selected => params[:delegacion].to_i} %>
+    <% if @agente %>
+      <%= selector( _('Etapa'), '', 'etapa', @listado_etapa, false, '3_4', {:selected => params[:etapa].to_i}) %>
+    <% else %>
+      <%= mes_fecha _('Fecha inicio'), 'fecha_inicio', '', {:default => @f_inicio, :incluir_dia => true, :class => "5_4" }%>
+      <%= mes_fecha _('Fecha fin'), 'fecha_fin', '', {:default => @f_fin, :incluir_dia => true, :class => "5_4" }  %>
+    <% end %>
+    <div class="fila"><br/></div>
+    <%= checkbox _("Sacar el resultado a fichero "), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+    <div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+  </form>
+</fieldset>
+
+<% if @resumen %>
+  <div class="fieldset">
+    <div class="legend" align= "left">
+      <% if params[:delegacion] == "-1" %>
+        <%= _('ONGD Agrupada') %>
+      <% else %>
+        <%= _('Delegación') + ": " + (@delegacion ? @delegacion.nombre : _('Todas las delegaciones')) %>
+      <% end %>
+      <br>
+      <% if @etapa %>
+        <%= _('Etapa') + ": " + @etapa.nombre %><br>
+      <% end %>
+      <%= _("Fecha inicio") + ": " + @f_inicio.strftime('%d/%m/%Y') %><br>
+      <%= _("Fecha fin") + ": " + @f_fin.strftime('%d/%m/%Y') %><br>
+      <%= _('Importes en: %{mon} (TC aplicada si existe)')%{:mon => @agente.moneda_principal.nombre} if @agente && @agente.moneda_principal %><br>
+    </div>
+    <br>
+    <%= dibuja_tabla @resumen.first[:listado][:lineas], true %>
+  </div>
+<% end %>
+

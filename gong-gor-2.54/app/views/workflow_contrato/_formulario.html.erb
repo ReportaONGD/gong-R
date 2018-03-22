@@ -1,0 +1,31 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @workflow_contrato }, false ) %>
+
+<%= selector _("Orden listado"), 'workflow_contrato', 'orden', Array.new(30) {|x| [x, x] } , false, "1_2" %>
+<%= texto _("Nombre"), 'workflow_contrato', 'nombre', "1" %>
+<%= texto _("Descripción"), 'workflow_contrato', 'descripcion', "3" %>
+
+<div class="elemento1"><br /><%= checkbox _("Estado inicial"), 'workflow_contrato', 'primer_estado', "3_4", {:izquierda => true, :checked => (@workflow_contrato ? @workflow_contrato.primer_estado : false)} %></div>
+<%= observe_field( "workflow_contrato_primer_estado" , :function => 'if( document.getElementById("workflow_contrato_primer_estado").checked ){ Element.hide("estado_anterior");} else { Element.show("estado_anterior");}' ) %>
+
+<div class="fila"><br /></div
+<div id="estado_anterior">
+  <div class="filacabecera"><%= _("Estados anteriores al Nuevo Estado") %></div>
+  <div class="fila">
+  <% for estado in @workflow_contratos_padres %>
+     <%= checkbox estado.nombre, 'workflow_contrato_padre', estado.id, "3_4", { :izquierda => true, :checked => ( @workflow_contrato.estado_padre.include?(estado)) }  %>
+  <% end %>
+  </div>
+</div>
+
+<div class="fila"><br /></div>
+<div class="filacabecera"><%= _("Estados generales relacionados con el estado") %></div>
+<div class="fila">
+  <%= checkbox _("Formulación"), 'workflow_contrato', 'formulacion', "3_4", {:izquierda => true, :checked => (@workflow_contrato ? @workflow_contrato.formulacion : false)  } %>
+  <%= checkbox _("Ejecución"), 'workflow_contrato', 'ejecucion', "3_4", {:izquierda => true, :checked => (@workflow_contrato ? @workflow_contrato.ejecucion : false)  } %>
+  <%= checkbox _("Aprobado"), 'workflow_contrato', 'aprobado', "3_4", {:izquierda => true, :checked => (@workflow_contrato ? @workflow_contrato.aprobado : false) } %>
+  <%= checkbox _("Cerrado"), 'workflow_contrato', 'cerrado', "3_4", {:izquierda => true, :checked => (@workflow_contrato ? @workflow_contrato.cerrado : false) } %>
+</div>
+
+
+
+<%= final_formulario %>

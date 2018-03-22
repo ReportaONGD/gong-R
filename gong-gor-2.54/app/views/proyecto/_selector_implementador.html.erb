@@ -1,0 +1,6 @@
+<div id="selector_implementador">
+  <%= selector _("Gestor de la subvención"), 'proyecto', 'gestor_id', implementadores, false, "1", {:disabled => params[:seccion] == "agentes", :obligatorio => true} %>
+  <%= observe_field( "proyecto_gestor_id" , :url => {:action => "libro_cambio_moneda"},
+    :with => "'moneda_id='+ escape($('proyecto_moneda_id').value) + '&implementador_id='+ escape($('proyecto_gestor_id').value) + '&proyecto_id=' + escape('" + (@proyecto ? @proyecto.id.to_s : "") + "')",
+    :loading => "Element.show('spinner_proyecto')", :complete => "Element.hide('spinner_proyecto')") %>
+</div>

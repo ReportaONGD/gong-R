@@ -1,0 +1,52 @@
+  <% indicadores = objeto.indicador %>
+  <% unless indicadores.empty? %>
+    <br/><h3><%= (objeto.class.name == "Resultado" ? _("Indicadores del Resultado") : _("Indicadores del Objetivo Específico")) + " " + objeto.codigo %></h3>
+    <% indicadores.each do |indicador| %>
+      <div class="linea">&nbsp;</div><div class="linea">
+        <!-- Datos del Indicador -->
+        <strong><%= _("Indicador") + ": " + indicador.codigo %></strong>&nbsp;-&nbsp;<%= indicador.descripcion %>
+        <div class="linea">&nbsp;</div><div class="linea">
+          <% valores = indicador.valor_intermedio_x_indicador.all(:order => "fecha asc", :conditions => ["fecha <= ?", @fecha_de_fin]) %>
+          <%= _("Cumplimiento del Indicador") %>:&nbsp<strong><%= (valores.empty? ? 0 : valores.last.porcentaje) * 100 %>%</strong>
+
+          <!-- Valores de cumplimiento del indicador -->
+          <ul><% valores.each do |valor| %>
+            <li>
+              <strong><%= (valor.porcentaje * 100).to_s %>%</strong>&nbsp;
+              <%= valor.fecha.strftime('%d/%m/%Y') + ( valor.usuario ? " (" + valor.usuario.nombre + ")" : "" ) %>&nbsp;
+              <% if valor.comentario %><%= valor.comentario %><% end %>
+            </li>
+          <% end %></ul>
+
+          <!-- Variables del Indicador -->
+          <% unless indicador.variable_indicador.empty? %>
+            <%= _("Variables de Medición del Indicador") %>
+            <ul><% indicador.variable_indicador.each do |variable| %>
+              <li>
+                <% valores = variable.valor_medido.all(:order => "fecha asc", :conditions => ["fecha <= ?", @fecha_de_fin]) %>
+                <strong><%= variable.nombre %><%= (" (" + _("ultimo valor") + ": " + (valores.empty? ? variable.valor_base.valor : valores.last.valor).to_s + ")") if variable.ultimo_valor %></strong><br/>
+                <%= _("Fuente de Información") + ": " + variable.fuente_informacion if variable.fuente_informacion %><br/>
+                <%= _("Herramienta de Medición") + ": " + variable.herramienta_medicion if variable.herramienta_medicion %><br/>
+                <% if variable.valor_base %>
+                  <%= _("Valor Base") %>:&nbsp;<strong><%= variable.valor_base.valor.to_s %></strong>&nbsp;(<%= variable.valor_base.fecha.strftime('%d/%m/%Y') %>)
+                  <%= variable.valor_base.comentario if variable.valor_base.comentario %><br/>
+                <% end %>
+                <% if variable.valor_objetivo %>
+                  <%= _("Valor Objetivo") %>:&nbsp;<strong><%= variable.valor_objetivo.valor.to_s %></strong>&nbsp;(<%= variable.valor_objetivo.fecha.strftime('%d/%m/%Y') %>)
+                  <%= variable.valor_objetivo.comentario if variable.valor_objetivo.comentario %><br/>
+                <% end %>
+                <!-- Mediciones de la Variable del Indicador -->
+                <ul><% valores.each do |valor| %>
+                  <li><strong><%= valor.valor.to_s %></strong>&nbsp;<%= "(" + valor.fecha.strftime('%d/%m/%Y') + ") " + (valor.comentario||"") %></li>
+                <% end %></ul> 
+              </li>
+            <% end %></ul>
+          <% end %>
+
+          <!-- Documentos de FV del indicador -->
+          <%= render :partial => "fuentes_verificacion", :locals => {:objeto => indicador} %>
+
+        </div>
+      </div>
+    <% end %>
+  <% end %>

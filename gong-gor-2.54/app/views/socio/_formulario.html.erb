@@ -1,0 +1,22 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear', :id => @socio }, false ) %>
+   <%= selector _( "Naturaleza del socio" ), "socio", "naturaleza_socio_id", @naturaleza_socio, false, "1" %>
+   <%= texto _( "Nombre" ), "socio", "nombre", "1" %>
+   <%= texto _( "Apellido1" ), "socio", "apellido1", "1" %>
+   <%= texto _( "Apellido2" ), "socio", "apellido2", "1" %>
+   <%= selector _( "Sexo" ), "socio", "sexo", [[_("Hombre"), "hombre"],[_("Mujer"), "mujer"]] , false, "1_2"  %>
+   <%= selector _( "Tratamiento" ), "socio", "tratamiento", @tratamiento, false, "1_2" %>
+   <%= texto _( "NIF" ), "socio", "NIF", "1" %>
+   <%= texto _( "NIF Representante" ), "socio", "NIF_representante", "1" %>
+   <%= calendario_fecha _( "Fecha Nacimiento" ), "socio", "fecha_nacimiento" %>
+   <%= selector _( "País" ), "socio", "pais", @paises, false, "1" %>
+   <%= texto _( "Provincia" ), "socio", "provincia", "1" %>
+   <%= texto _( "Localidad" ), "socio", "localidad", "1" %>
+   <%= texto _( "Cod. Postal" ), "socio", "codigo_postal", "1_2" %>
+   <%= texto _( "Cod. Prov. Fiscal" ), "socio", "codigo_provincia_fiscal", "1_2" %>
+   <%= texto _( "Direccion" ), "socio", "direccion", "2" %>
+   <%= texto _( "Email" ), "socio", "email", "1" %>
+   <%= texto _( "Telefono Fijo" ), "socio", "telefono_fijo", "1_2" %>
+   <%= texto _( "Telefono Movil" ), "socio", "telefono_movil", "1_2" %>
+   <%= texto_area _( "Comentarios" ), "socio", "comentarios", "4" %>
+<%= final_formulario %>
+

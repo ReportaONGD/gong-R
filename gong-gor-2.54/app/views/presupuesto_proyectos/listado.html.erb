@@ -1,0 +1,49 @@
+
+<%= render :partial => "suma_totales", :locals => {:clase => "caja_suma_total_inicio"} %>
+
+<div id="mensajes_modificacion"></div>
+<% i = 0 %>
+<!-- Presupuesto por partidas -->
+<% for partida in @proyecto.partida_financiacion.all(:order => "codigo") %>
+<fieldset>
+  <div class="filacabecerasinborde" id="suma_partida_<%= partida.id %>">
+    <%= fila_listado partida, [["", "3", "codigo_nombre"] ],  "presupuesto_" + (i +=1).to_s %>
+    <div class="elementoderecha">
+      <%# ventana_popup partida , {:campos => ["descripcion"], :id => "actividades_" + i.to_s + "_informacion"} %>
+      <%= ventana_info_popup partida, {:campos => campos_listado("partida_financiacion") + campos_info("partida_financiacion") + [[_("Ppto. previsto"),"1_3","importe"]], :id => "presupuesto_" + i.to_s + "_informacion" } %>
+      <% if partida.padre %>
+        <div class="icono"></div>
+      <% else %>
+        <%= remote(icono("lista", _("Ver presupuestos para la partida")),  :url => {:update_listado => "presupuesto_sub_"+ i.to_s, :action => 'presupuesto_x_partida', :id => partida.id }) %>
+      <% end %>
+      <%= editar( :url => { :action => 'editar_nuevo_previsto', :controller => 'presupuesto_proyectos', :id => partida, :update => "suma_partida_" + partida.id.to_s })%>
+    </div>
+  </div>
+  
+  <%=  render :partial => "suma", :locals => {:objeto => partida } %>
+  <%=  render :partial => "suma_previsto", :locals => {:objeto => partida} %>
+  <%=  render :partial => "suma_financiador", :locals => {:objeto => partida } %>
+  <%=  render :partial => "suma_maximo", :locals => {:objeto => partida } %>
+  <div id="presupuesto_sub_<%= i.to_s %>"></div>
+</fieldset>
+<% end %>
+
+<!-- Incluye partidas no mapeadas -->
+<% if Presupuesto.sin_partida_financiador(@proyecto).size > 0 %>
+  <fieldset>
+    <div class="filacabecerasinborde" id="suma_partida_0">
+      <div id="presupuesto_partidas_sin_mapear" class="elemento3"><%= _("Líneas de presupuesto sin partida de financiador") %></div>
+      <div class="elementoderecha">
+        <%= remote(icono("lista", _("Ver presupuestos")),  :url => {:update_listado => "presupuesto_sub_nil", :action => 'presupuesto_x_partida' }) %>
+      </div>
+    </div>
+    <div class="filacabecerasinborde" id="suma_0">
+      <div class="elemento2"><%= _("Total líneas de presupuesto sin partida de financiador") %>: <%= Presupuesto.sin_partida_financiador(@proyecto).size %></div>
+    </div>
+    <div id="presupuesto_sub_nil"></div>
+  </fieldset>
+<% end %>
+
+<!-- Presupuesto final de totales -->
+<%= render :partial => "suma_totales", :locals => {:clase => "caja_suma_total_fin"} %>
+

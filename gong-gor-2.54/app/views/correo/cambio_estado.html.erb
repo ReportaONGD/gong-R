@@ -1,0 +1,5 @@
+    <% url = link_to(@texto_url, @url) %>
+    <p><%= (_("El proyecto %s ha cambiado de estado") % [url]).html_safe %></p> 
+    <p><strong><%= _("Nuevo estado") %></strong><%= ": #{@estado.definicion_estado.nombre.capitalize}" if @estado.definicion_estado %><br/>
+    <%= @estado.observacion %></p>
+

@@ -1,0 +1,93 @@
+<%
+  lang_selected = (FastGettext.locale||"es")[0..1]
+  case lang_selected 
+    when 'pt'
+      titulo = 'Entrada sistema de gerenciamento de projetos de cooperação'
+      explicacion_txt = 'O aplicativo web construído em software livre que facilita e agiliza o gerenciamento das organizações do Terceiro Setor.'
+      explicacion_img = '/images/esquema_gong.pt.png'
+      bienvenida = 'Bem-vinda/o ao'
+    when 'fr'
+      titulo = 'Entrée au système de gestion de projets de coopération'
+      explicacion_txt = 'Application web, construite en software libre, qui facilite et rationalise la gestion intégrale des ONGD, parametizable et adaptables à chaque ONGD.' 
+      explicacion_img = '/images/esquema_gong.fr.png'
+      bienvenida = 'Bienvenu'
+    else
+      titulo = 'Entrada al sistema de gestión de proyectos de cooperación'
+      explicacion_txt = 'Aplicación web, construida en software libre, que facilita y racionaliza la gestión integral de las ONGD, parametizable y adaptable a cada ONGD.'
+      explicacion_img = '/images/esquema_gong.es.png'
+      bienvenida = 'Bienvenida/o a'
+   end
+%>
+  
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><%= titulo %></title>
+    <!-- Ponemos solo el css de gor, no cargamos el resto -->
+    <%= stylesheet_link_tag 'gor', :media => "all" %>
+    <%= stylesheet_link_tag '/stylesheets/entrada', :media => "all" %>
+<style type="text/css"></style></head>
+
+<body id="entrada_gong">
+
+<div id="contenido">
+
+  <%= mensaje_error(flash[:mensaje_error]) if flash[:mensaje_error] %>
+
+  <div id="explicacion">
+    <h1><a href="/"><%= bienvenida %> <img src="/images/logo_entrada_gong.png"/></a></h1>
+    <div id="explicacion_lema" class="pp">"<%= explicacion_txt %>"</div>
+    <div id="explicacion_cuerpo" class="pp2"><img src="<%= explicacion_img %>"/></div>
+  </div><!--explicacion-->
+
+  <div id="formularios">
+    <%= render partial: "login" %>
+    <% if ENV['DEMO'] %>
+      <!-- Para facilitar el AJAX de carga del aviso legal -->
+      <%= javascript_include_tag 'prototype' %>
+      <!-- Formulario de registro en el idioma en el que estemos -->
+      <%= render partial: "registro_" + lang_selected %>
+      <!-- Capa de fondo con spinner para mostrar miestras se carga el aviso legal -->
+      <div id="espera" style="display:none"><div id="ruedafondo"></div><div id="rueda"></div></div>
+    <% end %>
+  </div><!--formularios-->
+
+</div><!--contenido-->
+<hr/>
+
+
+
+
+<div id="pie_entrada_gong">
+  <div id="contenido_pie">
+    <div id="pie_desarollado">
+      <div id="semilla"><a href="http://semillasl.com" target="_blank"><img src="/images/logo_semilla_SoftwareLibre.png"/></a></div>
+    </div>
+    <ul>
+      <li>2014</li>
+      <li><img src="/images/logo_entrada_gong_small.png"/></li>
+      <li><a href="http://gong.es/<%= lang_selected %>/" target="_blank"><%= _('Información') %></a> | </li>
+      <li><a href="http://gong.es/es/como-funciona-gong"  target="_blank"><%= _('Ayuda') %></a> | </li>
+      <li><a href="mailto:info@gong.es"  target="_blank"><%= _('Contacto') %></a> </li>
+    </ul>
+    <div id="pie_forjado">
+      <div id="forja"><a href="http://gong.org.es" target="_blank"><img src="/images/logo_forja_GONG.png"/></a></div>
+    </div>
+    <% if Plugin.activos.find_by_clase("Webservice") %>
+      <hr/>
+      <div id="pie_financiado">
+        <%= _('Financiado por') %>:<br/>
+        <div id="financia_comunidadgong"><a href="http://gong.es/espanol/comunidad" target="_blank"><img src="/images/logo_Comunidad_GONG.png"/></a></div>
+        <div id="financia_redes"><a href="http://www.red.es" target="_blank"><img src="/images/logo_red_es.png"/></a></div>
+        <div id="financia_aecid"><a href="http://www.aecid.es/ES" target="_blank"><img src="/images/logo_aecid.png"/></a></div>
+        <div id="financia_ue"><img src="/images/logo_ue.png"/></div>
+        <div id="financia_cenatic"><a href="http://www.cenatic.es" target="_blank"><img src="/images/logo_cenatic.png"/></a></div>
+      </div>
+      <hr/>
+    <% end %>
+  </div><!--contenido_pie-->
+</div><!--pie_entrada_gong--> 
+
+
+
+
+</body>
+</html>

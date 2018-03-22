@@ -1,0 +1,18 @@
+<div id="nuevos_libros" style="display:none">
+  <%= cabecera_listado campos_listado("libro")%>
+  <div id="libro_nuevo_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado de nuevas cuentas y cajas incluidas (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("libro"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"} %>
+  <% i = 0 %>
+  <% for @libro in @libros %>
+    <% i += 1 %>
+    <%= render :partial => "libro", :locals => {:update => "libro_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

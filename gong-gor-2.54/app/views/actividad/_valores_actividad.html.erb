@@ -1,0 +1,26 @@
+
+<%= comienzo_sublistado _("Seguimiento de Actividad Ejecutada"), update_listado %>
+
+<div id = "<%= update_listado %>_valor_anadir" ></div>
+<div class="fila">
+<%= anadir :url => {:action => 'nuevo_editar_valor_actividad', :update_listado => update_listado, :update_objeto => params[:update_objeto], :actividad_x_etapa_id => params[:actividad_x_etapa_id], :update => (update_listado + "_valor_anadir") } %>
+</div>
+
+<% usuario_admin = @proyecto.usuario_admin?(@usuario_identificado) %>
+<% for valor in @valores %>
+   <% valor_id = update_listado +"_valor_" + valor.id.to_s %>
+   <% editable = (valor.usuario_id == @usuario_identificado.id) || usuario_admin %>
+   <div  id="<%= valor_id %>" class="fila" >
+    <%= fila_listado valor, campos_listado("valor_actividad"), valor_id + "_contenido" %>
+    <div class="elementoderecha">
+      <% if valor.actividad_x_etapa_id && editable && @permitir_ejecucion %>
+        <%= editar( :url => {:update_listado => update_listado, :action => 'nuevo_editar_valor_actividad', :id => valor.id, :actividad_x_etapa_id => params[:actividad_x_etapa_id] , :update => valor_id, :update_objeto => params[:update_objeto]} ) %>
+        <%= borrado( :url => { :update => update_listado, :action => 'eliminar_valor_actividad', :update_objeto => params[:update_objeto], :id => valor.id, :actividad_x_etapa_id => params[:actividad_x_etapa_id] }, :texto => valor.porcentaje.to_s + " (" + valor.fecha.to_s + ")", :identificador => valor_id) %>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+   </div>
+<% end %>
+<%= final_sublistado %> 
+<br>
+ 

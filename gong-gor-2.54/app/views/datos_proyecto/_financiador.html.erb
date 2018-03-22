@@ -1,0 +1,30 @@
+<% reset_cycle %>
+<div id="financiador_div">
+  <fieldset>
+    <div class="legend"><%= _('Financiadores')  %></div>
+
+    <%= cabecera_listado campos_listado("financiador"), _("Añadir financiador al proyecto"), {:action => 'anadir_financiador'}, id: "financiador_anadir" %>
+    <% i = 0 %>
+    <% for elemento in @financiadores %>
+      <div id="financiador_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>" >
+        <%= fila_listado elemento, campos_listado("financiador"), "financiador_" + i.to_s  %>
+        <div class="elementoderecha">
+          <%= modal_borrado( icono( "borrar", _( "Eliminar" )), { update: "financiador", action: 'eliminar_relacion', id: elemento, atributo: "financiador"}, _('Eliminar'), _('Eliminar %{elemento} del proyecto')%{elemento: elemento.nombre}, id: ("financiador_" + i.to_s + "_borrar"), :ajax => true) unless elemento.id == @proyecto.convocatoria.agente_id %>
+        </div> 
+      </div><div class="linea"></div>
+    <% end %>
+
+    <%= cabecera_listado [[_("Código de identificación para el financiador %s'%s'")%["<br>",@proyecto.convocatoria.agente.nombre],"3_2","identificador_financiador", nil]], _("Modificar código de proyecto para el Financiador Principal"), {:action => 'editar_identificador_financiador'}, :id => "modificar_id_financiador" %>
+      <div class="fila">
+        <%= fila_listado @proyecto, [["Código identificador para financiador", "1", "identificador_financiador", nil]], "codigo_financiador" %>
+      </div>
+    <%= final_listado %>
+
+    <% campos = [["Convocatoria","5_4","nombre"], ["Tipo","1_2","tipo_convocatoria.nombre"]] %>
+    <%= cabecera_listado campos %>
+      <div class="fila">
+        <%= fila_listado @proyecto.convocatoria, campos, "convocatoria" %>
+      </div>
+    <%= final_listado %>
+  </fieldset>
+</div>

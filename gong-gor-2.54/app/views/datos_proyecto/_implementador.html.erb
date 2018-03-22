@@ -1,0 +1,24 @@
+<% reset_cycle %>
+<div id="implementador_div">
+  <fieldset>
+    <div class="legend"><%= _('Implementadores')  %></div>
+
+    <%= cabecera_listado campos_listado("implementador"), _("Añadir implementador al proyecto"), {:action => 'anadir_implementador'}, id: "implementador_anadir" %>
+    <% i = 0 %>
+    <% for elemento in @implementadores %>
+      <div id="implementador_<%= i+=1 %>" class="<%= cycle('fila', 'filaDos') %>" >
+        <%= fila_listado elemento, campos_listado("implementador"), "implementador_" + i.to_s  %>
+        <div class="elementoderecha">
+          <%= modal_borrado( icono( "borrar", _( "Eliminar" )), { update: "implementador", action: 'eliminar_relacion', id: elemento, atributo: "implementador"}, _('Eliminar'), _('Eliminar %{elemento} del proyecto')%{elemento: elemento.nombre}, id: ("implementador_" + i.to_s + "_borrar"), :ajax => true) unless elemento.id == @proyecto.gestor_id %>
+        </div> 
+      </div><div class="linea"></div>
+    <% end %>
+
+    <% campos = [["Gestor del Proyecto","5_4","nombre"]] %>
+    <%= cabecera_listado campos %>
+      <div class="fila">
+        <%= fila_listado @proyecto.gestor, campos, "gestor" %>
+      </div>
+    <%= final_listado %>
+  </fieldset>
+</div>

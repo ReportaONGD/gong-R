@@ -1,0 +1,39 @@
+<% elemento = @agente||@proyecto %>
+
+<div class="filacabecerasinborde" id="suma_<%= objeto.id %>">
+
+  <!-- Suma en moneda principal y porcentaje respecto al total -->
+  <div class="filacabecerasinborde" id="suma_base_<%= objeto.id %>">
+    <div class="elemento1"><%= _("Líneas de presupuesto") %>: <%= objeto.numero_presupuestos(@etapa) %> </div>
+    <div class="elemento1_4">&nbsp;</div>
+    <div class="elemento2_td"><%= _("Acumulado") %>:</div>
+    <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % objeto.suma_presupuestos(@etapa)).to_s , :separator => ",", :delimiter => ".") %></div>
+    <div class="elemento1_5"><%= elemento.moneda_principal.abreviatura %> </div>
+    <div class="elemento1_2_td" title="<%= _('Porcentaje sobre el total acumulado.') %>"><%= number_with_delimiter(('%.2f' % objeto.porcentaje_presupuestos(@etapa)).to_s , :separator => ",", :delimiter => ".") %> %</div>
+  </div>
+
+  <!-- Suma en divisa (si la hay) -->
+  <% if elemento.moneda_intermedia %>
+    <div class="filacabecerasinborde" id="suma_divisa_<%= objeto.id %>">
+      <div class="elemento1">&nbsp;</div>
+      <div class="elemento1_4">&nbsp;</div>
+      <div class="elemento2_td">&nbsp;</div>
+      <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % objeto.suma_presupuestos_divisa(@etapa)).to_s , :separator => ",", :delimiter => ".") %></div>
+      <div class="elemento1_5"><%= elemento.moneda_intermedia.abreviatura %></div>
+      <div class="elemento1_2_td">&nbsp;</div>
+    </div>
+  <% end %>
+
+  <!-- Suma de importe de funcionamiento para partidas de proyecto -->
+  <% if objeto.proyecto %>
+    <div class="filacabecerasinborde" id="suma_funcionamiento_<%= objeto.id %>">
+      <div class="elemento1">&nbsp;</div>
+      <div class="elemento1_4">&nbsp;</div>
+      <div class="elemento2_td"><%= _("Funcionamiento") %>:</div>
+      <div class="elemento2_3_td"><%= number_with_delimiter(('%.2f' % objeto.suma_presupuesto_funcionamiento(@etapa)).to_s , :separator => ",", :delimiter => ".") %></div>
+      <div class="elemento1_5"><%= elemento.moneda_principal.abreviatura %> </div>
+      <div class="elemento1_2_td">&nbsp;</div>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,5 @@
+primera:
+  nombre: MyString
+  descripcion: MyText
+  tipo_proyecto: false
+  tipo_financiacion: false

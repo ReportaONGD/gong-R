@@ -1,0 +1,13 @@
+<div id="<%= fila %>">
+  <div id="<%= fila %>_cabecera" class="filacabecera <%= @actividad_x_etapa.estado_actual && @actividad_x_etapa.estado_actual.realizada ? '': 'rojo' %>">
+    <%= fila_listado @actividad_x_etapa, campos_listado("actividad_x_etapa"), fila %>
+    <div class="elementoderecha">
+      <%= icono( "alerta", _("¡Atención!.") + " " + _("La actividad está abierta")) unless @actividad_x_etapa.estado_actual && @actividad_x_etapa.estado_actual.realizada %>
+      <%= ventana_info_popup @actividad_x_etapa, {:campos => campos_listado("actividad_x_etapa") + campos_info("actividad_x_etapa"), :id => fila + "_informacion"} %>
+      <%= link_to_remote( icono("comentarios" + (@actividad_x_etapa.actividad.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => fila + "_sub" , :controller => 'comentario', :action => 'comentarios', :objeto_id => @actividad_x_etapa.actividad_id.to_s, :tipo => "Actividad"} , :html => {:id => fila + "_comentarios"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" )%>
+      <%= link_to_remote(icono("seleccionar", _("Ver seguimiento de la actividad")), :url => {:update => fila + "_sub", :action => 'valores_actividad', :actividad_x_etapa_id => @actividad_x_etapa.id, :update_objeto => fila}, :html => {:id => fila + "_valores"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) %>
+    </div>
+    <br/>
+  </div>
+  <div id="<%= fila %>_sub" class="linea"></div>
+</div>

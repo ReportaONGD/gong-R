@@ -1,0 +1,9 @@
+page.call("Modalbox.hide")
+if @objeto.class.name == "Presupuesto" 
+  page.replace params[:update], :partial => 'presupuesto_proyectos/presupuesto', :locals => {:presupuesto => @objeto,  :i => params[:i] } if params[:seccion] == "proyectos"
+  page.replace params[:update], :partial => 'presupuesto_agentes/presupuesto', :locals => {:presupuesto => @objeto,  :i => params[:i] } if params[:seccion] == "agentes"
+elsif @objeto.class.name == "Gasto"
+  page.replace params[:update], :partial => "gasto_#{params[:seccion]}/gasto", :locals => {:gasto => @objeto, :update => params[:update], :i => params[:i]}
+end 
+page.visual_effect(:highlight, params[:update], :duration => 1.5) unless @objeto.marcado
+

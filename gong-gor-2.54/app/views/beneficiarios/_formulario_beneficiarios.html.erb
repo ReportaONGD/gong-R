@@ -1,0 +1,12 @@
+<%= comienzo_formulario( {:action => 'modificar_crear', :id => @datos_proyecto.id }, false ) %>
+  <div class="fila">
+    <%= selector _("País"), 'datos_proyecto', "pais_id", @paises, false, "1", {obligatorio: true} %>
+  </div>
+  <div class="fila"><br></div>
+  <div class="linea"> 
+    <% for atributo in @campos %>
+      <%= texto atributo[:rotulo], 'datos_proyecto', atributo[:campo], "1" %>
+      <div class="elemento1_3">&nbsp;</div>
+    <% end %>
+  </div>
+<%= final_formulario %>

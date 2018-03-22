@@ -1,0 +1,5 @@
+primera:
+  proyecto_id: 1
+  financiacion_id: 1
+  nombre_en_financiacion: MyString
+  titulo_en_financiacion: MyString

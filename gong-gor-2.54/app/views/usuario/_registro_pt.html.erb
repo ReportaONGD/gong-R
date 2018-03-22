@@ -1,0 +1,45 @@
+<fieldset id="registro">
+  <p style="font-weight:normal;font-size:13px;">Preencha o cadastro abaixo para solicitar um usuário</p>
+  <div class="elemento1 fila">
+    <%= form_tag( {:action => 'registro_envio' , :controller => 'usuário'} )%>
+      <div class="elemento1"><input class="texto1" id="registro_nombre" name="registro[nombre]" size="30" type="d"  placeholder=“Nome completo*”></div>
+      <div class="elemento1"><input class="texto1" id="registro_correoe" name="registro[correoe]" size="30" type="d"  placeholder=“Endereço electrónico*"></div>
+      <div class="elemento1"><input class="texto1" id="registro_empresa" name="registro[empresa]" size="30" type="d" placeholder="Organização*”></div>
+      <div class="elemento1" id="selector_registro_pais">
+        <select class="selector1" id="registro_pais" name="registro[pais]" size="1">
+          <option value="Angola">Angola</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Brasil" selected="selected">Brasil</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Costa Rica">Costa Rica</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="El Salvador">El Salvador</option>
+          <option value="Espanha">Espanha</option>
+          <option value="Guatemala">Guatemala</option>
+          <option value="Honduras">Honduras</option>
+          <option value="Kenia">Kenia</option>
+          <option value="México">Mexico</option>
+          <option value="Mozambique">Mozambique</option>
+          <option value="Nicaragua">Nicaragua</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Perú">Perú</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Sierra Leona">Sierra Leona</option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="outro">outro</option>
+        </select>
+      </div>
+      <div class="elemento1">
+        <textarea class="textoarea1" cols="40" id="registro_interes" name="registro[interes]" rows="2" type="d" placeholder=“Explique porque você está interessado no gong"></textarea>
+      </div>
+      <%= show_simple_captcha( label: "Introduzca el código", class: 'sin_clase') %>
+      <div class="1"><input class="boton_solicitar" name="commit" type="submit" value="Solicitar"></div>
+    </form>
+    <p class="small">
+      Os campos marcados com (*) são obrigatórios&nbsp;|&nbsp;
+      <%= link_to_remote "Consulte a política de privacidade e os termos de uso", :url => {:seccion => "entrada", :controller => "usuario", :action => "avisolegal"}, :loading => "Element.show('espera');", :complete => "Element.hide('espera');" %>
+    </p>
+  </div>
+</fieldset>

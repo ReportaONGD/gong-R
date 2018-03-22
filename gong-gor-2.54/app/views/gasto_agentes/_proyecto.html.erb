@@ -1,0 +1,16 @@
+<% # Mostramos solo los proyectos aprobados. 
+   seleccionables = @agente.proyecto_implementador.includes(:estado, :definicion_estado).where("estado.estado_actual = 1")
+   seleccionables = seleccionables.where("definicion_estado.aprobado = 1")
+   seleccionables = [[_("Imputado a delegación"), nil]] + seleccionables.collect {|a|[a.nombre, a.id] unless a.convenio? }.compact
+ %>
+
+<div class="linea" id="<%= 'proyecto' + linea.to_s %>" >
+  <%= selector  _("Proyecto o Delegación"), "proyecto", 'proyecto_id', seleccionables  , false, "2", {:name => "proyectos[#{linea}][proyecto_id]", disabled: params[:disabled] } %>
+  <%= texto_numero _("Importe"), 'proyecto', 'importe_convertido',"1_2", {:name => "proyectos[#{linea}][importe_convertido]", disabled: params[:disabled]}  %>
+</div>
+<% if ultima  %>
+  <div class="linea" id="proyecto_<%= (linea + 1).to_s %>"><br>
+    <%=link_to_remote _("Añadir proyecto ó delegación"), :update => "proyecto_#{(linea + 1).to_s}", :url => {:action => "anadir_proyecto", :linea => (linea + 1) }, :loading => "Element.show('spinner'); Element.hide('botonguardar');", :complete => "Element.hide('spinner');Element.show('botonguardar');" unless params[:disabled]  %>
+  </div>
+<% end %> 
+

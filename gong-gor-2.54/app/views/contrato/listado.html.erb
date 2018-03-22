@@ -1,0 +1,22 @@
+
+<%= render :partial => "suma_totales", :locals => {:clase => "caja_suma_total_inicio"} %>
+<div id="mensajes_modificacion"></div>
+
+<!-- Listado de contratos -->
+<div id="listado_contratos">
+  <div id="nuevos_contratos" style="display:none">
+    <%= cabecera_listado campos_listado("contrato")%>
+    <div id="contrato_nuevo_1"></div>
+    <%= final_listado %>
+    <%= mensaje _("El listado nuevos contratos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+    <div class="linea"></div>
+  </div>
+
+  <div id="formulario_anadir" class="linea"></div>
+
+  <%= listado campos_listado("contrato"), url: {action: 'editar_nuevo', update: 'formulario_anadir', i: 1 }  %>
+    <% for @contrato in @contratos %>
+     <%= render partial: "contrato", locals: {update: "contrato_" + @contrato.id.to_s } %>
+    <% end %>
+  <%= final_listado %>
+</div>

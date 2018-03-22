@@ -1,0 +1,9 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<div class="fila">
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "1" %>
+<%= selector _("Orden"), 'dato_basico', 'rango', Array.new(21){|x| [x,x]}, false, "1_2" %>
+<%= selector _("Seguimiento"), 'dato_basico', 'seguimiento', [[_("No"),false],[_("Sí"),true]], false, "1_2" %>
+<%= selector _("Cierre"), 'dato_basico', 'cierre', [[_("No"),false],[_("Sí"),true]], false, "1_2" %>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+</div>
+<%= final_formulario %>

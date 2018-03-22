@@ -1,0 +1,58 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @agente }, false ) %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'agente', 'nombre', "1", :obligatorio => true %>
+    <%= texto _("Nombre completo"), 'agente', 'nombre_completo', "2", :obligatorio => true %>
+    <%= selector _("Tipo de Agente"), 'agente', 'tipo_agente_id', @tipos_agente, true, "1" %>
+  </div>
+  <div class="linea">
+    <%= selector _("País"), 'agente', 'pais_id', @paises, false, "1", :obligatorio => true %>
+    <%= texto _("NIF"), 'agente', 'nif', "1" %>
+  </div>
+
+  <div class="linea">
+    <%= checkbox _("Implementador"), 'agente', 'implementador', "1", {:izquierda => true, :abajo =>true, :checked => (@agente ? @agente.implementador : false) } %>
+      <%= observe_field( "agente_implementador" , :function => '
+         if( document.getElementById("agente_implementador").checked ) {
+           Element.show("mostrar_moneda");
+           Modalbox.resizeToContent({resizeDuration: 0.5});
+         } else {
+           Element.hide("mostrar_moneda");
+           Modalbox.resizeToContent({resizeDuration: 0.5});
+         }
+      ' ) %>
+    <div id="mostrar_moneda" style="<%= ((@agente && @agente.implementador) ? '' : 'display:none;') %>"  >
+      <%= selector _("Moneda"), 'agente', 'moneda_id',   @monedas , false, "1", :obligatorio => true  %>
+      <%= selector _("Divisa"), 'agente', 'moneda_intermedia_id', @monedas, true, "1" %>
+      <%= checkbox _("Socia Local"), 'agente', 'socia_local', "1", {:izquierda => true, :abajo =>true, :checked => (@agente ? @agente.socia_local : false) } %>
+      <%= checkbox _("Generar Cuentas"), 'selector', 'generar_cuentas', "1", {:izquierda => true, :abajo =>true } %>
+    </div>
+  </div>
+    
+  <div class="linea">
+    <%= checkbox _("Financiador"), 'agente', 'financiador', "1", {:izquierda => true, :abajo =>true, :checked => (@agente ? @agente.financiador : false) } %>
+      <%= observe_field( "agente_financiador" , :function => '
+         if( document.getElementById("agente_financiador").checked ) {
+           Element.show("mostrar_publico_privado");
+           Element.hide("ocultar_publico_privado");
+           Modalbox.resizeToContent({resizeDuration: 0.5});
+         } else {
+           Element.hide("mostrar_publico_privado");
+           Element.show("ocultar_publico_privado");
+           Modalbox.resizeToContent({resizeDuration: 0.5});
+         }
+      ' ) %>
+    <div id="mostrar_publico_privado" style="<%= ((@agente && @agente.financiador) ? '' : 'display:none;') %>"  >
+      <%= selector _("Copiar mapeo desde"), 'selector', 'copiar_mapeo', @otros_financiadores.collect{|f| [f.nombre, f.id]}, true, "1", {enriquecido: true} %>
+      <%= checkbox _("Financiador Público"), 'agente', 'publico', "1", {:izquierda => true, :abajo =>true, :checked => (@agente ? @agente.publico : false) } %>
+      <div class="fila" style="text-align:center;font-style:italic;">
+        <br><%= _("NOTA: Si elige algún financiador en 'Copiar mapeo desde', todas las partidas y sus mapeos se copiarán en el presente.") %> 
+        <br><%= _("Este cambio no es reversible y afecta a los nuevos proyectos creados con este financiador principal.") %>
+      </div>
+    </div>
+    <div id="ocultar_publico_privado" class="elemento1" style="<%= ((@agente && @agente.financiador) ? 'display:none;' : '') %>"  >
+      &nbsp;<br>&nbsp;
+    </div>
+  </div>
+
+<%= final_formulario %> 
+<br>

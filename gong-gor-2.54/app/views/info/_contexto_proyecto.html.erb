@@ -1,0 +1,44 @@
+    <!-- Cofinanciacion publica y privada -->
+    <% cofinanciador_publico = Agente.where(:sistema => true, :publico => true) %>
+    <% cofinanciador_privado = Agente.where(:sistema => true, :publico => false) %>
+    <% cofinanciador_publico_total = VPresupuesto.sum_total(proyecto: @proyecto.id, agente: cofinanciador_publico, agente_rol: "financiador") %>
+    <% if @proyecto.convenio? %>
+      <!-- Para convenios, recorremos todos los pacs para calcular la suma de lo cofinanciado en todos ellos -->
+      <% cofinanciado_publico_valor = 0 %>
+      <% @proyecto.pacs.each do |pac| %>
+        <% cofinanciado_publico_valor += pac.proyecto_x_proyecto.inject(0) {|sum, pxp| sum + (pxp.financiacion_publica ? pxp.importe||0 : 0) } %>
+      <% end %>
+    <% else %>
+      <!-- Para proyectos, averiguamos lo cofinanciado -->
+      <% cofinanciado_publico_valor = @proyecto.proyecto_x_proyecto.inject(0) {|sum, pxp| sum + (pxp.financiacion_publica ? pxp.importe||0 : 0) } %>
+    <% end %>
+    <% cofinanciado_publico_total ||= 0 %>    
+    <% cofinanciado_publico_valor ||= 0 %>
+
+    <!-- Cofinanciacion exterior privada -->
+    <% cofinanciador_privado_total = VPresupuesto.sum_total(proyecto: @proyecto.id, agente: cofinanciador_privado, agente_rol: "financiador") %>
+    <% if @proyecto.convenio? %>
+      <!-- Para convenios, recorremos todos los pacs para calcular la suma de lo cofinanciado en todos ellos -->
+      <% cofinanciado_privado_valor = 0 %>
+      <% @proyecto.pacs.each do |pac| %>
+        <% cofinanciado_privado_valor += pac.proyecto_x_proyecto.inject(0) {|sum, pxp| sum + (pxp.financiacion_privada ? pxp.importe||0 : 0) } %>
+      <% end %>
+    <% else %>
+      <!-- Para proyectos, averiguamos lo cofinanciado -->
+      <% cofinanciado_privado_valor = @proyecto.proyecto_x_proyecto.inject(0) {|sum, pxp| sum + (pxp.financiacion_privada ? pxp.importe||0 : 0) } %>
+    <% end %>
+    <% cofinanciado_privado_total ||= 0 %>    
+    <% cofinanciado_privado_valor ||= 0 %>
+
+    <!-- Caja con seguimiento del proyecto -->
+    <fieldset class="caja_info caja_gris">
+      <div class="info_nombre"><%= @proyecto.convenio? ? _("Detalles del Convenio") : _("Detalles del Proyecto") %></div>
+      <div class="info_contenido">
+        <%= render :partial => "porcentaje_tiempos", :locals => {:proyecto => @proyecto} unless @proyecto.estado_actual && @proyecto.estado_actual.definicion_estado.cerrado %>
+        <% @proyecto.proyecto_x_area_actuacion.each do |pxaa| %>
+          <%= render :partial => "porcentaje_area_actuacion", :locals => { :pxaa => pxaa } %>
+        <% end %>
+        <%= caja_porcentaje(:total => cofinanciado_publico_total, :valor => cofinanciado_publico_valor, :titulo => _("Cof. Pública:"), :rotulo => _("%{valor} de %{total} %{moneda} de cofinanciación publica conseguida") % {:valor => cofinanciado_publico_valor.to_s, :total => cofinanciado_publico_total.to_s, :moneda => @proyecto.moneda_principal.abreviatura}) if cofinanciado_publico_valor != 0 && cofinanciado_publico_total != 0 %> 
+        <%= caja_porcentaje(:total => cofinanciado_privado_total, :valor => cofinanciado_privado_valor, :titulo => _("Cof. Privada:"), :rotulo => _("%{valor} de %{total} %{moneda} de cofinanciación privada conseguida") % {:valor => cofinanciado_privado_valor.to_s, :total => cofinanciado_privado_total.to_s, :moneda => @proyecto.moneda_principal.abreviatura}) if cofinanciado_privado_valor != 0 && cofinanciado_privado_total != 0 %> 
+      </div>
+    </fieldset>

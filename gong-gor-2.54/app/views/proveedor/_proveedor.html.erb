@@ -1,0 +1,10 @@
+<div id="<%= update %>" class="fila" >
+  <%= fila_listado @proveedor, campos_listado("proveedor"), update %>
+  <div class="elementoderecha">
+    <%= ventana_info_popup @proveedor, {:campos => campos_listado("proveedor") + campos_info("proveedor"), :id => update + "_informacion" } %>
+    <%= editar( :url => { :action => 'editar_nuevo', :id => @proveedor, :update => update }) %> 
+    <% texto_borrado = @proveedor.nombre + ( @proveedor.nif ? "(" + _("NIF") + ": " + @proveedor.nif + ")" : "") %>
+    <%= borrado( :url => { :action => 'eliminar', :id => @proveedor, :update => update },  :texto => texto_borrado, :identificador => update )  %>     
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div> 
+</div>

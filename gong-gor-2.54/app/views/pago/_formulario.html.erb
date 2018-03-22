@@ -1,0 +1,21 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( :url => { :action => 'modificar_crear_pago', :id => params[:id], :gasto_id => @pago.gasto_id, :update_gasto => params[:update_gasto] }) %>
+    <%= selector _("Cuenta"), 'pago', 'libro_id', @libros.collect{|l| [l.nombre, l.id]}, false ,"3_2", :obligatorio => true %>
+      <%= observe_field( "pago_libro_id", :url => {:action => :cambia_libro}, :with => "id", :loading => "Element.show('spinner')", :complete => "Element.hide('spinner')") %>
+
+    <%= texto_numero _("Importe"), 'pago', 'importe_convertido',"2_3", :obligatorio => true %>
+    <div class="elemento1_3" id="moneda">
+      <%= _("Moneda") %><br><%= @pago.gasto && @pago.gasto.moneda ? @pago.gasto.moneda.abreviatura : "" %>
+    </div>
+    <%= calendario_fecha _("Fecha"), 'pago', 'fecha', {:year_range => [ 1995, Time.now.year + 20 ], :class => "fecha", :obligatorio => true}%>
+
+    <div id="forma_pago" class="linea" style="<%= 'display:none;' if @libros.empty? || @libros.first.tipo != "banco" %>">
+      <%= selector _("Forma de Pago"), 'pago', 'forma_pago', [_("Cheque"), _("Transferencia")], false, "1_2", :obligatorio => true %>
+      <%= texto _("Num.Cheque ó Cta.Destino"), 'pago', 'referencia_pago', "1" %>
+    </div>
+
+    <%= texto _("Observaciones"), 'pago', 'observaciones', "2" %>
+    <%= hidden_field 'pago', 'gasto_id' %>
+<%= formulario_final %>
+
+

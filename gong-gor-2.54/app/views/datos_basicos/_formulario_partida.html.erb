@@ -1,0 +1,10 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<%= texto _("Código"), 'dato_basico', 'codigo', "3_4" %>
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "5_2" %>
+<%= selector _("Tipo"), 'dato_basico', 'tipo', [ [_("Directo"), "directo"], [_("Indirecto"), "indirecto"] ], false,  "1_2" %>
+<%= texto _("Descripción"), 'dato_basico', 'descripcion', "4" %>
+<%= checkbox _("Ocultar en la gestion de agente"), 'dato_basico', 'ocultar_agente', "1", {:izquierda => true, :abajo =>true, :checked => (@dato_basico ? @dato_basico.ocultar_agente : false) } %>
+<%= checkbox _("Ocultar en proyectos"), 'dato_basico', 'ocultar_proyecto', "1", {:izquierda => true, :abajo =>true, :checked => (@dato_basico ? @dato_basico.ocultar_proyecto : false) } %>
+<%= checkbox _("Tipo personal"), 'dato_basico', 'tipo_empleado', "1", {:izquierda => true, :abajo =>true, :checked => (@dato_basico ? @dato_basico.tipo_empleado : false) } %>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

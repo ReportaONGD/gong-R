@@ -1,0 +1,24 @@
+<% objeto = params[:objetivo_especifico_id] ? "objetivo_especifico" : "resultado" %>
+
+<%= comienzo_sublistado _("Hipótesis"), update_listado %>
+<div id="<%= update_listado  %>_anadir"></div>
+<div class="fila">
+  <%= anadir( :url => {:action => 'nuevo_editar_hipotesis', :update_listado => update_listado, (objeto + "_id").to_sym => params[(objeto + "_id").to_sym], :update=> update_listado + "_anadir"  } ) %>
+</div>
+ 
+<% i = 0 %> 
+<% for hipotesis in @hipotesis %>
+  <% fila = update_listado + (i += 1).to_s %>
+  <div  id="<%=  fila %>" class="fila" >
+    <%= fila_listado hipotesis, campos_listado("hipotesis"), fila %>
+    <div class="elementoderecha">
+      <%= ventana_popup hipotesis , {:campos => ["descripcion"], :id => fila + "_informacion"} %>
+      <%= editar( :url => {:action => 'nuevo_editar_hipotesis', :id => hipotesis.id, (objeto + "_id").to_sym => params[(objeto + "_id").to_sym], :update_listado => update_listado, :update => fila} ) %>
+      <%= borrado(:url => {:action => 'eliminar_hipotesis', :id => hipotesis, (objeto + "_id").to_sym => params[(objeto + "_id").to_sym], :update => fila}, :texto => hipotesis.descripcion, :identificador => fila) %>
+    </div>
+  </div>
+<% end %>
+
+<%# final_listado %>
+<%= final_sublistado %> 
+

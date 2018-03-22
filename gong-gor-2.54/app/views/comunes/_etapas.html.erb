@@ -1,0 +1,37 @@
+
+<%= cabecera_listado campos_listado( "etapa" ), _( "Añadir etapa"), {:action => 'editar_nuevo_etapa'}, {:id => "etapa_anadir"}   %>
+
+  <% i = 0 %>
+  <% for etapa in @etapas %>
+    <div id="etapa_<%= i += 1 %>" class="fila <%#(@etapa && @etapa.id == etapa.id) ? "filaseleccionada" : "fila"  %>  <%= cycle("", "filaDos") %>  ">
+      <%= fila_listado etapa, campos_listado( "etapa" ), "etapas_" + i.to_s %>
+      <div class="elementoderecha">
+         <%= link_to_remote(icono("gastos", _("Calcular Remanentes de la Etapa")), :url => {:update => "etapa_sub_"+ i.to_s, :action => 'mostrar_remanente', :id => etapa.id}, :html => {:id =>"etapa_" + i.to_s + "_remanente"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) if etapa.agente && etapa.cerrada && !etapa.saldos_transferidos %>
+         <%= modal( icono( "editar"), {:action => 'editar_nuevo_etapa', :id => etapa}, _( "Editar etapa"), :id => ("etapa_" + i.to_s + "_editar") ) %>
+         <%= link_to_remote(icono("lista", _("Ver Tasa de Cambio")),  :url => {:update => "etapa_sub_"+ i.to_s, :controller => 'tasa_cambio', :action => 'tasa_cambio', :etapa_id => etapa.id.to_s}, :html => {:id =>"etapa_" + i.to_s + "_tasas_cambio"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) %>
+         <%= modal_borrado icono("borrar", _("Eliminar etapa")), { :action => 'eliminar_etapa', :id => etapa.id, :etapa => etapa.id }, _('Eliminar la etapa: '), etapa.nombre, :id => ("etapa_" + i.to_s + "_borrar") %>   
+      </div>
+      <div class="linea"></div>
+      <div id="etapa_sub_<%= i.to_s %>" class="linea"></div>
+    </div>
+  <% end %>
+
+  <!-- Si estamos en una etapa de proyecto, y este tiene fechas de inicio/fin originales, las muestra -->
+  <% unless @proyecto.nil? || @proyecto.fecha_inicio_aprobada_original.blank? || @proyecto.fecha_fin_aprobada_original.blank? %>
+    <% update = "fecha_original_aprobada" %>
+    <div id="<% update %>" class="fila"><b>
+      <% etapa = Etapa.new nombre: _("APROBACIÓN ORIGINAL"),
+                           fecha_inicio: @proyecto.fecha_inicio_aprobada_original,
+                           fecha_fin: @proyecto.fecha_fin_aprobada_original,
+                           descripcion: _("Fechas originalmente aprobadas por el Financiador (excluyendo prorrogas)") %>
+      <%= fila_listado etapa, campos_listado( "etapa" ), update %>
+      <div class="elementoderecha">
+        <%= modal( icono( "editar"), {action: 'editar_fechas_originales'}, _("Cambiar fechas originales aprobadas"), :id => (update + "_editar") ) %>
+        <div class="icono"></div>
+        <div class="icono"></div>
+      </div>
+    </b></div>
+  <% end %>
+
+<%= final_listado %>
+

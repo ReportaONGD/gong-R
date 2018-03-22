@@ -1,0 +1,20 @@
+<div id="<%= update_listado %>">
+
+<% actividades_x_etapa_pac = ActividadXEtapa.all(:order => ["codigo"], :include => ["actividad"], :conditions => {"actividad.actividad_convenio_id" => @actividad_x_etapa.actividad}) %>
+<% unless actividades_x_etapa_pac.empty? %>
+  <%= listado( [[_("PAC"), "1", 'proyecto.nombre'],[_("Etapa"), "1_2", 'etapa.nombre']] + campos_listado("actividad_x_etapa"), :anadir => false ) unless params[:menu] == "formulacion" %>
+
+
+  <% actividades_x_etapa_pac.each do |axe_pac| %>
+    <% fila = update_listado + "_" + axe_pac.id.to_s %>
+    <div  id="<%= fila %>" class="fila">
+      <%= fila_listado axe_pac, [[_("PAC"), "1", 'actividad.proyecto.nombre'],[_("Etapa"), "1_2", 'etapa.nombre']] + campos_listado("actividad_x_etapa"), fila %>
+      <div class="linea"></div>
+    </div>
+  <% end %>
+
+  <%= final_listado %>
+<% end %>
+
+</div>
+

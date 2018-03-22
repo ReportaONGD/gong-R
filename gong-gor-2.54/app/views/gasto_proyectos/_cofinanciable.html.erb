@@ -1,0 +1,23 @@
+  <% desvinculado = @gasto.reload.gasto_x_proyecto.detect{|gxp| gxp.proyecto_id == @proyecto.id}.nil? %>
+  <div id="<%= update %>" class="fila">
+    <%= fila_listado @gasto, campos_listado("gasto_cofinanciable"), update %>
+      <div class="elementoderecha">
+         <%= ventana_info_popup @gasto, {:campos => campos_listado("gasto_cofinanciable") + campos_info("gasto_cofinanciable"), :id => update + "_informacion" } %>
+         <% if desvinculado  %>
+           <div class="icono"></div>
+					 <% if @partidas_mapeadas_ids.include? @gasto.partida_id %>
+           	<%= anadir :url => { :action => 'editar_parcial', :id => @gasto, :update => update, :cofinanciable => true } %>
+					 <% else %>
+					  <div class="icono"></div>
+					 <% end %>
+         <% else %>
+  				 <%= icono( "alerta", _("¡Atención!. Este gasto pertenece a una partida no mapeada en este proyecto") ) unless @partidas_mapeadas_ids.include? @gasto.partida_id %>
+           <%= editar :url => { :action => 'editar_parcial', :id => @gasto, :update => update, :cofinanciable => true } %>
+           <%= borrado( :url => { :action => 'descofinanciar', :controller => "gasto_proyectos", :id => @gasto.id, :update => update, :cofinanciable => true },  :texto =>  _("Va a desvincular del Proyecto el gasto cofinanciado con '%{nombre}'") % {:nombre => @gasto.proyecto_origen} + ": " + (@gasto.fecha.to_s + " / " + @gasto.importe.to_s + " " + @gasto.moneda.abreviatura), :identificador => update )  %>
+         <% end %>
+         <%= image_tag("cargando.gif", :id  => 'indicador'+@gasto.id.to_s, :style => 'display:none')%>
+      </div>
+    <div id="spinner_<%= @gasto.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="<%= update %>_sub" class="linea"></div>
+  </div>
+

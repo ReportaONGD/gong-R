@@ -1,0 +1,6 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @tipo, :i => params[:i] } %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'tipo', 'nombre', '3', :obligatorio => true %>
+  </div>
+<%= formulario_final %>

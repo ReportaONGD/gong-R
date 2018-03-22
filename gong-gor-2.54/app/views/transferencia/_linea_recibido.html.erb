@@ -1,0 +1,47 @@
+   <% @transferencia ||= transferencia %>
+
+   <!-- Sólo deja editar la cuenta destino si la cuenta origen no existe (se esta definiendo) o es nuestra y no hay fecha de recepcion -->
+   <% libro_destino = @transferencia.libro_destino %>
+   <% libro_enabled = libro_destino.nil? || (@usuario_identificado.libro.include?(libro_destino) && libros.include?([libro_destino.nombre,libro_destino.id]) ) %>
+   <!-- Sólo deja editar los campos si la cuenta nos pertenece o no existe aun -->
+   <% disabled = @transferencia.libro_destino && !@usuario_identificado.libro.include?(@transferencia.libro_destino) %>
+
+   <!-- Linea de entrada de transferencia -->
+   <div id="destino" class="fila">
+
+      <%= calendario_fecha _("Fecha recepción"), 'transferencia', 'fecha_recibido', {:disabled => disabled, :obligatorio => !con_tc } %>
+      <% unless libro_enabled %>
+        <%= texto rotulo_libro, 'transf', 'libro_destino', "2", {:value => Libro.find_by_id(@transferencia.libro_destino_id).nombre, :disabled => !libro_enabled, :obligatorio => true} %>
+      <% else %>
+        <%= selector rotulo_libro, 'transferencia', 'libro_destino_id', libros, true, "2", :obligatorio => true %>
+          <%= observe_field( "transferencia_libro_destino_id", :url => {:action => :moneda_libro, :destino => ["moneda_destino"]} , :with => "id" , :loading => "Element.show('espera')", :complete => "Element.hide('espera')") %>
+      <% end %>
+      <% if con_tc %>
+        <%= texto_numero _("Importe Recibido"), 'transferencia', 'importe_recibido_convertido', "2_3", {:disabled => disabled}  %>
+          <%= observe_field( "transferencia_importe_recibido_convertido", :url => {:action => :calcula_tasa_cambio, :update => 'tasa_cambio'},
+		:with => "'importe_recibido='+ escape($('transferencia_importe_recibido_convertido').value) +
+			 '&importe_cambiado=' + escape($('transferencia_importe_cambiado_convertido').value)" ) if libro_enabled %>
+
+        <div class="elemento1_3" id="moneda_recibida">
+          &nbsp;<br><%= @transferencia.libro_origen ? @transferencia.libro_origen.moneda.abreviatura : "" %>
+        </div>
+      <% end %>
+      <%= texto_numero _("Importe Obtenido"), 'transferencia', 'importe_cambiado_convertido', "2_3", {:disabled => disabled, :obligatorio => !con_tc}  %>
+          <%= observe_field( "transferencia_importe_cambiado_convertido", :url => {:action => :calcula_tasa_cambio, :update => 'tasa_cambio'},
+                :with => "'importe_recibido='+ escape($('transferencia_importe_recibido_convertido').value) +
+                         '&importe_cambiado=' + escape($('transferencia_importe_cambiado_convertido').value)" ) if con_tc && libro_enabled %>
+
+      <div class="elemento1_3" id="moneda_destino">
+        &nbsp;<br><%= @transferencia.libro_destino ? @transferencia.libro_destino.moneda.abreviatura : "" %>
+      </div>
+      <% if con_tc %>
+        <!-- Muestra Tasas de cambio si ambas cuentas estan presentes -->
+        <div class="fila">
+          <div class='elemento3_4'>&nbsp;</div>
+          <div class='elemento3'>&nbsp;</div>
+          <div id="tasa_cambio"><%= _("Tasa Cambio") %>: <%= @transferencia.tasa_cambio %></div>
+        </div>
+      <% end %>
+
+   </div>
+

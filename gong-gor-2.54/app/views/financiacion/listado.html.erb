@@ -1,0 +1,17 @@
+<%= cabecera_listado campos_listado("financiacion"), _("Nueva financiación"), {:action => 'editar_nuevo'}, :id => "financiacion_anadir" %>
+<% i = 0 %>
+<% for financiacion in @financiaciones %>
+<div id="financiacion_<%= i += 1 %>" class=" <%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado financiacion, campos_listado("financiacion"), "financiacion_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= link_to_remote(icono("usuarios", _("Ver usuarios asignados")),  :url => {:controller => 'usuario', :action => 'usuarios', :id => financiacion, :objeto => "financiacion", :update => "financiacion_sub_" + i.to_s}, :html => {:id => "financiacion_" + i.to_s + "_usuarios"}, :loading => "Element.show('spinner_#{financiacion.id.to_s }')", :complete => "Element.hide('spinner_#{financiacion.id.to_s}')" ) %>
+       <%= modal( icono( "editar" ),  {:action => 'editar_nuevo', :id => financiacion}, _("Editar financiación"),  :id => ("financiacion_" + i.to_s + "_editar")  )   %>
+       <%= modal_borrado icono( "borrar", _( "eliminar" ) ), { :action => 'eliminar', :id => financiacion.id },  _('Eliminar la financiacion: ') , financiacion.nombre , :id => ("financiacion_" + i.to_s + "_borrar") %>
+    </div>
+    <div class='linea'></div>
+    <div id="spinner_<%= financiacion.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="financiacion_sub_<%= i %>" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+

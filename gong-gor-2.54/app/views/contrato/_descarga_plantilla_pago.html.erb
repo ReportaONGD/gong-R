@@ -1,0 +1,9 @@
+    <div class="linea">
+      <%= _("Descargar nota de pago de hito de contrato desde la plantilla:") %>
+    </div>
+    <div class="linea"></br></div>
+    <% for docu in docus_pago %>
+      <% url = nota_pago_periodo_path(periodo.contrato.agente_id,periodo.contrato_id,periodo.id,docu.id) %>
+      <div class="linea"><a href="<%= url %>"><%= docu.adjunto_file_name %></a></div>
+    <% end %>
+    <div class="fila"></br></div>

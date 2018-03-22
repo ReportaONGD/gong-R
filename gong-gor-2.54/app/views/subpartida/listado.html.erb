@@ -1,0 +1,18 @@
+<div id="nuevas_subpartidas" style="display:none">
+  <%= cabecera_listado campos_listado("subpartida")%>
+  <div id="subpartida_nueva_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado nuevas subpartidas (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("subpartida"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}  %>
+  <% i = 0 %>
+  <% for @subpartida in @subpartidas %>
+   <% i += 1 %>
+   <%= render :partial => "subpartida", :locals => {:update => "subpartida_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

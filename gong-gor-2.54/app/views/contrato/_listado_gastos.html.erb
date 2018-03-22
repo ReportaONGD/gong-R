@@ -1,0 +1,12 @@
+
+<% tipo = @proyecto ? "gasto" : "gasto_agentes" %>
+<% opciones_sublistado = { descargar: true, campos_listado: campos_listado(tipo) - [["Cambio", "1_4", "updated_at", true]] } %>
+<% opciones_sublistado[:anadir] = { url: {action: 'editar_nuevo_gasto', update: update_listado + "_gasto_formulario_anadir" , update_listado: update_listado, id: params[:id]} } %>
+<%= comienzo_sublistado _("Gastos Asociados"), update_listado, opciones_sublistado %>
+  <div id="<%= update_listado %>_gasto_formulario_anadir"></div>
+  <% for gasto in gastos %>
+    <%= render :partial => "gasto", :locals => { update: params[:update], gasto: gasto } %>
+  <% end %>
+<%= final_sublistado gastos %>
+<br>
+

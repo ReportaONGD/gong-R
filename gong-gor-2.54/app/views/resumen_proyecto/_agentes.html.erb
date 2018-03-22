@@ -1,0 +1,12 @@
+<div class='fila' id='spinner' style='display:none'></div>
+<% if params[:financiador_implementador] and params[:financiador_implementador] != "" %>
+<%
+    @listado_agente = @proyecto.implementador.collect{|e| [e.nombre, e.id]} + [[_("Todos los agentes"), "todos"]] if params[:financiador_implementador] == "implementador"
+    @listado_agente = @proyecto.financiador.collect{|e| [e.nombre, e.id]} + [[_("Todos los agentes"), "todos"],[_("Todos los agentes (agrupados)"), "todos_agrupados"]] if params[:financiador_implementador] == "financiador"
+%>
+<%= selector "Agente: #{params[:tipo]}", '', 'agente', @listado_agente, false , '3_2', {:selected => params[:agente] }  %>
+<% else%>
+  <br>
+  <%=  _("Seleccione rol para mostrar agentes")  %>&nbsp;&nbsp;&nbsp;
+<% end %> 
+

@@ -1,0 +1,14 @@
+<!-- Fila para  recibir el formulario de añadir-->
+<div id="mensaje_nuevo" style="display:none">
+  <%= mensaje "Los nuevos presupuestos se introducen al comienzo del listado. Se ordenarán en el listado cuando vuelva a refrescar la página" %>
+  <div class="linea"></div>
+</div>
+<div id="formulario_anadir" class="linea"></div>
+<!-- Listado de presupuestos -->
+<%= listado campos_listado("presupuesto_agentes"), :url => {:action => 'editar_nuevo', :update => "formulario_anadir" } %>
+<div id="nuevo"></div>
+<% for presupuesto in @presupuestos %>
+ <%= render :partial => "presupuesto", :locals => {:presupuesto => presupuesto } %>
+<% end %>
+<%= final_listado %>
+

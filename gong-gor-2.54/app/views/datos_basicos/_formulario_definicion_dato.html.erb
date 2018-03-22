@@ -1,0 +1,12 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+  <div class="fila">
+    <%= texto _("Nombre"), 'dato_basico', 'nombre', "3_2" %>
+    <%= texto _("Rótulo"), 'dato_basico', 'rotulo', "3_2" %>
+    <%= checkbox _("Incluir en nuevos proyectos"), 'dato_basico', 'asignar_proyecto', "1", {:izquierda => true, :abajo =>true, :checked => (@dato_basico ? @dato_basico.asignar_proyecto : false) } %>
+  </div><div class="fila">
+    <%= selector _("Pestaña"), 'dato_basico', 'grupo_dato_dinamico_id', @grupos_datos, false, "3_2" %>
+    <%= selector _("Tipo"), 'dato_basico', 'tipo', [[_('Texto'), 'Texto']], false, "1" %>
+    <%= selector _("Orden"), 'dato_basico', 'rango', Array.new(21){|x| [x,x]}, false, "1_2" %>
+  </div>
+  <%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

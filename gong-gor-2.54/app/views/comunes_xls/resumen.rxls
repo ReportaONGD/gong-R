@@ -1,0 +1,12 @@
+# Construye la salida de una vista/resumen basada en lista (en proyectos, matriz y arqueo de caja)
+
+# Usa una plantilla si asi esta definida
+# Desactivamos esta opcion pues tan solo funciona para escribir y no para modificar estilos
+#workbook = Spreadsheet.open @plantilla.adjunto.path if @plantilla
+
+@resumen.each do |res|
+  xls_resumen_listado(workbook,res[:listado]) if res[:listado]
+  xls_resumen_tabla(workbook,res[:tabla]) if res[:tabla]  
+  xls_resumen_objeto(workbook,res[:objeto]) if res[:objeto]
+end
+

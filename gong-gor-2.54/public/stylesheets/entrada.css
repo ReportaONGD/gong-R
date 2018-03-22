@@ -1,0 +1,235 @@
+#entrada_gong {
+	background:url(../images/detalle_gong.png) right 50px no-repeat #29333a;
+	color:#FFFFFF;
+	text-align:left;
+	font-family:Helvetica;
+}
+#entrada_gong a {
+	color:#FFFFFF;
+}
+#entrada_gong  h1 {
+    float:left;
+    width:275px;
+	font-size:20px;
+	margin-top:10px;
+	padding:50px 0px 0px 0px;
+}
+#entrada_gong  h1 img {
+	float:right;
+	margin-top:-50px;
+}
+#entrada_gong  h2 {
+		float:left;
+		font-size:16px;
+		margin:60px 0px 0px 2px;
+}
+#entrada_gong  h2 img {
+	float:right;
+	margin:-6px 0px 0px 4px;
+}
+#entrada_gong #login {
+	color:#FFFFFF;
+}
+#contenido {
+	width:1024px;
+	margin:0px auto 0px auto!important;
+}
+#explicacion {
+	float:left;
+	width:822px;
+        height:666px;
+}
+#explicacion_lema {
+	float:left;
+	width:485px;
+	margin:50px 0px 0px 20px;
+	padding-left:15px;
+	font-size:14px;
+}
+#explicacion_cuerpo {
+	float:left;
+	margin:0px 50px 0px 0px;
+}
+#explicacion_cuerpo img { margin:0px 0px 0px -50px; }
+#formularios {
+	float:right;
+	width:202px;
+	text-align:center;
+	font-family:Helvetica;
+	color:#FFFFFF;
+}
+#formularios h2 {
+	margin-left:40px;
+}
+
+.small {
+		font-weight:normal!important;
+}
+.small a {
+	text-decoration:underline;
+}
+#formularios fieldset, .fieldset {
+    margin:0px;
+}
+#formularios .sublistado, .filtrado, .fieldset, fieldset {
+    border:none;
+    border-radius:none;
+    box-shadow:none;
+    padding:0px;
+}
+#formularios input {
+	width:202px;
+	font-family:Helvetica;
+	font-size:12px;
+	color:#666666;
+	margin-bottom:8px;
+}
+#formularios select {
+	width:202px;
+	font-family:Helvetica;
+	font-size:12px;
+	color:#666666!important;
+	margin-bottom:8px;
+	border:none;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;	
+}
+#formularios textarea {
+	width:202px;
+	font-family:Helvetica;
+	font-size:12px;
+	color:#666666;
+	margin-bottom:8px;
+}
+.boton_entrar {
+	width:202px;
+	padding:4px 0px 4px 0px;
+	text-align:center;
+	background-color:#339fb9;
+    color:#FFFFFF!important;
+    border:none!important;
+    font-weight:bold!important;
+    font-size:14px;
+    margin-bottom:-8px!important;
+}
+.boton_solicitar {
+	width:202px;
+	padding:4px 0px 4px 0px;
+	text-align:center;
+	background-color:#d5006e;
+    color:#FFFFFF!important;
+    border:none!important;
+    font-weight:bold!important;
+    font-size:14px;
+    margin-bottom:-8px!important;
+}
+.simple_captcha{
+	float:left;
+	width:202px;
+}
+.simple_captcha,
+.simple_captcha div{
+	display: table;
+}
+.simple_captcha .simple_captcha_field,
+.simple_captcha .simple_captcha_image{
+    background:#FFFFFF;
+    margin: 0px 0px 8px 0px !important;
+    padding: 0px !important;
+    width:202px;
+}
+.simple_captcha .simple_captcha_image img{
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 110px !important;
+}
+.simple_captcha .simple_captcha_label{
+	font-size: 12px;
+	width:202px;
+}
+.simple_captcha .simple_captcha_field input{
+    width: 150px !important;
+    font-size: 16px;
+    border: none;
+    background-color: #efefef;
+  }
+hr {
+    clear: both;
+    width: 1%;
+    visibility: hidden;
+    height: 1px;
+    
+}
+#pie_entrada_gong {
+	width:100%;
+	height:100%;
+	margin:0px 0px 0px 0px!important;
+	padding-top:10px;
+	border-top:5px solid #666666;
+	text-transform:uppercase;
+	font-size:8px;
+	background:#FFFFFF;
+	color:#666666;
+}
+#pie_entrada_gong a {
+	color:#666666;
+}
+#pie_entrada_gong img {	
+	float:left;
+}
+#contenido_pie {
+	width:1024px;
+	margin:0px auto 0px auto!important;
+}
+#pie_entrada_gong ul {
+	list-style:none;
+	width:300px;
+	float:left;
+	margin:50px auto 0px 150px;
+}
+#pie_entrada_gong li {
+	float:left;	
+	margin-right:5px;
+}
+#pie_entrada_gong li img{
+	float:left;	
+	margin-top:-20px;
+}
+#semilla {
+	margin-top:10px;
+}
+#forja {
+	margin-top:20px;
+}
+#pie_desarollado {
+	float:left;
+	width:200px;
+	margin:0px 0px 0px 0px!important;
+}
+#pie_forjado {
+	float:right;
+	width:130px;
+    margin:0px 0px 0px 0px;
+}
+#pie_financiado {
+	margin-top:50px;
+	float:lefT;
+	width:100%;
+}
+#financia_comunidadgong {
+  float:left;margin:10px 0px 0px 5px;
+}
+#financia_redes {
+  float:left;margin:20px 0px 0px 20px;
+}
+#financia_aecid {
+  margin-top:30px;
+  float:left;margin:20px 0px 0px 20px;
+}
+#financia_ue {
+  float:left;margin:0px 0px 0px 25px;
+}
+#financia_cenatic {
+  float:right;margin:-5px 0px 0px 0px;
+}

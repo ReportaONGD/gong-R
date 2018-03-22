@@ -1,0 +1,15 @@
+<%= mensaje _("Importación realizada correctamente")  if @import_error && @import_error == "" %>
+<%= mensaje_error _("La hoja de cálculo no fué importada. Corrija los errores y vuelva a ejecutar el proceso.") + "<br><br>" + @import_error if @import_error && @import_error != "" %>
+
+<% opciones_importacion = params[:menu] == "economico_agente" ? [[_("Libro Diario"),"diario"]] : [[_("Subcuentas Contables"),"subcuenta"],[_("Centros de Coste"),"centro_coste"]] %>
+<br>
+<fieldset>
+<div class="legend"><%= _("Seleccionar fichero y tipo para importación") %></div>
+<%=  comienzo_formulario( { :action => 'importacion' }, false ) %>
+<%= selector(_("Tipo importación"), "selector", "tipo", opciones_importacion, false, "1") %>
+<%= _("Selecciona el fichero a importar:") %> <br />
+<%= file_field :selector, :fichero, {:style => "height: 23px; font-size:14px; width: 300px;" }%>
+
+<%= final_formulario :texto_alternatif => _("Importar"), :confirmar => _("Los cambios producidos en la importación no son reversibles.") + "<br/><br/>" + _("¿Está seguro de querer hacer esto?") %>
+</fieldset>
+

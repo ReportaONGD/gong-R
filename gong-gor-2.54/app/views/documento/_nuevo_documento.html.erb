@@ -1,0 +1,2 @@
+<%= render :partial => "documento", :locals => { :update => update  } %>
+<div id="documento_nuevo_<%= params[:url] ? params[:url][:i].to_i + 1 : params[:i].to_i + 1 %>"></div>

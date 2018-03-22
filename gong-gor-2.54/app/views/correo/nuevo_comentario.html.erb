@@ -1,0 +1,8 @@
+<p><%= _("Hay un comentario en") %>&nbsp;<%= link_to(_(@objeto_relacionado.class.name) + " " + (@objeto ? _("del") + " " + _(@objeto.class.name) + " " + @objeto.nombre : "general"), @url) %>:</p>
+<p><ul>
+  <li><strong><%= _("URL") %>: </strong><%= url_for(@url) %></li>
+  <li><strong><%= _("Autor") %>: </strong><%= @comentario.usuario.nombre_completo %></li>
+  <li><strong><%= _("Fecha") %>: </strong><%= @comentario.updated_at %></li>
+  <li><strong><%= _(@objeto_relacionado.class.name) %>: </strong><%= @texto_url %></li>
+  <li><strong><%= _("Comentario") %>: </strong><%= @comentario.texto %></li>
+</ul></p>

@@ -1,0 +1,60 @@
+<%= formulario_comienzo( :url => { :action => 'modificar_crear', :id => @presupuesto, :i => params[:id], :etapa_id => @etapa.id, :empleado_id => @empleado.id } )%>
+
+  <%= hidden_field 'presupuesto', 'empleado_id' , {:value => @empleado.id}%>
+  <div class="fila">
+    <%= selector _("Etapa"), 'presupuesto', 'etapa_id', [[@etapa.nombre, @etapa.id.to_s]], false, "1", {:obligatorio => true, :disabled => true} %>
+  </div>
+  
+  <div class="fila">
+    <%= selector _("Partida"), 'presupuesto', 'partida_id', @partidas, false ,"2", {:obligatorio => true} %>
+    <%= texto _("Subpartida"), 'presupuesto', 'subpartida_nombre', "2", :autocomplete => true, :autocomplete_with_also => ["presupuesto_partida_id"]  %>
+  </div>
+  
+  <div class="fila">
+    <%= texto _("Concepto/Detalle"), 'presupuesto', 'concepto', "2", :obligatorio => true%>
+    <%= texto _("Observaciones"), 'presupuesto', 'observaciones', "2" %>
+  </div>
+
+  <div class="fila">
+    <%= texto _("Unidad"), 'presupuesto', 'unidad',"2_3" %>
+    <%= texto_numero _("Nº unidades"), 'presupuesto', 'numero_unidades',"1_2", {:value => 1, :obligatorio => true, :disabled => true} %>
+
+    <%= texto_numero _("Coste/unidad"), 'presupuesto', 'coste_unitario_convertido',"1_2", :obligatorio => true %>
+    <%= observe_field( "presupuesto_coste_unitario_convertido" , :url => {:action => :calcula_importe, :controller => :presupuesto_empleado_agentes},
+   :with => "'presupuesto[numero_unidades]='+ escape($('presupuesto_numero_unidades').value) +
+                '&presupuesto[coste_unitario_convertido]=' + escape($('presupuesto_coste_unitario_convertido').value) " ) %>
+
+    <div class="elemento1_2" id ="presupuesto_importe_convertido" style="text-align:center;padding:2px;">
+      Importe <br /><b> <%= @presupuesto.importe_convertido if @presupuesto%> </b>
+    </div>
+    <%= hidden_field 'presupuesto', 'importe' %>
+    <%= selector _("Moneda"), 'presupuesto', 'moneda_id', [[@moneda.abreviatura, @moneda.id.to_s]], false, "1_3", {:obligatorio => true, :disabled => true} %>
+    <%= selector _("Mes"), 'presupuesto[presupuesto_detallado]', 'mes', @meses, false, "2_3", {:obligatorio => true, :selected => (@presupuesto && !@presupuesto.presupuesto_detallado.empty?) ? @presupuesto.presupuesto_detallado.first.mes : Date.today.month} %>
+  </div>
+  <!--  <div class="filacabecera">
+    <%# _("Imputaciones") %>
+  </div>
+  <div id="<%# 'agente_imputado' %>" >
+    <%# selector  _("Imputado a"), "presupuesto", "agente_imputado[]", @agente_imputado, false, "3_4", {:select_tag => true, :obligatorio => true, disabled: true} %>
+    <%# texto_numero _("Importe"), 'presupuesto',  "agente_imputado_por[]","1_2", {:select_tag => true, :disabled => false, :value => @agente_importe }  %>
+  </div>
+
+ <div class="fila">
+    <%# params[:detallado] = @proyectos_imputados.empty? ? "no" : "si" %>
+    <%# render :partial => "imputacion_detalle" %>
+  </div> -->
+	  <div class="fila">
+	    
+    
+      <% params[:detallado] = (@presupuesto.id.nil? || (@proyectos.size <= 1 && @presupuesto.comprobar_proyectos)) ? "no" : "si" %>
+      <%= render :partial => "proyectos_detalle" %>
+    
+      <%# render :partial => "proeyctos" %>
+    
+	    
+	  </div>
+	  <div class="fila">&nbsp;</div>
+		
+		
+  <div class="fila"> <div class="fila"> </div>
+<%= formulario_final %>

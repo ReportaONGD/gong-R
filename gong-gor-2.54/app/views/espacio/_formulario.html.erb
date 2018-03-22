@@ -1,0 +1,14 @@
+<%= comienzo_formulario( { action: 'modificar_crear', id: @espacio }, false ) %>
+
+<%= texto _("Nombre"), 'espacio', 'nombre', "1" %>
+<%= texto _("Descripción"), 'espacio', 'descripcion', "3" %>
+<%= hidden_field( 'espacio', 'definicion_espacio_' + params[:tipo], value: true) unless params[:tipo] == "general" %>
+
+<%= checkbox(_("Ocultar (si no se tienen permisos especificos)."), 'espacio', 'ocultar', "2", {:izquierda => true, :checked => (@espacio and @espacio.ocultar) ? true : false, :abajo => true}) %>
+
+<% puede_contratos = params[:tipo] == "proyecto" || params[:tipo] == "agente" %>
+<%= checkbox _("Contratos"), 'espacio', 'espacio_contratos', "1_2", {abajo: true, izquierda: true, checked: @espacio.espacio_contratos } if puede_contratos %>
+
+<%= hidden_field 'espacio', 'espacio_padre_id', :value => @espacio_padre_id %>
+
+<%= final_formulario %>

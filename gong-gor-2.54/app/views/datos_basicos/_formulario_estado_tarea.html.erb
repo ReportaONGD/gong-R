@@ -1,0 +1,11 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<div class="fila">
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "1" %>
+<%= texto _("Descripción"), 'dato_basico', 'descripcion', "3" %>
+</div><div class="fila">
+<%= checkbox _("Activo"), 'dato_basico', 'activo', "1_2", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.activo : false) } %>
+<%= checkbox _("Seleccionable por usuario asignado"), 'dato_basico', 'seleccionable', "1", {:izquierda => true, :checked => (@dato_basico ? @dato_basico.seleccionable : true) } %>
+</div>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<div class="fila"></div>
+<%= final_formulario %>

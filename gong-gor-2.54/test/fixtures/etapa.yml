@@ -1,0 +1,8 @@
+primera:
+  nombre: MyString
+  fecha_inicio: 2010-02-16
+  fecha_fin: 2010-12-16
+  descripcion: MyString
+  proyecto_id: 1
+  financiacion_id: 1
+  agente_id: 1

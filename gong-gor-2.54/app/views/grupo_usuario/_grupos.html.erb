@@ -1,0 +1,20 @@
+<div id="<%= params[:update] %>_grupos">
+  <%= comienzo_sublistado _("Grupos"), params[:update] + "_grupos" %>
+    <div class="fila">
+      <%= modal icono("anadir"), {:controller => 'grupo_usuario', :action => 'asignar_grupo', :update =>  params[:update], :id => params[:id], :objeto => params[:objeto] }, _("Asignar grupo a %{objeto}") % {:objeto => h(@objeto.nombre)}, {:id => params[:update] + "_grupo_anadir" } %>
+    </div>
+  <% i = 0 %>
+  <% for grupo_x in @grupos_x %>
+    <div  id="<%= params[:update] %>_grupos_<%= (i += 1).to_s%>" class="fila" >
+    <%= fila_listado grupo_x, campos_listado("grupo_usuario_x"), params[:update] + "_grupo_" + i.to_s %>
+    <div class="elementoderecha">
+       <%= ventana_info_popup grupo_x, {:campos => campos_info("grupo_usuario_x"), :id => params[:update] + "_grupo_" + i.to_s + "_informacion" } %>
+       <%= modal icono( "editar" ),  {:controller => 'grupo_usuario', :action => 'asignar_grupo', :update => params[:update], :objeto => params[:objeto], :id => params[:id], :grupo_id => grupo_x.grupo_usuario_id}, _("Editar asignacion"), :id => (params[:update] + "_grupo_" + i.to_s + "_editar")  %>
+       <%= modal_borrado icono(( "borrar"), _('Eliminar asignacion')),  { :controller => 'grupo_usuario', :action => 'desasignar_grupo', :update =>  params[:update], :id => params[:id], :grupo_usuario_x_objeto_id => grupo_x.id, :objeto => params[:objeto]  } , _('Desasignar grupo'),  grupo_x.grupo_usuario.nombre,  :id => (params[:update] + "_grupo_" + i.to_s + "_borrar"), :ajax => true %>
+    </div>
+    <div class="linea"></div>
+    </div>
+  <% end %>
+  <%= final_sublistado %>
+  <br>
+</div>

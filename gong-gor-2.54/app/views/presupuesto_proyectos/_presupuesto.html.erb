@@ -1,0 +1,17 @@
+<% ppto_detallado_ok = presupuesto.comprobar_presupuesto_detallado %>
+<% marca_fila = ppto_detallado_ok ? (presupuesto.marcado ? presupuesto.marcado.color : '') : 'rojo' %>
+<div id="<%= update %>" class="fila <%= marca_fila %> " >
+  <%= fila_listado presupuesto, campos_listado( "presupuesto" ), update %>
+  <div class="elementoderecha">
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("La suma por actividades o financiadores no es correcta.")) unless presupuesto.comprobar_financiadores and presupuesto.comprobar_actividades %>
+    <%= icono( "alerta", _("¡Atención!.") + " " + _("No existe etapa asignada.")) unless presupuesto.etapa %>
+    <%= ventana_info_popup presupuesto, {:campos => campos_listado("presupuesto") + campos_info("presupuesto"), :id => update + "informacion" } %>
+    <% imagen, titulo = ppto_detallado_ok ? ["temporal", _("Editar detalle de presupuesto")] : ["alerta", _("¡Atención! El detalle del presupuesto no es correcto")] %>
+    <%= remote icono( "etiquetas", _("Marcar la línea de presupuesto.")), :url => {:update => update, :controller => "marcado" , :action => 'editar', :id => presupuesto, :tipo => "presupuesto" } %>
+    <%= remote icono("comentarios" + (presupuesto.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => presupuesto.id.to_s, :tipo => "Presupuesto" } %>
+    <%= remote icono( imagen, titulo), :url => {:update => update, :controller => "presupuesto_detallado" , :action => 'editar', :id => presupuesto, :partida_id => (partida ? partida.id : 0) } %> 
+    <%= editar( :url => { :action => 'editar_nuevo', :controller => 'presupuesto_proyectos', :id => presupuesto, :update => update, :partida_id => (partida ? partida.id : 0) })%>
+    <%= borrado( :url => { :action => 'eliminar', :controller => 'presupuesto_proyectos', :id => presupuesto, :partida_id => (partida ? partida.id : 0), :update => update}, :texto => presupuesto.concepto + " - " + presupuesto.importe.to_s , :identificador => update )%>
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div>
+</div>

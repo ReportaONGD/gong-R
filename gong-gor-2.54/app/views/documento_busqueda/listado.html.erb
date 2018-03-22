@@ -1,0 +1,47 @@
+
+<%= listado campos_listado( "documento" ), :anadir =>  false %>
+  <% for documento in @documentos %>
+    <div id= "<%= documento.id %>" class="fila">
+      <%= fila_listado documento, campos_listado( "documento" ), documento.id.to_s %>
+      <div class="elementoderecha">
+          <%= ventana_info_popup documento, {:campos => campos_listado("documento") + campos_info("documento"), :id => documento.id.to_s + "_informacion" } %>
+          <%= link_to_remote( icono("comentarios" + (documento.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => documento.id.to_s + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => documento.id.to_s, :tipo => "Documento"}, :loading => "Element.show('spinner_#{documento.id.to_s }')", :complete => "Element.hide('spinner_#{documento.id.to_s}')" )%>
+          <%= link_to icono( "descargar", _( "descargar" ) ), { :action => 'descargar', :controller => "documento", :id => documento}  %>
+          <% if documento.transferencia_x_documento.empty? && documento.gasto_x_documento.empty? && documento.fuente_verificacion_x_documento.empty? %>
+            <% url_editar = {:controller => :documento, :action => 'editar_nuevo', :id => documento, :update => documento.id, :update_listado => (update_listado ||= nil)} %>
+            <%= editar :url => url_editar %>
+          <% else %>
+            <div class="icono"></div>
+          <% end %>
+      </div>
+      <div id="spinner_<%= documento.id.to_s %>" class="spinner" style="display:none" ></div>
+      <div id="<%= documento.id.to_s + '_sub' %>" class="linea"></div>
+    </div>
+
+  <% end %>
+<%= final_listado %>
+
+
+<div id="pie_pagina" >
+  <div style="width: 1014px;">
+    <div id="caja_pie">
+        <%= paginacion(@documentos, session[:por_pagina]) %>
+        <% if @etiquetas %>
+          <br><%= _("Seleccione etiquetas para filtrar documentos: ") %>
+          <%= comienzo_formulario( {:action => "filtrado"}, false ) %>
+          <div id="filtros_etiquetas">
+            <% i = 1 %>
+            <% session[("filtro_etiquetas_" + params[:seccion]).to_sym].each do |etiqueta_id| %>
+              <%= render :partial => "elemento_filtrado", :locals => { :indice => i, :valor => etiqueta_id, :ultimo => (session[("filtro_etiquetas_" + params[:seccion]).to_sym].length == i) } %>
+              <% i += 1 %>
+            <% end if session[("filtro_etiquetas_" + params[:seccion]).to_sym] %>
+            <%= render(:partial => "elemento_filtrado", :locals => { :indice => i, :valor => 0, :ultimo => true }) if session[("filtro_etiquetas_" + params[:seccion]).to_sym].nil? || session[("filtro_etiquetas_" + params[:seccion]).to_sym].length == 0 %>
+          </div>
+          <div id="spinner_filtrado" class="spinner" style = "display:none;"></div>
+          <div class="elementoderecha1_2"><%= submit_tag(_("Filtrar"), :class => "boton1_2") %></div>
+          </form>
+        <% end %>
+      <div class="linea"></div>
+    </div>
+  </div>
+</div>

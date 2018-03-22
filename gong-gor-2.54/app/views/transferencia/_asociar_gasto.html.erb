@@ -1,0 +1,4 @@
+<%=  comienzo_formulario( {:controller => 'transferencia', :action => 'guardar_asociar_gasto', :transferencia_id => params[:transferencia_id], :update => params[:update] }, true ) %>
+<%= selector _('Gasto'), 'selector', 'gasto', @gastos, false , '2'  %>
+<%= final_formulario %>
+

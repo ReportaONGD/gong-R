@@ -1,0 +1,17 @@
+<%= comienzo_sublistado _("Monedas Locales"), params[:update] %>
+  <div class="fila">
+    <%= modal icono("anadir"), {:action => 'nuevo_moneda_x_pais', :update =>  params[:update], :pais_id => params[:pais_id]}, _("Definir Moneda Local"), {:id => params[:update] + "_moneda_anadir" } %>
+  </div>
+  <% i = 0 %>
+  <% for moneda in @monedas %>
+    <div  id="<%= params[:update] %>_moneda_<%= (i += 1).to_s%>" class="fila" >
+      <%= fila_listado moneda, campos_listado("moneda"), params[:update] + "_moneda_" + i.to_s %>
+      <div class="elementoderecha">
+        <%= modal_borrado(icono(( "borrar"), _('Eliminar moneda')),  { :action => 'eliminar_moneda_x_pais', :update =>  params[:update], :id => moneda.id, :pais_id => params[:pais_id] } , _('Eliminar moneda'), moneda.nombre,  :id => (params[:update] + "_moneda_" + i.to_s + "_borrar"), :ajax => true) %>
+      </div>
+      <div class="linea"></div>
+    </div>
+  <% end %>
+<%= final_sublistado %>
+
+<br/>

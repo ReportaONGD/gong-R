@@ -1,0 +1,22 @@
+  <div class="linea">
+    <%= etiqueta _("Descripción"), "3_2" %>
+    <%= etiqueta _("Fecha de Inicio"), "3_4" %>
+    <%= etiqueta _("Fecha de Fin"), "3_4" %>
+    <%= etiqueta _("Importe parcial"), "1_2" %>
+  </div>
+
+  <div class="linea">
+    <% linea =  1 %>
+    <% periodos = @contrato.periodo_contrato %>
+    <% unless periodos.blank? %>
+      <% for @periodo in periodos %>
+        <%= render partial: "periodo", locals: {linea: linea, ultima: periodos.last == @periodo ? true : false} %>
+        <% linea += 1 %>
+      <% end %>
+    <% else %>
+      <%= render partial: "periodo", locals: {linea: linea, ultima: true} %>
+    <% end %>
+  </div>
+  <br>
+  <div class="linea"></div>
+

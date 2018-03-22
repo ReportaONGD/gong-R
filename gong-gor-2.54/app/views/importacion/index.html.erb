@@ -1,0 +1,96 @@
+<%= mensaje _("Importación realizada correctamente")  if @import_error && @import_error == "" %>
+<%= mensaje_error _("La hoja de cálculo no fué importada. Corrija los errores y vuelva a ejecutar el proceso.") + "<br><br>" + @import_error if @import_error && @import_error != "" %>
+
+<br>
+<fieldset>
+<div class="legend"><%= _("Seleccionar fichero y tipo para importación") %></div>
+<%=  comienzo_formulario( { :action => 'anadir_importacion' }, false ) %>
+<%= selector(_("Tipo importación"), "selector", "tipo", @opciones, false, "1") %>
+<% if params[:seccion] == "proyectos" %>
+    <%= observe_field( "selector_tipo" , :function => '
+
+  selector = document.getElementById("selector_tipo");
+  switch ( selector.options[selector.selectedIndex].value ) {
+    // Importacion de Matriz
+    case "matriz":
+      Element.hide("linea_carga_total");
+      break;
+    // Importacion de Partidas
+    case "partida":
+      Element.hide("linea_carga_total");
+      Element.hide("selector_etapa_id");
+      Element.hide("selector_agente_id");
+      break;
+    // Importacion de Movimientos 
+    case "transferencia":
+      Element.show("linea_carga_total");
+      Element.show("selector_etapa_id");
+      Element.hide("selector_agente_id");
+      Element.hide("importacion_orden_facturas");
+      break;
+    // Importacion de Presupuestos y Gastos
+    default:
+      Element.show("linea_carga_total");
+      Element.show("selector_etapa_id");
+      Element.show("selector_agente_id");
+      Element.show("importacion_orden_facturas");
+  }
+
+    ' ) %>
+<% else %>
+    <%= observe_field( "selector_tipo" , :function => '
+
+  selector = document.getElementById("selector_tipo");
+  if( selector.options[selector.selectedIndex].value == "presupuesto" ) {
+    Element.hide("opciones_total_proyecto");
+  } else {
+    Element.show("opciones_total_proyecto");
+  }
+
+    ' ) %>
+<% end %>
+<%= _("Selecciona el fichero a importar:") %> <br />
+<%= file_field :selector, :fichero, {:style => "height: 23px; font-size:14px; width: 300px;" }%>
+
+<!-- Selector de importacion de gastos por numero de orden de facturas -->
+<div id="importacion_orden_facturas" style="<%= (params[:selector] && params[:selector][:tipo] == 'transferencia') ? 'display:none;' : '' %>">
+  <% if params[:seccion] == "proyectos" && params[:menu] == "ejecucion_economica" %>
+    <%= checkbox _("Usar número de orden de factura"), 'selector', 'id_gasto', "3_2", {:checked => false, :izquierda => true } %>
+        <%= observe_field( "selector_id_gasto" , :function => '
+
+  selector = document.getElementById("selector_id_gasto");
+  if( selector.checked ) {
+    Element.show("advertencia_id_gasto_borradofondo");
+    Element.show("advertencia_id_gasto_borrado");
+  }
+
+    ' ) %>
+    <%= mensaje_advertencia :identificador => "advertencia_id_gasto", :texto => _("Seleccionando esta opción se importarán los gastos usando como identificador de cada uno el número de orden de factura en lugar de los identificadores internos de GONG.") + "<br><br>" + _("No se importará ningún gasto que no disponga de número de orden.") %>
+  <% end %>
+</div>
+
+<!-- Carga total -->
+<div class="linea" id="linea_carga_total" style="<%= 'display:none;' if params[:seccion] == 'proyectos' && params[:menu] != 'ejecucion_economica' %>">
+  <%= checkbox _("Carga Total"), 'selector', 'total', "1", {:checked => false, :izquierda => true } %>
+    <%= observe_field( "selector_total" , :function => 'if( document.getElementById("selector_total").checked ){ Element.show("advertencia_carga_total_borradofondo"); Element.show("advertencia_carga_total_borrado");Element.show("opciones_total"); } else { Element.hide("opciones_total"); }' ) %>
+  <div id="opciones_total" style="display:none">
+  <% unless params[:seccion] == "proyectos" && params[:menu] == 'configuracion' %>
+    <% if params[:seccion] == "proyectos" %>
+      <%= selector _('Agente Implementador'), 'agente', 'id', @agentes, false, "2" %>
+    <% else %>
+      <div id="opciones_total_proyecto" style="display:none">
+        <%= selector _("Proyecto"), 'proyecto', 'id', @proyectos, false, "3_2"  %>
+      </div>
+    <% end %>
+    <div id="opciones_total_etapa">
+      <%= selector( _('Etapa a Importar'), 'etapa', 'id', @etapas, false, "3_2" ) %>
+    </div>
+  <% end %>
+  </div>
+</div>
+<%= javascript_tag 'Element.show("linea_carga_total");' if params[:seccion] != "proyectos" %>
+<%= mensaje_advertencia :identificador => "advertencia_carga_total", :texto => _("La 'Carga Total' provocará el borrado de todas las líneas ya existentes en el proyecto, etapa y agente seleccionados, sustituyéndose por los de la hoja importada.") %>
+
+<%= final_formulario :texto_alternatif => _("Importar"), :confirmar => _("Los cambios producidos en la importación no son reversibles.") + "<br/><br/>" + _("¿Está seguro de querer hacer esto?") %>
+</fieldset>
+

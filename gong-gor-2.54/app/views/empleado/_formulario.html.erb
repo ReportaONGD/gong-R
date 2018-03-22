@@ -1,0 +1,6 @@
+<%= form_tag( {:action => 'modificar_crear', :id => @empleado},  :multipart => true   ) %>
+
+<%= texto _("Nombre"), 'empleado', 'nombre', "1"  %>
+<%= checkbox _("Activo"), 'empleado', 'activo', "1", {:izquierda => true, :abajo =>true, :checked => (@empleado && @empleado.activo) || (@empleado.activo.nil?) } %>
+<%= final_formulario %>
+

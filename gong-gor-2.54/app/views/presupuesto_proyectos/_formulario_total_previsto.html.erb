@@ -1,0 +1,4 @@
+<%=  formulario_comienzo :url => { :action => 'modificar_crear_total_previsto', :update => params[:update] } %>
+  <%= texto_numero( _("Importe total previsto"), 'proyecto', 'importe_previsto_total_convertido', "1" ) %>
+  <%= texto_numero( _("Subvención %{agente} prevista")%{ :agente => @proyecto.agente.nombre }, 'proyecto', 'importe_previsto_subvencion_convertido', "3_2" ) %>
+<%= formulario_final %>

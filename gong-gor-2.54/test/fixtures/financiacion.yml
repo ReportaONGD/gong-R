@@ -1,0 +1,6 @@
+primera:
+  nombre: MyString
+  titulo: MyText
+  financiador_id: 1
+  solicitante_id: 1
+  moneda_id: 1

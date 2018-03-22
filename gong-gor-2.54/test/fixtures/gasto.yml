@@ -1,0 +1,13 @@
+primera:
+  importe: 33
+  impuestos: 33
+  presupuesto_id: 1
+  partida_id: 1
+  moneda_id: 1
+  libro_id: 1
+  observaciones: MyString
+  numero_factura: MyString
+  emisor_factura: MyString
+  fecha: 2010-08-16
+  concepto: MyString
+  dni_emisor: MyString

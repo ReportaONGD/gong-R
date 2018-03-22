@@ -1,0 +1,8 @@
+<div id="<%= update %>" class="fila <%= @subcuenta.elemento_contable_id.nil? ? 'rojo': '' %>" >
+  <%= fila_listado @subcuenta, campos_listado("subcuenta_contable"), update %>
+  <div class="elementoderecha">
+    <%= ventana_info_popup @subcuenta, {:campos => campos_listado("subcuenta_contable") + campos_info("subcuenta_contable"), :id => update + "_informacion" } %>
+    <%= editar( :url => { :action => 'editar_nuevo', :id => @subcuenta, :update => update }) %> 
+    <%= borrado( :url => { :action => 'eliminar', :id => @subcuenta, :update => update },  :texto => (@subcuenta.codigo), :identificador => update )  %>     
+  </div>
+</div>

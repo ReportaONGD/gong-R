@@ -1,0 +1,22 @@
+
+<div class="contenedor_cajas">
+  <%= render :partial => "navegacion" %>
+
+  <div>
+    <%= render :partial => "proyecto_detalle_cajas" %>
+  </div>
+
+</div>
+
+<div class="fila">&nbsp;</div>
+
+<!-- Periodos del proyecto -->
+<% unless @periodos.blank? %>
+  <%= render partial: "periodos", locals: {periodos: @periodos["oficiales"], tipo: "oficiales"} unless @periodos["oficiales"].blank? %>
+  <%= render partial: "periodos", locals: {periodos: @periodos["internos"], tipo: "internos"} unless @periodos["internos"].blank? %>
+  <%= render partial: "periodos", locals: {periodos: @periodos["prorrogas"], tipo: "prorrogas"} unless @periodos["prorrogas"].blank? and !@proyecto.momento_peticion_prorroga %>
+<% end %>
+
+<!-- Tareas del proyecto -->
+<%= render :partial => "tareas" %>
+

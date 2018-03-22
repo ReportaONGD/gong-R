@@ -1,0 +1,16 @@
+<%= comienzo_formulario( {:action => 'modificar_dato_dinamico', :dato_id => params[:dato_id], :grupo_datos_id => params[:grupo_datos_id], :tipo => params[:tipo], :update => params[:update]}, true ) %>
+  <div class="fila">
+   <%= texto_area @dato_dinamico.definicion_dato.rotulo, "dato_dinamico", :dato, "editor_rico" %>
+  </div>
+  <div class="fila">
+    <br/>
+  </div>
+  <div class="fila">
+    <%= selector _("Copiar dato del proyecto"), 'selector', 'proyecto_externo', @usuario_identificado.proyecto.where(:convenio_id => nil).order("nombre").collect{|p| [p.nombre, p.id]}, true, "1"%>
+      <%= observe_field( "selector_proyecto_externo", :update => "contenido_dato_externo", :url => {:action => :dato_externo, :dato_id => params[:dato_id], :tipo => params[:tipo]},
+          :with => 'selector_proyecto_externo',
+          :loading => "Element.show('spinner'); Element.hide('botonguardar');", :complete => "Element.hide('spinner'); Element.show('botonguardar');Modalbox.resizeToContent();") %>
+    <div id="contenido_dato_externo" class="fila">
+    </div>
+  </div>
+<%= final_formulario %>

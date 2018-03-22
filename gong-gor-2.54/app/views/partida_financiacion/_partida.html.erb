@@ -1,0 +1,24 @@
+
+
+    <% update = 'partida_financiacion_' + partida_financiacion.id.to_s %>
+    <div id='<%= update %>' class="<%= cycle('fila', 'filaDos') %>">
+      <%= fila_listado partida_financiacion, campos_listado("partida_financiacion"), update %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup partida_financiacion, {:campos => campos_listado("partida_financiacion") + campos_info("partida_financiacion"), :id => update + "_informacion" } %>
+        <% if partida_financiacion.padre == false %>
+          <%= link_to_remote(icono("lista", _("Ver partidas asociadas")), :html => {:id => update + "_partidas_asociadas"}, :url => {:update => update + "_sub", :action => 'partidas_asociadas', :partida_financiacion_id => partida_financiacion.id.to_s, :objeto_id => params[:objeto_id]}, :loading => "Element.show('spinner_#{update}')", :complete => "Element.hide('spinner_#{update}')" )   %>
+        <% else %>
+          <div class="icono"></div>
+        <% end %>
+        <%= editar( :url => { :action => 'editar_nuevo', :id => partida_financiacion.id, :update => update, :update_listado => sublistado, :objeto_id => params[:objeto_id] }) %>
+        <%= borrado( :url => { :action => 'eliminar', :id => partida_financiacion.id, :update => update },  :texto => _("Eliminar partida %{codigo} del financiador") % {:codigo => partida_financiacion.codigo}, :identificador => update )  %>
+      </div>
+      <div id="<%= update %>_sub" class="linea"></div>
+    </div>
+
+    <!-- Si tiene partidas hijas, las representa dentro de un div identado -->
+    <% partida_financiacion.partida_financiacion_hija.each do |partida_hija| %>
+      <div class="identado">
+        <%= render :partial => "partida", :locals => {:partida_financiacion => partida_hija, :sublistado => sublistado} %>
+      </div>
+    <% end %>

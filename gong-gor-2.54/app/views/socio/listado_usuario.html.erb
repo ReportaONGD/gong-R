@@ -1,0 +1,13 @@
+<%= cabecera_listado campos_listado "agente" %>
+<%= i = 0 %>
+<% for agente in @agentes %>
+<div id="agentes_<%= i += 1 %>" class=" <%= cycle('fila', 'filaDos') %>  ">
+    <%= fila_listado agente, campos_listado( "agente" ), "agentes_" + i.to_s %>
+    <div class="elementoderecha">
+       <%= link_to( icono( "seleccionar", _("seleccionar") ),  {:action => 'seleccionar', :id => agente}, :id => ("agentes_" + i.to_s + "_seleccionar") )   %>
+    </div>
+  <div class='linea'></div>
+</div>
+<% end %>
+<%= final_listado %>
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dato: 1
+  proyecto_id: 1
+  definicion_dato_id: 1
+
+two:
+  dato: 1
+  proyecto_id: 1
+  definicion_dato_id: 1

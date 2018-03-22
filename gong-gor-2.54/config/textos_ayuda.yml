@@ -1,0 +1,413 @@
+# La estructura es la siguiente:
+#
+#secciones:
+#  $nombre_seccion_1
+#    $nombre_controlador_1_1
+#      info:
+#      acciones:
+#        $nombre_accion_1_1_1
+#          rotulo:
+#          info: 
+#        $nombre_accion_1_1_2
+#    $nombre_controlador_1_2
+#      info:
+#      acciones:
+#        $nombre_accion_1_2_1
+#          rotulo:
+#          info:
+#  $nombre_seccion_2
+#    $nombre_controlador_2_1
+#      info:
+#      acciones:
+#        $nombre_accion_2_1_1
+#          rotulo:
+#          info:
+#    $nombre_controlador_2_2
+#...
+
+#secciones:
+#  $nombre_seccion_1
+#    $nombre_menu_1_1
+#      $nombre_controlador_1_1_1
+#        info:
+#        acciones:
+#          $nombre_accion_1_1_1_1
+#            rotulo:
+#            info: 
+#          $nombre_accion_1_1_1_2
+#      $nombre_controlador_1_1_1_2
+#        info:
+#        acciones:
+#          $nombre_accion_1_1_1_2_1
+#            rotulo:
+#            info:
+#  $nombre_seccion_2
+#    $nombre_controlador_2_1
+#      info:
+#      acciones:
+#        $nombre_accion_2_1_1
+#          rotulo:
+#          info:
+#    $nombre_controlador_2_2
+#...
+
+secciones:
+  inicio:
+    controladores:
+      info:
+        info: En esta página se muestran los <b>Proyectos activos</b>, así como las <b>Tareas</b> asignadas a su usuario.
+        url: http://www.gong.es/manuales/Navegacion_por_GONG_Entrada_al_sistema.pdf 
+      tarea:
+        info: Esta es la lista de <b>Tareas</b> que tiene asignadas.<br>Seleccione una ellas para ir al proyecto desde la que se ha generado.
+  informes_aecid:
+    info: Módulo de justificación AECID para Proyectos y Convenios 
+  documentos:
+    info: Gestión de todos los <b>Documentos</b> existentes en la plataforma.
+    url: http://gong.es/manuales/Gestion_documental_Gestion_documental_general.pdf
+    controladores:
+      documento:
+        info: Gestión por espacios.
+        url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      documento_busqueda:
+        info: Gestión por etiquetas.
+        url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+  administracion:
+    controladores:
+      agente:
+        info: Desde esta página puede crear, modificar y borrar los <b>Agentes</b> existentes en la aplicacion y asignarles los usuarios autorizados a su gestión.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Gestion_agentes.pdf 
+      libro:
+        info: Desde esta página puede dar de alta <b>Cuentas</b> y asignarles los usuarios autorizados a su gestión.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Gestion_cuentas.pdf 
+      programa_marco:
+        rotulo: Programas Marco
+        info: Desde esta página se gestionan las agrupaciones de proyectos.
+      proyecto:
+        info: Desde esta página puede dar de alta los <b>Proyectos</b> (o <b>Convenios</b> junto a sus <b>PACs</b>) y asignarles los usuarios autorizados a su gestión.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Crear_un_proyecto.pdf 
+      convocatoria:
+        info: Gestión de <b>Convocatorias</b> y proyectos vinculados a cada una.<br><br>
+      usuario:
+        rotulo: Gestión de Usuarios
+        info: Desde esta página puede gestionar los <b>Usuarios</b> existentes en el Sistema.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Crear_un_usuario.pdf 
+      grupo_usuario:
+        rotulo: Grupos de usuarios
+        info: >
+          Desde esta pagina puede crear, modificar y eliminar grupos de usuarios del sistema<br>
+          Los grupos dados de alta podrán configurarse como:<br><br>
+          <strong>Ocultar en proyectos:</strong> El grupo no aparece en los informes de proyecto.<br>
+          <strong>Asignar a proyectos:</strong> El grupo se asigna automáticamente con el rol indicado a todo proyecto recién creado.</br>
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Crear_un_usuario.pdf 
+      datos_basicos:
+        info: Desde esta página puede gestionar los <b>Datos Básicos</b> de Configuración del Sistema.
+        url: http://www.gong.es/manuales/Configurar_la_herramienta_para_nuestra_ONG_Entidades_basicas.pdf 
+      definicion_estado:
+        info: Desde esta página puede gestionar el flujo de trabajo a aplicar en los proyectos, así como los documentos necesarios para cambiar de estado y las tareas automáticas a generar para todos los miembros del proyecto.
+        url: http://www.gong.es/manuales/Configurar_la_herramienta_para_nuestra_ONG_Workflow.pdf
+      etiqueta:
+        info: Aquí puede gestionar las <b> Etiquetas</b> existentes en la aplicación y que podran utilizar los demás usuarios para clasificar los documentos y facilitar su posteriores búsqueda.
+        url: http://www.gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      espacio:
+        info: Desde esta página puede gestionar los espacios de documentación general así como los creación automática para Países, Financiadores, Delegaciones, Socias Locales y Proyectos
+        url: http://www.gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      documento:
+        info: Desde esta página puede definir <b>Plantillas de Exportación</b> de presupuesto y gasto accesibles desde cada uno de los proyectos.
+      backup:
+        info: Desde esta página se pueden realizar backups de la BBDD y de los documentos subidos al sistema.
+  cuadrodemando:
+    info: Cuadro de mando
+  socios:
+    controladores:
+      socio:
+        info: Desde este vista puede gestionar los <b>Socios</b> de us Organización.
+      pago_socio:
+        info: Desde esta página puede gestionar los <b>Pagos</b> realizados por cada socio de su Organización.
+      resumen_socio:
+        info: Desde esta página puede generar <b>Informes</b> resumidos sobre los Socios de su Organización. 
+      exportacion:
+        info: Desde esta página puede <b>Exportar</b> los datos a Hojas de cálculo.
+  agentes:
+    controladores:
+      agente:
+        info: >
+          Desde esta página puede acceder a la gestion financiera de los agentes que le han sido asignados.<br>
+          Seleccione un agente para acceder a su gestión financiera.
+        url: http://gong.es/manuales/Gestion_de_agente_Seguimiento_gasto_de_una_delegacion.pdf
+      datos_agente:
+        info: Desde esta página puede gestionar los datos relativos al agente. 
+        url: http://gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+        acciones:
+          etapas:
+            rotulo: <b>Etapas y Tasas de Cambio</b>
+            info: Gestión de <b>Etapas</b> y <b>Tasas de Cambio</b> definidas para el agente.
+            url: http://www.gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+          monedas:
+            rotulo: <b>Monedas de uso</b>
+            info: Gestión de las <b>Monedas</b> disponibles para la gestión económica del agente.
+            url: http://www.gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+      tarea:
+        info: Desde esta página puede gestionar las tareas relacionadas con el agente.
+      subpartida:
+        acciones:
+          listado:
+            rotulo: Subpartidas del Agente 
+            info: >
+              Gestión de <b>Subpartidas</b> definidas para el agente.<br><br>
+              Las subpartidas pueden ser generadas dinámicamente también desde la gestión de presupuestos.
+            url: http://gong.es/manuales/Gestion_de_agente_Elaborar_presupuesto_Delegacion.pdf
+      convocatoria:
+        acciones:
+          listado:
+            rotulo: Convocatorias de Financiadores
+            info: Gestión de <b>Convocatorias</b> y proyectos vinculados a cada una.<br><br>
+      proyecto:
+        acciones:
+          listado:
+            rotulo: Proyectos Gestionados
+            info: Gestión de <b>Proyectos Gestionados</b> por la delegación y usuarios asignados a cada uno.<br><br>
+            url: http://gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+      libro:
+        acciones:
+          listado:
+            rotulo: Cuentas y Cajas de la Delegación
+            info: Desde esta página puede dar de alta <b>Cuentas</b> y asignarles los usuarios autorizados a su gestión.
+            url: http://www.gong.es/manuales/La_administracion_de_GONG_Gestion_cuentas.pdf
+      proveedor:
+        acciones:
+          listado:
+            rotulo: Proveedores
+            info: Gestión de los <b>Proveedores</b> usados por la delegación.<br><br> 
+      presupuesto_agentes:
+        info: >
+          Desde esta página puede acceder a la gestion del presupuesto de gastos para el agente seleccionado.<br>
+          El presupuesto esta filtrado por defecto a la primera etapa, se puede elegir otra etapa en el formulario en fin de página.
+        url: http://www.gong.es/manuales/Gestion_de_agente_Elaborar_presupuesto_Delegacion.pdf
+      presupuesto_ingresos:
+        info: >
+          Desde esta página puede acceder a la gestion de los presupuestos de ingresos para el agente seleccionado.<br>
+          Es necesario seleccionar la etapa relativa al presupuesto a gestionar.
+      gasto_agentes:
+        info: >
+          Desde esta página puede acceder a la gestion del gasto para el agente seleccionado.<br>
+          Los gastos estan filtrados por defecto a la primera etapa, se puede elegir otra etapa en el formulario en fin de página.
+        url: http://www.gong.es/manuales/Gestion_de_agente_Seguimiento_gasto_de_una_delegacion.pdf
+      ingreso:
+        info: Desde esta página puede acceder a la gestión de ingresos para el agente seleccionado. 
+      transferencia:
+        info: >
+          Desde esta página puede acceder a las transferencias para agente seleccionado.<br><br>
+          La descripción de los tipos de transferencias existentes se puede consultar
+          <a href="https://www.gong.org.es/projects/gor/wiki/Tipologia_movimientos" target="_blank">aquí</a>.
+        url: http://www.gong.es/manuales/Gestion_de_agente_Movimientos_seguimiento_de_transferencias.pdf
+      exportacion:
+        info: Desde esta página puede exportar los datos de Presupuesto, Gasto o Transferencias del proyecto a una hoja de cálculo.
+        url: http://www.gong.es/manuales/El_trabajo_en_modo_desconectado_Importaciones_exportaciones_datos.pdf
+      importacion:
+        info: Desde esta página puede importar datos de Presupuesto, Gasto o Transferencias desde una hoja de cálculo.
+        rul: http://www.gong.es/manuales/El_trabajo_en_modo_desconectado_Importaciones_exportaciones_datos.pdf
+      documento:
+        info: Desde esta página puede gestionar los documentos vinculados con el agente.
+        url: http://www.gong.es/manuales/Gestion_documental_Paises_delegaciones_socias_financiadores.pdf
+      documento_busqueda:
+        acciones:
+          listado_gastos:
+            info: Desde esta página puede gestionar los documentos vinculados a gastos del agente
+            url: http://gong.es/manuales/Gestion_documental_Paises_delegaciones_socias_financiadores.pdf
+          listado_transferencias:
+            info: Desde esta página puede gestionar los documentos vinculados a movimientos (transferencias, subvenciones, intereses, ...) vinculados al agente
+            url: http://gong.es/manuales/Gestion_documental_Paises_delegaciones_socias_financiadores.pdf
+      resumen:
+        info: Desde esta página puede obtener vistas resumen para el agente.
+        acciones:
+          proveedor:
+            info: Vista resumen de gastos realizados por proveedores.
+      resumen_agente:
+        info: Desde esta página puede obtener vistas resumen para el agente.
+        acciones:
+          presupuesto:
+            info: Vista resumen del presupuesto
+          gasto:
+            info: Vista resumen de seguimiento de gastos
+          arqueo_caja:
+            info: Resumen de pagos y transferencias para una cuenta del agente.
+          transferencia:
+            info: Resumen de transferencias a terreno y gastos realizados.
+  proyectos:
+    controladores:
+      proyecto:
+        info: >
+          Desde esta página puede acceder a la gestion de los proyectos que le han sido asignados.<br>
+          Seleccione un proyecto para acceder a su gestión. 
+      info:
+        info: Información resumen del Proyecto.
+        url: http://gong.es/manuales/Navegacion_por_GONG_Navegacio_n_por_los_proyectos.pdf
+      estado:
+        info: >
+          Desde esta página puede gestionar el <b>Estado</b> de este proyecto.<br><br>
+          <b>NOTA:</b> <br>Tenga en cuenta que las opciones y menús que se ofrecen en cada proyecto dependen del estado de dicho proyecto.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Configurar_proyecto.pdf
+      tarea:
+        info: Tareas asignadas actualmente.<br>Desde esta página puede gestionar las tareas del proyecto seleccionado.
+      documento:
+        acciones:
+          listado:
+            info: Desde esta página puede realizar una gestión por espacios de los documentos del proyecto seleccionado.
+            url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      documento_busqueda:
+        acciones:
+          listado:
+            info: Desde esta página puede realizar una gestión por etiquetas de los documentos existentes en el proyecto seleccionado.
+            url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+          listado_gastos:
+            info: Desde esta página puede gestionar los documentos del proyecto vinculados a gastos.
+            url: http://gong.es/manuales/Gestion_documental_Gestion_documental_de_proyecto.pdf
+          listado_transferencias:
+            info: Desde esta página puede gestionar los documentos del proyecto vinculados a transferencias.
+            url: http://gong.es/manuales/Gestion_documental_Gestion_documental_de_proyecto.pdf
+      datos_proyecto_dinamicos:
+        info: Desde esta página puede gestionar los <b>Datos identificativos</b> o la <b>Información de Seguimiento</b> de este proyecto
+        url: http://gong.es/manuales/Formulando_un_proyecto_Datos_de_Identificacion.pdf
+      datos_proyecto:
+        info: Datos básicos del proyecto.
+        acciones:
+          relaciones:
+            rotulo: Relaciones
+            info: Aquí puede definir y mantener las relaciones de este proyecto con otras entidades de la aplicación
+            url: http://gong.es/manuales/Formulando_un_proyecto_Configurar_proyecto.pdf
+          etapas:
+            rotulo: Etapas y Tasas de Cambio
+            info: Aquí puede crear, modificar y borrar las <b>Etapas</b> de este proyecto, así como las <b>Tasas de Cambio</b> definidas en cada una.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Configurar_proyecto.pdf
+          proyecto_cofinanciador:
+            rotulo: Proyectos Cofinanciadores
+            info: Aquí puede añadir o eliminar otros proyectos que serán cofinanciadores del actual aportando gastos necesarios para la justificación.
+      personal:
+        info: Relación de Personal vinculado con el Proyecto.<br><br>Desde esta página se puede gestionar la <b>relación de personal</b> vinculado para justificar al financiador.
+      beneficiarios:
+        rotulo: Beneficiarios
+        info: Beneficiarios del proyecto y Titulares de derecho
+      matriz:
+        info: Matriz del Proyecto
+        acciones:
+          matriz:
+            rotulo: Matriz General del Proyecto
+            info: >
+              Matriz general del proyecto.<br>
+              Seleccionando un objetivo específico se accede a definición de Resultados y Actividades de este.<br><br>
+              En la parte inferior del listado es posible definir y gestionar las actividades globales no vinculadas a un resultado.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Matriz_Proyecto.pdf
+          subactividades:
+            info: Desde esta página puede gestionar las <b>subactividades</b> a realizar en el proyecto.
+          variables:
+            rotulo: Variables de Indicadores
+            info: Desde esta página puede hacer un seguimiento de las variables asociadas a los indicadores de Objetivos Específicos y Resultados.
+      cronograma:
+        info: Cronograma de Actividades y Subactividades del Proyecto.<br><br>Seleccione una etapa para visualizar su cronograma y pinche sobre un mes para activar o desactivarlo
+        url: http://gong.es/manuales/Formulando_un_proyecto_Cronograma_indicadores.pdf
+      indicador:
+        info: Definición y Seguimiento de los <b>indicadores</b> definidos en la matriz así como su desglose en variables de valor base y valor objetivo.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Cronograma_indicadores.pdf
+      actividad:
+        info: Desde esta página podrá gestionar el seguimiento de las <b>actividades</b> y <b>subactividades</b> definidas durante la formulación del proyecto.
+      fuente_verificacion:
+        info: >
+          Desde esta página podrá gestionar el seguimiento del cumplimiento de las <b>fuentes de verificación</b> definidas en la formulación del proyecto, 
+          asignando los documentos necesarios para su justificación.
+        url: http://gong.es/manuales/Ejecutando_un_proyecto_Seguimiento_fuentes_verificacion.pdf
+      presupuesto_proyectos:
+        info: >
+          Desde esta página puede acceder a la gestion del presupuesto por partidas para el proyecto seleccionado.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Presupuestar_Proyecto.pdf
+      presupuesto_actividad:
+        info: >
+          Desde esta página puede acceder a la gestion del presupuesto por actividades para el proyecto seleccionado.<br><br>
+          Al incluir una nueva línea de presupuesto para una actividad, deberá asignarla a un concepto ya creado o generar uno nuevo.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Presupuestar_Proyecto.pdf
+      gasto_proyectos:
+        acciones:
+          listado:
+            rotulo: Gestión de Gastos
+            info: >
+              Desde esta página puede acceder a la gestion del gasto para el proyecto seleccionado.<br><br>
+              Si desea añadir o modificar un gasto deberá filtrar en el formulario del fin de la página por la etapa en la cual estará incluido.
+            url: http://gong.es/manuales/Ejecutando_un_proyecto_Gestion_Gastos.pdf
+          listado_facturas:
+            rotulo: Numeración de Facturas
+            info: >
+              Desde esta página puede ver y revisar la numeración de facturas que el sistema aplica para facilitar su gestión.<br>
+              El listado por defecto esta ordenador por la numeración de la factura de la siguiente forma:<br>
+              Primero se agrupa por gastos gestionados desde delegación o proyectos <br> Luego se agrupan y ordenan opr el implementador.<br>
+              Y finalmente por el numero de la factura. <br>
+              Ademas, en los estados de reporte, desde esta página puede aplicar la numeración de las facturas para el financiador.<br><br>
+          listado_facturas_financiador:
+            rotulo: Numeración de Facturas Financiador
+            info: >
+              Desde esta página puede revisar y cambiar el número de orden de las facturas relacionadas con los gastos del proyecto.<br><br>
+              Seleccione el método de ordenación que tendrán las facturas correspondientes a los gastos ya incluidos en el sistema.
+          cofinanciables:
+            info: >
+              Desde esta página puede incluir o eliminar gastos generados en otros proyectos que se utilizarán en la justificación del actual.
+      transferencia:
+        rotulo: Transferencias
+        info: >
+          Desde esta página puede acceder a las transferencias para proyecto seleccionado.<br>
+          Las transferencias estan filtradas por defecto a la primera etapa, se puede elegir otra etapa en el formulario en fin de página.
+        url: http://gong.es/manuales/Ejecutando_un_proyecto-_Gestion_transferencias_movimientos.pdf
+      exportacion:
+        rotulo: Seguimiento ecónomico de la ejecución
+        info: >
+          Desde esta página puede exportar los datos de Partidas, Subpartidas, Matriz, Presupuesto, Gasto o Transferencias del proyecto<br>
+          a una hoja de cálculo.<br><br>
+          Para <i>Presupuesto</i> y <i>Gasto</i> se pueden usar las plantillas subidas en el apartado <i>Documentos</i><br>
+          y marcadas con las etiquetas <i>Plantilla Presupuesto</i> ó <i>Plantilla Gasto</i>, respectivamente.
+        url: http://gong.es/manuales/Ejecutando_un_proyecto_Seguimiento_economico_ejecucion.pdf
+      importacion:
+        info: Desde esta página puede importar desde una hoja de cálculo datos de Partidas, Subpartidas, Matriz, Presupuesto, Gasto y Transferencias.
+      resumen:
+        info: Resúmenes del estado del proyecto.
+        acciones:
+          proveedor:
+            info: Vista resumen de gastos realizados por proveedores.
+      resumen_proyecto:
+        info: Resúmenes del estado del proyecto.
+        acciones:
+          matriz:
+            info: Vista de la Matriz formulada y ejecutada.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Resumen_seguimiento_formulacion.pdf
+          presupuesto:
+            rotulo: Presupuesto del proyecto
+            info: Seleccione moneda, etapa, y tipo (por actividad o partida) para ver el resumen. 
+            url: http://gong.es/manuales/Formulando_un_proyecto_Presupuestar_Proyecto.pdf
+          gasto:
+            rotulo: Seguimiento del Gasto
+            info: >
+              Seleccione moneda, agente, fechas de inicio y fin, y tipo (por actividad o partida) y el tipo de detalle.<br><br>
+              NOTA: Si se ha elaborado el presupuesto incluyendo un detalle mensual puede utilizar dicho de detalle.<br>
+              En caso contrario elije 'sin detalle mensual'. 
+          arqueo_caja:
+            rotulo: Arqueo de Caja
+            info: En esta página puede ver un resumen de pagos y transferencias para una cuenta del proyecto o para la totalidad de cuentas de un implementador.
+          transferencia:
+            rotulo: Movimientos entre cuentas realizados.
+          estado_tesoreria:
+            rotulo: Estado de la Tesorería del Proyecto.
+            info: En los PACs recuerde ejecutar el cálculo de remanente si selecciona el resumen con remanentes en moneda del proyecto.
+          seguimiento_tecnico:
+            rotulo: Seguimiento técnico del Proyecto.
+      tasa_cambio:
+        info: >
+          Desde esta página puede acceder a la gestion de las tasas de cambio para el proyecto seleccionada.<br><br>
+          Para los cálculos automáticos de tasas de cambio de gastos, se utilizan todas las transferencias<br>
+          salientes en el periodo seleccionado desde cuentas de la moneda base del proyecto.
+      partida_financiacion:
+        info: >
+          Desde esta página puede gestionar las partidas asociadas a la financiación seleccionada.<br>
+          Primero cree la partida y despues edítela para completar sus relaciones con otras partidas:<br><br>
+          * Relacione la partida con las partidas generales del sistema si la partida no es de tipo 'madre'<br><br>
+          * Relacione la partida con otras partidas de la financiacion si la partida es de tipo 'madre'<br><br>
+          Una vez asociadas todas las partidas de la financiación, desde el submenú de <b>exportación</b> puede generar un fichero que le permita <b>importar</b> 
+          esta configuración en otros proyectos del mismo financiador.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Mapeo_partidas_financiador.pdf
+      subpartida:
+        info: Desde esta página puede gestionar las <b>Subpartidas</b> asociadas al proyecto.

@@ -1,0 +1,23 @@
+<!-- CRONOGRAMA -->
+
+<fieldset>
+  <div class="legend" align= "left"><%= _("Seleccione etapa para ver el cronograma") %></div>
+  <%= comienzo_formulario( {:action => "listado"}, false ) %>
+    <%= selector( _("Seleccione una etapa"), 'selector', 'etapa', @etapas, false, "1", {:selected => (@etapa ? @etapa.id : nil)} ) %>
+    <%= selector _('Mostrar en'), 'selector', 'salida', [ [_('Pantalla'),'pantalla'],[_('Hoja de Cálculo'), 'fichero']], false, '1' %> 
+    <div class="elementoderecha1_2"><%= submit_tag(_("Mostrar"), :class => "boton1_2") %></div>
+  </form>
+</fieldset>
+
+<% if @etapa && @actividades %>
+  <%= cronograma_inicio :etiqueta => _("Actividad"), :duracion => @etapa.periodos, :fecha_inicio => @etapa.fecha_inicio %>
+    <% @actividades.each do |actividad| %>
+      <!-- Linea de la actividad -->
+      <%= render :partial => 'actividad', :locals => {:etapa => @etapa, :actividad => actividad} %>
+      <!-- Listado de subactividades -->
+      <% actividad.subactividad.each do |subactividad| %>
+        <%= render :partial => 'subactividad', :locals => {:etapa => @etapa, :actividad => actividad, :subactividad => subactividad} %>
+      <% end %>
+    <% end %>
+  <%= cronograma_fin %>
+<% end %>

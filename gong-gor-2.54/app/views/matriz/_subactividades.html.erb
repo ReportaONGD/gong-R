@@ -1,0 +1,26 @@
+
+
+  <div id="<%= update %>">
+
+    <div id="<%= update %>_anadir"></div>
+
+    <% for subactividad in actividad.subactividad %>
+      <% update_sub = update + "_" + subactividad.id.to_s %>
+      <div id="<%= update_sub %>" class="fila" >
+        <%= fila_listado subactividad, campos_listado("subactividad"),  update_sub %>
+        <div class="elementoderecha">
+          <%= ventana_info_popup subactividad, {:campos => campos_listado("subactividad") + campos_info("subactividad"), :id => update_sub + "_informacion"} %>
+          <%= link_to_remote(icono("comentarios", _("Ver comentarios")),  :url => {:update => update_sub + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => subactividad.id.to_s, :tipo => "Subactividad"}, :html => {:id => update_sub + "_comentarios" }, :loading => "Element.show('spinner_#{ update_sub }')", :complete => "Element.hide('spinner_#{ update_sub }')"  )   %>
+          <%= editar :url => {:update_listado => update, :action => 'editar_nueva_subactividad', :id => subactividad.id, :actividad_id => actividad.id, :update => update_sub} %>
+          <%= borrado( :url => { :action => 'eliminar_subactividad', :update => update_sub, :id => subactividad.id, :actividad_id => actividad.id }, :texto => _("Subactividad ") + " '" + subactividad.descripcion + "' ",  :identificador => update_sub ) unless params[:menu] == "ejecucion_tecnica" %>
+        </div>
+        <div id="spinner_<%= update_sub %>" class="spinner" style="display:none" ></div>
+        <div id="<%= update_sub %>_sub" class="linea"></div>
+      </div>
+    <% end %>
+
+
+    <BR><BR><BR>
+  </div>
+
+

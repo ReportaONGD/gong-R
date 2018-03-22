@@ -1,0 +1,32 @@
+#!/usr/bin/env rake
+#require 'rake/dsl_definition'
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require File.expand_path('../config/application', __FILE__)
+
+# Incluimos las traducciones
+FastGettext.add_text_domain 'gor', :path => 'locale', :type => :mo
+FastGettext.locale = I18n.locale = (ENV['LANG'] || "pt") 
+FastGettext.default_text_domain = 'gor'
+
+
+Gor::Application.load_tasks
+
+desc "Create mo files"
+task :makemo do
+  puts "Use 'rake gettext:pack' instead."
+end
+
+desc "Update po files"
+task :updatepo do
+  puts "Use 'rake gettext:find' instead."
+end
+
+desc "Exporta partidas de la organizacion"
+task :exporta_partidas => :environment do
+  Partida.all.each do |p|
+    puts '  Partida.create :nombre => "' + p.nombre + '", :codigo => "' + p.codigo + '", :descripcion => "' + p.descripcion + '", :tipo => "' + p.tipo + '", :ocultar_agente => ' + (p.ocultar_agente ? 'true' : 'false')
+  end
+end
+

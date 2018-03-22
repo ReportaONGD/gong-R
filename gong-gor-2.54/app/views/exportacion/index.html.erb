@@ -1,0 +1,45 @@
+<!-- FORMULARIO DE SELECCION DE VOLCADO-->
+
+<%= mensaje_error @export_error if @export_error %>
+
+<fieldset>
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "index"}, :multipart => true, :class => "formulario" ) %>
+  <% if params[:seccion] == "socios" %>
+    <%= selector _('812 o excel'), 'selector', 'tipo', [["812","812"], ["excel","excel"]], true , '3_2'  %>
+    <%= ejercio_fecha _("Ejercicio"), "ejercicio", "2000" , false, {:start_year => 1980} %>
+  <%# if params[:seccion] == "proyectos" %>
+  <% else %>
+    <%= selector _('Exportar'), 'selector', 'tipo', @opciones, false, '3_2' %>
+    <% if params[:seccion] == "proyectos" %>
+        <%= observe_field( "selector_tipo" , :update => "plantillas", :url => {:action => :plantillas} , :with => "selector_tipo" , :loading =>               "Element.show('espera'); Element.hide('botonguardar'); ", :complete => "Element.hide('espera'); Element.show('botonguardar');") %>
+      <div id="plantillas">
+      </div>
+    <% end %>
+    <div class="linea"></div><br>
+    <div id="fechas"  style="display: none;">
+      <b>FECHAS :</b><br>
+      <%= mes_fecha _("Fecha inicio"), 'selector', 'fecha_inicio' %>
+      <%= mes_fecha _("Fecha fin") , 'selector', 'fecha_fin' %>
+    </div>
+
+    <!-- Selector de exportacion de gastos o transferencias cofinanciadas -->
+    <% if params[:seccion] == "proyectos" && params[:menu] == "ejecucion_economica" %>
+      <div id="exporta_cofinanciada" style="<%= (params[:selector] && params[:selector][:tipo] == 'transferencia') ? 'display:none;' : '' %>">
+      <%= checkbox _("Exportar cofinanciados"), 'selector', 'cofinanciados', "3_2", {:checked => false, :izquierda => true } %>
+        <%= observe_field( "selector_cofinanciados" , :function => '
+
+  selector = document.getElementById("selector_cofinanciados");
+  if( selector.checked ) {
+    Element.show("advertencia_cofinanciados_borradofondo");
+    Element.show("advertencia_cofinanciados_borrado");
+  }
+
+    ' ) %>
+      <%= mensaje_advertencia :identificador => "advertencia_cofinanciados", :texto => _("Seleccionando esta opción se exportarán todos los gastos o transferencias incluyendo las cofinanciadas (las efectuadas en otros proyectos y usadas en el presente para la justificación al financiador).") %>
+      </div>
+    <% end %>
+  <% end %>
+<div class="elementoderecha1_2"><%= submit_tag(_("Seleccionar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>

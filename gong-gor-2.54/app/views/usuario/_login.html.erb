@@ -1,0 +1,23 @@
+
+<h2><%= ENV['DEMO'] ? _('Prueba') : _('Accede a') %>&nbsp;<img src="/images/palabra_gong.png"/></h2>
+
+
+<fieldset id="login">
+  <div class="linea"><br/></div>
+  <div class="fila elemento1">
+    <%= form_tag( {:action => 'identificacion' , :controller => 'usuario'} )%>
+      <div class="elemento1"><input id="usuario_nombre" name="usuario[nombre]" size="30" type="d" placeholder="<%= _('Usuario') %>"></div>
+      <div class="elemento1"><input id="usuario_contrasena" name="usuario[contrasena]" size="30" type="password" placeholder="<%= _('Contraseña') %>"></div>
+      <% lang_selected = (FastGettext.locale||"es")[0..1] %>
+      <div class="elemento1"><select id="selector_idioma" name="selector[idioma]" size="1"  placeholder="Selección de idioma">
+        <% idiomas = [ ["es",_("Español")], ["pt", _("Portugués")], ["fr", _("Francés")], ["en", _("Inglés")] ] %>
+        <%# idiomas.push ["en", _("Inglés")] %>
+        <% idiomas.each do |idioma| %>
+          <option <%= "selected" if lang_selected == idioma[0] %> value="<%= idioma[0] %>"><%= idioma[1] %></option>
+        <% end %>
+      </select></div>
+      <div class="elemento1"><input class="boton_entrar" name="commit" type="submit" value="<%= _('Iniciar sesión') %>"></div>
+      <div class="elemento1"><p class="small"><%= ENV['GOR_VERSION'] %></p></div>
+    </form>
+  </div>
+</fieldset>

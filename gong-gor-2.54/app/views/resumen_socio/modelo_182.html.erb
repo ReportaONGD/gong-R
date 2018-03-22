@@ -1,0 +1,11 @@
+
+<fieldset id="criterios_modelo">
+  <div class="legend" align= "left"><%= _("Generación del modelo 182") %></div>
+  <%= form_tag( { :action => "modelo_182"}, :multipart => true, :class => "formulario" ) %>
+    <div id="div_selector_fecha">
+      <%= selector _('Seleccione Ejercicio'), '', 'ejercicio', (2000..2050).collect{|y| [_("Año") + " " + y.to_s, y]}, false, '3_4', {:selected => (@anno||Date.current.prev_year.year.to_s) } %>
+    </div>
+  <div class="elementoderecha"> <%= submit_tag(_("Generar"), :class => "boton1_2") %></div>
+  </form>
+</fieldset>
+

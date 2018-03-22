@@ -1,0 +1,69 @@
+<!-- Formulario para Movimientos -->
+
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @transferencia, :i => params[:i] } %>
+  <%= hidden_field 'transferencia', 'tipo' %>
+
+  <div class="filacabecera"><%= _(@transferencia.tipo.capitalize) %></div>
+
+  <% unless params[:seccion] == "proyectos" %>
+    <!-- Selector de proyectos para la seccion de agentes -->
+    <!-- Dejamos editar el proyecto si existe la cuenta origen y nos pertenece o no existe y la que nos pertenece es la destino -->
+    <% libro_origen = @transferencia.libro_origen %>
+    <% libro_destino = @transferencia.libro_destino %>
+    <% prj_enabled = (libro_origen.nil? || (@usuario_identificado.libro.include?(libro_origen) && @libros_origen[:libros].include?([libro_origen.nombre,libro_origen.id]))) && (libro_destino.nil? || @libros_destino[:libros].include?([libro_destino.nombre,libro_destino.id]) ) %>
+    <div class="fila">
+      <%= selector(_("Proyecto:"), 'transferencia', 'proyecto_id', [ [_("Sin Proyecto"), nil] ] + @proyectos, false, "3_4", {:disabled => !prj_enabled}) %>
+        <!-- Observamos cambios en el proyecto para actualizar financiadores y cuentas destino -->
+        <%= observe_field( "transferencia_proyecto_id", :url => {:action => :cambio_proyecto, :transferencia_id => @transferencia.id, :tipo => @transferencia.tipo} , :with => "proyecto_id", :loading => "Element.show('espera')", :complete => "Element.hide('espera')") if prj_enabled %>
+    </div>
+  <% end %>
+
+  <% unless @libros_origen.nil? %>
+    <%= render :partial => "linea_enviado", :locals => {:libros => @libros_origen[:libros], :rotulo_libro => @libros_origen[:rotulo]} %>
+  <% end %>
+
+  <% unless @libros_destino.nil? %>
+    <%= render :partial => "linea_recibido", :locals => {:libros => @libros_destino[:libros], :rotulo_libro => @libros_destino[:rotulo], :con_tc => !@libros_origen.nil? } %>
+  <% end %>
+
+  <!-- Observaciones -->
+  <div class="fila">
+    <div class='elemento3_4'>&nbsp;</div>
+    <%= texto _("Descripción/Observaciones"), 'transferencia', 'observaciones', "3" %>
+  </div>
+
+  <% if @transferencia.tipo == "retirada" %>
+    <!-- Numero de cheque para retirada -->
+    <div class="fila">
+      <div class='elemento3_4'>&nbsp;</div>
+      <%= texto( _("Cheque Num."), 'transferencia', 'numero_cheque', '3_4') %>
+    </div>
+  <% end %>
+
+  <% if @transferencia.tipo =~ /adelanto|devolucion|subvencion|reintegro/ %>
+    <!-- IBAN para adelanto, devolucion y subvencion -->
+    <div class="fila">
+      <div class='elemento3_4'>&nbsp;</div>
+      <%= texto( _("IBAN"), 'transferencia', 'iban', '3_4') %>
+    </div>
+  <% end %>
+
+  <!-- Subtipo de movimiento -->
+  <div class="fila">
+    <%= selector(_("Subtipo de Movimiento:"), 'transferencia', 'subtipo_movimiento_id', @subtipos, true, "3_4") %>
+  </div>
+
+  <% unless @transferencia.tipo == "transferencia" %>
+    <div class="fila" style="text-align:center;font-style:italic;">
+      <%= _("NOTA: Sólo se visualizarán las cuentas asignadas a su usuario") %>
+    </div>
+  <% end %>
+
+  <%= render :partial => "linea_financiadores" %>
+
+  <div class="fila">&nbsp;</div>
+
+  <%= render :partial => "cuentas_transferencia" %>
+	
+
+<%= formulario_final %>

@@ -1,0 +1,7 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @plugin, :i => params[:i] } %>
+  <div class="linea">
+    <%= checkbox _("Activado"), 'plugin', 'activo', "1", {:izquierda => true, :checked => @plugin.activo } if @plugin && @plugin.disponible %>
+    <%= _("No es posible activar un plugin que no esta disponible!") unless @plugin && @plugin.disponible %>
+  </div>
+<%= formulario_final %>

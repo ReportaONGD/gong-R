@@ -1,0 +1,19 @@
+<%= cabecera_listado(campos_listado("variable_indicador"), _("Nueva Variable"), {:action => 'editar_variable', :indicador_id => @indicador_id}, :id => "variable_anadir") if @permitir_formulacion %>
+<%= cabecera_listado(campos_listado("variable_indicador"), _("Nueva Variable")) unless @permitir_formulacion %>
+<% i=0 %>
+<% for variable in @variables %>
+  <div id="variable_<%= i+=1 %>" class="<%= cycle('fila','filaDos')%>">
+    <%= fila_listado variable, campos_listado("variable_indicador"), "variable_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup variable, {:campos => campos_listado("variable_indicador") + campos_info("variable_indicador"), :id => "variable_" + i.to_s + "_informacion"} %>
+      <%= link_to_remote(icono("lista", _("Ver valores medidos")),  :url => {:update => "variable_sub_"+ i.to_s, :action => 'valores_variable', :variable_id => variable.id.to_s}, :html => {:id =>"variable_" + i.to_s + "_valores"}, :loading => "Element.show('spinner_#{i.to_s }')", :complete => "Element.hide('spinner_#{i.to_s}')" ) %>
+      <%= modal( icono( "editar" ), {:action => 'editar_variable', :id => variable.id, :indicador_id => @indicador_id}, _("Editar Variable"), :id => ("variable_"+ i.to_s+"_editar_nuevo") ) if @permitir_formulacion %>
+      <%= modal_borrado(icono( "borrar", _( "eliminar" ) ), { :action => 'eliminar_variable', :id => variable.id, :indicador_id => @indicador_id }, _('Eliminar Variable: '), variable.nombre + ' - ' + variable.indicador.codigo_completo, :id => "variable_" + i.to_s + "_borrar") if @permitir_formulacion %>
+    </div>
+    <div id="spinner_<%= i.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="variable_sub_<%= i.to_s %>" class="linea"></div>
+  </div>
+<% end %>
+<%= final_listado %>
+
+<%= formulario_filtrado ({:action => :variables, :listado => :variables}, @estado_filtrado, @opciones_filtrado)  %>

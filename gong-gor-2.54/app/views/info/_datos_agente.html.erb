@@ -1,0 +1,30 @@
+<!-- Caja con informacion del Agente -->
+    <fieldset class="caja_info caja_gris<%= ' enlace' unless @agente %>" <%= ('onclick="window.location = \'' + agente_path(agente.id) + '\'"').html_safe unless @agente %> >
+      <div class="info_nombre" title="<%= agente.nombre %>"><%= truncate(agente.nombre,:length => 30) %></div>
+      <div class="info_contenido">
+        <div class="info_titulo_proyecto" title="<%= @agente.nombre_completo %>">
+          <%= agente.nombre_completo %>
+        </div>
+
+        <% proy_total = agente.proyecto_implementador.includes("definicion_estado").where("definicion_estado.cerrado" => false, "convenio_id" => nil).count %>
+        <% proy_aprob = agente.proyecto_implementador.includes("definicion_estado").where("definicion_estado.aprobado" => true, "definicion_estado.cerrado" => false, "convenio_id" => nil).count %>
+        <%=  caja_porcentaje :total => proy_total, :valor => proy_aprob,
+                 :titulo => _("Proyectos") + ":",
+                 :rotulo => _("%{num_aprob} proyectos aprobados y en ejecución de %{num_total} abiertos.")%{:num_aprob => proy_aprob, :num_total => proy_total} + "<br>" %> 
+
+        <% etapa = agente.etapa.where("fecha_fin >= '%s'", Date.today).order("fecha_fin").first || agente.etapa.last %>
+        <% if etapa %>
+          <% presupuestado = agente.presupuesto_etapa(etapa) %>
+          <% gastado = agente.gasto_etapa(etapa) %>
+          <%=  caja_porcentaje :total => presupuestado, :valor => gastado,
+                 :titulo => etapa.nombre + ":",
+                 :rotulo => "<b>" + etapa.nombre + "</b><br/><br/>" + _("Gasto realizado") + " " +
+                        _("sobre el total de lo presupuestado") + "<br/><br/>" +
+                        _("Gastado") + ":&nbsp;<b>" + celda_formateada(gastado) + " " + agente.moneda_principal.abreviatura + "</b><br/>" +
+                        _("Presupuestado") + ":&nbsp;<b>" + celda_formateada(presupuestado) + " " + agente.moneda_principal.abreviatura + "</b>"
+          %>
+        <% end %>
+
+        <div class="info_pie"><%= (@agente.pais ? @agente.pais.nombre : "?") + " / " + (@agente.moneda_principal ? @agente.moneda_principal.nombre : "?") %></div>
+      </div>
+    </fieldset>

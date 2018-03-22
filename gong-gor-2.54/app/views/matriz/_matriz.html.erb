@@ -1,0 +1,37 @@
+<fieldset id="objetivo_general">
+  <%= render :partial => "objetivo_general" %>
+</fieldset>
+<br><br>
+
+<div id="anadir_objetivo_especifico"> </div>
+
+<div class="filacabecerasinborde">
+  <%= _("Listado de Objetivos Específicos") %>
+  <div class="elementoderecha">
+    <%= anadir :url =>  {:action => 'editar_nuevo_objetivo_especifico', :update_listado => "matriz",  :update => "anadir_objetivo_especifico"} if params[:menu] == "formulacion" %>
+  </div>
+</div>
+
+  <% i = 0 %>
+  <% for @objetivo_especifico in @objetivos_especificos %>
+    <% fila = "matriz_" + (i+=1).to_s %>
+<fieldset id="<%= fila %>">
+    <%= render :partial => "objetivo_especifico", :locals => { :fila => fila} %>
+    <%= render :partial => "resultados", :locals => { :update_listado => fila + "_resultados"}%>
+</fieldset>
+<% end %>
+
+<% if params[:menu] == "formulacion" %>
+<fieldset>
+  <div id="matriz_0" class="filacabecerasinborde">
+    <div class="elemento1_4">&nbsp;</div><div class="elemento4"><%= _("Actividades Globales") %></div>
+    <div class="elementoderecha">
+      <%= link_to_remote(icono("actividades", _("Ver Actividades Generales")),  :url => {:update => "matriz_0_sub", :action => 'actividades'}, :html => {:id => "matriz_0_sub_actividades"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')"  )   %>
+    </div>
+  </div>
+  <div id="matriz_0_sub">
+    <% params[:update] = 'matriz_0_sub' %>
+    <%= render partial: 'actividades', locals: {update_listado: 'matriz_0_sub'} %>
+  </div>
+</fieldset>
+<% end %>

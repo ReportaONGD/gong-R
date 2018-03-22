@@ -1,0 +1,14 @@
+<% objeto = params[:objetivo_especifico_id] ? "objetivo_especifico" : "resultado" %>
+<%= formulario_comienzo( :url => { :action => 'crear_modificar_fuente_verificacion', :id => @fuente_verificacion.id } ) %>
+<div class="fila">
+  <%= texto _("Código"), 'fuente_verificacion', 'codigo', "1" %>
+  <%= selector _("Indicador'"), 'fuente_verificacion', 'indicador_id',  @indicadores , true, "1"  %>
+  <%= selector( _("FV de Convenio Relacionada"), 'fuente_verificacion', 'fuente_verificacion_convenio_id', @fv_convenio, true, "1") if @fv_convenio %>
+<div>
+<div class="fila">
+  <%= texto_area _("Descripción"), 'fuente_verificacion', 'descripcion', "3" %>
+  <input type="hidden" name="<%= objeto %>_id" value="<%= params[(objeto + "_id").to_sym] %>" >
+<div>
+<%= formulario_final %>
+
+

@@ -1,0 +1,16 @@
+<% ppto_detallado_ok = presupuesto.comprobar_presupuesto_detallado %>
+<% marca_fila = ppto_detallado_ok ? (presupuesto.marcado ? presupuesto.marcado.color : '') : 'rojo' %>
+<% tipo_elemento = (@partida && @partida.proyecto) ? "presupuesto_ingresos_funcionamiento" : "presupuesto_ingresos" %>
+<div id="<%= update %>" class="fila <%= marca_fila %> " >
+  <%= fila_listado presupuesto, campos_listado( tipo_elemento ), update %>
+  <div class="elementoderecha">
+    <%= ventana_info_popup presupuesto, {:campos => campos_listado(tipo_elemento) + campos_info(tipo_elemento), :id => update + "informacion" } %>
+    <% imagen, titulo = ppto_detallado_ok ? ["temporal", _("Editar detalle de presupuesto")] : ["alerta", _("¡Atención! El detalle del presupuesto no es correcto")] %>
+    <%= remote icono( "etiquetas", _("Marcar la línea de presupuesto.")), :url => {:update => update, :controller => "marcado" , :action => 'editar', :id => presupuesto, :tipo => "presupuesto_ingreso" } %>
+    <%= remote icono("comentarios" + (presupuesto.comentario.empty? ? "" : "_r"), _("Ver comentarios")), :url => {:update => update + "_sub", :controller => 'comentario', :action => 'comentarios', :objeto_id => presupuesto.id.to_s, :tipo => "PresupuestoIngreso" } %>
+    <%= remote icono( imagen, titulo), :url => {:update => update, :controller => "presupuesto_detallado" , :action => 'editar', :id => presupuesto, :partida_ingreso_id => @partida } %> 
+    <%= editar( :url => { :action => 'editar_nuevo', :controller => 'presupuesto_ingresos', :id => presupuesto, :update => update, :partida_id => @partida })%>
+    <%= borrado( :url => { :action => 'eliminar', :controller => 'presupuesto_ingresos', :id => presupuesto, :partida_id => @partida, :update => update}, :texto => presupuesto.concepto + " - " + presupuesto.importe.to_s , :identificador => update )%>
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div>
+</div>

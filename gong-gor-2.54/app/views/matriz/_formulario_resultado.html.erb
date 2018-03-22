@@ -1,0 +1,5 @@
+<%=  formulario_comienzo :url => { :action => 'modificar_crear_resultado', :id => @resultado, :objetivo_especifico_id =>  params[:objetivo_especifico_id] }  %>
+   <%= texto _("Código"), 'resultado', 'codigo', "1" %>
+   <%= texto_area _("Descripción"), 'resultado', 'descripcion', "4" %>
+<%= formulario_final %>
+

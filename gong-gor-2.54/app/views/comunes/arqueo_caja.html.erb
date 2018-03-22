@@ -1,0 +1,66 @@
+<!-- VISTA RESUMEN DE ARQUEO DE CAJA -->
+
+<!-- FORMULARIO DE SELECCION DE VOLCADO-->
+<!-- Si el resumen se va a ver sin layout introducimos etiquetas de estilo y havascript -->
+<% if params[:sin_layout] -%>
+<%= stylesheet_link_tag 'gor', :media => "all" %>
+<%= stylesheet_link_tag 'gor_menu', :media => "all" %>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'prototype' %>
+<%= javascript_include_tag 'scriptaculous' %>
+<div class="centroresumen">  
+<% end -%>
+
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccione los criterios para la vista resumen de Arqueo de Caja/Cuenta: ") %></div>
+<%= comienzo_formulario "arqueo_caja", nil %>
+  <%= selector _('Cuenta/Caja o Agente'), 'selector', 'tipo', [[_("Cuenta/Caja"),"cuenta"], [_("Agente Implementador"),"agente"]], false, '1', {:selected => params[:selector].nil? ? "1" : params[:selector][:tipo]} unless params[:seccion] == "agentes"%>
+    <%= observe_field( "selector_tipo" , :function => 'if( document.getElementById("selector_tipo").selectedIndex == 0 ){ Element.hide("opciones_agente"); Element.show("opciones_cuenta"); } else { Element.hide("opciones_cuenta"); Element.show("opciones_agente"); }' ) %>
+  <div id="opciones_cuenta" style="<%= params[:selector] && params[:selector][:tipo] == 'agente' ? 'display:none;' : '' %>">
+    <%= selector _('Cuenta/Caja'), 'selector', 'libro', @listado_libros, false , '1', {:selected => (params[:selector][:libro].to_i if params[:selector])}  %>
+  </div>
+  <% unless params[:seccion] == "agentes" %>
+  <div id="opciones_agente" style="<%= params[:selector] && params[:selector][:tipo] == 'agente' ? '' : 'display:none;' %>">
+    <%= selector _('Agente Implementador'), 'selector', 'agente', @listado_agentes, false , '1', {:selected => (params[:selector][:libro].to_i if params[:selector])}  %>
+    <%= selector _('Moneda'), 'selector', 'moneda', @listado_monedas, false , '1', {:selected => (params[:selector][:libro].to_i if params[:selector])}  %>
+  </div>
+  <% end %>
+  <%= selector _('Etapa'), 'selector', 'etapa', @listado_etapa, false, '1', {:selected => (params[:selector][:etapa].to_i if params[:selector])} unless @proyecto && @proyecto.convenio? %>
+  <%= selector _('PAC'), 'selector', 'pac', @listado_pac, false, '1', {:selected => (params[:selector][:pac].to_i if params[:selector])} if @proyecto && @proyecto.convenio? %>
+  <div class="linea">&nbsp;</div>
+  <%= checkbox _('Sacar el resultado a fichero '), 'selector', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+  <%= hidden_field "", "sin_layout", {:value => true} if  params[:sin_layout]%>
+<div class="elementoderecha1_2"><%= submit_tag(_("Mostrar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+<% @resumen.each do |resumen| %>
+  <% if resumen[:listado][:lineas] %>
+    <div class="fieldset">
+      <div class="legend" align= "left">
+        <% if @agente %>
+          <%= _("Implementador") + ": " + @agente.nombre %><br>
+        <% end %>
+        <%= _("Libro") %>:&nbsp;
+        <%= _("Todos los libros de %{agente} en %{moneda}") % {:agente => @agente.nombre, :moneda => @moneda.abreviatura} if @libro.nil? && @agente && @moneda %>
+        <%= @libro.nombre + ( @libro.cuenta.to_s == "" ? "" : " ( " + @libro.cuenta + " )" ) if @libro %>
+        <br/>
+        <%= _("Moneda") + ": " + @moneda.nombre if @moneda %><br />
+        <% if @proyecto && @proyecto.convenio? %>
+          <%= _("PAC") + ": " + (@pac ? @pac.nombre : _("Todos los PACs")) %><br />
+        <% else %>
+          <%= _("Etapa") + ": " + (@etapa ? @etapa.nombre : _("Todas las etapas")) %><br />
+        <% end %>
+        <div class = "linea"></div><br />
+      </div>
+      <br>
+
+      <%= dibuja_tabla resumen[:listado][:lineas] unless resumen[:listado][:resumen_error] %>
+      <%= mensaje_error resumen[:listado][:resumen_error] if resumen[:listado][:resumen_error] %>
+
+    </div>
+
+  <% end %> 
+<% end if @resumen %>
+
+<%= "</div>" if params[:sin_layout]%>

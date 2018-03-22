@@ -1,0 +1,56 @@
+<!-- FORMULARIO DE SELECCION DE VOLCADO-->
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "presupuesto"}, :multipart => true, :class => "formulario" ) %>
+
+    <%= selector _('Moneda'), '', 'moneda', @listado_moneda, false , '3_4', {:selected => params[:moneda].to_i}  %>
+    <%= selector _('Etapa'), '', 'etapa', @listado_etapas, false , '3_4', {:selected => params[:etapa].to_i}  %>
+    <%= checkbox _("Aplicar tasas de cambio"), '', 'tasa_cambio', "1", {:izquierda => true, :abajo => true}  %>
+  <%# checkbox _("Mostrar todo el detalle"), '', 'detallado', "1", {:izquierda => true, :abajo => true}  %>
+  <%= checkbox _("Mostrar partidas ocultas"), '', 'mostrar_partidas_ocultas', "1", {:izquierda => true, :abajo => true}  %>
+  <%= checkbox _("Sacar el resultado a fichero"), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+
+<div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+<!--
+<% if params[:moneda] and params[:detallado] == "0" %>
+<div class="fila"><%= mensaje "Haz click en las partidas para ver, a continuación, las subpartidas asociadas" %></div>
+    <%= resumen @tablas.first %>   <%# tabla_resumen @datos, @columnas, @filas, :fila_suma => true, :columna_resta => true %> 
+
+<div class='fila' id='spinner' style='display:none'></div>
+  <div id = "subpartida" class="fila">   </div>
+
+<% end %> --> 
+
+
+<% if params[:moneda] and params[:etapa] %>
+
+  <%= resumen @tablas.first, {:id_grafica => "grafica_presupuesto"} %> 
+
+  <div class="fieldset">
+    <div class="legend" align= "left">
+      <%=   @titulo_presupuesto_subpartida.inject("".html_safe){|sum, f| sum + f + "<br>".html_safe} %>
+      <div class = "linea"></div></br>
+    </div>
+    <br>
+    <%= dibuja_tabla @subpartidas %>
+  </div>
+  <div class="fieldset">
+    <div class="legend" align= "left">
+      <%=   @titulo_presupuesto_proyectos.inject("".html_safe){|sum, f| sum + f + "<br>".html_safe} %>
+      <div class = "linea"></div></br>
+    </div>
+    <br>
+    <%= dibuja_tabla @presupuesto_proyectos %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+<div id="nuevas_personas" style="display:none">
+  <%= cabecera_listado campos_listado("personal")%>
+  <div id="persona_nueva_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado de nuevo personal incluido (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("personal"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}  %>
+  <% i = 0 %>
+  <% for @persona in @personal %>
+   <% i += 1 %>
+   <%= render :partial => "persona", :locals => {:update => "persona_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

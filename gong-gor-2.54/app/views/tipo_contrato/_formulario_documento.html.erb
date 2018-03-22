@@ -1,0 +1,7 @@
+<!-- Formulario -->
+<%=  formulario_comienzo( url: { action: 'modificar_crear_documento', id: @tipo_contrato.id }) %>
+  <div class="linea">
+    <%= selector _('Documento'), 'documento', 'id', @documentos.collect{|d| [d.adjunto_file_name,d.id]}, false, '1', {obligatorio: true} %>
+  </div>
+  <div class="linea">&nbsp;</div>
+<%= formulario_final %>

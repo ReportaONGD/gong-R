@@ -1,0 +1,11 @@
+<%= _("Se ha creado el proyecto") %>:
+
+* <%= _("Nombre") %>: <%= @objeto.nombre %>
+* <%= _("Título") %>: <%= @objeto.titulo %>
+* <%= _("Convocatoria") %>: <%= @objeto.convocatoria ? @objeto.convocatoria.codigo : "N/A" %>
+* <%= _("URL") %>: <%= url_for(@url) %>
+* <%= _("Gestor de la subvención") %>: <%= @objeto && @objeto.gestor ? @objeto.gestor.nombre_completo : "N/A" %>
+* <%= _("Creador") %>: <%= @creador ? @creador.nombre_completo : "N/A" %>
+* <%= _("Fecha de creación") %>: <%= DateTime.now %>
+
+

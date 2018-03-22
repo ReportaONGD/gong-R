@@ -1,0 +1,2 @@
+<% imagen, titulo = objeto.comprobar_proyectos %>
+<%= modal icono( imagen),  {:update => params[:update], :action => 'proyectos', :id => objeto.id},  titulo, :id => params[:update] + '_proyectos' %>

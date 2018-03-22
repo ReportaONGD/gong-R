@@ -1,0 +1,9 @@
+    <p><%= _("El próximo día '%{dia}' se cumple el plazo de finalización de '%{nombre}'")%{dia: I18n.l(@tarea.fecha_fin), nombre: @tarea.titulo} %></p>
+    <p><ul>
+      <li><strong><%= _("Proyecto") %>: </strong><%= link_to(@texto_url, @url) %>.&nbsp;<%= @tarea.proyecto.titulo %></li>
+      <li><strong><%= _("Fecha de finalización de actividades") %>: </strong><%= I18n.l(@tarea.proyecto.fecha_fin_actividades) if @tarea.proyecto.fecha_fin_actividades %></li>
+      <li><strong><%= _("Fecha límite de justificación final") %>: </strong><%= I18n.l(@tarea.proyecto.fecha_fin_justificacion) if @tarea.proyecto.fecha_fin_justificacion %></li>
+      <li><strong><%= _("Porcentaje de ejecución presupuestaria") %>: </strong><%= @porcentaje_economico %></li>
+      <li><strong><%= _("Porcentaje de ejecución de actividades") %>: </strong><%= @porcentaje_actividad %></li>
+    </ul></p>
+

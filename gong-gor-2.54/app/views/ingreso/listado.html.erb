@@ -1,0 +1,19 @@
+
+<!-- Listado de ingresos -->
+
+<div id="nuevos_ingresos" style="display:none">
+  <%= cabecera_listado campos_listado("ingreso")%>
+    <div id="ingreso_nuevo_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado nuevos ingresos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("ingreso"), url: {action: 'editar_nuevo', update: 'formulario_anadir', i: 1}  %>
+  <% for @ingreso in @ingresos %>
+   <%= render partial: "ingreso", locals: {update: "ingreso_" + @ingreso.id.to_s } %>
+  <% end %>
+<%= final_listado %>
+

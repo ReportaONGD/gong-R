@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <gastos fecha_creacion="2010-06-14 2010T16:42:46">
+    <gasto libro_nombre="PROYECTO1-CUENTA-IEPALA" concepto="Nuevo concepto" fecha="2010-06-03" id="1" importe="40000.00" impuestos="" moneda_abreviatura="EUR" numero_factura="234534X" emisor_factura="Pepe S.A" observaciones="" partida_codigo="001">
+    <actividad codigo="R1A1" porcentaje="1.0000"/>
+    <financiador nombre="IEPALA" porcentaje="1.0000"/>
+    </gasto>
+    <gasto libro_nombre="PROYECTO1-CUENTA-IEPALA" concepto="Concepto 2" fecha="2010-06-03" id="2" importe="3000.00" impuestos="55.00" moneda_abreviatura="EUR" numero_factura="234534X" emisor_factura="Pepe S.A" observaciones="" partida_codigo="001" >
+    <actividad codigo="R1A2"  porcentaje="1.0000"/>
+    <financiador nombre="IEPALA" porcentaje="0.5000"/>
+    <financiador nombre="AECID" porcentaje="0.5000"/>
+    </gasto>
+    </gastos>

@@ -1,0 +1,7 @@
+<!-- Formulario Selector de Nuevo Proyecto/Convenio -->
+
+<%=  comienzo_formulario( { :action => 'editar_nuevo', :update => params[:update] }, !params[:update].nil? ) %>
+  <div style = "text-align:center;"><%= _("Añadir Nuevo Proyecto ó Nuevo Convenio") %><br/></div>
+  <%= selector( _("Proyecto o Convenio"), 'nuevo_tipo', 'proyecto', [ [_("Proyecto"), "proyecto"], [_("Convenio/Programa"), "convenio"] ], true, "3_4" ) %>
+    <%= observe_field( "nuevo_tipo_proyecto", :url => {:action => "editar_nuevo"} , :with => "nuevo_tipo" , :loading => "Element.show('espera')", :complete => "Element.hide('espera')") %>
+<%= formulario_final nil %>

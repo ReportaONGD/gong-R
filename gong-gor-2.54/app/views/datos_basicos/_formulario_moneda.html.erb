@@ -1,0 +1,5 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "3_2" %>
+<%= texto _("Abreviatura"), 'dato_basico', 'abreviatura', "1_2" %>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

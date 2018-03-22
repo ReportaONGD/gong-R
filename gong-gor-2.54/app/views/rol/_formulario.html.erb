@@ -1,0 +1,29 @@
+<!-- Formulario -->
+<%=  formulario_comienzo url: { action: 'modificar_crear', id: @rol, i: params[:i], copiar_desde_id: params[:copiar_desde_id] } %>
+  <% if @copiar_desde %>
+    <div class="fila" style="text-align:center;font-style:italic;">
+      <%= _("Copiar rol y permisos desde '%{nom}'")%{nom: @copiar_desde.nombre} %>
+    </div><div class="linea"><br></div>
+  <% end %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'rol', 'nombre', '1', obligatorio: true %>
+    <%= selector _("Sección"), 'rol', 'seccion', @secciones, false, "1", obligatorio: true, disabled: (@rol.id||@copiar_desde) %>
+    <%= texto _("Descripción"), 'rol', 'descripcion', '3' %>
+  </div>
+  <div class="linea">
+    <%= checkbox _("Privilegios especiales"), 'rol', 'admin', "3", {checked: @rol.admin, izquierda: true} %>
+      <%= observe_field( "rol_admin" , :function => '
+
+  selector = document.getElementById("rol_admin");
+  if( selector.checked ) {
+    Element.show("advertencia_permisos_borradofondo");
+    Element.show("advertencia_permisos_borrado");
+  }
+
+    ' ) %>
+
+  </div>
+  <div class="linea"><br><br></div>
+  <%= mensaje_advertencia :identificador => "advertencia_permisos",
+       :texto => _("Seleccionando esta opción se otorgarán al usuario privilegios especiales adicionales a los permisos asignados por menú.") %>
+<%= formulario_final %>

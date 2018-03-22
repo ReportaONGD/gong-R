@@ -1,0 +1,9 @@
+<% @plugin ||= plugin %>
+<div id="<%= update %>" class="fila" >
+    <%= fila_listado @plugin, campos_listado("plugin"), update %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup @plugin, {campos: campos_listado("plugin") + campos_info("plugin"), id: update + "_informacion" } %>
+        <%= editar( :url => { :action => 'editar_nuevo', :id => @plugin, :update => update }) %> 
+      </div>
+    <div id="spinner_<%= @plugin.id.to_s %>" class="spinner" style="display:none" ></div>
+</div>

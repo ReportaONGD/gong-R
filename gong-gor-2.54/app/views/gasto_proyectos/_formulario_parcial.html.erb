@@ -1,0 +1,43 @@
+<%= formulario_comienzo( :url => { :action => 'modificar_parcial', :id => @gasto, :cofinanciable => params[:cofinanciable] } ) %>
+  <% campos_editables = Gasto.campos_edicion_permitidos(@gasto) %>
+  <% proyecto_bloqueado = @proyecto.definicion_estado && @proyecto.definicion_estado.cerrado %>
+
+  <div class="fila" style="text-align:center;font-style:italic;">
+    <%= _("NOTA: Este gasto proviene de una cofinanciación.") + " " + _("Sólo se editan algunos datos.") if @gasto.proyecto_origen_id %>
+    <%= _("NOTA: Este gasto esta asignado a otros proyectos.") + " " + _("Sólo se editan algunos datos.") unless @gasto.proyecto_origen_id %>
+  </div>
+  <% if @gasto.proyecto_origen_id %>
+    <b><%= _("Gasto originado en el proyecto") %>:</b> <%= @gasto.proyecto_origen %><br/>
+    <b><%= _("Financiación en proyecto origen") %>:</b> <%= @gasto.importes_por_financiadores(@gasto.proyecto).join(", ") %><br/>
+  <% end %>
+  <b><%= _("Implementador") %>:</b> <%= @gasto.agente.nombre %><br>
+  <b><%= _("Fecha") %>:</b> <%= @gasto.fecha %><br>
+  <b><%= _("Importe") %>:</b> <%= @gasto_x_proyecto.importe %>&nbsp<%= @gasto.moneda.abreviatura %><br/>
+  <b><%= _("Concepto") %>:</b> <%= @gasto.concepto %><br>
+
+  <!-- Este codigo ya no es utilizado pues no se define nunca "partida_etitable" -->
+  <% if @partida_editable %>
+    <br/>
+    <%= selector _("Partida"), 'gasto', 'partida_id', @partidas, true ,"3_2", :obligatorio => true %>
+      <%= observe_field( "gasto_partida_id" , :update => "subpartida", :url => {:action => :subpartida} , :with => "id" , :loading =>               "Element.show('spinner'); Element.hide('botonguardar'); ", :complete => "Element.hide('spinner'); Element.show('botonguardar');") %>
+  <% else %>
+    <b><%= _("Partida") %>:</b> <%= @gasto.partida.codigo if @gasto.partida %> <%= @gasto.partida.nombre if @gasto.partida %><br/>
+    <br/>
+  <% end %>
+
+  <%= render partial: "subpartida", locals: {partida_id: @gasto ? @gasto.partida_id : nil, disabled: proyecto_bloqueado || !campos_editables.include?("subpartida_proyecto_id")} %>
+  <div class="linea"> <br/> </div>
+
+  <!--- Detalle de Actividades --->
+  <% params[:detallado] = (@gasto_x_proyecto.id.nil? || @actividades.size <= 1 || @gasto.todas_actividades?(@proyecto)) ? "no" : "si" %>
+  <% params[:disabled] = proyecto_bloqueado || !campos_editables.include?("actividades") %>
+  <%= render :partial => "comunes/actividades_detalle" %>
+
+  <!--- Detalle de Financiadores --->
+  <% params[:disabled] = proyecto_bloqueado || !campos_editables.include?("financiadores") %>
+  <div class="linea"> <div class="filacabecera"><%= _("Financiadores") %></div></div>
+  <div class="fila"><%= render :partial => "comunes/financiadores" %></div>
+
+  <div class="fila">&nbsp;</div>
+
+<%= formulario_final %>

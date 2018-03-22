@@ -1,0 +1,11 @@
+<%= comienzo_formulario( { :action => 'modificar_crear', :id => @dato_basico }, false ) %>
+<%= texto _("Nombre"), 'dato_basico', 'nombre', "3" %>
+<div class="elemento1_3"><br></div>
+<%= checkbox _("Presupuestable"), 'dato_basico', 'presupuestable', "2_3", {abajo: true, izquierda: true, checked: (@dato_basico ? @dato_basico.presupuestable : true)} %>
+<div class="elemento3"><br></div>
+<div class="elemento1_3"><br></div>
+<%= checkbox _("Rel.Proyectos"), 'dato_basico', 'proyecto', "2_3", {abajo: true, izquierda: true, checked: (@dato_basico ? @dato_basico.proyecto : true)} %>
+<div class="fila">&nbsp;</br>
+<%= texto _("Descripción"), 'dato_basico', 'descripcion', "4" %>
+<%= hidden_field_tag(:nombre_dato_basico, params[:nombre_dato_basico] ) %>
+<%= final_formulario %>

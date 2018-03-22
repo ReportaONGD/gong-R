@@ -1,0 +1,9 @@
+primera:
+  concepto: MyString
+  fecha_emision: 2010-08-16
+  fecha_pago: 2010-08-16
+  importe: 33
+  especie: false
+  comentario: MyText
+  fecha_alta_sistema: 2010-08-16
+  socio_id: 1

@@ -1,0 +1,169 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @gasto, :i => params[:i] } %>
+
+  <% campos_editables = Gasto.campos_edicion_permitidos(@gasto) %>
+  <% proyecto_bloqueado = @proyecto.definicion_estado && @proyecto.definicion_estado.cerrado if @proyecto %>
+
+  <div class="linea elementoderecha" style="<%= @gasto.id.nil? || @gasto.es_valorizado ? '' : 'display:none;' %>">
+    <%= checkbox _("Gasto Valorizado"), 'gasto', 'es_valorizado', '2_3', {checked: @gasto.es_valorizado, disabled: @gasto.id || !campos_editables.include?("moneda_id") } %>
+  </div>
+
+  <div class="linea">
+    <%= selector _("Partida"), 'gasto', 'partida_id', @partidas, true ,"3_2", :obligatorio => true, disabled: !campos_editables.include?("partida_id") %>
+    <% if params[:seccion] == "proyectos" %>
+      <%= observe_field "gasto_partida_id", update: "subpartida",
+                      url: {action: :subpartida} , with: "id",
+                      loading: "Element.show('spinner'); Element.hide('botonguardar'); ",
+                      complete: "Element.hide('spinner'); Element.show('botonguardar');" %>
+    <% elsif params[:seccion] == "agentes" %>
+      <%= observe_field "gasto_partida_id" ,
+                      url: {:action => :subpartida, :gasto_id => @gasto.id} , :with => "id" , 
+		      loading:"Element.show('spinner'); Element.hide('botonguardar'); ", 
+		      complete: "Element.hide('spinner'); Element.show('botonguardar');" %>
+    <% end %>
+    <% subpartida_bloqueada = !campos_editables.include?("subpartida_agente_id") if params[:seccion] == "agentes" %>
+    <% subpartida_bloqueada = proyecto_bloqueado || !campos_editables.include?("subpartida_proyecto_id") unless params[:seccion] == "agentes" %>
+    <%= render partial: "subpartida", locals: {partida_id: (@gasto ? @gasto.partida_id : nil), disabled: subpartida_bloqueada} %>
+
+    <%= calendario_fecha _("Fecha"), 'gasto', 'fecha', :valid_date_check => "fecha_inicio = new Date(" + @fecha_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @fecha_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;", :year_range => [ 1995, Time.now.year + 20 ], :class => "fecha", :obligatorio => true, disabled: !campos_editables.include?("fecha") %>
+    <div id="fecha_informe" style="<%= @gasto.fecha_informe ? '' : 'display:none;' %>" >
+          <%= calendario_fecha _("Fecha documento"), 'gasto', 'fecha_informe', :valid_date_check => "fecha_inicio = new Date(" + @fecha_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @fecha_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;", :year_range => [ 1995, Time.now.year + 20 ] , :class => "fecha", disabled: !campos_editables.include?("fecha_informe") %>    
+    </div>
+    <div class="elemento3_4" id="selector_fecha_informe" style="<%= @gasto.fecha_informe ? 'display:none;' : '' %>"><br>
+			<%= link_to_function(  _("Fecha documento"), nil) {|page| page.show 'fecha_informe'; page.hide 'selector_fecha_informe' }  %>
+			      <div class="mas_info_fecha">
+			        <a class="menu" href="#"><%= icono "informacion" %></a>
+			        <div class="pop_mas_info_fecha">
+			<%= _("Utilice fecha de documento solo en caso de que la fecha en la que se va a registrar el gasto no coincida con la fecha que viene en el documento (habitualmente una factura). Esto puede deberse a gastos que estén fuera de etapa y que quieran incluirse en una determinada etapa. Indique en este campo la fecha original del documento. Esta fecha no se utilizará en el sistema ni para los informes ni para aplicacion de tasas de cambio.") %>
+			        </div>
+			      </div>
+    </div>
+  </div>
+
+  <div class="linea">
+    <%= texto _("Concepto"), 'gasto', 'concepto', "5_2", :obligatorio => true, disabled: !campos_editables.include?("concepto")  %>
+
+    <div id="datos_factura" style="<%= @gasto.es_valorizado ? 'display:none;' : '' %>">
+      <%= texto _("Número factura"), 'gasto', 'numero_factura', '1', disabled: !campos_editables.include?("numero_factura") %>
+      <%= render :partial => "gasto_proyectos/proveedor_nombre", :locals => {obj_value: @gasto.proveedor_nombre, disabled: !campos_editables.include?("proveedor_id") } %>
+      <%= render :partial => "gasto_proyectos/proveedor_nif", :locals => {obj_value: @gasto.proveedor_nif, disabled: !campos_editables.include?("proveedor_id") } %>
+    </div>
+  </div>
+
+  <%# if !@gasto.id || (@gasto.pago.count == 1 && @gasto.importe == @gasto.pago.first.importe && @gasto.fecha == @gasto.pago.first.fecha) %>
+  <% if !@gasto.id
+       vinculado_al_pago = true 
+       @pago = @gasto.pago.first if @gasto.pago.count == 1
+     else
+       vinculado_al_pago = false 
+     end %>
+    
+
+
+  <div class="linea">
+    <%= texto_numero _("Importe"), 'gasto', 'importe_convertido',"2_3", :obligatorio => true, disabled: !campos_editables.include?("importe") %>
+    <div id="boton_pago_total">
+      <%= checkbox _("Gasto pagado"), 'pago', 'total', "1", {:checked => (!@gasto.id || @gasto.pago.count ==1), :izquierda => true, :abajo => true} if vinculado_al_pago %>
+    </div>
+    <% if vinculado_al_pago %>
+      <div id="gasto_con_pago" <%= @gasto.id && @pago.nil? ? "style=\"display:none;\"" : "" %> >
+        <div class="elemento1_3" id="moneda"> 
+        <%= _("Moneda") %><br>
+	<%= @pago.libro.moneda.abreviatura if @pago %>
+        </div>
+        <div id="pago_cuenta">
+          <%= selector _("Cuenta"), 'pago', 'libro_id', @libros.collect {|a|[a.nombre, a.id]}, true, "3_2", :obligatorio => true, disabled: !campos_editables.include?("pagos")%>
+            <%= observe_field( "pago_libro_id" , :update => "moneda", :url => {:action => :moneda_libro} , :with => "id" , :loading =>            "Element.show('spinner'); Element.hide('botonguardar'); ", :complete => "Element.hide('spinner'); Element.show('botonguardar');") %>
+            <%= observe_field( "pago_libro_id", :url => {:controller => :pago, :action => :cambia_libro}, :with => "id", :loading => "Element.show('spinner')", :complete => "Element.hide('spinner')") %>
+            <%= observe_field( "pago_libro_id", :update => "gasto_pais", :url => {:action => :cambia_pais}, :with => "pais_id", :loading => "Element.show('spinner')", :complete => "Element.hide('spinner')") unless @gasto.id %>
+        </div>
+      </div>
+    <% end %>
+
+    <div id="gasto_sin_pago" <%= (vinculado_al_pago && (!@pago.nil? || !@gasto.id)) ? 'style="display:none;"'.html_safe : '' %> >
+      <%= selector _("Moneda"), 'gasto', 'moneda_id', @monedas, true, "1_3", :obligatorio => true, disabled: !campos_editables.include?("moneda_id") %>
+      <% unless params[:seccion] == "agentes" %>
+        <%= selector _("Implementador"), 'gasto', 'agente_id', @implementadores, true ,"3_2", :obligatorio => true, disabled: !campos_editables.include?("agente_id") %>
+          <%= observe_field( "gasto_agente_id", :update => "gasto_pais", :url => {:action => :cambia_pais}, :with => "agente_id", :loading => "Element.show('spinner')", :complete => "Element.hide('spinner')") unless @gasto.id %>
+      <% else %>
+        <div class="elemento3_2">&nbsp;<br/>&nbsp</div>
+      <% end %>
+    </div> 
+
+    <%= render :partial => "gasto_proyectos/pais", :locals => {:pais_id => @gasto ? @gasto.pais_id : nil, disabled: !campos_editables.include?("pais_id")} %>
+    <%= texto_numero _("Impuestos"), 'gasto', 'impuestos_convertido', "1_2", disabled: !campos_editables.include?("impuestos")  %>
+  </div>
+
+  <%= observe_field( "pago_total" , :function => '
+  if( document.getElementById("pago_total").checked ){
+    Element.show("gasto_con_pago");
+    Element.show("opciones_forma_pago");
+    Element.hide("gasto_sin_pago");
+  } else {
+    Element.hide("gasto_con_pago");
+    Element.hide("opciones_forma_pago");
+    Element.show("gasto_sin_pago")
+  }
+' ) %>
+
+
+  <%= observe_field( "gasto_es_valorizado" , :function => '
+  if( document.getElementById("gasto_es_valorizado").checked ){
+    Element.hide("datos_factura");
+    Element.hide("gasto_con_pago");
+    Element.hide("opciones_forma_pago");
+    Element.hide("boton_pago_total");
+    $("pago_total").checked = false;
+    Element.show("gasto_sin_pago")
+  } else {
+    <!-- Element.show("datos_fectura"); -->
+    <!-- Element.show("boton_pago_total"); -->
+  }
+' ) %>
+
+
+  <div class="linea">
+    <%= texto _("Observaciones"), 'gasto', 'observaciones', "2", disabled: !campos_editables.include?("observaciones") %>
+    <%= texto _("Referencia Contable"), 'gasto', 'ref_contable', "1", disabled: !campos_editables.include?("ref_contable") %>
+    <% if vinculado_al_pago %>
+      <div id="opciones_forma_pago" style="<%= 'display:none;' unless vinculado_al_pago %>">
+        <div id="forma_pago" style="<%= 'display:none;' unless @pago && @pago.libro.tipo == "banco" %>">
+        <%= selector _("Forma de Pago"), 'pago', 'forma_pago', [_("Cheque"), _("Transferencia")], false, "1_2", { disabled: !campos_editables.include?("pagos") } %>
+        <%= texto _("Num.Cheque ó Cta.Destino"), 'pago', 'referencia_pago', "3_2", { disabled: !campos_editables.include?("pagos") } %>
+        </div>
+      </div>
+    <% end %>
+    <%= render :partial => "gasto_agentes/empleado", :locals => {:gasto => @gasto } if params["controller"] == "gasto_agentes" %>
+     <!-- <%# javascript_tag do %>
+        var e = document.getElementById("gasto_partida_id");
+        e.addEventListener("change", function() {
+          if ("<%=@partidas_empleado%>".includes(e.options[e.selectedIndex].value) ){
+            document.getElementById("gasto_empleado").style.display = 'inline';
+          } else {
+            document.getElementById("gasto_empleado").style.display = 'none';
+          }
+        });
+      <%# end %> -->
+  </div>
+
+  <div class="fila">
+    <% unless params[:seccion] == "agentes" %>
+      <!-- Detalle de Actividades -->
+      <% params[:disabled] = proyecto_bloqueado || !campos_editables.include?("actividades") %>
+      <% params[:detallado] = (@gasto.id.nil? || @actividades.empty? || @gasto.todas_actividades?(@proyecto)) ? "no" : "si" %>
+      <%= render :partial => "comunes/actividades_detalle" %>
+      <!-- Detalle de Financiadores -->
+      <% params[:disabled] = proyecto_bloqueado || !campos_editables.include?("financiadores") %>
+      <% params[:detallado] = (@gasto.id.nil? || @financiadores.empty? || (@financiadores.size == 1 && @gasto.comprobar_financiadores(@proyecto))) ? "no" : "si" %>
+      <%= render :partial => "comunes/financiadores_detalle" %>
+    <% else %>
+      <!-- Detalle de Proyectos -->
+      <% params[:disabled] = !campos_editables.include?("proyectos") %>
+      <!-- Detalle de Cuentas contables si algun plugin lo implementa -->
+      <%= render :partial => "gasto_agentes/proyectos" %>
+    <% end %>
+  </div>
+  <div class="fila">&nbsp;</div>
+  <%= render partial: "/gasto_proyectos/cuentas_gasto" %>
+
+<%= formulario_final %>

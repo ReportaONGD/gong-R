@@ -1,0 +1,10 @@
+<div id="<%= update %>" class="fila" >
+  <%= fila_listado @rol, campos_listado("rol"), update %>
+  <div class="elementoderecha">
+    <%= remote icono("lista", _("Permisos")), url: {update: update + '_sub', action: :listado_permisos, id: @rol.id}, html: {id: update + '_campos'} %>
+    <%= editar( url: { action: 'editar_nuevo', id: @rol, update: update }) %> 
+    <%= copiar( url: { action: 'editar_nuevo', copiar_desde_id: @rol, update: "formulario_anadir", i: 1 }) %>
+    <%= borrado( url: { action: 'eliminar', id: @rol, update: update }, texto: (@rol.nombre + " (" + @rol.nombre_seccion + ")"), identificador: update )  %>
+  </div>
+  <div id="<%= update %>_sub" class="linea"></div> 
+</div>

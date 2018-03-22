@@ -1,0 +1,30 @@
+<!-- Caja con opciones de Navegacion -->
+
+<% es_proyecto_y_convenio = @proyecto && @proyecto.convenio? %>
+<% es_proyecto_y_pac = @proyecto && @proyecto.convenio %>
+<% es_proyecto = @proyecto && !@proyecto.convenio && !@proyecto.convenio? %>
+
+<fieldset class="caja_info_alta caja_gris">
+  <div class="info_nombre"><%= _("Acciones Disponibles") %></div>
+  <div id="menu_navegacion" class="info_contenido_alta">
+  <% i=0 %>
+  <% menu_seccion.each do |controlador| %>
+    <% if !es_proyecto_y_convenio || controlador[:convenio] %>
+      <div id="elemento_menu_<%= (i+=1).to_s %>" class="filaDos menu_ruta_navegacion" >
+        <%= link_to controlador[:rotulo], controlador[:url], {:id => "elemento_menu_" + i.to_s + "_link", :title => controlador[:rotulo] + '<br/>', :class => "menu_texto help"} %>
+        <ul id="elemento_menu_<%= i.to_s %>_acciones" class="menu_ruta_navegacion_grupo">
+          <% j = 0 %>
+          <% controladores_menu( :menu => controlador[:url][:menu] ).each do |accion| %>
+            <% unless (es_proyecto_y_pac && accion[:pac] == false) || (es_proyecto_y_convenio && accion[:convenio] == false) || (es_proyecto && accion[:proyecto] == false) %>
+              <li id="elemento_menu_<%= i.to_s %>_acciones_<%= (j+=1).to_s %>" class="menu_ruta_navegacion_accion">
+                <%= link_to accion[:rotulo], accion[:url].merge(:menu => controlador[:url][:menu]), {:title => texto_ayuda(params[:seccion], accion[:url][:controller]).join("<br/>"), :class => "menu help"} %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</fieldset>
+

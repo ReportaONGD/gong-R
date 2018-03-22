@@ -1,0 +1,48 @@
+<!-- Si el resumen se va a ver sin layout introducimos etiquetas de estilo y havascript -->
+<% if params[:sin_layout] -%>
+<%= stylesheet_link_tag 'application', :media => "all" %>
+<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag '/javascripts/scriptaculous' %>
+<div class="centroresumen">  
+<% end -%>
+<!-- FORMULARIO DE SELECCION DE VOLCADO-->
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccione los criterios para la vista resumen del presupuesto: ") %></div>
+<%= comienzo_formulario "presupuesto", nil %>
+  <%= selector _('País'), 'selector', 'pais', @listado_pais, false, '2_3', {:selected => (params[:selector][:pais] if params[:selector])}  %>
+  <%= selector _('Moneda'), 'selector', 'moneda', @listado_moneda, false , '1', {:selected => (params[:selector][:moneda].to_i if params[:selector])}  %>
+  <%= selector _('Etapa'), 'selector', 'etapa', @listado_etapa, false , '1', {:selected => (params[:selector][:etapa].to_i if params[:selector])}  %>
+
+  <% titulo_res = @proyecto.convenio_accion == "resultado" ? _("Acciones") : _("Resultados") %>
+  <% titulo_oes = @proyecto.convenio_accion == "objetivo_especifico" ? _("Acciones") : _("Objetivos Específicos") %>
+  <%= selector _('Partida/Actividad'), 'selector', 'partida_actividad', [[_("Partidas"),"partida"], [_("Partidas del proyecto"),"partida_proyecto"], [_("Actividades"),"actividad"], [titulo_res,"resultado"], [titulo_oes, "oe"]], false , '1', {:selected => (params[:selector][:partida_actividad] if params[:selector])}  %>		
+
+  <%= selector _('Implementadores/Financiadores'), 'selector', 'financiador_implementador',
+                 [[_("Implementadores"),"implementador"], [_("Financiadores"),"financiador"], [_("Financiadores Agrupados"),"financiadores_agrupados"]],
+                 false , '1', {:selected => (params[:selector][:financiador_implementador] if params[:selector])}  %>		
+ <%= checkbox _("Aplicar tasas de cambio"), 'selector', 'tasa_cambio', "1", {:izquierda => true, :abajo => true}  %>
+  <%= checkbox _("Sacar el resultado a fichero "), 'selector', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+  <%= hidden_field "", "sin_layout", {:value => true} if  params[:sin_layout]%>
+<div class="elementoderecha1_2"><%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+<% if params[:selector] and params[:selector][:moneda] != '' and params[:selector][:partida_actividad] != '' and params[:selector][:etapa] != '' and params[:selector][:etapa] %>
+  <%= resumen @tablas.first, {:id_grafica => "grafica_gasto"}   %>
+  <% if params[:selector][:partida_actividad] =~ /partida|partida_proyecto/ %>
+    <div class="fieldset">
+    <div class="legend" align= "left">
+      <%=   @titulo.inject("".html_safe){|sum, f| sum + f + "<br>".html_safe} %>
+      <div class = "linea"></div></br>
+    </div>
+    <br>
+    <%= dibuja_tabla @subpartidas %>
+    </div>
+  <% end %>
+<% end %>
+<%= "</div>" if params[:sin_layout]%>
+
+
+
+
+

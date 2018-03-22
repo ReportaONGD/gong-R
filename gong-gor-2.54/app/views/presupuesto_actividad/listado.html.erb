@@ -1,0 +1,46 @@
+
+<div id="mensajes_modificacion"></div>
+<!-- Presupuesto por actividad -->
+<% for actividad in @proyecto.actividad.all(:order => "codigo") %>
+<fieldset>
+  <div class="filacabecerasinborde">
+  <%= fila_listado actividad, [["", "3", "codigo_nombre"] ],  "actividad_" + actividad.id.to_s %>
+  <div class="elementoderecha">
+    <%= ventana_popup actividad, {:campos => ["descripcion"], :id => "actividades_" + actividad.id.to_s + "_informacion"} %>
+    <%= remote(icono("lista", _("Ver o gestionar presupuestos de la actividad '%s'")%[actividad.codigo]),  :url => {:action => 'presupuesto_x_actividad', :id => actividad.id }) %>
+  </div>
+  </div>
+  <%=  render :partial => "presupuesto_proyectos/suma", :locals => {:objeto => actividad } %>
+  <div id="actividad_sub_<%= actividad.id %>"></div>
+</fieldset>
+<% end %>
+
+<!-- Incluye presupuestos sin actividad -->
+<% if Presupuesto.sin_actividad(@proyecto).size > 0 %>
+  <fieldset>
+    <div class="filacabecerasinborde" id="suma_partida_0">
+      <div id="presupuesto_sin_actividad" class="elemento3"><%= _("SIN ACTIVIDAD") %></div>
+      <div class="elementoderecha">
+        <%= remote(icono("lista", _("Ver o gestionar presupuestos sin actividad")),  :url => {:action => 'presupuesto_x_actividad' }) %>
+      </div>
+    </div>
+    <div class="filacabecerasinborde" id="suma_0">
+      <div class="elemento2"><%= _("Total líneas de presupuesto sin actividad") %>: <%= Presupuesto.sin_actividad(@proyecto).size %></div>
+    </div>
+    <div id="actividad_sub_0"></div>
+  </fieldset>
+<% end %>
+
+<!-- Presupuesto final de totales -->
+<fieldset>
+<div class="filacabecerasinborde" id="suma_total">
+  <div class="elemento2"><%= _("Total líneas de presupuesto") %>: <%= @proyecto.presupuesto.size %> </div>
+  <div class="elemento3_4"> &nbsp;</div>
+  <div class="elemento1_2_td"><%= _("TOTAL") %>:</div>
+  <%#total = Presupuesto.sum "importe * tasa_cambio", :include => ["tasa_cambio"], :conditions => {"presupuesto.proyecto_id" => @proyecto.id } %>
+  <% total = Presupuesto.joins(:tasa_cambio).where({"presupuesto.proyecto_id" => @proyecto.id }).sum "importe * tasa_cambio" %>
+  <div class="elemento2_3_td"><%=  number_with_delimiter(('%.2f' % total.to_s), :separator => ",", :delimiter => ".") %></div>
+  <div class="elemento1_5"><%= @proyecto.moneda_principal.abreviatura %> </div>
+</div>
+</fieldset>
+

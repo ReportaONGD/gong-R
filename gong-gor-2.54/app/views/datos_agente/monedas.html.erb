@@ -1,0 +1,14 @@
+<%= cabecera_listado campos_listado( "moneda" ), _( "Añadir moneda relacionada"), {:action => 'editar_nuevo_moneda'}, {:id => "moneda_anadir"}   %>
+
+<% i = 0 %>
+<% for moneda in @monedas %>
+<div id="moneda_<%= i += 1 %>" class="fila">
+    <%= fila_listado moneda, campos_listado( "moneda" ), "monedas_" + i.to_s %>
+    <div class="elementoderecha">
+       <%# modal( icono( "editar"), {:action => 'editar_nuevo_moneda', :id => moneda}, _( "Editar moneda"), :id => ("moneda_" + i.to_s + "_editar") ) %>
+       <%= modal_borrado icono("borrar", _("Eliminar moneda relacionada")), { :action => 'eliminar_moneda', :id => moneda.id }, _('Eliminar la moneda'), moneda.nombre, :id => ("moneda_" + i.to_s + "_borrar") %>   
+    </div>
+    <div class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>

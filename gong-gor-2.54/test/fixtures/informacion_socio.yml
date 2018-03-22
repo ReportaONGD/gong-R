@@ -1,0 +1,19 @@
+primera:
+  socio_id: 1
+  fecha_alta: 2010-08-16
+  fecha_baja: 2010-08-16
+  fecha_alta_sistema: 2010-08-16
+  importe_cuota: 33
+  calendario_pagos: MyString
+  motivo_baja: MyText
+  enviar_periodica: false
+  enviar_puntual: false
+  enviar_182: false
+  fecha_carta_bienvenida: 2010-08-16
+  fecha_envio_documentacion: 2010-08-16
+  fecha_envio_carne: 2010-08-16
+  origen_socio_id: 1
+  comentario_origen_socio: MyText
+  forma_pago_socio_id: 1
+  activo: false
+  tipo_cuota_socio_id: 1

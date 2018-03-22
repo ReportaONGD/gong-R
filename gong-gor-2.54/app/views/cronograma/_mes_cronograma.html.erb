@@ -1,0 +1,11 @@
+<div id="<%= update %>" class="elemento1_8 elemento_tabla elemento_centrado">
+  <% if seguimiento %>
+    <% elemento = '<div class="elemento_' + (ejecutado ? ( formulado ? 'resaltado_con_fondo' : 'resaltado_sin_fondo') : ( formulado ? 'activado' : 'desactivado')) + '"></div>' %>
+  <% else %>
+    <% elemento = '<div class="elemento_' + ( formulado ? 'activado' : 'desactivado') + '"></div>' %>
+  <% end %>
+
+  <%= link_to_remote( elemento.html_safe, :url => {:update => update, :action => 'modificar_mes_cronograma', :tipo => tipo, :objeto_id => objeto_id.to_s, :etapa_id => etapa_id.to_s, :mes => mes.to_s}, :loading => "Element.show('spinner_centrado')", :complete => "Element.hide('spinner_centrado')"  ) if clickable %>
+  <%= elemento.html_safe unless clickable %>
+</div>
+

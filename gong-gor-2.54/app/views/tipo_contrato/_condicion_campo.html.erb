@@ -1,0 +1,8 @@
+  <div id="condiciones_campo">
+    <%= selector _('Condición'), 'campo', 'tipo_condicion', @tipos_condiciones, false, '2_3' %>
+    <% if @campo.tipo_campo == "boolean" %>
+      <%= selector _("Valor condición"), 'campo', 'valor_condicion', [ [_("Sí"), "1"], [_("No"), "0"] ], true, '2_3' %>
+    <% else %>
+      <%= texto _('Valor condición'), 'campo', 'valor_condicion', '1' %>
+    <% end %>
+  </div>

@@ -1,0 +1,21 @@
+
+<% campos = [ [_("Proyecto"), "2", "nombre", false],
+              [_("Inicio aviso petición prorroga"), "1", "fecha_inicio_aviso_peticion_prorroga", false],
+              [_("Límite de petición de prorroga"), "1", "fecha_limite_peticion_prorroga", false] ]%>
+
+  <fieldset>
+    <div class="legend"> 
+      <%= _("Proyectos en fechas de posible petición de prorroga.") %>
+    </div>
+    <%= cabecera_listado campos %>
+    <% for proyecto in @proyectos_fechas_prorroga %>
+      <div id="periodo" class="fila">
+        <%= fila_listado proyecto, campos, "periodos" %>
+        <div class="elementoderecha">
+          <%= link_to( icono( "seleccionar", _("Ir a la gestión de periodos en el proyecto '%{nombre}'")%{nombre: proyecto.nombre}),
+                       url_for(:seccion => "proyectos", :proyecto_id => proyecto.id.to_s,  :controller => :datos_proyecto, :action => :etapas, :menu => :configuracion)) %>
+        </div>
+      </div> 
+    <% end -%>
+    <%= final_listado %>
+  </fieldset>	

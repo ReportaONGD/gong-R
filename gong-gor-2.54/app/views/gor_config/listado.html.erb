@@ -1,0 +1,6 @@
+<%= cabecera_listado campos_listado "gor_config" %>
+  <% for @parameter in @config %>
+    <%= render partial: "parameter" %>
+  <% end %>
+<%= final_listado %>
+

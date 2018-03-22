@@ -1,0 +1,29 @@
+<% 
+	total = (Presupuesto.where({"presupuesto.agente_id" => @agente.id }).where({"etapa_id" => session[:presupuesto_empleado_etapa] }).where("empleado_id is not null").sum "importe").to_f 
+	num_presupuestos = Presupuesto.where({"presupuesto.agente_id" => @agente.id }).where({"etapa_id" => session[:presupuesto_empleado_etapa] }).where("empleado_id is not null").count 
+	totales_imputados = PresupuestoXProyecto.joins(:presupuesto).where({"presupuesto.agente_id" => @agente.id, "presupuesto.etapa_id" => session[:presupuesto_empleado_etapa] }).where("presupuesto.empleado_id is not null") 
+	total_agente = (totales_imputados.where("presupuesto_x_proyecto.proyecto_id IS NULL").sum "importe").to_f
+	total_proyectos = (totales_imputados.where("presupuesto_x_proyecto.proyecto_id IS NOT NULL").sum "importe").to_f
+%>
+<fieldset id="<%= clase %>">
+	<div class="filacabecerasinborde"> TOTALES </div>
+	<div class="filacabecerasinborde %>" id="<%= clase %>_total">
+  <div class="elemento3_4"><%= _("Numero de presupuesto") %>: <%= num_presupuestos %></div>
+	<div class="elemento3_2">&nbsp;</div>
+  <div class="elemento3_4"><%= _("Total por empleado") %></div>
+  <div class="elemento1_2_td"><%= number_with_delimiter(('%.2f' % total).to_s , :separator => ",", :delimiter => ".") %> <%= @agente.moneda_principal.abreviatura %></div>
+  <br />
+  <div class="elemento3_4"><br /></div>
+	<div class="elemento3_2">&nbsp;</div>
+  <div class="elemento3_4"><%= _('Imputado a agente') %></div>
+  <div class="elemento1_2_td"><%= number_with_delimiter(('%.2f' % total_agente).to_s , :separator => ",", :delimiter => ".") %> <%= @agente.moneda_principal.abreviatura %></div>
+  <div class="elemento1_3_td"><%= number_with_delimiter(('%.2f' % (total_agente / total * 100)).to_s , :separator => ",", :delimiter => ".") %> %</div>
+  <br />
+  <div class="elemento3_4"><br /></div>
+		<div class="elemento3_2">&nbsp;</div>
+  <div class="elemento3_4"><%= _('Imputado a proyectos') %></div>
+  <div class="elemento1_2_td"><%= number_with_delimiter(('%.2f' % total_proyectos).to_s , :separator => ",", :delimiter => ".") %> <%= @agente.moneda_principal.abreviatura %></div>
+  <div class="elemento1_3_td"><%= number_with_delimiter(('%.2f' % (total_proyectos / total * 100)).to_s , :separator => ",", :delimiter => ".") %> %</div>
+	</div>
+  <div id="<%= clase %>_sub"></div>
+</fieldset>

@@ -1,0 +1,8 @@
+<%= comienzo_formulario( { :action => 'modificar_crear_etiqueta', :id => @workflow_contrato, :update => params[:update] } , true ) %>
+
+  <% etiquetas_ids_incluidas = @workflow_contrato.etiqueta_ids(@agente) %>
+  <% for etiqueta in @etiquetas %>
+    <%= checkbox etiqueta.nombre, 'etiqueta', etiqueta.id, "3_4", { :izquierda => true, :checked => etiquetas_ids_incluidas.include?(etiqueta.id)}  %>
+  <% end %>
+
+<%= final_formulario %>

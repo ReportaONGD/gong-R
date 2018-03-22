@@ -1,0 +1,35 @@
+<fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Presupuesto de personal del periodo") %></div>
+  <%= form_tag( { :action => "filtrado"}, :multipart => true, :class => "formulario" ) %>
+    <div id="div_selector_etapa">
+      <%= selector _('Etapa'), '', 'etapa_id', @agente.etapa.collect {|e| [e.nombre, e.id]}, false, '3_4', {:selected => session[:presupuesto_empleado_etapa] ? session[:presupuesto_empleado_etapa] : nil} %>
+    </div>
+  <div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+  </form>
+</fieldset>
+
+<div id="mensajes_modificacion"></div>
+<% if session[:presupuesto_empleado_etapa] %>
+	<% i = 0 %>
+	<!-- Presupuesto por empleados -->
+	<% for empleado in @empleados %>
+	  <fieldset>
+	    <div class="filacabecerasinborde" id="empleado_<%= empleado.id %>">
+	      <% update =    "empleado_" + (i +=1).to_s %>
+	      <%= fila_listado empleado, [["", "3", "nombre"] ], update %>
+	      <div class="elementoderecha">
+		<%= remote icono("seleccionar", _("Ver gastos del empleado con diferencias en el presupuesto")), :url => {:update => update + "_gastos", :action => 'gastos_marcados_empleado', :empleado_id => empleado.id.to_s } %>
+		<%= remote(icono("anadir", _("Añadir presupuestos para todos los meses de la etapa")), :url => { :action => 'nuevo_presupuesto_anual', :controller => 'presupuesto_empleado_agentes', :id => empleado, :update => "empleado_" + empleado.id.to_s, :update_listado => "empleado_detalle_"+ i.to_s  })%>
+		<%= remote(icono("lista", _("Ver presupuestos para el empleado")),  :url => {:update_listado => "empleado_detalle_"+ i.to_s, :action => 'detallar_presupuestos', :empleado_id => empleado.id }) %>
+		<%= borrado( :url => { :action => 'eliminar_presupuestos_empleado', :controller => 'presupuesto_empleado_agentes',  :empleado_id => (empleado ? empleado.id : 0), :update_listado => "empleado_detalle_"+ i.to_s }, :texto => ("Todos los presupuestos del empleado " + empleado.nombre), :identificador => "empleado_detalle_"+ i.to_s )%>
+	      </div>
+	    </div>
+    
+	    <div id="<%= update %>_gastos"></div>
+	    <%=  render :partial => "suma", :locals => {:empleado => empleado } %>
+	    <div id="empleado_detalle_<%= i.to_s %>"></div>
+	  </fieldset>
+	<% end %>
+	<!-- Presupuesto final de totales -->
+	<%= render :partial => "suma_totales", :locals => {:clase => "caja_suma_total_fin"} %>
+<% end %>

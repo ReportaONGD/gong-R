@@ -1,0 +1,18 @@
+<div id="nuevos_tipos_contrato" style="display:none">
+  <%= cabecera_listado campos_listado("tipo_contrato")%>
+  <div id="tipo_contrato_nuevo_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado nuevos tipos de contrato (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<%= listado campos_listado("tipo_contrato"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}  %>
+  <% i = 0 %>
+  <% for @tipo_contrato in @tipos_contrato %>
+   <% i += 1 %>
+   <%= render :partial => "tipo_contrato", :locals => {:update => "tipo_contrato_" + i.to_s } %>
+  <% end %>
+<%= final_listado %>
+

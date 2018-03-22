@@ -1,0 +1,28 @@
+<%= formulario_comienzo( url: { action: 'modificar_crear', id: @ingreso, i: params[:i] })%>
+
+  <%= selector _("Partida"), 'ingreso', 'partida_ingreso_id', @partidas, false ,"2", {obligatorio: true} %>
+  <div class="elemento2"><br/></div>
+  <%= checkbox _("Valorizado"), 'ingreso', 'es_valorizado', "3_4 elementoderecha", {:abajo => true, :checked => (@ingreso ? @ingreso.es_valorizado : false) }  %>
+
+  <div class="fila">&nbsp;</div>
+
+  <%= calendario_fecha _("Fecha"), 'ingreso', 'fecha', obligatorio: true %>
+  <%= texto _("Concepto/Detalle"), 'ingreso', 'concepto', "3", obligatorio: true %>
+  <%= texto_numero _("Importe"), 'ingreso', 'importe_convertido',"2_3", obligatorio: true %>
+  <%= selector _("Moneda"), 'ingreso', 'moneda_id', @monedas, false, "1_3", obligatorio: true  %>
+
+  <%= texto _("Observaciones"), 'ingreso', 'observaciones', "4" %>
+
+  <div class="fila">&nbsp;</div>
+
+  <div class="elemento3_4"><br/></div>
+  <%= texto _("Num.Documento"), 'ingreso', 'numero_documento', "3_4" %>
+  <%= texto _("Ref.Contable"), 'ingreso', 'ref_contable', "3_4" %>
+
+  <div class="elemento1"><br/></div>
+  <%= selector _("Proyecto"), 'ingreso', 'proyecto_id', @proyectos, true, "3_4" %>
+  <%= selector _("Financiador"), 'ingreso', 'financiador_id', @financiadores, true, "3_4" %>
+
+  <div class="fila">&nbsp;</div>
+
+<%= formulario_final %>

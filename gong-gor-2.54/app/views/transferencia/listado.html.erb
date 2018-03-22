@@ -1,0 +1,22 @@
+<!-- Listado de transferencias -->
+
+<div id="nuevas_transferencias" style="display:none">
+  <%= cabecera_listado campos_listado("transferencia")%>
+  <div id="transferencia_nueva_1"></div>
+  <%= final_listado %>
+  <%= mensaje _("El listado nuevos movimientos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página") %>
+  <div class="linea"></div>
+</div>
+
+<div id="formulario_anadir" class="linea"></div>
+
+<% filtro_tipo = session[("transferencia_" + params[:seccion] + "_filtro_tipo").to_sym].to_s %>
+<%= listado campos_listado("transferencia"), :url =>  {:action => 'editar_nuevo', :i => 1, :update => "formulario_anadir"}  %>
+
+<% i = 0 %>
+<% for transferencia in @transferencias %>
+  <% i += 1 %>
+  <%= render :partial => 'transferencia', :locals => {:transferencia => transferencia, :update => "transferencia_" + i.to_s, :i => i } %>
+<% end %>
+<%= final_listado %>
+

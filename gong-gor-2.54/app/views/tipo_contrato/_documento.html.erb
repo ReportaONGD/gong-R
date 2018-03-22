@@ -1,0 +1,13 @@
+
+  <% editable = (@agente && @tipo_contrato.agente_id == @agente.id) || @agente.nil? %>
+  <% update_id = update_listado + "_" + documento.id.to_s %>
+  <div id="<%= update_id %>" class="fila" >
+    <%= fila_listado documento, campos_listado('documento_tipo_contrato'), update_id %>
+    <div class="elementoderecha">
+      <% if (@agente && @tipo_contrato.agente_id == @agente.id) || @agente.nil? %>
+        <% texto_borrado = _("asociación con plantilla '%{nombre}'") % {nombre: documento.adjunto_file_name} %>
+        <%= borrado( url: { action: 'eliminar_documento', update: update_id, id: params[:id], documento_id: documento.id }, texto: texto_borrado, identificador: update_id ) %>
+      <% end %>
+    </div>
+  </div>
+

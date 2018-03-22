@@ -1,0 +1,5 @@
+
+<%=  formulario_comienzo :url => {:action => 'modificar_crear_objetivo_especifico', :id => @objetivo_especifico, :update_formulario => "anadir_objetivo_especifico"} %>
+   <%= texto _("Código"), 'objetivo_especifico', 'codigo', "1" %>
+   <%= texto_area _("Descripción"), 'objetivo_especifico', 'descripcion', "3" %>
+<%= formulario_final %>	

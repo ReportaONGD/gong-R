@@ -1,0 +1,26 @@
+<%
+	if params[:controller] == "resumen_proyecto"
+		campos = "gasto"
+		campos = "gasto_x_financiador" if params[:filtro][:agente_rol] == "financiador" and params[:filtro][:agente] != "todos"
+		campos_info = "gasto"
+	elsif params[:controller] == "resumen_agente"
+		campos = campos_info = "gasto_agentes"
+	end
+	subpartida_nombre = params[:filtro][:subpartida] == "isnull" ? "Sin subpartida" : Subpartida.find(params[:filtro][:subpartida]).nombre 
+	numero_gastos = listado_gastos.count.to_s
+%>
+<%= comienzo_sublistado (_("Gastos subpartida: ") + subpartida_nombre + "<br>" + _("Número de gastos: ") + numero_gastos).html_safe , params[:update], {:descargar => true} %>
+  <% i = 0 %>
+	<%= cabecera_listado campos_listado(campos) unless listado_gastos.blank? %>
+  <% for gasto in listado_gastos %>
+    <% gasto_id = params[:update] +"_gasto_" + gasto.id.to_s %>
+    <div  id="<%= gasto_id %>" class="fila" >
+      <%= fila_listado gasto, campos_listado(campos), gasto_id %>
+      <div class="elementoderecha">
+        <%= ventana_info_popup gasto, {:campos => campos_listado(campos_info) + campos_info(campos_info), :id => gasto_id + "_informacion" } %>
+      </div>
+    </div>
+  <% end %>
+	<%= final_listado %>
+<%= final_sublistado %>
+<br>

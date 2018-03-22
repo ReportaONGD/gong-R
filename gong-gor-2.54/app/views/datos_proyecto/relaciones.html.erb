@@ -1,0 +1,55 @@
+<div class="elemento2">
+  <div class="fila">
+    <div class="elemento2" id="pais"><%= render :partial => "datos" , :locals => { :relacion => "pais", :relaciones => @paises }%></div>
+  </div>
+  <div class="fila"><br><br></div>
+
+  <div class="fila">
+    <div class="elemento2" id="moneda"><%= render :partial => "datos" , :locals => { :relacion => "moneda", :relaciones => @monedas }%></div>
+  </div>
+  <div class="fila"><br><br></div>
+
+  <div class="fila">
+   <div class="elemento2" id="financiador"><%= render :partial => "financiador" %></div>
+  </div>
+  <div class="fila"><br><br></div>
+
+  <div class="fila">
+    <div class="elemento2" id="implementador"><%= render :partial => "implementador" %></div>
+  </div>
+  <div class="fila"><br><br></div>
+</div>
+
+<div class="elemento1"> &nbsp; </div>
+
+<div class="elemento2">
+
+  <div class="fila">
+      <div class="elemento2" id="sector_poblacion"><%= render :partial => "datos" , :locals => { :relacion => "sector_poblacion", :relaciones => @sector_poblacion }%></div>
+  </div>
+  <div class="fila"><br><br></div>
+
+  <div class="fila">
+    <div class="elemento2" id="sector_intervencion">
+      <%= render partial: "datos_relacion_categoria", locals: { relacion: "sector_intervencion", relaciones: @sector_intervencion } %>
+    </div>
+  </div>
+  <div class="fila"><br><br></div>
+
+  <div class="fila">
+    <div class="elemento2" id="area_actuacion">
+      <%= render partial: "datos_relacion_categoria", locals: { relacion: "area_actuacion", relaciones: @area_actuacion } %>
+    </div>
+  </div>
+  <div class="fila"><br><br></div>
+
+
+</div>
+
+<div class="fila" id="libro"><%= render :partial => "datos" , :locals => { :relacion => "libro", :relaciones => @libro }%></div>
+
+<div class="fila" id="proyectos"><%# render :partial => "datos", :locals => { :relacion => "proyecto_cofinanciador", :relaciones => @proyecto_cofinanciador }%></div>
+
+<div class="fila"><br><br></div>
+
+

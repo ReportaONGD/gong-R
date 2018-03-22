@@ -1,0 +1,75 @@
+= Guia de Desarrollo de Gong
+
+El INSTALL describe la instalación en producción, se puede seguir para desarrollo
+un entorno similar pero mejor:
+
+* no subas al repositorio el fichero config/database.yml y mantén sin cambios el db/seeds.rb
+* crea base de datos de dev y test (igual que para producción) y repite los pasos del INSTALL
+de producción tanto para development como testing, por ejemplo:
+
+  $ sudo RAILS_ENV=development rake db:seed
+
+También puedes obviar la parte de cambios de permisos a www-data y de instalación de passenger
+(más orientada a producción) y arrancar rails con script/server (solemos usar la gema mongrel
+en vez de webrick) o tu opción preferida y mantener los ficheros con tu usuario.
+
+
+== Cambios en la BD? ==
+
+Perfecto, a través de migrate 'please'...
+
+MUY IMPORTANTE!!!
+
+Cuando se realizan migraciones que afectan a algunos de los modelos de datos existentes,
+se suele adaptar la información al nuevo modelo modificado.
+
+Por ejemplo: Si decidimos pasar la información de proveedores del modelo de Gastos desde un
+campo de texto hacia una nueva entidad "Proveedor", después de generar las tablas y campos
+necesarios recoreremos los gastos existentes para actualizar la información ya introducida. 
+
+Si esta actualización la hacemos con alguno de los métodos elemento.save,
+elemento.update_attribute o elemento.update_attributes estaremos invocando también los callbacks
+asociados y alguna información se desvirtuará (por ejemplo, el marcado de los gastos).
+
+Debemos evitar en la medida de lo posible las modificaciones en la información ya metida, así
+que la forma de evitarlo es mediante el método "elemento.update_column" que evita validaciones y
+callbacks.
+
+
+== Desarrollo de plugins
+
+Los plugins de GONG se ubican en el directorio "/usr/share/gong/plugins". Este path se puede
+cambiar modificando la variable de entorno GOR_PLUGINS para usar una copia de trabajo de estos:
+
+$ GOR_PLUGINS="/home/miusuario/devel/gong/plugins" rails server
+
+
+
+== Enlaces de interés
+
+  https://gong.org.es/projects/gor
+  http://gong.es/10/como-funciona-23
+
+Repo:
+
+  https://gong.org.es/svn/gong/
+  https://gong.org.es/projects/gor/repository
+
+
+== Cuestiones Técnicas y Funcionales ==
+
+Aquí se recogen algunos comentarios técnicos y funcionales contemplados:
+
+  https://gong.org.es/projects/gor/wiki/Cuestiones_Tecnicas
+  https://gong.org.es/projects/gor/wiki/Cuestiones_Funcionales
+
+
+== Testing ==
+
+Aquí tenemos documentación sobre testing:
+
+  https://gong.org.es/projects/gor/wiki/Pruebas
+  https://gong.org.es/projects/gor/wiki/Testing_con_cucumber_y_capybara
+  https://gong.org.es/projects/gor/wiki/Ejecucion_Pruebas_Cucumber
+  https://gong.org.es/projects/gor/wiki/Pruebas_Selenium 
+

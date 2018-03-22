@@ -1,0 +1,3 @@
+<%= comienzo_formulario( { :action => 'fuente_verificacion_completada', :id => params[:id], :update => params[:update], :i => params[:i] }, true ) %>
+    <%= checkbox _("La fuente de verificación tiene asociados todos los documentos necesarios"), 'fuente_verificacion', 'completada', "3", {:izquierda => true, :checked => @fuente_verificacion.completada } %>   
+<%= final_formulario%>

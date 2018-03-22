@@ -1,0 +1,467 @@
+-------------------------------------------
+| MANUAL DE INSTALACIÓN DE GONG-GOR  v2.x |
+-------------------------------------------
+
+
+################################################################################
+ Copyright 2010-2017 Free Software's Seed (Semilla de Software Libre), CENATIC y IEPALA
+
+ Licencia con arreglo a la EUPL, Versión 1.1 o –en cuanto sean aprobadas por la Comisión Europea– 
+ versiones posteriores de la EUPL (la «Licencia»);
+ Solo podrá usarse esta obra si se respeta la Licencia.
+ Puede obtenerse una copia de la Licencia en:
+
+ http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1
+
+ Salvo cuando lo exija la legislación aplicable o se acuerde por escrito, 
+ el programa distribuido con arreglo a la Licencia se distribuye «TAL CUAL»,
+ SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas ni implícitas.
+ Véase la Licencia en el idioma concreto que rige los permisos y limitaciones que
+ establece la Licencia.
+################################################################################
+
+
+
+
+
+
+La instalación descrita fue efectuada sobre Debian 6.0 (Squeeze) y Ubuntu 11.04 (Natty).
+Es posible realizar los mismos pasos en cualquier otro sistema operativo, aunque algunos
+detalles es posible que sean distintos.
+
+
+NOTAS:
+
+- Sobre la versión de GONG-GOR
+
+El presente documento está realizado para la instalación de GONG-GOR en versiones 2.30 en adelante.
+
+Si desea instalar una versión anterior, diríjase al documento de instalación:
+
+https://gong.org.es/svn/gong/tags/gong-gor-2.19/INSTALL
+
+Si desea actualizar GONG-GOR desde una versión < 2.30, póngase en contacto con la comunidad de desarrollo
+de GONG en:
+
+gong@gong.org.es
+
+
+- Sobre el gestor de BBDD
+
+Aunque el proceso es similar utilizando una BBDD sqlite o postgress, este documento se refiere a
+la instalación sobre un motor de BBDD MySQL y no incluye los pasos específicos para otros gestores 
+de BBDD. Se asume que MySQL está correctamente instalado y configurado, así como el cliente
+local de MySQL desde línea de comandos. En la siguiente URL se describe el proceso de instalación:
+
+http://www.debianadmin.com/mysql-database-server-installation-and-configuration-in-debian-2.html
+
+
+- Sobre el servidor web
+
+Aunque el uso de otro servidor web es posible, en este manual se utiliza Apache2. Se asume que Apache2
+está correctamente instalado y configurado. En caso de no ser así, siga la siguiente guía:
+
+https://help.ubuntu.com/12.04/serverguide/httpd.html
+
+
+Convenciones
+
+  * Una linea que empieza por "$" indica el prompt bash en consola. A no ser que se especifique lo contrario,
+    los comandos se ejecutarán como el usuario root.
+
+  * Una linea que empieza por "mysql>" indica el prompt en la consola de mysql.
+
+
+
+*********************************************************************************************
+
+Indice
+1.- Instalación
+  1.1.- Instalación de dependencias
+  1.2.- Instalación de GONG-GOR
+  1.3.- Instalación del entorno de ejecución
+  1.4.- Instalación de Ruby
+  1.5.- Instalación del generador de PDFs
+  1.6.- Instalación de módulos de Apache
+2.- Configuración
+  2.1.- Configuración de Apache
+  2.2.- Creación de la BBDD de GONG-GOR
+  2.3.- Configuración de la BBDD en GONG-GOR
+  2.4.- Migración inicial
+  2.5.- Permisos
+  2.6.- Listo para empezar
+3.- Multisitio
+4.- Problemas conocidos
+  4.1.- Passenger y multisitio
+  4.2.- Modo ONLY_FULL_GROUP_BY en MySQL 4.7
+
+*********************************************************************************************
+
+1.- Instalación
+
+
+1.1.- Instalación de dependencias
+
+Instalaremos las dependencias necesarias:
+
+  $ apt-get install bash curl git build-essential openssl libreadline6 libreadline6-dev \
+       curl git-core zlib1g zlib1g-dev libgnutls-dev libyaml-dev libsqlite3-0 libsqlite3-dev \
+       sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool \
+       libssl-dev bison subversion libmysqlclient-dev subversion imagemagick libmagickwand-dev
+
+y las que necesitaremos para configurar el servidor web:
+
+  $ apt-get install libcurl4-gnutls-dev apache2-prefork-dev libapr1-dev libaprutil1-dev
+
+
+1.2.- Instalación de GONG-GOR
+
+El directorio de instalación recomendado para GONG-GOR es bajo /usr/share/gong, aunque es posible otro path
+de instalación. En primer lugar lo crearemos:
+
+  $ mkdir -p /usr/share/gong
+  $ cd /usr/share/gong
+
+y descargaremos la copia del último tag estable (el indicado aquí puede cambiar desde la realización de este
+manual, asegúrese de seleccionar la última versión disponible):
+
+  $ svn export https://gong.org.es/svn/gong/tags/gong-gor-2.54
+
+y renombrándolo a:
+
+  $ mv /usr/share/gong/gong-gor-2.54 /usr/share/gong/gor
+
+
+1.3.- Instalación del entorno de ejecución
+
+La instalación del entorno de ejecución podemos realizarla para que afecte a todo nuestro sistema
+en el caso de vayamos a instalar un servidor dedicado a GONG, o unicamente a un usuario particular
+en el caso de que no dispongamos de un servidor dedicado para GONG o queramos desarrollar sobre
+GONG.
+
+Para la instalación de un servidor dedicado ejecutaremos los siguientes comandos como el usuario root,
+y si queremos una instalación personal, como el usuario que elijamos.
+
+En primer lugar instalaremos RVM (Ruby Version Manager) para gestionar las versiones de ruby y rails:
+  
+  $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 
+
+  $ curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+si la instalación del entorno es para todo el sistema, además ejecutaremos:
+
+  $ source /etc/profile.d/rvm.sh
+
+y si no lo es, incluimos en el entorno del usuario (fichero ~/.bashrc) las siguientes dos líneas:
+
+  # This loads RVM into a shell session.
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+
+Ejecutaremos el siguiente comando para probar que la instalación de RVM funciona y revisar las
+dependencias que nos indique la salida de pantalla:
+
+  $ rvm notes
+
+
+1.4. Instalación de Ruby y Rails
+
+Con RVM ya instalado ejecutaremos los comandos:
+
+  $ rvm install 2.2.7
+  $ rvm --default ruby-2.2.7
+  $ rvm gemset create gor
+  $ rvm use 2.2.7@gor --default
+
+y desde el directorio donde hayamos descargado GONG (/usr/share/gong/gor) las gemas necesarias para GONG-GOR:
+
+  $ gem install bundle
+  $ RAILS_ENV=production bundle install
+
+
+1.5.- Instalación del generador de PDFs
+
+Para la generación de algunos informes en PDF, es necesario instalar un generador de PDFs.
+
+En primer lugar, instalaremos los paquetes de fuentes:
+
+  $ apt-get install fontconfig
+
+Luego, si nuestro sistema es de 64bits, el proceso sería
+
+  $ wget https://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-x86_64.tar.bz2
+  $ tar xvjf phantomjs-1.9.2-linux-x86_64.tar.bz2
+  $ mv phantomjs-1.9.2-linux-x86_64/bin/phantomjs /usr/local/bin
+
+y si es de 32bits, el siguiente:
+
+  $ wget https://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-i686.tar.bz2
+  $ tar xvjf phantomjs-1.9.2-linux-i686.tar.bz2
+  $ mv phantomjs-1.9.2-linux-i686/bin/phantomjs /usr/local/bin
+
+Finalmente, comprobamos que la instalación ha sido correcta:
+
+  $ /usr/local/bin/phantomjs --version
+
+
+1.6.- Instalación del entorno de ejecución para Apache
+
+Si queremos instalar GONG para utilizarlo y no sólo para desarrollar sobre él, utilizaremos
+el gestor de aplicaciones Passenger en combinación con RVM:
+
+https://rvm.io/deployment/passenger
+
+Se puede instalar el módulo de Passenger para Apache de la siguiente forma:
+
+  $ rvm use 2.2.7@gor
+  $ gem install passenger -v=5.1.2
+
+lo compilaremos siguiendo las instrucciones del comando:
+
+  $ passenger-install-apache2-module -a
+
+y lo configuraremos en apache, creando como root el fichero /etc/apache2/mods-available/passenger.load con el contenido:
+
+   LoadModule passenger_module /usr/local/rvm/gems/ruby-2.2.7@gor/gems/passenger-5.1.2/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/local/rvm/gems/ruby-2.2.7@gor/gems/passenger-5.1.2
+   PassengerRuby /usr/local/rvm/wrappers/ruby-2.2.7@gor/ruby
+
+si estábamos instalándolo en todo el sistema, o con el contenido:
+
+   LoadModule passenger_module /home/USUARIO/.rvm/gems/ruby-2.2.7@gor/gems/passenger-5.1.2/ext/apache2/mod_passenger.so
+   PassengerRoot /home/USUARIO/.rvm/gems/ruby-2.2.7@gor/gems/passenger-5.1.2
+   PassengerRuby /home/USUARIO/.rvm/wrappers/ruby-2.2.7@gor/ruby
+
+si estábamos instalando el entorno de ejecución anterior sólo para el usuario USUARIO (sustituya en las líneas anteriores esa
+cadena por el nombre real del usuario).
+
+
+Por último, como usuario root, active el módulo y reinicie Apache:
+
+  $ a2enmod passenger && /etc/init.d/apache2 restart
+
+
+
+2.- Configuración 
+
+
+2.1.- Configuración de Apache
+
+Generamos un nuevo virtual-host en apache copiando el siguiente contenido en el fichero
+/etc/apache2/sites-available/gong-gor :
+
+<VirtualHost *:80>
+  ServerName gong.miong.org
+  DocumentRoot /usr/share/gong/gor/public
+  <Directory /usr/share/gong/gor/public>
+    AllowOverride all
+    Options -MultiViews
+  </Directory>
+
+  SetEnv GOR_PLUGINS "/usr/share/gong/plugins/"
+  PassengerDefaultUser www-data
+  RailsEnv production
+</VirtualHost>
+
+Y lo activamos:
+
+  $ a2ensite gong-gor
+
+NB: hay que reemplazar el nombre del servidor ("ServerName gong.miong.org") bien por
+"ServerName localhost" si se trata de una instalación para testear (entonces la
+aplicación será visible en "http://localhost") o bien por un nombre internet válido
+y entonces la aplicación será visible en "http://gong.miong.org" por ejemplo.
+
+2.2.- Creación de la BBDD de GONG-GOR.
+
+Crearemos la BBDD 'gong_gor' y el usuario 'gong_gor_user' con password 'gong_gor_user_pass' (todos estos valores
+se pueden cambiar por los que elijamos para nuestra instalación):
+
+    mysql> create DATABASE gong_gor DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    mysql> grant ALL ON gong_gor.* TO gong_gor_user@'localhost' IDENTIFIED BY 'gong_gor_user_pass';
+    mysql> grant CREATE VIEW ON gong_gor.* to gong_gor_user@'localhost';
+
+
+2.3.- Configuración de la BBDD en GONG-GOR
+
+Copiamos el fichero de ejemplo de definición de conexiones a BBDD:
+
+  $ cp /usr/share/gong/gor/config/database.yml.example /usr/share/gong/gor/config/database.yml
+
+Editaremos en el fichero recién copiado (/usr/share/gong/gor/config/database.yml) los parámetros
+correctos de BBDD para el entorno de producción (production) según los definidos en el punto anterior
+anterior de forma que quede algo similar a:
+
+production:
+  adapter: mysql2
+  socket: /var/run/mysqld/mysqld.sock
+  database: gong_gor
+  username: gong_gor_user 
+  password: gong_gor_user_pass
+  encoding: utf8
+
+
+2.4.- Migración de Datos inicial
+
+Hacemos la carga inicial de la BBDD ejecutando:
+
+  $ LANG=es_ES RAILS_ENV=production rake db:migrate
+
+cargamos los datos preeliminares de BBDD:
+
+  $ LANG=es_ES RAILS_ENV=production rake db:seed
+
+Cambiando el idioma definido en LANG los datos iniciales cargados en BBDD estarán en el idioma elegido.
+Actualmente, sólo están disponibles español (es) y portugués (pt).
+
+Y por último, asignamos los permisos de usuario por defecto:
+
+  $ LANG=es_ES RAILS_ENV=production rake permisos:reasigna
+
+
+2.5.- Permisos
+
+Cambiamos el propietario de los directorios escribibles por el navegador web según el indicado en el punto 2.1 :
+
+  $ chown -R www-data.www-data /usr/share/gong/gor/files
+  $ chown -R www-data.www-data /usr/share/gong/gor/logs
+  $ chown -R www-data.www-data /usr/share/gong/gor/tmp
+
+
+2.6.- Listo para comenzar
+
+Rearrancamos apache:
+
+  $ /etc/init.d/apache2 restart
+
+y probamos la instalación accediendo con el usuario "admin" y la password "admin".
+
+
+
+3.- Multisitio
+
+GONG-GOR permite la ejecución multisitio (varias instancias corriendo en la misma máquina) de dos formas:
+
+A.- Instalando GONG-GOR en distintos paths como si fueran aplicaciones distintas y configurándolos
+adecuadamente en los hosts virtuales de apache
+
+B.- Configurando la variable de entorno GOR_SITEID
+
+Para la segunda posibilidad y suponiendo que queramos instalar las instancias ONG1 y ONG2:
+
+Seguir el paso 1 del manual integramente.
+
+Crear para cada instancia a instalar una BBDD (con nombre de usuario y password distinta para cada BBDD)
+tal y como se indica en el punto 2.2.
+
+Crear los directorios de logs y configuración:
+
+  $ mkdir -p /etc/gong
+  $ mkdir -p /var/log/gong
+
+Crear el directorio de cache y asignar permisos:
+
+  $ mkdir -p /var/cache/gong/ong1 && chown www-data.www-data /var/cache/gong/ong1
+  $ mkdir -p /var/cache/gong/ong2 && chown www-data.www-data /var/cache/gong/ong2
+
+Crear los directorios de datos y asignar permisos:
+
+  $ mkdir -p /var/lib/gong/ong1 && chown www-data.www-data /var/lib/gong/ong1
+  $ mkdir -p /var/lib/gong/ong2 && chown www-data.www-data /var/lib/gong/ong1
+  
+y hacer enlaces simbólicos del código compartido en ellos (ver punto 4.1):
+
+  $ ln -s /usr/share/gong/gor /var/lib/gong/ong1/passenger
+  $ ln -s /usr/share/gong/gor /var/lib/gong/ong2/passenger
+
+Configurar en apache cada host virtual. En /etc/apache2/sites-available/ong1.miong.org :
+
+<VirtualHost *:80>
+  ServerName ong1.miong.org 
+  DocumentRoot /usr/share/gong/gor/public
+  <Directory /usr/share/gong/gor/public>
+    AllowOverride all
+    Options -MultiViews
+  </Directory>
+
+  SetEnv GOR_SITEID "ong1"
+  PassengerAppRoot /var/lib/gong/ong2/passenger
+  PassengerDefaultUser www-data
+  RailsEnv production
+</VirtualHost>
+
+y en /etc/apache2/sites-available/ong2.miong.org :
+
+<VirtualHost *:80>
+  ServerName ong1.miong.org
+  DocumentRoot /usr/share/gong/gor/public
+  <Directory /usr/share/gong/gor/public>
+    AllowOverride all
+    Options -MultiViews
+  </Directory>
+
+  SetEnv GOR_SITEID "ong2"
+  PassengerAppRoot /var/lib/gong/ong2/passenger
+  PassengerDefaultUser www-data
+  RailsEnv production
+</VirtualHost>
+
+Creamos los ficheros de configuración de BBDD tal y como se describe en el punto 2.3
+pero cambiando sus ubicaciones por /etc/gong/ong1.database.yml y /etc/gong/ong2.database.yml
+
+Hacemos la carga inicial de cada BBDD ejecutando:
+
+  $ cd /usr/share/gong/gor
+  $ LANG=es_ES RAILS_ENV=production GOR_SITEID=ong1 rake db:migrate
+  $ LANG=es_ES RAILS_ENV=production GOR_SITEID=ong2 rake db:migrate
+
+cargamos los datos preeliminares de BBDD:
+
+  $ LANG=es_ES RAILS_ENV=production GOR_SITEID=ong1 rake db:seed
+  $ LANG=es_ES RAILS_ENV=production GOR_SITEID=ong2 rake db:seed
+
+activamos las instancias de apache y rearrancamos:
+
+  $ a2ensite ong1.miong.org
+  $ a2ensite ong2.miong.org
+  $ /etc/init.d/apache2 restart
+
+
+
+4.- Problemas conocidos:
+
+
+4.1 Passenger y multisitio
+
+Passenger interpreta una instancia de aplicación según el AppRoot de esta:
+  http://www.redmine.org/boards/1/topics/16647
+
+por lo tanto y de momento es necesario hacer enlaces simbólicos del código
+para cada instancia a ejecutar y referirlos como PassengerAppRoot en cada
+instancia virtual de apache.
+
+
+4.2 Modo ONLY_FULL_GROUP_BY en MySQL 4.7
+
+Con la versión 4.7 de MySQL se ha cambiado el comportamiento de las consultas
+con "ORDER BY" de forma que se provocan algunos errores en el código.
+
+https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html
+
+En concreto, si se presenta el siguiente error al visitar la página principal
+de proyectos:
+
+Mysql2::Error: Expression #1 of ORDER BY clause is not in SELECT list, references ...
+
+Deberemos eliminar el modo ONLY_FULL_GROUP_BY de la configuración de MySQL.
+
+La forma de hacerlo dependerá de cada instalación, pero como ejemplo, 
+en un sistema UBUNTU 16.04 bastará con añadir la siguiente línea al final
+del fichero /etc/mysql/mysql.conf.d/mysqld.cnf:
+
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+y reiniciar el servidor MySQL:
+
+$ sudo service mysql restart
+

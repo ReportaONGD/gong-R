@@ -1,0 +1,8 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear_etiqueta', :id => @definicion_estado, :update => params[:update] } , true ) %>
+
+  <% for etiqueta in @etiquetas %>
+    <%= checkbox etiqueta.nombre, 'etiqueta', etiqueta.id, "3_4", { :izquierda => true, :checked => @definicion_estado.etiqueta_ids.include?(etiqueta.id)}  %>
+  <% end %>
+
+
+<%= final_formulario %>

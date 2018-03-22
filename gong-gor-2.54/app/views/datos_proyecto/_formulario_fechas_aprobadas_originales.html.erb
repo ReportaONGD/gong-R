@@ -1,0 +1,10 @@
+
+<%= mensaje _("Fechas de inicio y fin originalmente aprobadas por el financiador, sin incluir posteriores prórrogas.") %>
+<br><br>
+<%= comienzo_formulario( {:action => 'modificar_fechas_originales'}, false ) %>
+  <div class="elemento1_4">&nbsp;</div>
+  <%= calendario_fecha _("Fecha inicio original"), "proyecto", "fecha_inicio_aprobada_original" %> 
+  <div class="elemento1_4">&nbsp;</div>
+  <%= calendario_fecha _("Fecha fin original"), "proyecto", "fecha_fin_aprobada_original" %>
+<%= final_formulario %>
+

@@ -1,0 +1,18 @@
+<!-- Partial para asociar partidas de finaciacion a partidas  del sistema-->
+<br>
+<%= comienzo_sublistado( _("Partidas asociadas a la partida de la financiación"), params[:update] )  %>
+  <div class="fila">
+    <%= modal icono("anadir"), {:action => 'anadir_asociar_partida', :update => params[:update], :objeto_id => params[:objeto_id], :partida_financiacion_id => partida_financiacion_id},  _("asociar una partida"), :id => params[:update] + "_anadir"  %>      
+  </div> 
+    <% i = 0 %>
+    <% for partida_asociada in @partidas_asociadas %>
+        <div id="<%= params[:update] %>_<%= i+=1 %>" class="fila" >
+        <%= fila_listado partida_asociada, campos_listado( "partida").take(3), params[:update] + "_" + i.to_s %>
+        <div class="elementoderecha">
+          <%= modal_borrado icono("borrar", _("Eliminar relación")), {:action => 'eliminar_asociar_partida', :partida_financiacion_id => partida_financiacion_id,  :partida_id => partida_asociada.id, :update => params[:update], :objeto_id => params[:objeto_id] }, _("Va a desasociar la partida"), (partida_asociada.codigo + ": " + partida_asociada.nombre), :id => params[:update] + "_" + i.to_s + "_borrar", :ajax => true %>
+        </div>
+        </div>
+    <% end %>
+<%= final_sublistado %> 
+<br>
+

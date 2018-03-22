@@ -1,0 +1,14 @@
+
+  <div id="<%= update %>" class="<%= cycle('fila', 'filaDos') %>">
+    <%= fila_listado @libro, campos_listado( "libro" ), update %>
+    <div class="elementoderecha">
+      <%= ventana_info_popup @libro, {:campos => campos_listado("libro") + campos_info("libro"), :id => update + "_informacion" } %>
+      <%= link_to_remote(icono("usuarios", _("Ver usuarios asignados")),  :url => {:controller => 'relaciones_usuario', :action => 'usuarios', :id => @libro, :objeto => "libro", :update => update + "_sub"} , :html => {:id => update + "_usuarios"}, :loading => "Element.show('spinner_#{@libro.id.to_s }')", :complete => "Element.hide('spinner_#{@libro.id.to_s}')" ) %>
+      <%= editar( :url => { :action => 'editar_nuevo', :id => @libro, :update => update }) %>
+      <%# modal( icono( "editar"),  {:action => 'editar_nuevo', :id => @libro}, _("Editar cuenta"),  { :id => update + "_editar" } )   %>
+      <%= borrado( :url => { :action => 'eliminar', :id => @libro.id, :update => update },  :texto => (@libro.nombre), :identificador => update )  %>
+    </div>
+    <div class="linea"></div>
+    <div id="spinner_<%= @libro.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="<%= update %>_sub" class="linea"></div>
+  </div>

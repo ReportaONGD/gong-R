@@ -1,0 +1,17 @@
+  <!-- Caja con seguimiento de los proyectos del agente  -->
+  <fieldset class="caja_info caja_gris" >
+    <div class="info_nombre"><%= _("Gasto Proyectos en Ejecución") %></div>
+    <div class="info_contenido">
+      <% @proyectos.limit(14).each do |proj| %>
+        <a href="<%= proyecto_path(proj.id) %>">
+          <div class="<%= 'obligatorio_cursiva' unless proj.gestor == @agente %>">
+            <%= render :partial => "porcentaje_gasto", :locals => { :proyecto => proj } %>
+          </div>
+        </a>
+      <% end %>
+      <% if @proyectos.count > 14 %>
+        <br>
+        <%= _("(%d proyectos ejecutándose en total)")%[@proyectos.count] %>
+      <% end %>
+    </div>
+  </fieldset>

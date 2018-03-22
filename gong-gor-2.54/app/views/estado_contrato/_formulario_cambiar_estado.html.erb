@@ -1,0 +1,29 @@
+<% if @estado_siguiente.empty? %>
+  <div class="fila">
+  <%= _("El contrato se encuentra cerrado en el estado actual") %>
+  </div>
+  <br>
+<% else %>
+  <%= formulario_comienzo( :url => { :action => 'modificar_crear', :id => params[:id], :estado_anterior_id => @estado_actual } ) %>
+    <div class="fila">
+      <%= selector _("Nuevo Estado"), 'nuevo_estado', 'id', @estado_siguiente, false, "2" %>
+      <div class="elemento1_2"><br></div>
+      <% detalle_activado = @estado_actual && @estado_actual.workflow_contrato.formulacion %>
+      <%= checkbox _("Generar detalle de estado del contrato."), 'selector', 'detalle', "3_2", {checked: detalle_activado, izquierda: true, abajo: true } %>
+        <%= observe_field( "selector_detalle" , :function => '
+
+  selector = document.getElementById("selector_detalle");
+  if( selector.checked ) {
+    Element.show("advertencia_detalle_borradofondo");
+    Element.show("advertencia_detalle_borrado");
+  }
+
+    ' ) %>
+      <%= mensaje_advertencia identificador: "advertencia_detalle", texto: _("Seleccionando esta opción se guardará como documento asociado al nuevo estado un detalle del estado del proyecto en el momento actual.") + "<br><br>" + _("Desactive la opción si no quiere generar el fichero.") %>
+    </div>
+    <div class="fila">
+      <%= texto_area _("Observaciones sobre el Cambio del Estado"), 'estado_anterior', 'observaciones', "4" if @estado_actual%>
+    </div>
+    <div class="fila"></br></div>
+  <%= formulario_final %>
+<% end %>

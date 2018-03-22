@@ -1,0 +1,375 @@
+# La estructura es la siguiente:
+#
+#secciones:
+#  $nombre_seccion_1
+#    $nombre_controlador_1_1
+#      info:
+#      acciones:
+#        $nombre_accion_1_1_1
+#          rotulo:
+#          info: 
+#        $nombre_accion_1_1_2
+#    $nombre_controlador_1_2
+#      info:
+#      acciones:
+#        $nombre_accion_1_2_1
+#          rotulo:
+#          info:
+#  $nombre_seccion_2
+#    $nombre_controlador_2_1
+#      info:
+#      acciones:
+#        $nombre_accion_2_1_1
+#          rotulo:
+#          info:
+#    $nombre_controlador_2_2
+#...
+
+#secciones:
+#  $nombre_seccion_1
+#    $nombre_menu_1_1
+#      $nombre_controlador_1_1_1
+#        info:
+#        acciones:
+#          $nombre_accion_1_1_1_1
+#            rotulo:
+#            info: 
+#          $nombre_accion_1_1_1_2
+#      $nombre_controlador_1_1_1_2
+#        info:
+#        acciones:
+#          $nombre_accion_1_1_1_2_1
+#            rotulo:
+#            info:
+#  $nombre_seccion_2
+#    $nombre_controlador_2_1
+#      info:
+#      acciones:
+#        $nombre_accion_2_1_1
+#          rotulo:
+#          info:
+#    $nombre_controlador_2_2
+#...
+
+secciones:
+  inicio:
+    controladores:
+      info:
+        info: In this page are showed the <b>active proyects</b>, such as the assigned<b>Tasks</b> to the user.
+        url: http://www.gong.es/manuales/Navegacion_por_GONG_Entrada_al_sistema.pdf 
+      tarea:
+        info: This is the list of assigned <b>tasks</b>. <br>Choose one of them to go to the proyect from where was generated.
+  informes_aecid:
+    info: AECID module justification for Projects and Agreements
+  documentos:
+    info: Management of every <b>Documents</b> existing on the platform.
+    url: http://gong.es/manuales/Gestion_documental_Gestion_documental_general.pdf
+    controladores:
+      documento:
+        info: Management by places.
+        url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      documento_busqueda:
+        info: Management by tags.
+        url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+  administracion:
+    controladores:
+      agente:
+        info: From this page you can create, modify and delete the <b>Agents</ b> existing in the application and assign them its management authorized users.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Gestion_agentes.pdf 
+      libro:
+        info: From this page you can register your own <b>Account</b> and assign them its management authorized users.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Gestion_cuentas.pdf 
+      proyecto:
+        info: From this page you can register your own <b>Proyects</b> (or <b>Agreements</b> with their <b>PACs</b>) and assign them its management authorized users.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Crear_un_proyecto.pdf 
+      convocatoria:
+        info: <b>Announcement</b> management and projects linked to each of them.<br><br>
+      usuario:
+        rotulo: Gestión de Usuarios
+        info: From this page you can manage the existing <b>Users</b> on the System.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Crear_un_usuario.pdf 
+      grupo_usuario:
+        rotulo: Grupos de usuarios
+        info: From this page you can create, modify and delete groups of system users.
+        url: http://www.gong.es/manuales/La_administracion_de_GONG_Crear_un_usuario.pdf 
+      datos_basicos:
+        info: From this page you can manage <b>Basic Data</b> of the System Configuration.
+        url: http://www.gong.es/manuales/Configurar_la_herramienta_para_nuestra_ONG_Entidades_basicas.pdf 
+      definicion_estado:
+        info: From this page you can manage the workflow applied to the proyects, as the necessary documents to change the state and the automatic tasks generated for all the proyect members.
+        url: http://www.gong.es/manuales/Configurar_la_herramienta_para_nuestra_ONG_Workflow.pdf
+      etiqueta:
+        info: Here you can manage existing <b>Tags</b> on the app and which are able to be used by the rest users to clasify documents and ease its rear searchs.
+        url: http://www.gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      espacio:
+        info: From this page you can manage general documentation spaces as the automatically created for Countries, Financial Backers, Delegations, Local Partners and Projects.
+        url: http://www.gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      documento:
+        info: From this page you can define <b>Export Templates</b> of budgets and accessible expenses of each one of the projects..
+      backup:
+        info: From this page you can make DDBB backups and restore uploaded documents of the system.
+  cuadrodemando:
+    info: Dashboard
+  socios:
+    controladores:
+      socio:
+        info: From this view you can manage the Organization <b>Partners</b>.
+      pago_socio:
+        info: From this page you can manage every partner <b>Payment</b> of the Organization.
+      resumen_socio:
+        info: From this page you can manage resumed <b>Reports</b> about Organization Partners. 
+      exportacion:
+        info: From this page you can <b>Export</b> the data into Spreadsheet.
+  agentes:
+    controladores:
+      agente:
+        info: From this page you can access to the financial management of the assigned agents.<br>
+          Seleccione un agente para acceder a su gestión financiera.
+        url: http://gong.es/manuales/Gestion_de_agente_Seguimiento_gasto_de_una_delegacion.pdf
+      datos_agente:
+        info: From this page you can manage the data relating to the agent.
+        url: http://gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+        acciones:
+          etapas:
+            rotulo: <b>Etapas y Tasas de Cambio</b>
+            info: </b>Stage</b> Management and </b>Exchange Rate</b> defined for the agents.
+            url: http://www.gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+          monedas:
+            rotulo: <b>Monedas de uso</b>
+            info: <b>Common Currencies</b> available for the economic management of the agent.
+            url: http://www.gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+      tarea:
+        info: From this page you can manage related tasks to the agent.
+      subpartida:
+        acciones:
+          listado:
+            rotulo: Subpartidas del Agente 
+            info: Management of the <b>Subconsigments</b> defined for the agent.<br><br>The subconsigments can be dinamically generated from the budget management too. 
+            url: http://gong.es/manuales/Gestion_de_agente_Elaborar_presupuesto_Delegacion.pdf
+      convocatoria:
+        acciones:
+          listado:
+            rotulo: Convocatorias de Financiadores
+            info: <b>Announcements</b> management and related proyects to each one.<br><br>
+      proyecto:
+        acciones:
+          listado:
+            rotulo: Proyectos Gestionados
+            info: Management of <b>Managed Projects</b> by the delegation and assigned users to each one.<br><br>
+            url: http://gong.es/manuales/Gestion_de_agente_Configuracion_agente.pdf
+      libro:
+        acciones:
+          listado:
+            rotulo: Cuentas y Cajas de la Delegación
+            info: From this page you can register <b>Accounts</b> and assign them the authorized users to its manage.
+            url: http://www.gong.es/manuales/La_administracion_de_GONG_Gestion_cuentas.pdf
+      proveedor:
+        acciones:
+          listado:
+            rotulo: Proveedores
+            info: <b>Suppliers</b> Management used by delegation.<br><br> 
+      presupuesto_agentes:
+        info: From this page you can access to the budget management for the selected agent.<br>The budget is filtered by default on the first stage, it can be choosen other stage in the final form of the page.
+        url: http://www.gong.es/manuales/Gestion_de_agente_Elaborar_presupuesto_Delegacion.pdf
+      gasto_agentes:
+        info: From this page you access to the expense management for the selected agent.<br> Expenses are filtered by default to the first stage, it can be choosen other stage in the final form of the page.
+        url: http://www.gong.es/manuales/Gestion_de_agente_Seguimiento_gasto_de_una_delegacion.pdf
+      transferencia:
+        info: >
+          From this page you can access to the transfers for each selected agent.<br><br>The type descriptions of the existing tranfers can be looked up
+          <a href="https://www.gong.org.es/projects/gor/wiki/Tipologia_movimientos" target="_blank">here</a>.
+        url: http://www.gong.es/manuales/Gestion_de_agente_Movimientos_seguimiento_de_transferencias.pdf
+      exportacion:
+        info: From this page you can export data of Budgets, Expenses or Transfers of the project into a spreadsheet.
+        url: http://www.gong.es/manuales/El_trabajo_en_modo_desconectado_Importaciones_exportaciones_datos.pdf
+      importacion:
+        info: From this page you can import Budgets, Expenses or Transfers data from a spreadsheet.
+        rul: http://www.gong.es/manuales/El_trabajo_en_modo_desconectado_Importaciones_exportaciones_datos.pdf
+      documento:
+        info: From this page you can manage documents related to the agents.
+        url: http://www.gong.es/manuales/Gestion_documental_Paises_delegaciones_socias_financiadores.pdf
+      documento_busqueda:
+        acciones:
+          listado_gastos:
+            info: From this page you can manage documents related to the client expenses
+            url: http://gong.es/manuales/Gestion_documental_Paises_delegaciones_socias_financiadores.pdf
+          listado_transferencias:
+            info: From this page you can manage documents linked to activities (transfers, grants, interests, ...) of the agent
+            url: http://gong.es/manuales/Gestion_documental_Paises_delegaciones_socias_financiadores.pdf
+      resumen:
+        info: From this page you can get resumed views for the agent.
+        acciones:
+          proveedor:
+            info: Resume view of supplier's expenses.
+      resumen_agente:
+        info: From this view you can get resumed views for the agent.
+        acciones:
+          presupuesto:
+            info: Resumed view of the budget
+          gasto:
+            info: Resumed view for expenses monitoring
+          arqueo_caja:
+            info: Payments and transfers summary and for an agent account.
+          transferencia:
+            info: Field transfers summary and expenses made.
+  proyectos:
+    controladores:
+      proyecto:
+        info: From this page you can access to the proyects management which have been assigned.<br>Choose one project to manage it.
+      info:
+        info: Summary of the Proyect.
+        url: http://gong.es/manuales/Navegacion_por_GONG_Navegacio_n_por_los_proyectos.pdf
+      estado:
+        info: From this page you can manage the Project <b>State</b>.<br><br>
+          <b>NOTE:</b> <br> Keep in mind that options and menu offered on each project depends of their own project state.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Configurar_proyecto.pdf
+      tarea:
+        info: Current assigned tasks. <br> From this page you can manage related tasks of the selected project.
+      documento:
+        acciones:
+          listado:
+            info: From this page you can make management by spaces of the documents of the selected proyect.
+            url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+      documento_busqueda:
+        acciones:
+          listado:
+            info: From this page you can manage by tags the existing documents in the selected proyect.
+            url: http://gong.es/manuales/Gestion_documental_Creacion_espacios_etiquetas_permisos.pdf
+          listado_gastos:
+            info: From this page you can manage the payment documents of the project.
+            url: http://gong.es/manuales/Gestion_documental_Gestion_documental_de_proyecto.pdf
+          listado_transferencias:
+            info: From this page you can manage the transfers documents of the project.
+            url: http://gong.es/manuales/Gestion_documental_Gestion_documental_de_proyecto.pdf
+      datos_proyecto_dinamicos:
+        info: From this page you can manage the <b>Identificative Data</b> or the <b>Monitoring Information</b>of the project.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Datos_de_Identificacion.pdf
+      datos_proyecto:
+        info: Basic data of the proyect.
+        acciones:
+          relaciones:
+            rotulo: Relaciones
+            info: Here you can define and maintain relations of this project with other entities of the app.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Configurar_proyecto.pdf
+          etapas:
+            rotulo: Etapas y Tasas de Cambio
+            info: Here you can create, modify and delete <b>Stages</b> of this project, as the <b>exchange rates</b> defined on each one.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Configurar_proyecto.pdf
+          proyecto_cofinanciador:
+            rotulo: Proyectos Cofinanciadores
+            info: Here you can add or delete other projects which will be cofinancial baker of the current contributing necessary expenses for the justification.
+      personal:
+        info: List of Related Staff of the Project. <br><br>From this page we can manage the related <b>staff list</b> to justify the financial baker.
+      beneficiarios:
+        rotulo: Beneficiaries
+        info: Beneficiaries of the project.
+      matriz:
+        acciones:
+          matriz:
+            rotulo: Matriz General del Proyecto
+            info: >
+              Main Matrix of the project.<br>
+              By selecting an specific goal can be accessed the Results and Activities definition of this.<br><br>
+              On the bottom of the list it is possible define and manage global activities not related to a result.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Matriz_Proyecto.pdf
+          subactividades:
+            info: From this page you can manage the <b>subactivities</b> to be done in the project.
+          variables:
+            rotulo: Variables de Indicadores
+            info: From this page you can monitoring variables related to indicators of Specific Goals and Results.
+      cronograma:
+        info: Timetable of Activities and Subactivities of the Project.<br><br>Choose one stage to show its timetable and click on a month to enable or disable it.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Cronograma_indicadores.pdf
+      indicador:
+        info: Definition and Monitoring of <b>indicators</b> defined on the just like its breakdown into variables of base and objetive value.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Cronograma_indicadores.pdf
+      actividad:
+        info: From this page you will be able to manage the monitoring of the <b>activities</b> and <b>subactivities</b> defined during the proyect formulation.
+      fuente_verificacion:
+        info: From this page you can monitoring the compliance of the <b>verification fonts</b> defined on the project formulation, assigning their necessary documents for its justification.
+        url: http://gong.es/manuales/Ejecutando_un_proyecto_Seguimiento_fuentes_verificacion.pdf
+      presupuesto_proyectos:
+        info: From this page you can access to the budget management by consigments for the selected project.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Presupuestar_Proyecto.pdf
+      presupuesto_actividad:
+        info: >
+           From this page you can access to the budget management by activities for the selected project.<br><br>
+           When including a new budget line for an university, you will have to assign it to a concept still created or generate a new one.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Presupuestar_Proyecto.pdf
+      gasto_proyectos:
+        acciones:
+          listado:
+            rotulo: Gestión de Gastos
+            info: >
+              From this page you can access to the expense management for the selected project.<br><br>
+              If you want to add or modify an expense you will have to filter in the final page form by the stage which will be included in.
+            url: http://gong.es/manuales/Ejecutando_un_proyecto_Gestion_Gastos.pdf
+          listado_facturas:
+            rotulo: Numeración de Facturas
+            info: >
+              From this page you can review and change the order number of the related invoices of the expenses of the project.<br><br>
+              Select the arrange method for the expenses invoices corresponding to the expenses included in the system.
+          cofinanciables:
+            info: From this page you can add or delete expenses generated on others projects which will be used in the justification of the current.
+      transferencia:
+        rotulo: Transferencias
+        info: >
+          From this page you can access to the transfers for the selected project.<br>
+          Transfers are filtered by default to the first stage, it can be selected other stage in the form at the bottom of the page.
+        url: http://gong.es/manuales/Ejecutando_un_proyecto-_Gestion_transferencias_movimientos.pdf
+      exportacion:
+        rotulo: Seguimiento ecónomico de la ejecución
+        info: >
+          From this page you can export Consigment, Subconsigment, Matrix, Budget, Expense or Transfer data of the project to a spreadsheet.<br><br>
+          For  <i>Budgets</i> and <i>Expenses</i> can be used the uploaded templates in the <i>Documents</i> section<br>
+          marked with the <i>Budget Template</i> or <i>Expenses Template</i> tag respectively.
+        url: http://gong.es/manuales/Ejecutando_un_proyecto_Seguimiento_economico_ejecucion.pdf
+      importacion:
+        info: From this page you can import from a spreadsheet Consigment, Subconsigment, Matrix, Budget, Expense or Transfer data.
+      resumen:
+        info: State project summaries.
+        acciones:
+          proveedor:
+            info: Resume view of partners expenses.
+      resumen_proyecto:
+        info: State summary of the project.
+        acciones:
+          matriz:
+            info: Matrix formulated and executed view.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Resumen_seguimiento_formulacion.pdf
+          presupuesto:
+            rotulo: Presupuesto del proyecto
+            info: Select currency, stage and type (by activity or consigment) to view the summary.
+            url: http://gong.es/manuales/Formulando_un_proyecto_Presupuestar_Proyecto.pdf
+          gasto:
+            rotulo: Seguimiento del Gasto
+            info: >
+              Select currency, agent, start and end date, and type (by activity or consigment) and the detail type.<br><br>
+              NOTE: If you have made your budget including a monthly detail you can use such detail.<br>
+              Choose 'no mensual detail' in opposite case. 
+          arqueo_caja:
+            rotulo: Arqueo de Caja
+            info: In this page you can view a payment and tranfers summary for each account of the project or for all the accounts of an implementer.
+          transferencia:
+            rotulo: Movimientos entre cuentas realizados.
+          estado_tesoreria:
+            rotulo: Estado de la Tesorería del Proyecto.
+            info: Remember to execute the remain calc in the PACs if you select the summary with remains in the currency of the project.
+          seguimiento_tecnico:
+            rotulo: Seguimiento técnico del Proyecto.
+      tasa_cambio:
+        info: >
+          From this page you can access to the currency taxes management for the selected project.<br><br>
+          For the automatic calcs of currency taxes of expenses changes, all transfers are used<br>
+          leaving in the selected period from selected base currency accounts of the project.
+      partida_financiacion:
+        info: >
+          From this page you can manage the consigments related to the selected funding.<br>
+          First create the consigment and the edit it to complete your relations with other consigments:<br><br>
+          * Relate the consigment with the main consigments of the system if the consigment is not 'mother' type.<br><br>
+          * Relate the consigment with others consigments of the funding if the consigment is 'mother' type <br><br>
+          Once related all the consigments of the funding, you can generate an <b>exportation</b> file which allow you
+          to <b>import</b> this configuration in other projects of the same finacial baker.
+        url: http://gong.es/manuales/Formulando_un_proyecto_Mapeo_partidas_financiador.pdf
+      subpartida:
+        info: From this page you can manage the <b>Subconsigments</b> related to the project.

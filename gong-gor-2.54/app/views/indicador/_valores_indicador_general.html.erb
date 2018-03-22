@@ -1,0 +1,26 @@
+
+<%= comienzo_sublistado _("Valores Medidos"), update_listado %>
+
+  <div id = "<%= params[:update] %>_valor_anadir" ></div>
+  <div class="fila">
+    <%= anadir url: {action: 'editar_nuevo_valor_indicador_general',
+                     update_listado: update_listado, update: (params[:update] + "_valor_anadir"),
+                     indicador_general_id: params[:indicador_general_id] } %>
+  </div>
+
+  <% for valor in @valores %>
+    <% html_id = params[:update] +"_valores_" + valor.id.to_s %>
+    <div  id="<%= html_id %>" class="fila" >
+     <%= fila_listado valor, campos_listado("valor_medido"), html_id %>
+     <div class="elementoderecha">
+       <%= editar( url: {update_listado: update_listado, action: 'editar_nuevo_valor_indicador_general',
+                         id: valor.id, indicador_general_id: params[:indicador_general_id] , update: html_id}) if @permitir_ejecucion %>
+       <%= borrado( url: {update: update_listado, action: 'eliminar_valor_indicador_general', id: valor.id, indicador_general_id: params[:indicador_general_id] },
+                    texto: valor.valor.to_s + " (" + I18n.l(valor.fecha) + ")", identificador: html_id) if @permitir_ejecucion %>
+     </div>
+     <div class="linea"></div>
+    </div>
+  <% end %>
+<%= final_sublistado %> 
+<br>
+ 

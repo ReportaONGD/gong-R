@@ -1,0 +1,7 @@
+primera:
+  presupuesto_id: 1
+  importe: 33
+  fecha_inicio: 2010-02-16
+  fecha_fin: 2010-12-16
+  nombre: MyString
+  mes: 1

@@ -1,0 +1,15 @@
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]} %>
+<div id="<%= 'financiador' + linea.to_s %>" >
+  <% financiadores = @proyecto.financiador if params[:menu] == "formulacion" %>
+  <% financiadores = @proyecto.financiador_gasto unless params[:menu] == "formulacion" %>
+  <%= selector  _("Financiador"), "financiador", 'agente_id', financiadores.collect {|a|[a.nombre, a.id]}, true, "3_4", {:name => "financiadores[#{linea}][agente_id]", disabled: params[:disabled] } %>
+  <%= texto_numero _("Importe"), 'financiador', 'importe_convertido',"1_2", {:name => "financiadores[#{linea}][importe_convertido]", disabled: params[:disabled] }  %>
+</div>
+
+<div class="elemento1_3">&nbsp;</div>
+
+<% if ultima  %>
+  <div class="elemento3_2" id="financiador_<%= (linea + 1).to_s %>">
+    <br><%=link_to_remote _("Añadir financiador"), :update => "financiador_#{(linea + 1).to_s}", :url => {:action => "anadir_financiador", :proyecto_id => @proyecto.id, :linea => (linea + 1) } ,:loading => "Element.show('RB_loading')", :complete => "Element.hide('RB_loading')" unless params[:disabled] %>
+  </div>
+<% end %> 

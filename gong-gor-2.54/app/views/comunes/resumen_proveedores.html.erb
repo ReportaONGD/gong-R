@@ -1,0 +1,51 @@
+<fieldset id="criterios_resumen">
+<div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+<%= form_tag( { :action => "proveedor"}, :multipart => true, :class => "formulario" ) %>
+  <%= selector _('Moneda'), '', 'moneda', ([[_("Todas las monedas (con tasa aplicada)"),"todas"]] + @listado_moneda ), false , '3_4', {:selected => params[:moneda]} %>
+  <%= selector _('Filtrar por'), '', 'seleccion_fecha', [[_("Etapa"), "etapa"], [_("Rango de fechas"), "fecha"]], false, '3_4', {:selected => params[:seleccion_fecha]} %>
+    <%= observe_field( "_seleccion_fecha" , :function => '
+      if ( document.getElementById("_seleccion_fecha").selectedIndex == 1 ) {
+        Element.hide("div_selector_etapa");
+        Element.show("div_selector_fecha");
+      } else {
+        Element.hide("div_selector_fecha");
+        Element.show("div_selector_etapa");
+      }
+    ' ) %>
+
+  <div id="div_selector_fecha" style="<%= 'display:none;' unless params[:seleccion_fecha] == "fecha" %>">
+    <%= mes_fecha _('Fecha inicio'), 'fecha_inicio', '', {:default => @fecha_de_inicio, :incluir_dia => true, :class => "5_4" }%> 
+    <%# @fecha_de_fin =  @fecha_de_fin << 1 if @fecha_de_fin %>
+    <%= mes_fecha _('Fecha fin'), 'fecha_fin', '', {:default => @fecha_de_fin, :incluir_dia => true, :class => "5_4" }  %>
+  </div>
+  <div id="div_selector_etapa" style="<%= 'display:none;' if params[:seleccion_fecha] == "fecha" %>">
+    <%= selector _('Etapa'), '', 'etapa', @listado_etapa, false, '3_4', {:selected => params[:etapa].to_i} %>
+  </div>
+  <div class="fila"><br/></div>
+  <%= checkbox _("Aplicar tasas de cambio"), '', 'tasa_cambio', "3_4", {:izquierda => true, :abajo => true}  %>
+  <%= checkbox _("Mostrar partidas ocultas"), '', 'mostrar_partidas_ocultas', "1", {:izquierda => true, :abajo => true} if @agente  %>
+  <%= checkbox _("Sacar el resultado a fichero "), '', 'fichero', "1", {:izquierda => true, :abajo => true}  %>
+
+<div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+</form>
+</fieldset>
+
+<% if @resumen && resumen = @resumen[0] %>
+  <div class="fieldset">
+    <div class="legend" align= "left">
+      <%= _("Fecha inicio") + ": " + @fecha_de_inicio.to_time.to_s %><br>
+      <%= _("Fecha fin") + ": " + @fecha_de_fin.to_time.to_s %><br>
+      <%= _("Moneda") + ": " + (@moneda ? @moneda.nombre : _("Todas las monedas")) %><br>
+      <% if @moneda.nil? || params[:tasa_cambio] == "1" %>
+        <%= _("Tasa cambio") + ": " + _("Aplicada") %><br>
+      <% end %>
+    </div>
+    <br>
+    <%= dibuja_tabla resumen[:listado][:lineas] %>
+  </div>
+<% end %>
+
+
+
+
+

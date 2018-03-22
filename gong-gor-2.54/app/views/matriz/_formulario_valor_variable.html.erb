@@ -1,0 +1,9 @@
+<%= comienzo_formulario( { :action => 'crear_modificar_valor_variable', :id => @valor_variable, :variable_id => params[:variable_id], :update => params[:update] }, true ) %>
+  <%= hidden_field('valor_variable', 'variable_indicador_id') %>
+  <div class="fila">
+    <%= calendario_fecha _("Fecha"), 'valor_variable', 'fecha' %>
+    <%= texto _("Valor Medido"), 'valor_variable', 'valor', '1' %>
+    <%= texto _("Comentario"), 'valor_variable', 'comentario', '2' %>
+  </div>
+<%= final_formulario %>
+

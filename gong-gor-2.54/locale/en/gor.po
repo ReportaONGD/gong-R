@@ -1,0 +1,7462 @@
+# Gong (Gor) English translation file.
+# Copyright (C) 2012 Semilla S.L.
+# This file is distributed under the same license as the gong-gor package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: version 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2015-11-10 14:51+0100\n"
+"Last-Translator: Francisco Javier Picado Ladrón de Guevara <javier@semillasl.c"
+"om>\n"
+"Language-Team: English <info@gong.es>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 1.8.4\n"
+
+msgid " a otras cuentas "
+msgstr " to other accounts "
+
+msgid " en la documentación del proyecto."
+msgstr " in the project documentation."
+
+msgid " en la documentación general del sistema."
+msgstr " in the general documentation."
+
+msgid " para "
+msgstr " to "
+
+msgid "% Desviacion"
+msgstr "% Deviation"
+
+msgid "% Ejecutado"
+msgstr "executed"
+
+#, fuzzy
+msgid "% Funcionamiento"
+msgstr "% Compliance"
+
+msgid "% Realizado"
+msgstr "% Done"
+
+msgid "% cumplimiento"
+msgstr "% Compliance"
+
+msgid "% de Ejecución presupuestaria"
+msgstr ""
+
+msgid "% de tiempo transcurrido:"
+msgstr ""
+
+#, fuzzy
+msgid "% ejec. Actividades"
+msgstr "By Activities"
+
+#, fuzzy
+msgid "% ejec. ppto."
+msgstr "% max. budget"
+
+msgid "% ejec. tiempo"
+msgstr ""
+
+msgid "% máximo"
+msgstr "% maximum"
+
+msgid "% máximo ppto."
+msgstr "% max. budget"
+
+msgid "% realiz."
+msgstr "% done"
+
+msgid "% realizado"
+msgstr "% done"
+
+#, fuzzy
+msgid "%d cerrados"
+msgstr "Closed expenses"
+
+msgid "%d contratos en total"
+msgstr ""
+
+#, fuzzy
+msgid "%d en ejecución"
+msgstr "show implementation"
+
+#, fuzzy
+msgid "%d en formulación"
+msgstr "Formulation"
+
+msgid "%{estado} (desde: %{fecha}, cambiado por: %{usuario})"
+msgstr ""
+
+msgid "%{moneda} enviados"
+msgstr "%{moneda} shipped"
+
+msgid "%{moneda} recibidos"
+msgstr "%{moneda} received"
+
+msgid "%{moneda} recibidos y cambiados"
+msgstr "%{moneda} received and changed"
+
+msgid "%{moneda} transferidos"
+msgstr "%{moneda} transferred"
+
+msgid "%{mon} EQUIVALENTES"
+msgstr "%{mon} EQUIVALENTS"
+
+msgid "%{mon} equivalentes"
+msgstr "%{mon} equivalents"
+
+msgid "%{nom_proys} y %{num} más"
+msgstr ""
+
+msgid "%{num_aprob} proyectos aprobados y en ejecución de %{num_total} abiertos."
+msgstr "%{num_aprob} projects approved and in implementation of %{num_total} open."
+
+msgid "%{num} de %{total} Actividades finalizadas"
+msgstr "%{num} of %{total} completed activities"
+
+msgid "%{num} de %{total} Fuentes de Verificación justificadas"
+msgstr "%{num} of %{total} Means of Verification justified"
+
+#, fuzzy
+msgid "%{num} de %{total} Subactividades finalizadas"
+msgstr "%{num} of %{total} Subactivities finished"
+
+msgid "%{num} de %{total} indicadores totalmente cumplidos.<br>%{pct} de cumplimiento medio."
+msgstr ""
+
+msgid "%{num} días de retraso"
+msgstr "%{num} days late"
+
+msgid "%{num} días desde su finalización"
+msgstr ""
+
+msgid "%{num} días restantes"
+msgstr "%{num} days remaining"
+
+msgid "%{num} gastos con un importe total (aplicando tasas de cambio) de %{val} %{mon}"
+msgstr ""
+
+msgid "%{num} gastos con un importe total de %{val} %{mon}"
+msgstr ""
+
+msgid "%{num} gastos usados en el proyecto, con un importe total (aplicando tasas de cambio) de %{val} %{mon}"
+msgstr ""
+
+msgid "%{num} ingresos con un importe total (aplicando tasas de cambio) de %{val} %{mon}"
+msgstr ""
+
+msgid "%{num} proyectos"
+msgstr "%{num} projects"
+
+msgid "%{valor} de %{total} %{moneda} de cofinanciación privada conseguida"
+msgstr "%{valor} of %{total} %{moneda} of private financing obtained"
+
+msgid "%{valor} de %{total} %{moneda} de cofinanciación publica conseguida"
+msgstr "%{valor} of %{total} %{moneda} of public financing obtained"
+
+msgid "'%{controlador}' - Usado en %{opciones}"
+msgstr ""
+
+msgid "'%{nombre}' de tipo '%{tipo}'"
+msgstr ""
+
+msgid "(%d proyectos ejecutándose en total)"
+msgstr ""
+
+msgid "(+) Iva Recuperado"
+msgstr "(+) Retrieved VAT"
+
+msgid "(+) Saldos de periodos anteriores"
+msgstr "(+) Balace of previous periods"
+
+msgid "(+) Subvención recibida "
+msgstr "(+) Grant founds received"
+
+msgid "(+) Total Divisa intermedia"
+msgstr "(+) Total Foreign Currency"
+
+msgid "(+) Total Intereses Generados"
+msgstr "(+) Total accrued interest"
+
+msgid "(+) Total Moneda Local obtenida"
+msgstr "(+) Total obtained Local currency"
+
+msgid "(-) Moneda Local recibida y cambiada"
+msgstr "(-) Local currency received and changed"
+
+msgid "(-) Reintegro subvención"
+msgstr "(-) Reimbursement grant"
+
+msgid "(-) Total %{mon} transferidos"
+msgstr "(-) Total transferred %{mon}"
+
+msgid "(-) Total Divisa recibida y cambiada"
+msgstr "(-) Foreign currency received and changed"
+
+msgid "(I) TOTAL Fondos de la subvencion"
+msgstr "(I) TOTAL Grant founds"
+
+msgid "(II) GASTOS aplicados (-)"
+msgstr "(II) EXPENSES charged (-)"
+
+msgid "(III) SALDOS CORRIENTES (I) - (II)"
+msgstr "(III) CURRENT BALANCES (I) - (II)"
+
+msgid "(IV) SALDO"
+msgstr "(IV) BALANCE"
+
+msgid "(V) TOTAL"
+msgstr "(V) TOTAL"
+
+msgid "(desde %{fecha_inicio} hasta %{fecha_fin})"
+msgstr "(from %{fecha_inicio} until %{fecha_fin})"
+
+msgid "(no asignar por defecto)"
+msgstr ""
+
+msgid "(pincha sobre un espacio para navegar y gestionar los subespacios del mismo)"
+msgstr "click on a space to navigate and manage their subspaces"
+
+#, fuzzy
+msgid "- mostrar filtros -"
+msgstr "Delete filter"
+
+#, fuzzy
+msgid "- ocultar filtros -"
+msgstr "Delete filter"
+
+#, fuzzy
+msgid ". Cambiar datos personales."
+msgstr "Change personal data"
+
+msgid "... y %{num} actividades más."
+msgstr "... and %{num} extra activities"
+
+msgid "... y %{num} presupuestos más."
+msgstr "... and %{num} extra budget."
+
+msgid "1. DATOS BASICOS DEL PROYECTO"
+msgstr ""
+
+msgid "1. DATOS BÁSICOS"
+msgstr ""
+
+msgid "1. DATOS IDENTIFICATIVOS DEL PROYECTO"
+msgstr ""
+
+msgid "2. DATOS ECONÓMICOS DE PROYECTOS ABIERTOS"
+msgstr ""
+
+msgid "2. DATOS PRESUPUESTARIOS DEL PROYECTO"
+msgstr ""
+
+msgid "2.1 OBJETIVO GENERAL DEL PROYECTO"
+msgstr ""
+
+msgid "2.2 OBJETIVO ESPECIFICO DEL PROYECTO"
+msgstr ""
+
+msgid "3. DATOS REFERENTES AL INICIO DEL PROYECTO"
+msgstr ""
+
+msgid "3. DATOS TÉCNICOS DE PROYECTOS ABIERTOS"
+msgstr ""
+
+msgid "3. FECHAS Y VIGENCIA"
+msgstr ""
+
+msgid "4. DATOS TÉCNICOS DEL PROYECTO"
+msgstr ""
+
+msgid "4. FINANCIACIÓN (en la moneda de justificación)"
+msgstr ""
+
+msgid "4. FINANCIACIÓN Y SEGUIMIENTO ECONOMICO (en la moneda de justificación)"
+msgstr ""
+
+msgid "4. RELACIÓN DE PROYECTOS ABIERTOS"
+msgstr ""
+
+msgid "5. SEGUIMIENTO  TECNICO"
+msgstr ""
+
+msgid "812 o excel"
+msgstr "812 or excel"
+
+#, fuzzy
+msgid "< ocultar formulario"
+msgstr "Form close"
+
+msgid "<< Volver a iniciar para aplicar tasas de cambio"
+msgstr "<< Restart to apply exchange rates"
+
+msgid "<< Volver a listado general de socios"
+msgstr "<< Back to general list of partners"
+
+#, fuzzy
+msgid "<< ocultar formulario de registros de exportación"
+msgstr "Form close"
+
+#, fuzzy
+msgid "> mostrar formulario"
+msgstr "Form close"
+
+msgid "A cuenta:"
+msgstr "On account:"
+
+msgid "A una instancia de prueba/demostración acceden diferentes usuarios, con lo que no garantizamos la integridad o control de la información."
+msgstr "there are different users accessing to a trial or demo instance so we do not guarantee the integrity or control of the information"
+
+msgid "APROBACIÓN ORIGINAL"
+msgstr ""
+
+msgid "ATENCIÓN"
+msgstr "WARNING"
+
+msgid "Abierta"
+msgstr "Open"
+
+#, fuzzy
+msgid "Abierto"
+msgstr "Open"
+
+msgid "Abreviatura"
+msgstr "Short"
+
+msgid "Abreviatura repetida."
+msgstr "Repeated short"
+
+msgid "Accede a"
+msgstr "Access"
+
+msgid "Acciones"
+msgstr "Actions"
+
+msgid "Acciones Disponibles"
+msgstr "Available actions"
+
+msgid "Acciones a nivel de"
+msgstr "level actions"
+
+msgid "Acción"
+msgstr "Action"
+
+msgid "Aceptar"
+msgstr "Accept"
+
+msgid "Activado"
+msgstr "enabled"
+
+msgid "Actividad"
+msgstr "activity/ operation"
+
+msgid "Actividad asociada al gasto repetida"
+msgstr ""
+
+msgid "Actividad de Convenio Relacionada"
+msgstr ""
+
+msgid "Actividad debe tener un código en hoja de Actividad"
+msgstr "Activity should have a code in Activity spreadsheet"
+
+msgid "Actividad no es válida."
+msgstr "Operation is not valid"
+
+#, fuzzy
+msgid "Actividad repetida para el contrato."
+msgstr "repeated activity budget"
+
+msgid "Actividad repetida para el presupuesto."
+msgstr "repeated activity budget"
+
+msgid "Actividades"
+msgstr "Activities/ Operations"
+
+msgid "Actividades Globales"
+msgstr "Global Activivites"
+
+msgid "Actividades de Resultado"
+msgstr "Outcome Activities"
+
+#, fuzzy
+msgid "Actividades modificadas"
+msgstr "Global Activivites"
+
+#, fuzzy
+msgid "Actividades:"
+msgstr "Activities/ Operations"
+
+msgid "Activo"
+msgstr "Asset"
+
+msgid "Acumulado"
+msgstr "Accumulated"
+
+msgid "Acumulado (todos los PACs)"
+msgstr "Accumulated (the full PACs)"
+
+msgid "Adelanto"
+msgstr "Advance"
+
+msgid "Adjuntar un nuevo documento a"
+msgstr "Attach a new document "
+
+msgid "Adjuntar un nuevo documento a la fuente de verificación"
+msgstr "Attach a new document to the verification source"
+
+msgid "Admin"
+msgstr ""
+
+msgid "Admin."
+msgstr ""
+
+#, fuzzy
+msgid "Administración"
+msgstr "Administrator"
+
+#, fuzzy
+msgid "Administración General"
+msgstr "System administration"
+
+msgid "Administración del sistema"
+msgstr "System administration"
+
+msgid "Administrador"
+msgstr "Administrator"
+
+msgid "Agente"
+msgstr "Agent"
+
+msgid "Agente Implementador"
+msgstr ""
+
+msgid "Agente/Delegación Gestor/a: "
+msgstr ""
+
+msgid "Agente/Delegación Implementador/a: "
+msgstr ""
+
+#, fuzzy
+msgid "Agente: "
+msgstr "Agent"
+
+msgid "Agentes"
+msgstr "Agents"
+
+msgid "Al reordenar las facturas se perderán todos los códigos de factura para el financiador"
+msgstr ""
+
+msgid "Alguna de las tareas del periodo no esta asignada a ningun usuario."
+msgstr ""
+
+msgid "Alguna de las tareas no tiene definida fecha de finalización."
+msgstr ""
+
+msgid "Alguna de las tareas no tiene definida fecha de inicio."
+msgstr ""
+
+msgid "Alguna partida de sistema no está aún asignada a alguna de las partidas del proyecto. Vaya a 'Configuración' > 'Partidas del proyecto' para comprobarlo."
+msgstr ""
+
+msgid "Alta en el Sistema"
+msgstr "System's registration"
+
+msgid "Alta en la Organización"
+msgstr "Register the organization"
+
+msgid "Apellido"
+msgstr "Last name"
+
+msgid "Apellido1"
+msgstr "Last name 1"
+
+msgid "Apellido2"
+msgstr "Last name 2"
+
+msgid "Aplica a"
+msgstr "Applies to"
+
+msgid "Aplicable a "
+msgstr "applicable"
+
+msgid "Aplicada"
+msgstr "Applied"
+
+msgid "Aplicar Remanentes"
+msgstr "Apply remnant"
+
+msgid "Aplicar Remanentes a la Etapa"
+msgstr "Apply remnant to Stage"
+
+msgid "Aplicar filtro fecha"
+msgstr "Apply date filter"
+
+msgid "Aplicar tasas a los gastos"
+msgstr "Apply rates to expenses"
+
+msgid "Aplicar tasas al presupuesto"
+msgstr "Apply rates to the budget"
+
+msgid "Aplicar tasas de cambio"
+msgstr "Apply rates of change"
+
+msgid "Aplicar tasas de cambio para el presupuesto en la etapa seleccionado"
+msgstr "Apply rates of change to the Budget in the chosen Stage"
+
+msgid "Aportaciones Públicas Locales"
+msgstr "Public Local Submission"
+
+msgid "Aportación Financiador Principal:"
+msgstr ""
+
+msgid "Aportación Financiador Principal: "
+msgstr ""
+
+msgid "Aportación Otro Financiador: "
+msgstr ""
+
+msgid "Aportación otros financiadores:"
+msgstr ""
+
+msgid "Aprobado"
+msgstr "Approved"
+
+msgid "Aprobado Delegación"
+msgstr "Approved by Delegation"
+
+msgid "Aprobado ONGD"
+msgstr "Approved by NGO"
+
+msgid "Area Actuación"
+msgstr "Operation Area"
+
+#, fuzzy
+msgid "Arqueo"
+msgstr "cash count"
+
+msgid "Arqueo Cuenta/Caja"
+msgstr "Cash count"
+
+msgid "Arqueo de Cuenta/Caja"
+msgstr "Tonnage"
+
+msgid "Arqueos de caja/cuenta"
+msgstr "Tonnage"
+
+msgid "Asignación del gasto repetida."
+msgstr "Repeatedly assigning costs"
+
+msgid "Asignada a"
+msgstr "Assigned to"
+
+msgid "Asignado a"
+msgstr "Assigned to"
+
+msgid "Asignado en Grupo"
+msgstr "Assigned in group"
+
+msgid "Asignado por"
+msgstr "Assigned by"
+
+msgid "Asignar a nuevos proyectos con rol"
+msgstr ""
+
+msgid "Asignar grupo a %{objeto}"
+msgstr "Assign group to %{objeto}"
+
+msgid "Asignar usuario a %{objeto}"
+msgstr "Assign user to %{objeto}"
+
+msgid "Asociado"
+msgstr "Partner"
+
+msgid "Asociar Proyecto a Financiación"
+msgstr "Link Project to Financing"
+
+msgid "Atención: La partida del sistema ya esta asociada a alguna otra partida de la financiacion."
+msgstr "Note: The departure of the system it is associated with some other departure in  financing"
+
+msgid "Automático"
+msgstr "Automatic"
+
+msgid "Autor"
+msgstr "Author"
+
+msgid "Avisos"
+msgstr ""
+
+msgid "Ayuda"
+msgstr "Help"
+
+msgid "Ayuda sobre GONG"
+msgstr "Help about GONG"
+
+msgid "Añadir %{relacion} al proyecto"
+msgstr "Add %{ratio} to the Project"
+
+msgid "Añadir Nuevo Campo"
+msgstr "Add a new field"
+
+msgid "Añadir Nuevo Movimiento"
+msgstr "Add a new Movement"
+
+msgid "Añadir Nuevo Proyecto ó Nuevo Convenio"
+msgstr "Add a New Project or a New Convention"
+
+msgid "Añadir País"
+msgstr "Add country"
+
+msgid "Añadir Proyecto"
+msgstr "Add project"
+
+msgid "Añadir actividad"
+msgstr "Add activity"
+
+msgid "Añadir etapa"
+msgstr "Add Stage"
+
+msgid "Añadir filtro"
+msgstr "Add filter"
+
+msgid "Añadir financiador"
+msgstr "Add funder"
+
+#, fuzzy
+msgid "Añadir financiador al proyecto"
+msgstr "Add %{ratio} to the Project"
+
+#, fuzzy
+msgid "Añadir implementador al proyecto"
+msgstr "Add %{ratio} to the Project"
+
+#, fuzzy
+msgid "Añadir item"
+msgstr "Add filter"
+
+msgid "Añadir moneda relacionada"
+msgstr "Add related currency"
+
+msgid "Añadir o editar las fechas de relacionadas con petición de prorroga"
+msgstr ""
+
+msgid "Añadir periodo"
+msgstr "Add period"
+
+msgid "Añadir presupuestos para todos los meses de la etapa"
+msgstr ""
+
+#, fuzzy
+msgid "Añadir proyecto"
+msgstr "Add project"
+
+msgid "Añadir proyecto ó delegación"
+msgstr "Add Project or Delegation"
+
+msgid "Añadir proyecto_ cofinanciador"
+msgstr ""
+
+msgid "Añadir resultado"
+msgstr "Add result"
+
+msgid "Añadir uno nuevo"
+msgstr "Add new"
+
+msgid "Año"
+msgstr ""
+
+msgid "Backup"
+msgstr "Backup"
+
+msgid "Baja en la Organización"
+msgstr "Derecognition of the Organization"
+
+msgid "Banco"
+msgstr "Bank"
+
+msgid "Bienvenido a la demo de GONG"
+msgstr "Welcome to the GONG demo"
+
+msgid "Bienvenido a la instancia de demostración de GONG"
+msgstr "Welcome to the demonstration instance of GONG"
+
+msgid "Bloq."
+msgstr "Lock"
+
+msgid "Bloqueada"
+msgstr "Locked"
+
+#, fuzzy
+msgid "Bloqueado"
+msgstr "Locked"
+
+msgid "Borrado de actividad con código '%{codigo}'"
+msgstr "Draft of activity with code '%{codigo}'"
+
+msgid "Borrado de objetivo específico con código '%{codigo}'"
+msgstr "Draft of specific object with code '%{codigo}'"
+
+msgid "Borrado de resultado con código '%{codigo}'"
+msgstr "Draft of result with code '%{codigo}'"
+
+msgid "Borrar"
+msgstr "Delete"
+
+msgid "Buscar"
+msgstr "Search"
+
+msgid "Busqueda por etiquetas"
+msgstr "Tag search"
+
+msgid "C.Reducido"
+msgstr ""
+
+msgid "C.Unitario"
+msgstr ""
+
+msgid "CVC"
+msgstr "CVC"
+
+msgid "Caja \"chica\""
+msgstr "Petty cash"
+
+msgid "Calcular Remanentes de la Etapa"
+msgstr "Calculate Stage Remants"
+
+msgid "Calendario de Pagos"
+msgstr "Payment schedule"
+
+msgid "Cambiado por"
+msgstr "Changed by"
+
+msgid "Cambiar"
+msgstr "Change"
+
+msgid "Cambiar a Actividades"
+msgstr "Change to activities"
+
+msgid "Cambiar a Resultados"
+msgstr "Change to Results"
+
+#, fuzzy
+msgid "Cambiar contraseña"
+msgstr "New passwrd"
+
+msgid "Cambiar de Estado"
+msgstr "Change state"
+
+msgid "Cambiar fechas originales aprobadas"
+msgstr ""
+
+msgid "Cambiar los criterios de numeración de facturas para el financiador (estado de reporte)"
+msgstr ""
+
+msgid "Cambiar marcado"
+msgstr "Change selection"
+
+msgid "Cambio"
+msgstr "Exchange rate"
+
+msgid "Cambio de estado"
+msgstr "State change"
+
+msgid "Campos Particulares"
+msgstr ""
+
+msgid "Cancelar"
+msgstr "Cancel"
+
+#, fuzzy
+msgid "Cantidad"
+msgstr "Entity"
+
+msgid "Carga Total"
+msgstr "Full load"
+
+msgid "Carné"
+msgstr "License id"
+
+msgid "Carta Bienvenida"
+msgstr "Welcome Letter"
+
+msgid "Categoría"
+msgstr "Category"
+
+msgid "Categoría Profesional"
+msgstr " Occupational Category"
+
+msgid "Categorías de Sector de Intervención"
+msgstr ""
+
+msgid "Categorías de Área de Actuación"
+msgstr ""
+
+#, fuzzy
+msgid "Centro de Coste"
+msgstr "Cost centre"
+
+msgid "Centro de Coste?"
+msgstr "Cost centre"
+
+msgid "Centros de Coste"
+msgstr "Cost Centres"
+
+msgid "Centros de coste del Proyecto: "
+msgstr ""
+
+msgid "Cerrada"
+msgstr "Closed"
+
+msgid "Cerrado"
+msgstr "Closed"
+
+#, fuzzy
+msgid "Cerrado/Aceptado"
+msgstr "Close this list"
+
+#, fuzzy
+msgid "Cerrar"
+msgstr "Closed"
+
+msgid "Cerrar esta ventana"
+msgstr "Close this windows"
+
+msgid "Cerrar este listado"
+msgstr "Close this list"
+
+msgid "Cerrar formulario"
+msgstr "Form close"
+
+msgid "Cerrar gastos del periodo"
+msgstr ""
+
+msgid "Cerrar mensaje"
+msgstr "Close message"
+
+#, fuzzy
+msgid "Cerrar_periodo"
+msgstr "Edit period"
+
+msgid "Cheque"
+msgstr "Check"
+
+msgid "Cheque Num."
+msgstr "Check number"
+
+msgid "Cierre"
+msgstr ""
+
+msgid "Clase repetida."
+msgstr "Repeated class."
+
+msgid "Cobrado en Caja \"chica\""
+msgstr "Charged on petty cash"
+
+msgid "Cod. Postal"
+msgstr "Post code"
+
+msgid "Cod. Prov. Fiscal"
+msgstr "District Fiscal Code"
+
+msgid "Codigo"
+msgstr "Id"
+
+msgid "Codigo repetido."
+msgstr "Repeated id"
+
+msgid "Cof. Privada:"
+msgstr "Private cof."
+
+msgid "Cof. Pública:"
+msgstr "Public cof."
+
+msgid "Color"
+msgstr "Color"
+
+msgid "Columnas"
+msgstr "Columns"
+
+msgid "Comentario"
+msgstr "Comment "
+
+msgid "Comentario Origen Socio"
+msgstr ""
+
+msgid "Comentario sobre el Origen"
+msgstr "Comment about the Origin"
+
+msgid "Comentarios"
+msgstr "Comments"
+
+msgid "Comentarios a la actividad:"
+msgstr "Comments to Activity"
+
+msgid "Comentarios a la ejecucion"
+msgstr "Comments to Implementation"
+
+msgid "Comentarios al indicador:"
+msgstr "Comment to indicator"
+
+msgid "Comentarios para la ejecucion"
+msgstr "Comments to the Implementation´s"
+
+msgid "Completada"
+msgstr "Completed"
+
+msgid "Completar Fuente de Verificación"
+msgstr "Complete Verification Source"
+
+#, fuzzy
+msgid "Comprometido"
+msgstr "Completed"
+
+msgid "Concepto"
+msgstr "Concept"
+
+msgid "Concepto del gasto"
+msgstr "Expense concept"
+
+msgid "Concepto repetido"
+msgstr "Repeated concept"
+
+msgid "Concepto/Detalle"
+msgstr "Concept/detail"
+
+#, fuzzy
+msgid "Condicion"
+msgstr "Id"
+
+msgid "Condiciones particulares para contratos de tipo '%{tipo}'"
+msgstr ""
+
+#, fuzzy
+msgid "Condición"
+msgstr "Configuration"
+
+msgid "Conectado como"
+msgstr "Logged as"
+
+msgid "Configuración"
+msgstr "Configuration"
+
+msgid "Configuración del sistema"
+msgstr "System configuration"
+
+msgid "Confirmar"
+msgstr "Confirm"
+
+msgid "Contacte con el administrador del sistema."
+msgstr "Contact the system administrator."
+
+msgid "Contacto"
+msgstr "Contact"
+
+msgid "Contexto"
+msgstr "Context"
+
+msgid "Contraseña"
+msgstr "Password"
+
+msgid "Contraseña actual"
+msgstr "Current password"
+
+#, fuzzy
+msgid "Contrato"
+msgstr "Contact"
+
+#, fuzzy
+msgid "Contrato no es válido."
+msgstr "Funder is not valid."
+
+#, fuzzy
+msgid "Contratos"
+msgstr "Contact"
+
+msgid "Contribuyente"
+msgstr "Contributor"
+
+#, fuzzy
+msgid "Controlador"
+msgstr "Configurator"
+
+msgid "Convenio"
+msgstr "Agreement"
+
+msgid "Convenio/Programa"
+msgstr "Agreement/Program"
+
+msgid "Convocatoria"
+msgstr "Convocatory"
+
+msgid "Convocatorias"
+msgstr "Convocatories"
+
+msgid "Copiar"
+msgstr "Copy"
+
+msgid "Copiar dato del proyecto"
+msgstr "Copy data from project"
+
+msgid "Copiar mapeo desde"
+msgstr ""
+
+msgid "Copiar rol y permisos desde '%{nom}'"
+msgstr ""
+
+msgid "Corregir porcentajes."
+msgstr ""
+
+msgid "Correo"
+msgstr "Mail"
+
+msgid "Correo electronico"
+msgstr "Email"
+
+#, fuzzy
+msgid "Coste Unitario"
+msgstr "Comment "
+
+#, fuzzy
+msgid "Coste unitario"
+msgstr "Comment "
+
+msgid "Coste/unidad"
+msgstr "cost/unit"
+
+msgid "Costes"
+msgstr "Costs"
+
+#, fuzzy
+msgid "Creador"
+msgstr "created"
+
+msgid "Crear Nuevo Libro"
+msgstr "Create New book"
+
+msgid "Crear PAC"
+msgstr "Create PAC"
+
+msgid "Crear Tasa de Cambio"
+msgstr "Create exchange rate"
+
+msgid "Cred./Deb."
+msgstr ""
+
+msgid "Cronograma"
+msgstr "schedule"
+
+msgid "Cronograma de Seguimiento"
+msgstr "Monitoring schedule"
+
+msgid "Cronograma de gastos previstos"
+msgstr ""
+
+msgid "Cronograma de gastos previstos por proyecto"
+msgstr "Schedule of planned expenditure per project"
+
+msgid "Cronograma de gastos realizados por proyecto"
+msgstr "Schedule of expenses per project"
+
+msgid "Crédito/Débito"
+msgstr ""
+
+msgid "Cuadro de Mando"
+msgstr "Scorecard"
+
+msgid "Cuadro de Mando Económico"
+msgstr "Economic escorecard"
+
+msgid "Cuadro de Mando Técnico"
+msgstr "Technical dashborad"
+
+msgid "Cuadro resumen"
+msgstr "Summary chart"
+
+msgid "Cualquier Fecha"
+msgstr "Any date"
+
+msgid "Cualquier cuenta/caja"
+msgstr "Any account/petty cash"
+
+msgid "Cualquier estado"
+msgstr "Any state"
+
+msgid "Cualquier etapa"
+msgstr "Any phase"
+
+msgid "Cualquier marcado"
+msgstr "Any marked"
+
+msgid "Cualquier partida"
+msgstr "Any departure"
+
+msgid "Cualquier proyecto"
+msgstr "Any project"
+
+msgid "Cualquier subtipo"
+msgstr "Any subtype"
+
+msgid "Cualquier tipo"
+msgstr "Any type"
+
+msgid "Cualquier tipo de personal"
+msgstr "Any type personnel"
+
+msgid "Cuenta"
+msgstr "Account"
+
+#, fuzzy
+msgid "Cuenta Bancaria"
+msgstr "Account/petty cash"
+
+#, fuzzy
+msgid "Cuenta Credito"
+msgstr "Account"
+
+msgid "Cuenta Destino"
+msgstr "Destination account"
+
+#, fuzzy
+msgid "Cuenta Débito"
+msgstr "Account"
+
+msgid "Cuenta Origen"
+msgstr "Origin account"
+
+msgid "Cuenta Recepción Fondos"
+msgstr "Account receiving funds"
+
+msgid "Cuenta Subvención"
+msgstr "Grant Account"
+
+msgid "Cuenta asociada al Pago"
+msgstr "Account associated to the Payment"
+
+#, fuzzy
+msgid "Cuenta credito"
+msgstr "Account"
+
+#, fuzzy
+msgid "Cuenta debito"
+msgstr "Account"
+
+msgid "Cuenta repetida."
+msgstr "Repeated account."
+
+msgid "Cuenta/Caja"
+msgstr "Account/petty cash"
+
+msgid "Cuenta/Caja %{nombre_cuenta}"
+msgstr ""
+
+msgid "Cuenta/Caja o Agente"
+msgstr "Account/petty cash or agent"
+
+msgid "Cuenta:"
+msgstr "Account:"
+
+msgid "Cuentas"
+msgstr "Accounts"
+
+#, fuzzy
+msgid "Cuentas Contabilidad CPT"
+msgstr "Accounts"
+
+#, fuzzy
+msgid "Cuentas Contables asociadas a la transferencia"
+msgstr "Accounts"
+
+#, fuzzy
+msgid "Cuentas Contables asociadas al gasto"
+msgstr "Accounts"
+
+msgid "Cuentas relacionados:"
+msgstr "Linked accounts:"
+
+msgid "Cuentas/Cajas de %{nombre_agente} (%{mon})"
+msgstr ""
+
+msgid "Cumplimiento del Indicador"
+msgstr "Indicator Compliance"
+
+msgid "Cálculo"
+msgstr "computation/ calculation"
+
+msgid "Cálculo de Remanentes"
+msgstr "Remnants Calculation"
+
+msgid "Cálculo de Remanentes en:"
+msgstr "Remnants Calculation in:"
+
+msgid "Cálculo en %{moneda}"
+msgstr "Calculation in %{moneda}"
+
+msgid "Código"
+msgstr "Code"
+
+msgid "Código de identificación para el financiador %s'%s'"
+msgstr ""
+
+msgid "Código repetido."
+msgstr "Repeated code."
+
+msgid "Código y descripción"
+msgstr "Code and description"
+
+msgid "DIFERENCIA Acumulada"
+msgstr ""
+
+msgid "DIFERENCIA Mensual"
+msgstr ""
+
+msgid "Dar de alta un nuevo concepto para esta actividad."
+msgstr ""
+
+msgid "Datos de proyecto"
+msgstr "Project data"
+
+msgid "Datos proyecto"
+msgstr "Project data"
+
+msgid "Datos titulares derecho"
+msgstr "Right holders data"
+
+#, fuzzy
+msgid "De Agente"
+msgstr "From agent"
+
+msgid "De Proyecto"
+msgstr "From project"
+
+msgid "Debe elegir una moneda para relacionarla con el agente"
+msgstr ""
+
+msgid "Debe existir un socio."
+msgstr "A partner must exists."
+
+msgid "Debe identificarse para acceder al sistema."
+msgstr "You must login to access to the system."
+
+msgid "Debe modificar manualmente las etapas del proyecto para que se correspondan con la prórroga aprobada."
+msgstr ""
+
+msgid "Debe seleccionar agente. Para ello primero seleccione tipo implementador o financiador."
+msgstr ""
+
+msgid "Debe seleccionar etapa. Si no existe ninguna debe dar de alta para este proyecto."
+msgstr ""
+
+#, fuzzy
+msgid "Definición"
+msgstr "Description"
+
+msgid "Definir Moneda Local"
+msgstr "Define Local currency"
+
+msgid "Definir como no Completada"
+msgstr ""
+
+msgid "Delegación"
+msgstr "Branch"
+
+#, fuzzy
+msgid "Delegación/Oficina"
+msgstr "Branch"
+
+msgid "Desactive la opción si no quiere generar el fichero."
+msgstr ""
+
+msgid "Desasignar grupo"
+msgstr "Unassign group"
+
+msgid "Desasignar usuario"
+msgstr "Unassign user"
+
+msgid "Descargar"
+msgstr "Download"
+
+#, fuzzy
+msgid "Descargar el fichero de exportación"
+msgstr "Download"
+
+msgid "Descargar los documentos en un fichero zip."
+msgstr ""
+
+msgid "Descargar nota de gasto"
+msgstr ""
+
+msgid "Descargar nota de pago de hito de contrato desde la plantilla:"
+msgstr ""
+
+msgid "Descripcion"
+msgstr "Description"
+
+msgid "Descripción"
+msgstr "Description"
+
+#, fuzzy
+msgid "Descripción del Estado"
+msgstr "Detailed description"
+
+msgid "Descripción detallada"
+msgstr "Detailed description"
+
+msgid "Descripción/Observaciones"
+msgstr "DESCRIPTION / COMMENTS"
+
+#, fuzzy
+msgid "Desde"
+msgstr "from"
+
+msgid "Desde Caja \"chica\""
+msgstr "From Petty Cash"
+
+msgid "Desde el %s hasta el %s"
+msgstr ""
+
+msgid "Desmarcar todos"
+msgstr ""
+
+msgid "Destinatario"
+msgstr "Target group"
+
+msgid "Desviación"
+msgstr "Difference"
+
+msgid "Detallar actividades"
+msgstr "Detail activities"
+
+msgid "Detallar financiadores"
+msgstr "Detail funders"
+
+#, fuzzy
+msgid "Detallar proyectos"
+msgstr "Project details"
+
+msgid "Detalle"
+msgstr "Detail"
+
+msgid "Detalle Financiero por Financiadores"
+msgstr ""
+
+msgid "Detalle de proyectos para la partida seleccionada."
+msgstr ""
+
+msgid "Detalle de subpartidas para la partida seleccionada."
+msgstr ""
+
+msgid "Detalle del contrato en el momento de cambio de estado a '%{nuevo}'"
+msgstr ""
+
+msgid "Detalle del gasto imputado a proyectos mostrado por subpartida y proyecto"
+msgstr ""
+
+msgid "Detalle del presupuesto frente al gasto del agente por subpartidas y el gasto imputado a delegacion frente al gasto imputado a proyectos"
+msgstr ""
+
+msgid "Detalle financiadores"
+msgstr "Funders detail"
+
+msgid "Detalles del Convenio"
+msgstr "Details of the agreement"
+
+msgid "Detalles del Proyecto"
+msgstr "Project details"
+
+msgid "Devolucion"
+msgstr ""
+
+#, fuzzy
+msgid "Dias al informe"
+msgstr "Report date"
+
+msgid "Diferencia"
+msgstr "Difference"
+
+msgid "Direccion"
+msgstr "Address"
+
+msgid "Directa"
+msgstr "Direct"
+
+msgid "Directa/Indirecta"
+msgstr "Direct/Indirect"
+
+msgid "Directo"
+msgstr "Direct"
+
+msgid "Disponible"
+msgstr "Available"
+
+msgid "Dividir entre todas las actividades de la etapa"
+msgstr ""
+
+msgid "Dividir entre todas las actividades seleccionadas"
+msgstr ""
+
+msgid "Dividir importe por meses"
+msgstr "Divide amount per month"
+
+msgid "Divisa"
+msgstr "Currency"
+
+msgid "Documentación"
+msgstr "Documentation"
+
+#, fuzzy
+msgid "Documentación asociada"
+msgstr "general documentation"
+
+msgid "Documento"
+msgstr "Document"
+
+#, fuzzy
+msgid "Documento Formulación"
+msgstr "Documents by spaces"
+
+msgid "Documento repetido."
+msgstr "Repeated document."
+
+#, fuzzy
+msgid "Documento_formulación_"
+msgstr "Documentation"
+
+msgid "Documentos"
+msgstr "Documents"
+
+msgid "Documentos Comunes"
+msgstr "Common documents"
+
+msgid "Documentos de Verificación"
+msgstr "Verification document"
+
+msgid "Documentos de Verificación del Objetivo Específico"
+msgstr ""
+
+msgid "Documentos de Verificación del Resultado"
+msgstr ""
+
+msgid "Documentos de gastos"
+msgstr "Expense records"
+
+msgid "Documentos de transferencias"
+msgstr "Transfer records"
+
+msgid "Documentos del contrato '%s'"
+msgstr ""
+
+msgid "Documentos en el proyecto: %{numero}"
+msgstr ""
+
+msgid "Documentos en el sistema: %{numero}"
+msgstr ""
+
+msgid "Documentos generales"
+msgstr "General documentation"
+
+#, fuzzy
+msgid "Documentos necesarios"
+msgstr "Documents by spaces"
+
+msgid "Documentos necesarios para cambiar el contrato al estado %{nom}."
+msgstr ""
+
+msgid "Documentos por espacios"
+msgstr "Documents by spaces"
+
+#, fuzzy
+msgid "Documentos subidos"
+msgstr "Common documents"
+
+msgid "Don"
+msgstr "Mr."
+
+msgid "Doña"
+msgstr "Mrs."
+
+msgid "Duración máxima (meses)"
+msgstr ""
+
+msgid "Duración prevista del Proyecto: "
+msgstr ""
+
+msgid "ERROR: El documento no es una hoja de cálculo válida"
+msgstr "ERROR: The document is not a valid spreadsheet"
+
+msgid "ERROR: La hoja de cálculo a importar no es de Matriz"
+msgstr "ERROR: The spreadsheet to be imported is not a Matrix"
+
+msgid "ERROR: La plantilla elegida no es una hoja de cálculo válida"
+msgstr "ERROR: The chosen template is not a valid spreadsheet"
+
+msgid "ERROR: Se está tratando de importar información de un implementador no autorizado"
+msgstr ""
+
+msgid "Edades"
+msgstr "Ages"
+
+msgid "Editar"
+msgstr "edit"
+
+msgid "Editar "
+msgstr "edit"
+
+msgid "Editar Información del socio"
+msgstr "Edit partner information"
+
+msgid "Editar PAC"
+msgstr "edit PAC"
+
+msgid "Editar Tasa de Cambio"
+msgstr "Edit exchange rate"
+
+msgid "Editar Variable"
+msgstr "Edit variable"
+
+msgid "Editar actividad"
+msgstr "Edit activity"
+
+msgid "Editar agente"
+msgstr "Edit agent"
+
+msgid "Editar asignacion"
+msgstr "edite allocation"
+
+msgid "Editar definicion_estado"
+msgstr "edite state definition"
+
+msgid "Editar detalle de presupuesto"
+msgstr "edite Budget detail"
+
+msgid "Editar documento"
+msgstr "Edit document"
+
+#, fuzzy
+msgid "Editar empleado"
+msgstr "edite space"
+
+msgid "Editar espacio"
+msgstr "edite space"
+
+#, fuzzy
+msgid "Editar estado"
+msgstr "edite space"
+
+msgid "Editar etapa"
+msgstr "edite stage"
+
+msgid "Editar etiqueta"
+msgstr "Edit tag"
+
+msgid "Editar etiquetado de los documentos para este estado"
+msgstr "edite document labelling for the state"
+
+msgid "Editar financiación"
+msgstr "edite financing"
+
+msgid "Editar grupo"
+msgstr "Edit group"
+
+msgid "Editar las relacion del proyecto con la financiación"
+msgstr "edite prohject´s relation with financing"
+
+msgid "Editar medida"
+msgstr "edite measure"
+
+msgid "Editar pago"
+msgstr "edite payment"
+
+msgid "Editar periodo"
+msgstr "Edit period"
+
+msgid "Editar proyecto_cofinanciador"
+msgstr ""
+
+msgid "Editar socio"
+msgstr "Edit partner"
+
+msgid "Editar tarea"
+msgstr "Edit task"
+
+msgid "Editar usuario"
+msgstr "Edit user"
+
+msgid "Ejec."
+msgstr ""
+
+msgid "Ejecución"
+msgstr "implementation"
+
+msgid "Ejecución Económica"
+msgstr "economic implementation"
+
+msgid "Ejecución Técnica"
+msgstr "technique implementation"
+
+#, fuzzy
+msgid "Ejecutado"
+msgstr "executed"
+
+msgid "Ejercicio"
+msgstr "exercise"
+
+msgid "El Resultado debe tener un código"
+msgstr "the result must have a code"
+
+msgid "El Tipo de Personal asociado no es correcto."
+msgstr "The associated type of personnel is not correct."
+
+msgid "El agente"
+msgstr "the agent"
+
+msgid "El agente '%{agt}' ha cerrado la etapa donde se ejecuta el gasto. No se pueden modificar gastos de esas fechas."
+msgstr ""
+
+msgid "El agente financiador no es válido."
+msgstr ""
+
+msgid "El agente implementador asociado no es correcto."
+msgstr "the implemntator associated agent is wrong"
+
+msgid "El agente implementador no es válido."
+msgstr ""
+
+#, fuzzy
+msgid "El campo asociado no es correcto."
+msgstr "The associated country is not correct."
+
+msgid "El campo ya está definido en el contrato."
+msgstr ""
+
+msgid "El concepto se encuentra repartido entre varias actividades por lo que el detalle sólo puede modificarse desde la página del presupuesto por partidas."
+msgstr ""
+
+#, fuzzy
+msgid "El contrato asociado no es correcto."
+msgstr "The associated project is not correct."
+
+msgid "El contrato asociado no pertenece a ningun proyecto válido."
+msgstr ""
+
+msgid "El contrato está aprobado: No se pueden modificar sus datos de identificación"
+msgstr ""
+
+#, fuzzy
+msgid "El contrato está cerrado."
+msgstr "The project is closed."
+
+msgid "El contrato está cerrado. No se puede modificar."
+msgstr ""
+
+msgid "El contrato está fuera de fecha."
+msgstr ""
+
+msgid "El contrato no corresponde a ninún tipo de contrato definido."
+msgstr ""
+
+msgid "El contrato no dispone de código."
+msgstr ""
+
+#, fuzzy
+msgid "El contrato no es válido."
+msgstr "not found or invalid"
+
+msgid "El contrato no está en estado de ejecucion."
+msgstr ""
+
+msgid "El contrato no está en un estado que permita su modificación."
+msgstr ""
+
+msgid "El contrato no tiene asignado proveedor."
+msgstr ""
+
+#, fuzzy
+msgid "El contrato se encuentra cerrado en el estado actual"
+msgstr "The project is closed in the current state"
+
+msgid "El código del País está repetido."
+msgstr "The country code is repeated."
+
+msgid "El código introducido no coincide con la imagen"
+msgstr "the written code is not the same that the image one"
+
+msgid "El código no puede contener los caracteres '@' ó '#'."
+msgstr "The code can not contain the characters '@' or '#'."
+
+msgid "El dato está asociado a algún proyecto (%{nombres})."
+msgstr ""
+
+msgid "El dato se ha borrado correctamente."
+msgstr "Data has been deleted successfully."
+
+msgid "El documento asociado no es válido."
+msgstr ""
+
+msgid "El documento ya está asociado al tipo de contrato."
+msgstr ""
+
+msgid "El documento ya existe en el espacio."
+msgstr "The document already exists in space."
+
+msgid "El espacio %{ruta} contiene documentos: no se puede eliminar"
+msgstr "The space %{ruta} contains documents: can not delete"
+
+msgid "El estado de contrato asociado no es correcto."
+msgstr ""
+
+msgid "El estado del contrato no permite la modificación de las actividades."
+msgstr ""
+
+msgid "El financiador '%{agt}' no está asignado al proyecto '%{proy}'."
+msgstr ""
+
+msgid "El financiador ya esta asociada a la transferencia."
+msgstr "the financing is associated with the transfer"
+
+msgid "El formato de la fecha no es correcto."
+msgstr ""
+
+msgid "El gasto de la fila %{fila} no contiene número de orden de factura."
+msgstr "the expense of the row %{fila} has no invoice order number"
+
+msgid "El gasto está asignado a otro proveedor distinto del contratado."
+msgstr ""
+
+msgid "El gasto está asociado al proyecto"
+msgstr "the expense is associated to the project"
+
+#, fuzzy
+msgid "El gasto está asociado al proyecto '%{proy}'."
+msgstr "the expense is associated to the project"
+
+msgid "El gasto está compartido por varios proyectos. Solo puede modificarse desde la sección Agentes o desde el Proyecto origen."
+msgstr "the expense is associated to more tan one Project. It can be modified in the Agent´s section or in the original project"
+
+msgid "El gasto está fuera de las fechas de ejecución del contrato."
+msgstr ""
+
+msgid "El gasto no está asignado al proyecto '%{proy}'"
+msgstr ""
+
+msgid "El gasto no está pagado correctamente."
+msgstr ""
+
+msgid "El gasto no existe"
+msgstr ""
+
+msgid "El gasto no existe en este proyecto.<br>Si es un gasto nuevo, elimine el ID para crearlo."
+msgstr "the expense doesnt exist in that project.<br>eliminate the ID if it is a new expense."
+
+#, fuzzy
+msgid "El gasto no tiene cuenta de credito (CPT CONTABILIDAD)."
+msgstr "to"
+
+#, fuzzy
+msgid "El gasto no tiene cuenta de debito (CPT CONTABILIDAD)."
+msgstr "to"
+
+msgid "El gasto por proyecto no puede ser mayor que el total."
+msgstr "the Project expense cant be higher that the total"
+
+msgid "El gasto ya esta asociada a la transferencia."
+msgstr "the expense is associated to the transfer"
+
+msgid "El grupo de usuarios no es válido."
+msgstr ""
+
+msgid "El importe acumulado en la partida supera al previsto."
+msgstr "The accumulated in the starting amount exceeding established"
+
+msgid "El importe acumulado total supera al previsto."
+msgstr "the accumulated total amount exceeding the stablished"
+
+msgid "El importe asignado en todos los contratos para el financiador '%{nom}' (%{imp_agt}) supera el presupuesto total de esta (%{imp_tot})."
+msgstr ""
+
+msgid "El importe asignado en todos los contratos para la actividad '%{act}' (%{imp_act}) supera el presupuesto total de esta (%{imp_tot})."
+msgstr ""
+
+msgid "El importe de ejecución del contrato ha sido superado."
+msgstr ""
+
+msgid "El importe de la actividad '%{act}' no es válido."
+msgstr "the activity's amount'%{act}'is not valid"
+
+msgid "El importe enviado debe ser mayor que cero"
+msgstr "the sended amount must be higher tan zero"
+
+msgid "El importe ingresado debe ser mayor que cero"
+msgstr "the smmugling amount must be higher tan zero"
+
+msgid "El importe total del Financiador supera el previsto para la Subvención."
+msgstr "the total financing amount is higher than the stablished "
+
+msgid "El importe vinculado al proyecto no puede estar vacío."
+msgstr "the Project amount cant be empty"
+
+msgid "El indicador de un Objetivo Especifico no se puede borrar desde el PAC."
+msgstr "the specific objective indicator cant be deleted in PAC"
+
+msgid "El indicador de una Acción no se puede borrar desde el PAC."
+msgstr "The activiy indicator cant be deleted in PAC"
+
+msgid "El indicador de una Acción no se puede modificar desde el PAC."
+msgstr "The activity indicator cant be modified from PAC"
+
+msgid "El indicador no está completado al 100%"
+msgstr "The indicator is not 100% completed"
+
+msgid "El intervalo debe tener una fecha de fin."
+msgstr "The interval must have an end date."
+
+msgid "El intervalo debe tener una fecha de inicio."
+msgstr "The interval must have a start date."
+
+#, fuzzy
+msgid "El libro '%{nom}' está bloqueado. No es posible asignarle pagos."
+msgstr "the book is under blockade. It is not posible to assign payments"
+
+msgid "El libro '%{nom}' no pertenece al implementador del gasto relacionado."
+msgstr ""
+
+msgid "El libro '%{nom}' no tiene la moneda del gasto relacionado."
+msgstr ""
+
+msgid "El libro asociado no es válido."
+msgstr ""
+
+msgid "El libro destino está bloqueado. No es posible realizar movimientos con él."
+msgstr "the destiny book is under blockade. It is not posible to perform movements with it."
+
+msgid "El libro origen está bloqueado. No es posible realizar movimientos con él."
+msgstr "the origine book is under blockade. It is not posible to perform movements with it"
+
+msgid "El listado de nuevas cuentas y cajas incluidas (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado de nuevo personal incluido (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado de nuevos elementos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevas convocatorias (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevas subcuentas contables (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevas subpartidas (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevos contratos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+#, fuzzy
+msgid "El listado nuevos cuenta (arriba) se ordenará en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr "to"
+
+msgid "El listado nuevos gastos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevos ingresos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevos movimientos (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevos proveedores (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevos roles (arriba) se ordenará en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El listado nuevos tipos de contrato (arriba) se ordenara en el listado principal (abajo) cuando vuelva a refrescar la página"
+msgstr ""
+
+msgid "El número de la tarjeta no es válido."
+msgstr "the card number is not valid"
+
+msgid "El país asociado no es correcto."
+msgstr "The associated country is not correct."
+
+msgid "El país está asignado en el proyecto %{proj}."
+msgstr "The country is assigned in the project %{proj}."
+
+msgid "El periodo '%{per}' ( %{inicio} / %{fin}) del proyecto '%{proy}' tiene los gastos cerrados."
+msgstr ""
+
+msgid "El periodo '%{per}' (%{inicio} / %{fin}) del proyecto '%{proy}' tiene los gastos cerrados."
+msgstr ""
+
+msgid "El periodo de justificación: "
+msgstr "justification period"
+
+msgid "El periodo de justificación: %{per} ( + %{inicio}  / + %{fin}) tiene los gastos cerrados y no se puede modificar el gasto."
+msgstr ""
+
+msgid "El periodo no puede solaparse con otro periodo del mismo tipo"
+msgstr ""
+
+msgid "El porcentaje de funcionamiento debe ser positivo."
+msgstr ""
+
+msgid "El presupuesto asignado al financiador en la partida supera el porcentaje máximo sobre el acumulado de %{agente}."
+msgstr ""
+
+msgid "El presupuesto asignado en la partida a %{agente} supera el porcentaje máximo sobre la subvención prevista."
+msgstr ""
+
+msgid "El presupuesto no existe en este proyecto.<br>Si es un presupuesto nuevo, elimine el ID para crearlo."
+msgstr ""
+
+msgid "El presupuesto relacionado no existe"
+msgstr ""
+
+msgid "El proyecto %s ha cambiado de estado"
+msgstr "The %s project has changed state"
+
+msgid "El proyecto '%{nombre}' está cerrado."
+msgstr ""
+
+msgid "El proyecto '%{nombre}' no está en estado de ejecución."
+msgstr ""
+
+msgid "El proyecto '%{nombre}' no tiene etapas definidas."
+msgstr ""
+
+msgid "El proyecto '%{proy}' no tiene asignado el implementador del gasto '%{gsto}'"
+msgstr ""
+
+msgid "El proyecto '%{proy}' no tiene un estado definido."
+msgstr ""
+
+msgid "El proyecto '%{proy}' se encuentra en estado '%{est}'."
+msgstr ""
+
+msgid "El proyecto asociado no es correcto."
+msgstr "The associated project is not correct."
+
+msgid "El proyecto cofinanciador '%{proy}' está en estado '%{est}'."
+msgstr ""
+
+msgid "El proyecto esta aprobado y no tiene el codigo identificador de financiador. Compruebe las relaciones en configuración de proyecto."
+msgstr ""
+
+msgid "El proyecto está cerrado."
+msgstr "The project is closed."
+
+msgid "El proyecto ni tiene ninguna Actividad definida."
+msgstr ""
+
+msgid "El proyecto no coincide con el seleccionado para importacion"
+msgstr ""
+
+msgid "El proyecto no se encuentra en un estado adecuado para modificar los datos."
+msgstr ""
+
+msgid "El proyecto no tiene asignado ningún estado todavía."
+msgstr ""
+
+msgid "El proyecto no tiene definida cuenta de recepción de la Subvención."
+msgstr "The project haven’t defined an account to receipt the grant."
+
+msgid "El proyecto no tiene definidas al 100% las Áreas de Actuación."
+msgstr ""
+
+msgid "El proyecto no tiene definido Objetivo General."
+msgstr ""
+
+msgid "El proyecto no tiene definido ningún Objetivo Específico."
+msgstr ""
+
+msgid "El proyecto no tiene definidos al 100% los Sectores de Intervención."
+msgstr ""
+
+msgid "El proyecto no tiene definidos al 100% los Sectores de Población."
+msgstr ""
+
+msgid "El proyecto no tiene un periodo de justificación del informe final. Compruebe los periodos de justificación del proyecto."
+msgstr ""
+
+msgid "El proyecto se encuentra 'sin estado'."
+msgstr "The proyect has no state."
+
+msgid "El proyecto se encuentra Cerrado."
+msgstr "The project is closed."
+
+msgid "El proyecto se encuentra cerrado en el estado actual"
+msgstr "The project is closed in the current state"
+
+msgid "El proyecto se encuentra en estado '%{estado}'."
+msgstr "The project is in ‘%{estado}’ state"
+
+msgid "El proyecto ya está asociado"
+msgstr "The project is already linked"
+
+#, fuzzy
+msgid "El registro de exportación se ha guardado correctamente. Haga click sobre el resgistro en el boton de descargar para exportar el archivo."
+msgstr "download"
+
+msgid "El rellenar estas fechas le permite que el sistema le recuerde los plazos de peticion de prorroga de sus proyectos"
+msgstr ""
+
+msgid "El resumen puede ser incorrecto."
+msgstr ""
+
+msgid "El rol asignado no es válido."
+msgstr ""
+
+#, fuzzy
+msgid "El rol asociado no es válido."
+msgstr "Funder is not valid."
+
+msgid "El rol ya está creado en esa sección."
+msgstr ""
+
+msgid "El rol ya está definido para ese controlador de menú."
+msgstr ""
+
+msgid "El sector de intervención ya está definido para el proyecto."
+msgstr ""
+
+msgid "El sector de población ya está definido para el proyecto."
+msgstr ""
+
+msgid "El socio no es correcto."
+msgstr "The partner is not correct"
+
+msgid "El tipo de campo no es válido."
+msgstr ""
+
+#, fuzzy
+msgid "El tipo de contrato asociado no es correcto."
+msgstr "The associated type of personnel is not correct."
+
+msgid "El tipo de contrato asociado no es válido."
+msgstr ""
+
+msgid "El tipo de cuota ya existe"
+msgstr "The type of quota already exists"
+
+msgid "El tipo de periodo que esta editando no se puede borrar ni modificar sus caracteristicas. Solo es posible modificar el nombre y su descipción"
+msgstr ""
+
+msgid "El usuario %{nombre} (%{nombre_completo}) ha sido asignado al %{tipo_objeto}"
+msgstr "The user %{nombre} (%{nombre_completo}) has been assigned to %{tipo_objeto}"
+
+msgid "El usuario puede ser renovado o eliminado según la configuración de la instancia de demo. Vuelva a solicitarlo si fuese necesario."
+msgstr ""
+
+msgid "El usuario y contraseña son"
+msgstr "The username and password are"
+
+msgid "El valor de la condición no puede estar vacío."
+msgstr ""
+
+msgid "El valor medido"
+msgstr "The average value"
+
+msgid "El área de actuación ya está definida para el proyecto."
+msgstr ""
+
+msgid "Elemento"
+msgstr "Item"
+
+msgid "Elemento Contable"
+msgstr "Accounting item"
+
+msgid "Elementos Vinculados"
+msgstr "Linked items"
+
+msgid "Eliminado"
+msgstr "Deleted"
+
+msgid "Eliminar"
+msgstr "Delete"
+
+msgid "Eliminar %{elemento} del proyecto"
+msgstr "Delete %{elemento} from project"
+
+msgid "Eliminar PAC"
+msgstr "Delete PAC"
+
+msgid "Eliminar Tarea asociada a periodo "
+msgstr "Delete task associated with period"
+
+msgid "Eliminar Tasa de Cambio"
+msgstr "Remove exchange rate"
+
+msgid "Eliminar Tasas de Cambio para "
+msgstr "Remove exchange rate for"
+
+msgid "Eliminar Variable: "
+msgstr "Edit variable:"
+
+msgid "Eliminar asignacion"
+msgstr "Delete allocation"
+
+msgid "Eliminar definicion_estado"
+msgstr ""
+
+msgid "Eliminar documento"
+msgstr "Delete document"
+
+msgid "Eliminar el definicion_estado"
+msgstr ""
+
+msgid "Eliminar el espacio"
+msgstr "Delete space"
+
+#, fuzzy
+msgid "Eliminar el estado"
+msgstr "Delete space"
+
+#, fuzzy
+msgid "Eliminar el periodo: "
+msgstr "Delete period:"
+
+msgid "Eliminar el proyecto_cofinanciador"
+msgstr ""
+
+msgid "Eliminar el socio"
+msgstr "Delete partner"
+
+#, fuzzy
+msgid "Eliminar empleado"
+msgstr "Delete space"
+
+msgid "Eliminar espacio"
+msgstr "Delete space"
+
+#, fuzzy
+msgid "Eliminar estado"
+msgstr "Delete space"
+
+msgid "Eliminar etapa"
+msgstr "Delete stage"
+
+msgid "Eliminar etiqueta"
+msgstr "Delete tag"
+
+msgid "Eliminar gasto"
+msgstr "Delete expense"
+
+msgid "Eliminar grupo"
+msgstr "Delete group"
+
+msgid "Eliminar la asociacion de proyecto a financiación: "
+msgstr ""
+
+msgid "Eliminar la etapa: "
+msgstr "Delete stage:"
+
+msgid "Eliminar la financiacion: "
+msgstr ""
+
+msgid "Eliminar la moneda"
+msgstr "Remove the currency"
+
+msgid "Eliminar la periodo: "
+msgstr "Delete period:"
+
+msgid "Eliminar marcado"
+msgstr ""
+
+msgid "Eliminar medida"
+msgstr "Delete meassure"
+
+msgid "Eliminar moneda"
+msgstr "Delete currency"
+
+msgid "Eliminar moneda relacionada"
+msgstr "Delete linked currency"
+
+msgid "Eliminar partida %{codigo} del financiador"
+msgstr ""
+
+msgid "Eliminar periodo"
+msgstr "Delete period"
+
+msgid "Eliminar proyecto"
+msgstr "Delete project"
+
+msgid "Eliminar proyecto cofinanciador"
+msgstr ""
+
+msgid "Eliminar relación"
+msgstr "Delete link"
+
+msgid "Eliminar tarea"
+msgstr "Delete task"
+
+msgid "Eliminar usuario"
+msgstr "Delete user"
+
+msgid "Eliminar usuario y perder sus relaciones con Proyectos, Implementadores, Libros, Comentarios..."
+msgstr ""
+
+msgid "Eliminar valor medido: "
+msgstr ""
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Emisor"
+msgstr "Issuing"
+
+msgid "Emisor Factura"
+msgstr "Issuer of invoice"
+
+msgid "Emisor factura"
+msgstr "Invoice issuer"
+
+#, fuzzy
+msgid "Empleado"
+msgstr "Completed"
+
+#, fuzzy
+msgid "Empleados"
+msgstr "Taxes"
+
+msgid "Empresa/entidad"
+msgstr "Company/entity"
+
+msgid "En "
+msgstr "In"
+
+msgid "En curso"
+msgstr "In progress"
+
+#, fuzzy
+msgid "En ejecución"
+msgstr "implementation"
+
+msgid "En el resumen como gestor los importes corresponden al presupuesto total."
+msgstr ""
+
+msgid "En el resumen como implementador los importes corresponden a los presupuestos asignados a '%{agente}'."
+msgstr ""
+
+msgid "En este estado no se puede hacer seguimiento de los indicadores."
+msgstr "In this stage you can not keep track of the indicators."
+
+msgid "En este estado no se puede modificar el estado de las actividades."
+msgstr "In this stage you can not change the status of activities."
+
+msgid "En este estado no se puede modificar el gasto."
+msgstr "In this state the expenditure cannot be modified."
+
+msgid "En este estado no se puede modificar el presupuesto."
+msgstr "In this stage you can not modify the budget."
+
+msgid "En este estado no se puede modificar la información de proyecto."
+msgstr "In this stage you can not modify project information."
+
+msgid "En este estado no se puede modificar la matriz."
+msgstr "In this stage you can not modify the log frame."
+
+#, fuzzy
+msgid "En este estado no se puede modificar los movimientos."
+msgstr "In this stage you can not modify the transactions."
+
+msgid "En este estado no se pueden modificar la matriz"
+msgstr "In this stage you can't modify the log frame."
+
+msgid "En este estado no se pueden modificar las partidas."
+msgstr "Items cannot be modified in this State."
+
+msgid "En este estado no se pueden modificar los datos de seguimiento del proyecto."
+msgstr "In this stage you can't modify the project monitoring data."
+
+msgid "En este estado no se pueden modificar los datos del proyecto."
+msgstr "In this stage you can't modify the project data."
+
+msgid "En este estado no se pueden modificar los gastos."
+msgstr "In this stage you can not modify the expenses."
+
+msgid "En este estado no se pueden modificar los indicadores."
+msgstr "In this stage you can not modify the indicators."
+
+msgid "En este estado no se pueden modificar los movimientos."
+msgstr "In this stage you can not modify the transactions."
+
+msgid "Enlace a página de información sobre GONG"
+msgstr ""
+
+msgid "Entidad"
+msgstr "Entity"
+
+msgid "Entidad Bancaria"
+msgstr ""
+
+msgid "Entradas"
+msgstr "Entries"
+
+msgid "Enviado"
+msgstr "Sent"
+
+msgid "Enviado desde Cuenta:"
+msgstr "Sent from Account:"
+
+msgid "Enviando..."
+msgstr "Sending…"
+
+msgid "Enviar Certificación de Aportaciones"
+msgstr ""
+
+msgid "Enviar Certificado Aportaciones"
+msgstr ""
+
+msgid "Enviar Información Periodica"
+msgstr ""
+
+msgid "Enviar Información Puntual"
+msgstr ""
+
+msgid "Error Inesperado: Contacte con el administrador del sistema."
+msgstr ""
+
+msgid "Error actualizando datos particulares"
+msgstr ""
+
+msgid "Error al realizar el backup. Contacte con el administrador del sistema."
+msgstr ""
+
+msgid "Error borrando etiqueta del documento"
+msgstr ""
+
+msgid "Error borrando vinculación con etiqueta"
+msgstr ""
+
+msgid "Error en la generación del informe. Contacte con el administrador del sistema."
+msgstr ""
+
+msgid "Error en los datos de comprobación"
+msgstr ""
+
+msgid "Error inesperado: Contacte con el administrador del sistema."
+msgstr ""
+
+msgid "Error vinculando con etiqueta"
+msgstr ""
+
+msgid "Errores"
+msgstr "Errors"
+
+msgid "Errores actualizando financiador del contrato."
+msgstr ""
+
+msgid "Errores actualizando item de contrato."
+msgstr ""
+
+msgid "Errores actualizando periodo de contrato."
+msgstr ""
+
+msgid "Errores al crear el estado inicial"
+msgstr ""
+
+msgid "Errores cambiando TC para GXP %{gxpid}: %{texto}"
+msgstr ""
+
+msgid "Errores en desglose por actividades para el presupuesto '%{concepto}' (%{partida})"
+msgstr ""
+
+msgid "Errores en desglose por financiadores para el presupuesto '%{concepto}' (%{partida})"
+msgstr ""
+
+msgid "Errores en detalle mensual para el presupuesto '%{concepto}' (%{partida})"
+msgstr ""
+
+msgid "Es necesario actualizar el listado."
+msgstr ""
+
+msgid "Es necesario definirle un estado al proyecto."
+msgstr ""
+
+msgid "Escanear un nuevo documento y vincularlo a"
+msgstr ""
+
+msgid "Escribe el concepto:"
+msgstr ""
+
+msgid "Espacio"
+msgstr "Space"
+
+msgid "Espacio de Delegaciones del país"
+msgstr ""
+
+msgid "Espacio de Socias Locales del país"
+msgstr ""
+
+msgid "Espacio de delegaciones y socias locales asignadas"
+msgstr ""
+
+msgid "Espacio del país"
+msgstr "Space of the country"
+
+msgid "Espacio destino"
+msgstr "Destination space"
+
+msgid "Espacio raíz del %{agente}: %{nombre}"
+msgstr ""
+
+msgid "Espacio raíz del proyecto"
+msgstr ""
+
+msgid "Espacio seleccionado"
+msgstr ""
+
+msgid "Espacios"
+msgstr "Spaces"
+
+msgid "Espacios de %s"
+msgstr "Spaces of %s"
+
+msgid "Español"
+msgstr "Spanish"
+
+msgid "Esta acción es irreversible."
+msgstr ""
+
+msgid "Esta notificación se ha enviado a todos los usuarios del proyecto."
+msgstr ""
+
+msgid "Esta notificación se ha enviado a todos los usuarios implicados."
+msgstr ""
+
+msgid "Esta opción solo se habilita para estados de 'reporte' del proyecto (para generación de informes)"
+msgstr ""
+
+msgid "Estado"
+msgstr "State"
+
+msgid "Estado anterior"
+msgstr "Previous state"
+
+#, fuzzy
+msgid "Estado de los proyectos"
+msgstr "Project status"
+
+msgid "Estado de tarea"
+msgstr "Task status"
+
+#, fuzzy
+msgid "Estado del Contrato"
+msgstr "Project status"
+
+msgid "Estado del proyecto"
+msgstr "Project status"
+
+msgid "Estado del workflow de contratos"
+msgstr ""
+
+msgid "Estado inicial"
+msgstr "Starting state"
+
+msgid "Estado tareas"
+msgstr "Tasks state"
+
+#, fuzzy
+msgid "Estado:"
+msgstr "State"
+
+msgid "Estados anteriores"
+msgstr "Previous states"
+
+msgid "Estados anteriores al Nuevo Estado"
+msgstr "States previous to the new state"
+
+msgid "Estados generales relacionados con el estado"
+msgstr "General states related to the state"
+
+msgid "Estamos en periodo de petición de %s"
+msgstr ""
+
+msgid "Este cambio no es reversible y afecta a los nuevos proyectos creados con este financiador principal."
+msgstr ""
+
+msgid "Este concepto se encuentra en varias actividades. El importe y las unidades son la parte correspondiente para esta actividad"
+msgstr ""
+
+msgid "Este espacio esta definido como no modificable"
+msgstr "This space is defined as unchangeable"
+
+#, fuzzy
+msgid "Estás suscrito a las notificaciones de %s con la cuenta %s"
+msgstr "You are subscribed to GONG's notifications with the account %s "
+
+msgid "Etapa"
+msgstr "Stage"
+
+msgid "Etapa a Importar"
+msgstr "Stages to import"
+
+msgid "Etapa no válida"
+msgstr "Not suitable stages"
+
+msgid "Etapa ya asignada."
+msgstr "Assigned stages"
+
+msgid "Etapas de la actividad"
+msgstr "Activity stages"
+
+msgid "Etapas del proyecto y tasas de cambio asociadas"
+msgstr ""
+
+msgid "Etapas y tasas de cambio"
+msgstr "Stages and Rate of change"
+
+msgid "Etapas, periodos y tasas de cambio"
+msgstr "Phases, periods and rates of change"
+
+msgid "Etiqueta"
+msgstr "Tag"
+
+msgid "Etiqueta Técnica"
+msgstr "Technical tag"
+
+#, fuzzy
+msgid "Etiqueta repetida."
+msgstr "Repeated account."
+
+msgid "Etiquetas"
+msgstr "Tags"
+
+msgid "Etiquetas Documentales"
+msgstr "Documentary tags"
+
+msgid "Etiquetas Técnicas"
+msgstr "Technical tags"
+
+msgid "Etiquetas comunes"
+msgstr "Common tags"
+
+#, fuzzy
+msgid "Etiquetas de contratos"
+msgstr "Project’s tag"
+
+msgid "Etiquetas de proyecto"
+msgstr "Project’s tag"
+
+#, fuzzy
+msgid "Etiquetas documentales"
+msgstr "Documentary tags"
+
+msgid "Existe algún pago con moneda distinta al gasto. Elimine los pagos existentes antes de cambiar la moneda."
+msgstr ""
+
+msgid "Existen %{num} actividades vinculadas con presupuestos o gastos asignados."
+msgstr ""
+
+msgid "Existen contratos relacionados con este estado. Imposible borrar."
+msgstr ""
+
+msgid "Existen documentos vinculados al proyecto."
+msgstr "There are documents linked to the project."
+
+msgid "Existen gastos asociados desde ese proyecto cofinanciador"
+msgstr ""
+
+msgid "Existen partidas ocultas que contienen gastos."
+msgstr ""
+
+msgid "Existen partidas ocultas que contienen presupuestos de agente."
+msgstr ""
+
+msgid "Existen partidas ocultas que contienen presupuestos de proyecto."
+msgstr ""
+
+msgid "Existen partidas ocultas que contienen presupuestos."
+msgstr ""
+
+msgid "Existen presupuestos de ingresos asociados a la partida"
+msgstr ""
+
+msgid "Existen proyectos relacionados con este estado. Imposible borrar."
+msgstr ""
+
+msgid "Existen transferencias asociadas al subtipo de movimiento"
+msgstr ""
+
+msgid "Exportación"
+msgstr "Export"
+
+#, fuzzy
+msgid "Exportación Contable CPT"
+msgstr "Export"
+
+msgid "Exportación Económica"
+msgstr "Economic export"
+
+msgid "Exportación gastos/movimientos"
+msgstr ""
+
+msgid "Exportación matriz/presupuesto"
+msgstr ""
+
+msgid "Exportación partidas/subpartidas"
+msgstr ""
+
+msgid "Exportar"
+msgstr "Export"
+
+msgid "Exportar a PDF"
+msgstr "Export to PDF"
+
+msgid "Exportar a XLS"
+msgstr "Export to XLS"
+
+msgid "Exportar cofinanciados"
+msgstr "Export co-financed"
+
+msgid "FICHA EJECUTIVA DEL PROYECTO"
+msgstr ""
+
+msgid "FV Justificadas"
+msgstr ""
+
+msgid "FV de Convenio Relacionada"
+msgstr ""
+
+msgid "Factura"
+msgstr "Invoice"
+
+msgid "Falta libro origen o destino."
+msgstr ""
+
+msgid "Faltan %{num} días para comenzar"
+msgstr ""
+
+msgid "Fecha"
+msgstr "Date"
+
+msgid "Fecha Alta"
+msgstr "Date added"
+
+msgid "Fecha Alta Sistema"
+msgstr "Date added to the system"
+
+msgid "Fecha Base"
+msgstr "Baseline date"
+
+msgid "Fecha Caducidad"
+msgstr "Best before"
+
+msgid "Fecha Carta Bienvenida"
+msgstr "Welcome's letter date"
+
+msgid "Fecha Convocatoria"
+msgstr "Convocation date"
+
+msgid "Fecha Emisión"
+msgstr "Issued date"
+
+msgid "Fecha Envio Carne"
+msgstr "Id shipment date"
+
+msgid "Fecha Envio Documentacion"
+msgstr "Documentation shipment date"
+
+msgid "Fecha Envío"
+msgstr "Shipment date"
+
+#, fuzzy
+msgid "Fecha Fin"
+msgstr "End date"
+
+msgid "Fecha Inicio"
+msgstr "Start date"
+
+msgid "Fecha Nacimiento"
+msgstr "Birth date"
+
+msgid "Fecha Objetivo"
+msgstr "Objective date"
+
+msgid "Fecha Pago"
+msgstr "Payment date"
+
+msgid "Fecha Pres."
+msgstr "Submission date"
+
+msgid "Fecha Prevista"
+msgstr "Expected date"
+
+msgid "Fecha Prevista de Finalización del Proyecto: "
+msgstr ""
+
+msgid "Fecha Pub."
+msgstr "Pub. date"
+
+msgid "Fecha Real de Inicio del Proyecto: "
+msgstr ""
+
+msgid "Fecha Recepción"
+msgstr "Receipt date"
+
+msgid "Fecha Resol."
+msgstr "Resol. date"
+
+msgid "Fecha cambio"
+msgstr "Change date"
+
+msgid "Fecha de Alta en Sistema"
+msgstr "System’s signup date"
+
+msgid "Fecha de Baja"
+msgstr "Leaving date"
+
+msgid "Fecha de Caducidad"
+msgstr "Expiry date"
+
+msgid "Fecha de Fin"
+msgstr "End Date"
+
+msgid "Fecha de Finalización"
+msgstr "End date"
+
+msgid "Fecha de Inicio"
+msgstr "Start date"
+
+msgid "Fecha de Pago: "
+msgstr "Payment date:"
+
+#, fuzzy
+msgid "Fecha de aprobación"
+msgstr "Resolution date"
+
+#, fuzzy
+msgid "Fecha de creación"
+msgstr "Receipt date"
+
+msgid "Fecha de envío"
+msgstr "Shipment date"
+
+msgid "Fecha de finalización modificada por Prórroga Aprobada"
+msgstr ""
+
+#, fuzzy
+msgid "Fecha de finalización:"
+msgstr "End date"
+
+msgid "Fecha de inicio aviso petición de prorroga: %{fecha}"
+msgstr ""
+
+msgid "Fecha de inicio para aviso de petición de prorroga"
+msgstr ""
+
+#, fuzzy
+msgid "Fecha de inicio:"
+msgstr "Start date"
+
+msgid "Fecha de presentación"
+msgstr "Submission date"
+
+msgid "Fecha de publicación"
+msgstr "Publishing date"
+
+msgid "Fecha de recepción"
+msgstr "Receipt date"
+
+msgid "Fecha de resolución"
+msgstr "Resolution date"
+
+#, fuzzy
+msgid "Fecha documento"
+msgstr "Birth date"
+
+msgid "Fecha envío"
+msgstr "Transfer date"
+
+msgid "Fecha fin"
+msgstr "End date"
+
+msgid "Fecha fin del Informe Final:"
+msgstr ""
+
+#, fuzzy
+msgid "Fecha fin original"
+msgstr "Report date"
+
+msgid "Fecha fin tiene que ser mayor que fecha inicio"
+msgstr "End date must be greater than start date"
+
+#, fuzzy
+msgid "Fecha fin tiene que ser mayor que fecha inicio."
+msgstr "End date must be greater than start date"
+
+#, fuzzy
+msgid "Fecha fin: "
+msgstr "End date"
+
+msgid "Fecha informe"
+msgstr "Report date"
+
+#, fuzzy
+msgid "Fecha informes"
+msgstr "Report date"
+
+msgid "Fecha inicio"
+msgstr "Start date"
+
+msgid "Fecha inicio de aviso de petición de prorroga debe ser menor que la Fecha limite de petición de prorroga."
+msgstr ""
+
+msgid "Fecha inicio de aviso de petición de prorroga necesita Fecha limite de petición de prorroga."
+msgstr ""
+
+#, fuzzy
+msgid "Fecha inicio original"
+msgstr "Start date"
+
+#, fuzzy
+msgid "Fecha inicio: "
+msgstr "Start date"
+
+msgid "Fecha limite de petición de prorroga necesita de Fecha inicio aviso de petición de prorroga."
+msgstr ""
+
+msgid "Fecha limite para petición de prorroga"
+msgstr ""
+
+msgid "Fecha límite para petición de prorroga: %{fecha}"
+msgstr ""
+
+msgid "Fecha recepción"
+msgstr "Reception date"
+
+msgid "Fechas"
+msgstr "Dates"
+
+msgid "Fechas de etapa del presupuesto"
+msgstr ""
+
+msgid "Fechas de inicio y fin originalmente aprobadas por el financiador, sin incluir posteriores prórrogas."
+msgstr ""
+
+msgid "Fechas originalmente aprobadas por el Financiador (excluyendo prorrogas)"
+msgstr ""
+
+msgid "Fechas para posible petición de %s"
+msgstr ""
+
+#, fuzzy
+msgid "Ficha Resumen"
+msgstr "Resol. date"
+
+msgid "Fila %{num}"
+msgstr "Row %{num}"
+
+msgid "Filas"
+msgstr "Rows"
+
+msgid "Filtrar"
+msgstr "Filter"
+
+msgid "Filtrar Gastos según Usuario/Ejecutor"
+msgstr ""
+
+msgid "Filtrar por"
+msgstr "Filter by"
+
+msgid "Fin"
+msgstr ""
+
+#, fuzzy
+msgid "Fin Gastos"
+msgstr "Expenses"
+
+msgid "Financiación en proyecto origen"
+msgstr ""
+
+msgid "Financiación privada"
+msgstr "Private funds"
+
+msgid "Financiación pública"
+msgstr "Public funds"
+
+msgid "Financiado por"
+msgstr "Funded by"
+
+msgid "Financiador"
+msgstr "Funder"
+
+#, fuzzy
+msgid "Financiador Principal:"
+msgstr "Main funder"
+
+msgid "Financiador Público"
+msgstr "Public funder"
+
+msgid "Financiador con importe 0 no se guarda."
+msgstr "Financier with 0 amount is not saved."
+
+msgid "Financiador no es válido."
+msgstr "Funder is not valid."
+
+msgid "Financiador principal"
+msgstr "Main funder"
+
+msgid "Financiador repetido."
+msgstr "Repeated funder."
+
+msgid "Financiadores"
+msgstr "Funders"
+
+msgid "Financiadores Agrupados"
+msgstr "Grouped funders"
+
+msgid "Financiadores del presupuesto"
+msgstr "Funders of the budget"
+
+msgid "Forma Pago"
+msgstr "Method of payment"
+
+msgid "Forma de Pago"
+msgstr "Payment method"
+
+msgid "Forma de Pago: "
+msgstr "Payment method:"
+
+msgid "Formu."
+msgstr ""
+
+#, fuzzy
+msgid "Formulacion económica"
+msgstr "economic implementation"
+
+msgid "Formulación"
+msgstr "Formulation"
+
+#, fuzzy
+msgid "Formulación economica"
+msgstr "economic implementation"
+
+#, fuzzy
+msgid "Formulación técnica"
+msgstr "technique implementation"
+
+msgid "Forzar revisión de permisos del grupo sobre elementos relacionados"
+msgstr ""
+
+msgid "Forzar revisión de permisos del usuario sobre elementos relacionados"
+msgstr ""
+
+msgid "Francés"
+msgstr ""
+
+msgid "Fuente de Información"
+msgstr "Information source"
+
+msgid "Fuente de verificación"
+msgstr "Verification source"
+
+msgid "Fuente de verificación completada"
+msgstr "Completed verification source"
+
+msgid "FuenteVerificacion"
+msgstr "VerificationSource"
+
+#, fuzzy
+msgid "Fuentes Verificación:"
+msgstr "VerificationSource"
+
+msgid "Fuentes de verificación"
+msgstr "Verification sources"
+
+msgid "Funcionamiento"
+msgstr ""
+
+msgid "Fué imposible crear la partida."
+msgstr "Impossible to create the budget line."
+
+msgid "Fué imposible crear la subpartida."
+msgstr "Impossible to create the budget subline."
+
+msgid "G.Concepto"
+msgstr ""
+
+msgid "G.Importe"
+msgstr ""
+
+msgid "GONG: Gestion ONGs"
+msgstr "GONG: NGO management"
+
+msgid "Gastado"
+msgstr "Spent"
+
+msgid "Gasto"
+msgstr "Expense"
+
+msgid "Gasto Otros:"
+msgstr "Other expenses:"
+
+msgid "Gasto Proyectos en Ejecución"
+msgstr "Expenses implementation projects"
+
+msgid "Gasto Regional"
+msgstr "Regional expenses"
+
+msgid "Gasto Total:"
+msgstr "Total expenses"
+
+msgid "Gasto Valorizado"
+msgstr "Valued spending"
+
+msgid "Gasto compartido entre varios proyectos (y/o delegación)"
+msgstr ""
+
+msgid "Gasto de %{importe} %{moneda} con fecha %{fecha}: '%{concepto}'"
+msgstr ""
+
+msgid "Gasto imputado proyectos"
+msgstr "Expenses charged to projects"
+
+#, fuzzy
+msgid "Gasto no es válido."
+msgstr "Budget is not valid"
+
+msgid "Gasto originado en el proyecto"
+msgstr "Expense incurred on the project"
+
+msgid "Gasto pagado"
+msgstr "Paid expense"
+
+msgid "Gasto proveniente del proyecto borrado: %{nombre}"
+msgstr "Expense from deleted project: %{nombre}"
+
+msgid "Gasto realizado"
+msgstr "Incurred expense "
+
+msgid "Gasto total partida"
+msgstr "Total expense in budget line"
+
+msgid "Gasto ya asociado a otro contrato."
+msgstr ""
+
+msgid "Gastos"
+msgstr "Expenses"
+
+#, fuzzy
+msgid "Gastos Asociados"
+msgstr "show associated expenses"
+
+#, fuzzy
+msgid "Gastos asociados"
+msgstr "show associated expenses"
+
+msgid "Gastos cerrados"
+msgstr "Closed expenses"
+
+msgid "Gastos cofinanciables"
+msgstr "Co-supported expenses"
+
+#, fuzzy
+msgid "Gastos subpartida: "
+msgstr "All the sub-departures"
+
+msgid "Generación del modelo 182"
+msgstr ""
+
+msgid "Generación modelo 182"
+msgstr ""
+
+msgid "General"
+msgstr "General"
+
+#, fuzzy
+msgid "Generar"
+msgstr "General"
+
+msgid "Generar Cuentas"
+msgstr "Generate accounts"
+
+msgid "Generar Pagos"
+msgstr "PAYMENTS"
+
+msgid "Generar Pagos Nuevos"
+msgstr "Generate new payments"
+
+msgid "Generar detalle de estado del contrato."
+msgstr ""
+
+msgid "Gestión Documental"
+msgstr "Records management"
+
+msgid "Gestión Económica"
+msgstr "Financial management"
+
+msgid "Gestión de Agentes y Delegaciones"
+msgstr "agents and delegations management"
+
+msgid "Gestión de Proyectos"
+msgstr "Project management"
+
+msgid "Gestión de Socios"
+msgstr "Partner management"
+
+msgid "Gestión de socios"
+msgstr "Partner management"
+
+msgid "Gestor Subvención"
+msgstr "Grant manager"
+
+msgid "Gestor de la subvención"
+msgstr "Grant manager"
+
+#, fuzzy
+msgid "Gestor del Contrato"
+msgstr "Type of contract"
+
+msgid "Global"
+msgstr "Global"
+
+msgid "Glosario"
+msgstr "Glossary"
+
+msgid "Glosario de términos utilizados en GONG"
+msgstr "Glossary of terms used in GONG"
+
+msgid "Gracias por registrarse. Revise su correo con el usuario y contraseña necesarios para acceder al sistema"
+msgstr "Thank you for registering. Check your email with the username and password needed to access the system"
+
+msgid "Grupo"
+msgstr "Group"
+
+msgid "Grupo de tipo de periodo"
+msgstr ""
+
+msgid "Grupo repetido."
+msgstr "Repeated group"
+
+#, fuzzy
+msgid "Grupo tipo Periodo"
+msgstr "Period type"
+
+msgid "Grupos"
+msgstr "Groups"
+
+msgid "Grupos de Datos de Proyecto"
+msgstr "Datasets in project"
+
+msgid "Grupos de Usuarios"
+msgstr "Users groups"
+
+msgid "Guardar"
+msgstr "Save"
+
+msgid "Hacer backup de:"
+msgstr "Backup this:"
+
+msgid "Hacia Caja \"chica\""
+msgstr "To petty cash"
+
+#, fuzzy
+msgid "Hasta"
+msgstr "to"
+
+msgid "Hay %{num} contratos asociados."
+msgstr ""
+
+msgid "Hay %{num} errores en el Presupuesto del proyecto:"
+msgstr ""
+
+#, fuzzy
+msgid "Hay %{num} proyectos asociados: %{nom}"
+msgstr "%{num} projects"
+
+msgid "Hay contratos utilizando este tipo de dato."
+msgstr ""
+
+msgid "Hay errores en la matriz del proyecto:"
+msgstr ""
+
+msgid "Hay gastos"
+msgstr "there are costs"
+
+msgid "Hay gastos en el agente %{nombre}"
+msgstr "There are expenses in the %{hombre} agent"
+
+msgid "Hay gastos en el proyecto %{nombre}"
+msgstr "There are expenses in the %{hombre} project"
+
+msgid "Hay líneas de presupuesto asignadas a esa actividad y etapa"
+msgstr ""
+
+msgid "Hay pagos de este socio"
+msgstr "There is are payments from this partner"
+
+msgid "Hay partidas de financiación"
+msgstr "There are items of funding"
+
+msgid "Hay partidas de financiación en el proyecto %{nombre}"
+msgstr ""
+
+msgid "Hay presupuestos"
+msgstr "There are budgets"
+
+msgid "Hay presupuestos en el agente %{nombre}"
+msgstr ""
+
+msgid "Hay presupuestos en el proyecto %{nombre}"
+msgstr ""
+
+msgid "Hay proyectos con esta cuenta definida como principal"
+msgstr ""
+
+msgid "Hay proyectos usando alguna área de actuación de esta categoría."
+msgstr ""
+
+msgid "Hay proyectos usando algún sector de intervención de esta categoría."
+msgstr ""
+
+msgid "Hay sectores de intervención asignados a esta categoría."
+msgstr ""
+
+#, fuzzy
+msgid "Hay tareas vinculadas"
+msgstr "there are linked agents"
+
+msgid "Hay un comentario en"
+msgstr "There is a comment in"
+
+msgid "Hay una tarea asignada a %{nombre} (%{nombre_completo}) en"
+msgstr ""
+
+msgid "Hay áreas de actuación asignadas a esta categoría."
+msgstr ""
+
+msgid "Haz click para activar/desactivar el mes"
+msgstr ""
+
+msgid "Haz click para ir a Tareas"
+msgstr "Click to go to tasks"
+
+msgid "Haz click para ir a periodos de seguimiento"
+msgstr ""
+
+msgid "Herramienta de Medición"
+msgstr "Measuring Tool"
+
+msgid "Hipotesis"
+msgstr "Hypothesis"
+
+msgid "Hipótesis"
+msgstr "Hypothesis"
+
+msgid "Hoja de Cálculo"
+msgstr "Spreadsheet"
+
+msgid "Hola"
+msgstr "Hello"
+
+msgid "Hombre"
+msgstr "Man"
+
+#, fuzzy
+msgid "Hora"
+msgstr "Hello"
+
+msgid "Horas/Semana Imputadas"
+msgstr "imputed hours/week "
+
+msgid "IBAN"
+msgstr "IBAN"
+
+msgid "IVA Recuperado"
+msgstr "VAT recovered"
+
+msgid "Iban"
+msgstr "IBAN"
+
+#, fuzzy
+msgid "Identificación"
+msgstr "VerificationSource"
+
+msgid "Identificación incorrecta.<br>Compruebe su usuario y contraseña."
+msgstr "Bad credentials. <br> Check your username and password."
+
+msgid "Identificador para Financiador"
+msgstr "Funder id"
+
+msgid "Imp. x TC."
+msgstr ""
+
+msgid "Imp./Finan."
+msgstr ""
+
+msgid "Implementador"
+msgstr "Implementer"
+
+msgid "Implementador repetido."
+msgstr "Repeated implementer."
+
+#, fuzzy
+msgid "Implementador/es:"
+msgstr "Implementers"
+
+msgid "Implementadores"
+msgstr "Implementers"
+
+msgid "Implementadores/Financiadores"
+msgstr "Implementers/funders"
+
+msgid "Importación"
+msgstr "Import"
+
+msgid "Importación Económica"
+msgstr "Economic import"
+
+msgid "Importación gastos/movimientos"
+msgstr "Import expenditures/movements"
+
+msgid "Importación matriz/presupuesto"
+msgstr "Import matrix/budget"
+
+msgid "Importación partidas/subpartidas"
+msgstr "Import headings/subheadings"
+
+msgid "Importación realizada correctamente"
+msgstr "Import successful"
+
+msgid "Importar"
+msgstr "Import"
+
+msgid "Importe"
+msgstr "Amount"
+
+#, fuzzy
+msgid "Importe (divisa)"
+msgstr "Amount in currency"
+
+msgid "Importe Cuota"
+msgstr "quota amount"
+
+msgid "Importe Cuota,"
+msgstr "quota amount,"
+
+#, fuzzy
+msgid "Importe Ejecución"
+msgstr "received amount"
+
+#, fuzzy
+msgid "Importe Ejecución (divisa)"
+msgstr "Amount in currency"
+
+msgid "Importe Ejecución x TC"
+msgstr ""
+
+msgid "Importe Enviado"
+msgstr "sended amount"
+
+#, fuzzy
+msgid "Importe Funcionamiento"
+msgstr "sended amount"
+
+msgid "Importe Funcionamiento (divisa)"
+msgstr ""
+
+msgid "Importe Funcionamiento x TC"
+msgstr ""
+
+msgid "Importe Obtenido"
+msgstr "obtained amount"
+
+msgid "Importe Recibido"
+msgstr "received amount"
+
+msgid "Importe Subvención Principal"
+msgstr ""
+
+msgid "Importe de la Cuota"
+msgstr "quota amount"
+
+msgid "Importe debe ser mayor que cero."
+msgstr "the amount must be higher than zero"
+
+msgid "Importe del gasto"
+msgstr "expense amount"
+
+msgid "Importe en Divisa"
+msgstr "Amount in currency"
+
+#, fuzzy
+msgid "Importe en el proyecto"
+msgstr "expected total amount"
+
+msgid "Importe enviado"
+msgstr "sended amount"
+
+#, fuzzy
+msgid "Importe estimado"
+msgstr "sended amount"
+
+#, fuzzy
+msgid "Importe factura"
+msgstr "Invoice issuer"
+
+#, fuzzy
+msgid "Importe parcial"
+msgstr "expected amount"
+
+msgid "Importe presupuestado"
+msgstr "Amount budgeted"
+
+msgid "Importe presupuestado para %{nombre}"
+msgstr "Amount budgeted for %{nombre}"
+
+msgid "Importe previsto"
+msgstr "expected amount"
+
+msgid "Importe recibido"
+msgstr "received amount"
+
+#, fuzzy
+msgid "Importe total"
+msgstr "quota amount,"
+
+msgid "Importe total previsto"
+msgstr "expected total amount"
+
+msgid "Importe x TC"
+msgstr ""
+
+#, fuzzy
+msgid "Importe x TC Divisa"
+msgstr "Amount in currency"
+
+msgid "Importes"
+msgstr "Amounts"
+
+msgid "Importes en: %{mon} (TC aplicada si existe)"
+msgstr ""
+
+msgid "Imposible guardar reparto por actividades."
+msgstr ""
+
+msgid "Imposible guardar reparto por financiadores."
+msgstr ""
+
+msgid "Impuestos"
+msgstr "Taxes"
+
+msgid "Imputado a Delegación"
+msgstr ""
+
+#, fuzzy
+msgid "Imputado a agente"
+msgstr "Edit agent"
+
+msgid "Imputado a delegación"
+msgstr ""
+
+msgid "Imputado a proyecto"
+msgstr ""
+
+#, fuzzy
+msgid "Imputado a proyectos"
+msgstr "Not linked to projects"
+
+msgid "Incluir en nuevos proyectos"
+msgstr ""
+
+msgid "Indicador"
+msgstr "Indicator"
+
+msgid "Indicador de Convenio Relacionado"
+msgstr ""
+
+msgid "Indicador'"
+msgstr "Indicator’"
+
+msgid "Indicadores"
+msgstr "Indicators"
+
+msgid "Indicadores del Objetivo Específico"
+msgstr "The specific objective indicators"
+
+msgid "Indicadores del Resultado"
+msgstr "Result Indicators"
+
+#, fuzzy
+msgid "Indicadores:"
+msgstr "Indicators"
+
+msgid "Indirecta"
+msgstr "Indirect"
+
+msgid "Indirecto"
+msgstr "Indirect"
+
+msgid "Indirectos Delegación"
+msgstr "Indirects branch"
+
+msgid "Indirectos ONGD"
+msgstr ""
+
+msgid "Información"
+msgstr "Information"
+
+msgid "Información General"
+msgstr "General Information"
+
+msgid "Información de Cuotas"
+msgstr "Fees information"
+
+msgid "Información de Seguimiento"
+msgstr "Monitoring information"
+
+msgid "Información de Tarjeta de Pago"
+msgstr "Payment card information"
+
+msgid "Información de la Baja"
+msgstr ""
+
+msgid "Información del Alta"
+msgstr ""
+
+msgid "Información del Proyecto"
+msgstr "Project Information"
+
+msgid "Información del listado"
+msgstr ""
+
+msgid "Informe"
+msgstr "Report"
+
+#, fuzzy
+msgid "Informe Final"
+msgstr "Repeated Final report."
+
+msgid "Informe Final repetido."
+msgstr "Repeated Final report."
+
+msgid "Informe_Técnico_Final_"
+msgstr ""
+
+#, fuzzy
+msgid "Inglés"
+msgstr "Income"
+
+msgid "Ingresado"
+msgstr "Incomed"
+
+msgid "Ingreso"
+msgstr "Income"
+
+msgid "Ingreso desde:"
+msgstr "Income from:"
+
+msgid "Ingresos"
+msgstr "Incomes"
+
+msgid "Ingresos y Transferencias"
+msgstr "Incomes and Transfers"
+
+msgid "Inicial"
+msgstr "Initial"
+
+#, fuzzy
+msgid "Iniciar sesión"
+msgstr "Delete link"
+
+#, fuzzy
+msgid "Inicio"
+msgstr "Initial"
+
+#, fuzzy
+msgid "Inicio Actividades"
+msgstr "By Activities"
+
+#, fuzzy
+msgid "Inicio Gastos"
+msgstr "Expenses"
+
+msgid "Inicio aviso petición prorroga"
+msgstr ""
+
+#, fuzzy
+msgid "Inicio_Actividades_"
+msgstr "Activities/ Operations"
+
+msgid "Intereses"
+msgstr "Interest"
+
+msgid "Interés por GONG"
+msgstr "Interest in GONG"
+
+msgid "Ir a Gong"
+msgstr "Go to GONG"
+
+msgid "Ir a la gestiíon de periodos en el proyecto '%{nombre}'"
+msgstr ""
+
+msgid "Ir a la gestión de periodos en el proyecto '%{nombre}'"
+msgstr ""
+
+msgid "Ir a las tareas"
+msgstr "Go to tasks"
+
+msgid "Ir al Convenio"
+msgstr "Go to agreement"
+
+msgid "Ir al espacio '%{nombre}'"
+msgstr "Go to space ‘%{nombre}’"
+
+msgid "Items"
+msgstr ""
+
+#, fuzzy
+msgid "Justificación"
+msgstr "Notifications"
+
+#, fuzzy
+msgid "Justificación Final"
+msgstr "Notifications"
+
+msgid "Justificación a AECID (GONG-R)"
+msgstr "Justification to AECID (GONG-R)"
+
+msgid "Justificación final"
+msgstr ""
+
+msgid "La 'Carga Total' provocará el borrado de todas las líneas ya existentes en el proyecto, etapa y agente seleccionados, sustituyéndose por los de la hoja importada."
+msgstr ""
+
+msgid "La actividad '%{codigo}' no está asignada a la etapa '%{nombre}'."
+msgstr ""
+
+msgid "La actividad está abierta"
+msgstr "The activity is open"
+
+msgid "La aprobación de la prórroga de ejecución supone el cambio en las fechas de ejecución del proyecto."
+msgstr ""
+
+msgid "La autodestrucción es accesible sólo desde el menú 'Configuración del Sistema -> Autodestrucción.' de la sección de 'Administración'"
+msgstr ""
+
+msgid "La condición no es válida para el tipo de campo."
+msgstr ""
+
+msgid "La convocatoria asociada no es correcta."
+msgstr ""
+
+msgid "La cuenta asociada no es correcta."
+msgstr ""
+
+msgid "La cuenta de algún pago no pertenece al agente. Elimine los pagos existentes antes de cambiar el agente."
+msgstr ""
+
+msgid "La etapa '%{etp}' del gestor está cerrada."
+msgstr ""
+
+msgid "La etapa esta cerrada."
+msgstr "The stage is closed."
+
+msgid "La etapa esta cerrada. No se puede modificar el presupuesto detallado."
+msgstr ""
+
+msgid "La etapa esta cerrada. No se pueden modificar presupuestos."
+msgstr ""
+
+msgid "La etapa no se puede borrar. Tiene asociada %{num} actividades:"
+msgstr ""
+
+msgid "La etapa no se puede borrar. Tiene asociada %{num} presupuestos:"
+msgstr ""
+
+msgid "La etiqueta ténica ya está definida para esta actividad."
+msgstr ""
+
+msgid "La fecha"
+msgstr "The date"
+
+msgid "La fecha '%s' debe estar dentro de la etapa"
+msgstr ""
+
+msgid "La fecha '%s' no esta dentro de las etapas del proyecto '%s'"
+msgstr ""
+
+msgid "La fecha de envío debe ser anterior a la de recepción."
+msgstr ""
+
+msgid "La fecha de envío está fuera de las etapas del agente %{nombre}."
+msgstr ""
+
+msgid "La fecha de fin de la última etapa del proyecto se sustituirá por la fecha de fin de la prórroga."
+msgstr ""
+
+msgid "La fecha de fin tiene que ser mayor que la fecha de inicio"
+msgstr ""
+
+msgid "La fecha de gestión y la fecha de documento no coinciden."
+msgstr ""
+
+msgid "La fecha de recepción está fuera de las etapas del agente %{nombre}."
+msgstr ""
+
+msgid "La fecha del informe tiene que ser mayor que fecha fin"
+msgstr ""
+
+msgid "La fecha está fuera de la etapa definida para la actividad."
+msgstr ""
+
+msgid "La fecha está fuera de las etapas del proyecto."
+msgstr ""
+
+msgid "La fecha está fuera del proyecto."
+msgstr "The date is outside the project."
+
+msgid "La fecha no se encuentra dentro de la etapa seleccionada."
+msgstr ""
+
+msgid "La forma de pago ya existe"
+msgstr ""
+
+msgid "La fuente de verificación tiene asociados todos los documentos necesarios"
+msgstr ""
+
+msgid "La hoja de cálculo no fué importada. Corrija los errores y vuelva a ejecutar el proceso."
+msgstr ""
+
+msgid "La linea de presupuesto no esta asociada a ninguna etapa. No es posible asignarle detalle"
+msgstr ""
+
+msgid "La moneda asociada no es correcta."
+msgstr ""
+
+msgid "La moneda de la cuenta no pertenece al proyecto."
+msgstr ""
+
+msgid "La moneda del contrato no es válida."
+msgstr ""
+
+msgid "La moneda del gasto no es la definida en el contrato."
+msgstr ""
+
+msgid "La partida superior no puede ser la misma partida"
+msgstr ""
+
+msgid "La partida ya esta asociada a la partida de la financiación."
+msgstr ""
+
+msgid "La subpartida está siendo usada en %{num} gastos."
+msgstr ""
+
+msgid "La subpartida está siendo usada en %{num} presupuestos."
+msgstr ""
+
+msgid "La subpartida ya esta asignada a otra partida"
+msgstr ""
+
+msgid "La subpartida ya está asociada a otra partida."
+msgstr ""
+
+msgid "La suma de importes de las actividades ('%{imp_act}') no suman el importe total del gasto ('%{imp_gsto}')."
+msgstr ""
+
+msgid "La suma de los pagos de los hitos es mayor que el total del contrato."
+msgstr ""
+
+msgid "La suma de porcentajes de las 'Áreas de Actuación' debe ser 100%"
+msgstr ""
+
+msgid "La suma del detalle no coincide con la importe de la linea del presupuesto. Vuelva a editar el detalle para corregirlo."
+msgstr ""
+
+msgid "La suma por actividades no es correcta."
+msgstr ""
+
+msgid "La suma por actividades o financiadores no es correcta."
+msgstr ""
+
+msgid "La suma por financiadores no es correcta."
+msgstr ""
+
+msgid "La suma por items no es correcta."
+msgstr ""
+
+msgid "La suma por proyectos no es correcta."
+msgstr ""
+
+msgid "La tarea no tiene asignado usuario."
+msgstr ""
+
+msgid "La tarea no tiene definida fecha de finalización."
+msgstr ""
+
+msgid "La tarea no tiene definida fecha de inicio."
+msgstr ""
+
+msgid "La tarjeta está caducada."
+msgstr "The card is expired."
+
+msgid "La tasa de cambio de la moneda (%{mon}) debe estar establecida en cada proyecto."
+msgstr ""
+
+msgid "La tasa de cambio debe estar asociada a una etapa."
+msgstr ""
+
+msgid "La tasa de cambio debe estar asociada a una moneda."
+msgstr ""
+
+msgid "La transferencia no está completada."
+msgstr ""
+
+msgid "La transferencia no existe.<br>Si es una transferencia nueva, elimine el ID para crearla."
+msgstr ""
+
+#, fuzzy
+msgid "La transferencia no tiene cuenta de credito (CPT CONTABILIDAD)."
+msgstr "to"
+
+#, fuzzy
+msgid "La trasnferencia no tiene cuenta de debito (CPT CONTABILIDAD)."
+msgstr "to"
+
+msgid "Las acciones no se pueden crear o borrar desde el PAC sólo desde el Convenio."
+msgstr ""
+
+msgid "Las acciones sólo se pueden crear o borrar desde el Convenio."
+msgstr ""
+
+msgid "Las fechas deben estar comprendidas entre las de la etapa"
+msgstr ""
+
+msgid "Las fechas deben estar dentro de la etapa"
+msgstr ""
+
+msgid "Las fechas están fuera de las etapas del proyecto."
+msgstr ""
+
+msgid "Las fechas están fuera del Convenio"
+msgstr ""
+
+#, fuzzy
+msgid "Las fechas están fuera del contrato."
+msgstr "The date is outside the project."
+
+msgid "Las fechas no pueden estar vacías."
+msgstr ""
+
+msgid "Las fechas se solapan con las de la PAC"
+msgstr ""
+
+msgid "Las fechas se solapan con las de otra etapa"
+msgstr ""
+
+msgid "Las fechas se solapan con las de otra tasa de cambio"
+msgstr ""
+
+msgid "Las fechas se solapan con otro periodo del contrato."
+msgstr ""
+
+msgid "Las nuevas fechas dejan fuera algún periodo de ejecución del contrato"
+msgstr ""
+
+msgid "Libro"
+msgstr "Book"
+
+msgid "Libro Destino"
+msgstr "Destination Book "
+
+msgid "Libro Diario"
+msgstr "Diary book"
+
+msgid "Libro Origen"
+msgstr "Origin book"
+
+msgid "Libros del agente"
+msgstr "Agent books"
+
+msgid "Licencia Creative Commons 2008 - 2013 - GONG"
+msgstr "Under a Creative Commons License 2008 - 2013 - GONG"
+
+msgid "Listado de Actividades"
+msgstr "List of activities"
+
+msgid "Listado de Indicadores"
+msgstr "List of indicators"
+
+msgid "Listado de Objetivos Específicos"
+msgstr "List of specific objectives"
+
+msgid "Listado de Pagos"
+msgstr "List of payments"
+
+msgid "Listado de Proyectos y Convenios asignados"
+msgstr ""
+
+msgid "Listado de Remanentes de la Etapa"
+msgstr ""
+
+msgid "Listado de agentes asignados"
+msgstr ""
+
+msgid "Listado de documentos en el proyecto."
+msgstr ""
+
+msgid "Listado de pagos del socio:"
+msgstr "List of the partner payments:"
+
+msgid "Llamar a %s vía Skype"
+msgstr ""
+
+msgid "Lo sentimos. No se ha podido enviar el correo con la información para el registro"
+msgstr ""
+
+msgid "Localidad"
+msgstr "Location"
+
+msgid "Los cambios producidos en la importación no son reversibles."
+msgstr ""
+
+msgid "Los datos del movimiento son erroneos: no corresponden con ningún tipo registrado."
+msgstr ""
+
+msgid "Los datos relacionados con un Socio tienen que estar vacíos para que pueda ser borrado."
+msgstr ""
+
+msgid "Los datos se han guardado correctamente."
+msgstr ""
+
+msgid "Los documentos etiquetados necesarios para cambiar el estado actual son:"
+msgstr ""
+
+msgid "Los importes de las actividades no suman el importe total del contrato."
+msgstr ""
+
+msgid "Los importes de las actividades no suman el importe total del presupuesto."
+msgstr ""
+
+msgid "Los importes de los financiadores no suman el importe total del gasto."
+msgstr ""
+
+msgid "Los importes de los financiadores no suman el importe total del presupuesto."
+msgstr ""
+
+msgid "Los importes de los periodos no suman el importe total del contrato."
+msgstr ""
+
+msgid "Los importes de los proyectos no suman el importe total del presupuesto."
+msgstr ""
+
+msgid "Los importes no pueden estar vacíos"
+msgstr ""
+
+msgid "Los pagos previstos no coinciden con el total del contrato."
+msgstr ""
+
+msgid "Los periodos de seguimiento deben estar dentro de las etapas del proyecto"
+msgstr ""
+
+msgid "Los resultados del resumen pueden no ser correctos"
+msgstr ""
+
+msgid "Lugar de Residencia"
+msgstr ""
+
+msgid "Límite de petición de prorroga"
+msgstr ""
+
+msgid "Línea de presupuesto no encontrada o no válida para el agente"
+msgstr ""
+
+#, fuzzy
+msgid "Líneas de presupuesto"
+msgstr "Show budgets"
+
+#, fuzzy
+msgid "Líneas de presupuesto sin actividad"
+msgstr "Show budgets without activity"
+
+msgid "Líneas de presupuesto sin partida de financiador"
+msgstr ""
+
+msgid "Manual"
+msgstr "Guide"
+
+msgid "Marcado"
+msgstr "Marked"
+
+msgid "Marcado actual"
+msgstr "Current markup"
+
+msgid "Marcado anterior"
+msgstr "Previous markup"
+
+msgid "Marcado automático"
+msgstr ""
+
+msgid "Marcado cambiado a %{estado}"
+msgstr "Marking changed to %{estate}"
+
+msgid "Marcado de errores"
+msgstr "Markup errors"
+
+msgid "Marcado eliminado"
+msgstr "Marked deleted"
+
+#, fuzzy
+msgid "Marcar el contrato."
+msgstr "Marked deleted"
+
+msgid "Marcar la línea de gasto."
+msgstr ""
+
+msgid "Marcar la línea de ingreso."
+msgstr ""
+
+msgid "Marcar la línea de presupuesto."
+msgstr ""
+
+#, fuzzy
+msgid "Marcar todos"
+msgstr "Marked"
+
+msgid "Matriz"
+msgstr "Matrix"
+
+msgid "Matriz de Formulación"
+msgstr "Formulation matrix"
+
+#, fuzzy
+msgid "Matriz de Formulación "
+msgstr "Formulation matrix"
+
+msgid "Matriz de Seguimiento"
+msgstr "Monitoring matrix"
+
+msgid "Media Ponderada"
+msgstr ""
+
+msgid "Menú"
+msgstr ""
+
+#, fuzzy
+msgid "Mes"
+msgstr "month"
+
+msgid "Meses"
+msgstr "Months"
+
+msgid "Metálico"
+msgstr "Cash"
+
+msgid "Miembros"
+msgstr "Members"
+
+msgid "Modificado"
+msgstr "Modified "
+
+msgid "Modificado por"
+msgstr "Modified by"
+
+msgid "Modificar código de proyecto para el Financiador Principal"
+msgstr ""
+
+msgid "Modo"
+msgstr "Way"
+
+msgid "Moneda"
+msgstr "Currency"
+
+msgid "Moneda Justificación"
+msgstr ""
+
+msgid "Moneda Salario"
+msgstr "Salary currency"
+
+msgid "Moneda base"
+msgstr "Base currency"
+
+msgid "Moneda enviada"
+msgstr "Sended currency"
+
+msgid "Moneda intermedia"
+msgstr "Intermediate currency"
+
+msgid "Moneda obtenida"
+msgstr "Obtained currency"
+
+msgid "Moneda ya asignada."
+msgstr "Already assigned currency."
+
+msgid "Monedas"
+msgstr "Currencies"
+
+msgid "Monedas Locales"
+msgstr "Local currencies"
+
+msgid "Monedas Usadas"
+msgstr "Used currencies"
+
+msgid "Monedas del agente"
+msgstr "Agent’s currencies"
+
+msgid "Monedas locales"
+msgstr "Local currencies"
+
+msgid "Mostrando 1 elemento"
+msgstr "Showing 1 element"
+
+msgid "Mostrando elementos"
+msgstr "Showing elements"
+
+msgid "Mostrando todos los elementos: "
+msgstr "Showing all elements"
+
+msgid "Mostrar"
+msgstr "Show"
+
+msgid "Mostrar Más Proyectos"
+msgstr "Show more projects"
+
+msgid "Mostrar en"
+msgstr "Show in"
+
+msgid "Mostrar filas sin valores"
+msgstr ""
+
+msgid "Mostrar información de"
+msgstr ""
+
+msgid "Mostrar partidas ocultas"
+msgstr ""
+
+msgid "Mostrar remanentes en"
+msgstr "Show remaining in"
+
+msgid "Motivo de la Baja"
+msgstr "Reason to unsubscribe"
+
+msgid "Mover a un espacio diferente al actual"
+msgstr "Move to a different to current space"
+
+msgid "Movimientos"
+msgstr "movements"
+
+msgid "Mujer"
+msgstr "Woman"
+
+msgid "Multipaís"
+msgstr ""
+
+msgid "Más info..."
+msgstr "More Info..."
+
+msgid "Más sobre"
+msgstr ""
+
+msgid "Máximo"
+msgstr "Maximum"
+
+msgid "Máximo según acumulado"
+msgstr ""
+
+msgid "Máximo según subvención prevista"
+msgstr ""
+
+#, fuzzy
+msgid "N. Factura"
+msgstr "Number of Invoice"
+
+#, fuzzy
+msgid "N. Factura completo"
+msgstr "Full name"
+
+#, fuzzy
+msgid "N.Gastos"
+msgstr "Expenses"
+
+msgid "NIF"
+msgstr "NIF"
+
+msgid "NIF Emisor"
+msgstr "Issuing tax ID"
+
+#, fuzzy
+msgid "NIF Proveedor"
+msgstr "Supplier"
+
+msgid "NIF Representante"
+msgstr "Tax ID for representative"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "NO DEFINIDO"
+msgstr "NOT DEFINED"
+
+msgid "NOTA: El importe total se dividirá entre todas las actividades de los resultados seleccionados."
+msgstr ""
+
+msgid "NOTA: Este gasto esta asignado a otros proyectos."
+msgstr ""
+
+msgid "NOTA: Este gasto proviene de un proyecto."
+msgstr ""
+
+msgid "NOTA: Este gasto proviene de una cofinanciación."
+msgstr ""
+
+msgid "NOTA: Si activa esta opción, en los listados de gastos del proyecto tan sólo serán visibles aquellos ejecutados por los agentes asignados al usuario que realiza la consulta."
+msgstr ""
+
+msgid "NOTA: Si elige algún financiador en 'Copiar mapeo desde', todas las partidas y sus mapeos se copiarán en el presente."
+msgstr ""
+
+msgid "NOTA: Sólo se visualizarán las cuentas asignadas a su usuario"
+msgstr ""
+
+msgid "Naturaleza"
+msgstr "Nature"
+
+msgid "Naturaleza Socio"
+msgstr "Partner’s nature"
+
+msgid "Naturaleza del socio"
+msgstr "Partner’s nature"
+
+msgid "Ninguno"
+msgstr "None"
+
+msgid "Ningún elemento seleccionado..."
+msgstr ""
+
+msgid "No"
+msgstr "No"
+
+msgid "No aplicada"
+msgstr "Not applied"
+
+msgid "No detallar actividades"
+msgstr "Not detail activities"
+
+msgid "No detallar financiador"
+msgstr "Nt detail funder"
+
+#, fuzzy
+msgid "No detallar proyectos"
+msgstr "Not linked to projects"
+
+msgid "No es posible activar un plugin que no esta disponible!"
+msgstr "It is not possible to activate a plugin that is not available!"
+
+msgid "No está definido el tipo de contrato."
+msgstr ""
+
+msgid "No está instalado el módulo de generación de informes. Contacte con el administrador del sistema."
+msgstr "The reporting module is not installed. Contact the system administrator."
+
+msgid "No existe el libro destino del movimiento de"
+msgstr ""
+
+msgid "No existe el libro origen del movimiento de"
+msgstr "There is no origin book for the movement of"
+
+msgid "No existe etapa asignada."
+msgstr "There is no assigned stage."
+
+msgid "No existe financiación definida para el contrato."
+msgstr ""
+
+msgid "No existe libro asociado al pago!"
+msgstr "There is no associated payment book!"
+
+msgid "No existe ningún país definido para el proyecto.<br/>Configure los paises de actuación en las Relaciones del Menú de Configuración del proyecto."
+msgstr ""
+
+msgid "No existen actividades definidas para la etapa."
+msgstr ""
+
+msgid "No existen remanentes a aplicar"
+msgstr ""
+
+msgid "No filtrar por partida"
+msgstr ""
+
+msgid "No ha seleccionado financiador."
+msgstr ""
+
+msgid "No ha seleccionado gasto."
+msgstr ""
+
+msgid "No ha seleccionado partida de financiacion."
+msgstr ""
+
+msgid "No ha seleccionado partida."
+msgstr ""
+
+msgid "No ha seleccionado transferencia."
+msgstr ""
+
+msgid "No ha sido definido como 'estado de ejecución' por su administrador."
+msgstr "It hasn't been defined as 'execution state' by your administrator."
+
+msgid "No ha sido definido como 'estado de formulación' por su administrador."
+msgstr "It hasn't been defined as 'formulation state' by your administrator."
+
+msgid "No hay datos"
+msgstr "There is no data"
+
+msgid "No hay definido ningun tipo de marcado. Hable con su administrador del sistema."
+msgstr ""
+
+msgid "No hay etapas definidas"
+msgstr ""
+
+msgid "No hay etapas definidas en el proyecto."
+msgstr ""
+
+msgid "No hay pagos pendientes en ese periodo."
+msgstr ""
+
+msgid "No hay tareas asociadas pendientes."
+msgstr ""
+
+msgid "No hay tareas definidas para el periodo."
+msgstr ""
+
+msgid "No mostrar filas sin valores "
+msgstr ""
+
+msgid "No pudo encontrarse el Gasto."
+msgstr ""
+
+msgid "No puede tener como espacio 'superior' el espacio seleccionado"
+msgstr "You can not have as ‘upper’ space the space selected"
+
+msgid "No se cumple la condición '%{condicion}'."
+msgstr ""
+
+msgid "No se dispone de informacion de la recepción."
+msgstr ""
+
+msgid "No se dispone de informacion del envío."
+msgstr ""
+
+msgid "No se encuentra dentro de las Etapas del proyecto"
+msgstr ""
+
+msgid "No se ha configurado una tasa de cambio para la moneda %{mon}."
+msgstr ""
+
+msgid "No se ha definido importe para el financiador."
+msgstr ""
+
+msgid "No se ha definido la moneda principal. Contacte con el administrador para resolver el problema."
+msgstr ""
+
+msgid "No se ha definido ninguna tasa de cambio de presupuesto para '%{mon}' en la etapa seleccionada."
+msgstr ""
+
+msgid "No se ha encontrado"
+msgstr ""
+
+msgid "No se ha encontrado el gasto con ese ID para el Agente."
+msgstr ""
+
+msgid "No se ha especificado una subpartida."
+msgstr ""
+
+msgid "No se ha podido mandar el mail a algún usuario"
+msgstr "Could not send the mail to a some user"
+
+msgid "No se han definido todas las tasas de cambio de gasto posibles."
+msgstr ""
+
+msgid "No se han definido todas las tasas de cambio de presupuesto posibles."
+msgstr ""
+
+msgid "No se han subido todos los documentos necesarios para entrar en este estado. Documentos pendientes: %s"
+msgstr ""
+
+msgid "No se importará ningún gasto que no disponga de número de orden."
+msgstr ""
+
+msgid "No se pudo borrar el usuario especificado."
+msgstr ""
+
+msgid "No se pudo encontrar el documento."
+msgstr "The document could not be found."
+
+msgid "No se pudo encontrar la partida relacionada."
+msgstr ""
+
+msgid "No se pudo encontrar una plantilla de 'Contrato'."
+msgstr ""
+
+msgid "No se pudo encontrar una plantilla de 'Nota de Gasto'."
+msgstr ""
+
+msgid "No se pudo encontrar una plantilla de 'Pago de Contrato'."
+msgstr ""
+
+msgid "No se pudo encontrar una plantilla de 'ficha_resumen'."
+msgstr ""
+
+msgid "No se pudo realizar el cálculo de Remanentes"
+msgstr ""
+
+msgid "No se puede asociar un estado del workflow a si mismo"
+msgstr ""
+
+msgid "No se puede asociar un proyecto a si mismo"
+msgstr "You can not link a project to itself"
+
+msgid "No se puede borrar el documento por que se encuentra vinculado en algun espacio de documentación"
+msgstr "You can not delete the document that is linked in some documentation space"
+
+msgid "No se puede borrar el grupo por que esta asignado a algun proyecto."
+msgstr ""
+
+msgid "No se puede borrar un tipo de campo si ya está asociado a contratos. Desactívelo si no desea que aparezca en contratos futuros."
+msgstr ""
+
+msgid "No se puede borrar un usuario administrador."
+msgstr ""
+
+msgid "No se puede cambiar de estado. Compruebe que tiene los documentos necesarios y que están adecuadamente etiquetados."
+msgstr "You can not change state. Verify that you have the necessary documents and are properly tagged."
+
+msgid "No se puede cambiar el proyecto a un estado de tipo “cerrado” hasta haber finalizado todas las tareas del proyecto."
+msgstr ""
+
+msgid "No se puede cambiar la partida vinculada."
+msgstr ""
+
+msgid "No se puede crear o borrar el elemento desde el PAC."
+msgstr ""
+
+msgid "No se puede eliminar un país si está asignado a algún proyecto de la convocatoria."
+msgstr ""
+
+msgid "No se puede gestionar el documento desde este espacio."
+msgstr ""
+
+msgid "No se puede importar la matriz desde la seccion Agentes"
+msgstr ""
+
+msgid "No se puede modificar el elemento desde el PAC asdf."
+msgstr ""
+
+msgid "No se puede modificar el elemento desde el PAC."
+msgstr ""
+
+msgid "No se puede modificar el presupuesto detallado."
+msgstr "In this stage you can not modify the detailed budget."
+
+msgid "No se pueden borrar el grupo por que tiene usuarios asignados."
+msgstr ""
+
+msgid "No se pueden borrar todos los usuarios administradores."
+msgstr "You can delete all admin users."
+
+msgid "No se pueden definir dos libros para el movimiento"
+msgstr "Failed to set two accounts in the transaction"
+
+msgid "No se pueden modificar los periodos."
+msgstr ""
+
+msgid "No tiene elementos"
+msgstr "There is no elements"
+
+msgid "No tiene permisos para añadir documentos en este espacio."
+msgstr "You are not autorized to add documents in this folder."
+
+msgid "No tiene permisos para borrar o modificar el documento."
+msgstr "You are not autorized to delete or modify the document."
+
+msgid "No tiene permisos para escribir en ese espacio"
+msgstr "You are not autorized to write in this folder"
+
+msgid "No tiene permisos suficientes para acceder a este proyecto."
+msgstr "You are not autorized to access to this project."
+
+msgid "No tiene permisos suficientes para modificar el workflow de contratos."
+msgstr ""
+
+msgid "No tiene permisos suficientes para modificar las condiciones del workflow de contratos."
+msgstr ""
+
+msgid "No tiene permisos suficientes para realizar esta acción."
+msgstr "You are not autorized to make this action."
+
+msgid "No vinculado a proyectos"
+msgstr "Not linked to projects"
+
+msgid "Noficación de Tarea"
+msgstr "Task Notification"
+
+msgid "Nombre"
+msgstr "Name"
+
+#, fuzzy
+msgid "Nombre + NIF repetidos."
+msgstr "Repeated name."
+
+msgid "Nombre completo"
+msgstr "Full name"
+
+#, fuzzy
+msgid "Nombre corto del proyecto:"
+msgstr "project name"
+
+#, fuzzy
+msgid "Nombre corto del proyecto: "
+msgstr "project name"
+
+#, fuzzy
+msgid "Nombre de parámetro repetido."
+msgstr "Country’s name is repeated"
+
+msgid "Nombre del País"
+msgstr "Name of the country"
+
+msgid "Nombre del País está repetido."
+msgstr "Country’s name is repeated"
+
+#, fuzzy
+msgid "Nombre del proyecto"
+msgstr "project name"
+
+msgid "Nombre en financiacion"
+msgstr ""
+
+msgid "Nombre en la financiación"
+msgstr ""
+
+msgid "Nombre repetido"
+msgstr "Repeated name"
+
+msgid "Nombre repetido."
+msgstr "Repeated name."
+
+msgid "Nombre y apellidos"
+msgstr "Name and surnames"
+
+msgid "Notas"
+msgstr "Notes"
+
+msgid "Notificaciones"
+msgstr "Notifications"
+
+msgid "Nueva Etiqueta"
+msgstr "New tag"
+
+msgid "Nueva Variable"
+msgstr "New Variable"
+
+msgid "Nueva contraseña"
+msgstr "New passwrd"
+
+msgid "Nueva financiación"
+msgstr "New funding"
+
+msgid "Nueva tarea"
+msgstr "New task"
+
+msgid "Nuevo "
+msgstr "New"
+
+msgid "Nuevo Comentario en"
+msgstr "New comment in"
+
+#, fuzzy
+msgid "Nuevo Empleado"
+msgstr "New state"
+
+msgid "Nuevo Estado"
+msgstr "New state"
+
+msgid "Nuevo Valor Medido"
+msgstr "New average value"
+
+msgid "Nuevo agente"
+msgstr "New agent"
+
+msgid "Nuevo definicion_estado"
+msgstr ""
+
+msgid "Nuevo documento"
+msgstr "New document"
+
+msgid "Nuevo estado"
+msgstr "New state"
+
+msgid "Nuevo estado del workflow"
+msgstr ""
+
+msgid "Nuevo grupo"
+msgstr "New group"
+
+msgid "Nuevo marcado"
+msgstr ""
+
+msgid "Nuevo pago"
+msgstr "New payment"
+
+#, fuzzy
+msgid "Nuevo proyecto creado"
+msgstr "Only approved projects"
+
+msgid "Nuevo socio"
+msgstr "New partner"
+
+msgid "Nuevo subespacio en %{espacio}"
+msgstr ""
+
+msgid "Nuevo tarea"
+msgstr "New task"
+
+msgid "Nuevo usuario"
+msgstr "New user"
+
+msgid "Num.Cheque ó Cta.Destino"
+msgstr ""
+
+#, fuzzy
+msgid "Num.Documento"
+msgstr "Document"
+
+msgid "Numeración factura financiador"
+msgstr ""
+
+msgid "Numeración facturas"
+msgstr "Invoice numbering"
+
+msgid "Numerar por Fecha"
+msgstr "Date numbering"
+
+msgid "Numerar por Fecha (sin código de proyecto)"
+msgstr "date numbering (without Project code)"
+
+msgid "Numerar por País y Fecha"
+msgstr "Country and date numbering"
+
+msgid "Numerar por País, Partida y Fecha"
+msgstr "Country, departure and date numbering"
+
+msgid "Numerar por País, Partida, Subpartida y Fecha"
+msgstr "Country, departure, sub-departure and date numbering"
+
+#, fuzzy
+msgid "Numero de presupuesto"
+msgstr "Show budgets"
+
+#, fuzzy
+msgid "Numero factura completo"
+msgstr "Invoice number"
+
+msgid "Numero unidades"
+msgstr "Number of units"
+
+msgid "Nº"
+msgstr ""
+
+msgid "Nº Factura"
+msgstr "Number of Invoice"
+
+msgid "Nº Unidades"
+msgstr "number of units"
+
+msgid "Nº de socios"
+msgstr "number of members"
+
+msgid "Nº unidades"
+msgstr "number of units"
+
+msgid "Número Tarjeta"
+msgstr "Card number"
+
+msgid "Número de Cheque"
+msgstr "paycheck number"
+
+msgid "Número de Tarjeta"
+msgstr "Card number"
+
+msgid "Número de Tarjeta repetido."
+msgstr "Repeated card number"
+
+msgid "Número de Verificación"
+msgstr "Checking number"
+
+#, fuzzy
+msgid "Número de documento"
+msgstr "New document"
+
+#, fuzzy
+msgid "Número de gastos: "
+msgstr "Card number"
+
+#, fuzzy
+msgid "Número de proyectos"
+msgstr "project name"
+
+#, fuzzy
+msgid "Número de unidades"
+msgstr "Number of units"
+
+msgid "Número de unidades debe ser mayor que cero."
+msgstr "The units number must be higher than zero"
+
+msgid "Número factura"
+msgstr "Invoice number"
+
+msgid "OBSERVACIONES"
+msgstr "COMMENTS"
+
+msgid "ONG Local"
+msgstr "Local NGO"
+
+msgid "ONG/Agrupación"
+msgstr ""
+
+msgid "ONGD Agrupada"
+msgstr ""
+
+msgid "ONGD/Delegación"
+msgstr ""
+
+#, fuzzy
+msgid "Objetivo"
+msgstr "Objective date"
+
+msgid "Objetivo Especifico"
+msgstr "Specific Objective"
+
+msgid "Objetivo Especifico debe tener un código"
+msgstr ""
+
+msgid "Objetivo Específico"
+msgstr "Specific Objective"
+
+#, fuzzy
+msgid "Objetivo Específico: "
+msgstr "Specific Objective"
+
+msgid "Objetivo Fondos"
+msgstr ""
+
+msgid "Objetivo General"
+msgstr ""
+
+#, fuzzy
+msgid "Objetivo General: "
+msgstr "Specific Objective"
+
+msgid "Objetivo Importe Subvenciones"
+msgstr ""
+
+msgid "Objetivo de volumen de ejecución"
+msgstr ""
+
+#, fuzzy
+msgid "Objetivo general"
+msgstr "Overview"
+
+msgid "Objetivo/resultado"
+msgstr ""
+
+msgid "Objetivos Específicos"
+msgstr "Specific Objectives"
+
+#, fuzzy
+msgid "Objeto referido"
+msgstr "Repeated concept"
+
+msgid "Observaciones"
+msgstr "Comments"
+
+#, fuzzy
+msgid "Observaciones al cambio"
+msgstr "Comments"
+
+msgid "Observaciones sobre el Cambio del Estado"
+msgstr "Comments about the Stage´s Change"
+
+msgid "Obtener Backup"
+msgstr "Get a backup"
+
+msgid "Ocultar"
+msgstr "Hide"
+
+msgid "Ocultar (si no se tienen permisos especificos)."
+msgstr "Hide (if do not have specific permissions)."
+
+msgid "Ocultar comentarios"
+msgstr "Hide comments"
+
+msgid "Ocultar datos"
+msgstr "Hide data"
+
+msgid "Ocultar en Proyectos"
+msgstr "Hide in projects"
+
+msgid "Ocultar en agente"
+msgstr "Hide in agent"
+
+msgid "Ocultar en la gestion de agente"
+msgstr ""
+
+#, fuzzy
+msgid "Ocultar en proyecto"
+msgstr "Hide in projects"
+
+#, fuzzy
+msgid "Ocultar en proyectos"
+msgstr "Hide in projects"
+
+#, fuzzy
+msgid "Oficina/Delegación:"
+msgstr "Select branch"
+
+msgid "Orden"
+msgstr "Order"
+
+msgid "Orden Factura"
+msgstr "Invoice order"
+
+msgid "Orden listado"
+msgstr "Sorting Order:"
+
+#, fuzzy
+msgid "Origen"
+msgstr "Order"
+
+msgid "Origen Socio"
+msgstr "Partner origin"
+
+msgid "Origen del Socio/a"
+msgstr "Origin of the partner"
+
+msgid "Otras Aportaciones Privadas Externas"
+msgstr ""
+
+msgid "Otras Aportaciones Públicas Externas"
+msgstr ""
+
+#, fuzzy
+msgid "Otras opciones"
+msgstr "Funders"
+
+msgid "Otro"
+msgstr "Other"
+
+#, fuzzy
+msgid "Otros Financiadores"
+msgstr "Funders"
+
+#, fuzzy
+msgid "Otros Implementadores"
+msgstr "Implementers"
+
+#, fuzzy
+msgid "Otros financiadores:"
+msgstr "Funders detail"
+
+msgid "PAC"
+msgstr "PAC"
+
+msgid "PACs"
+msgstr "PACs"
+
+msgid "PERIODOS DE JUSTIFICACIÓN Y PRORROGAS: "
+msgstr ""
+
+msgid "PORCENTAJES"
+msgstr "PERCENTAGES"
+
+#, fuzzy
+msgid "Pagado"
+msgstr "Payment"
+
+msgid "Pago"
+msgstr "Payment"
+
+msgid "Pago de %{importe} %{moneda} con fecha %{fecha}"
+msgstr "Payment of %{importe} %{moneda}  on date %{fecha}"
+
+msgid "Pago en el Gasto con ID"
+msgstr "Payment in expense with ID"
+
+msgid "Pagos"
+msgstr "Payments"
+
+msgid "Pagos vía"
+msgstr "Payments via"
+
+msgid "Pais"
+msgstr "Country"
+
+msgid "Paises de la actividad"
+msgstr "Activity countries"
+
+msgid "Paises presentados"
+msgstr "Countries presented"
+
+msgid "Pantalla"
+msgstr "Screen"
+
+msgid "Para cerrar las tareas vaya a:"
+msgstr ""
+
+msgid "Para corregirlo vaya a:"
+msgstr ""
+
+msgid "Para definir tasas de cambio se deben vincular más monedas."
+msgstr "To define exchange rates more currencies should be linked."
+
+msgid "Para la actividad '%{codigo}' no se encontró la actividad relacionada '%{codigo_relacionado}' en la matriz general del Convenio"
+msgstr ""
+
+msgid "Parametrizacion"
+msgstr ""
+
+msgid "Partida"
+msgstr "Departure"
+
+msgid "Partida 'madre'"
+msgstr ""
+
+msgid "Partida Financiación"
+msgstr ""
+
+#, fuzzy
+msgid "Partida de Ingreso"
+msgstr "System budget item"
+
+msgid "Partida de Sistema"
+msgstr "System budget item"
+
+msgid "Partida del gasto"
+msgstr ""
+
+msgid "Partida tipo 'madre'"
+msgstr ""
+
+msgid "Partida/Actividad"
+msgstr ""
+
+msgid "Partida/Subpartida"
+msgstr ""
+
+msgid "Partidas"
+msgstr "Departures"
+
+msgid "Partidas asociadas a la partida de la financiación"
+msgstr ""
+
+#, fuzzy
+msgid "Partidas de Gastos"
+msgstr "System budget item"
+
+#, fuzzy
+msgid "Partidas de Ingresos"
+msgstr "System budget item"
+
+msgid "Partidas del financiador"
+msgstr ""
+
+msgid "Partidas del proyecto"
+msgstr ""
+
+msgid "Parámetro"
+msgstr ""
+
+msgid "Parámetros de configuración"
+msgstr ""
+
+msgid "País"
+msgstr "Country"
+
+msgid "País Delegación"
+msgstr "Branch country"
+
+msgid "País ONGD"
+msgstr "NGO’s country"
+
+msgid "País Principal"
+msgstr "Main country"
+
+msgid "País ya asignado."
+msgstr "Country already assigned"
+
+msgid "País/es - Área geográfica:"
+msgstr ""
+
+msgid "Países (dejar vacío para ámbito geográfico global)"
+msgstr ""
+
+msgid "Pendiente"
+msgstr "Pending"
+
+#, fuzzy
+msgid "Pendiente Ejecución"
+msgstr "show implementation"
+
+msgid "Periodo"
+msgstr "Term"
+
+msgid "Periodo de seguimiento oficial de financiador (no interno a nuestra ONG)"
+msgstr ""
+
+msgid "Periodo total de ejecución:"
+msgstr ""
+
+#, fuzzy
+msgid "Periodos de Seguimiento"
+msgstr "Monitoring matrix"
+
+#, fuzzy
+msgid "Periodos de formulación"
+msgstr "Formulation matrix"
+
+msgid "Periodos de seguimiento internos"
+msgstr ""
+
+msgid "Periodos de seguimiento y justificacion"
+msgstr ""
+
+msgid "Periodos pendientes de seguimiento internos de proyectos"
+msgstr ""
+
+msgid "Periodos pendientes de seguimiento internos del proyecto"
+msgstr ""
+
+msgid "Periodos pendientes de seguimiento y formulación oficiales"
+msgstr ""
+
+msgid "Periodos pendientes de seguimiento y formulación oficiales del proyecto"
+msgstr ""
+
+msgid "Periodos y Pagos"
+msgstr ""
+
+msgid "Periodos y pagos previstos"
+msgstr ""
+
+msgid "Permisos"
+msgstr ""
+
+msgid "Permisos para el rol"
+msgstr ""
+
+msgid "Pestaña"
+msgstr "Tab"
+
+msgid "Plantilla de exportación de %{tipo}"
+msgstr "Export template of %{tipo}"
+
+msgid "Plantillas de Contrato Asociadas"
+msgstr ""
+
+msgid "Plantillas de Exportación"
+msgstr "Export templates "
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Población Beneficiaria/Aportaciones Privadas"
+msgstr ""
+
+msgid "Ponderada"
+msgstr "Weighted"
+
+msgid "Por Actividades"
+msgstr "By Activities"
+
+msgid "Por Partidas"
+msgstr "By headings"
+
+msgid "Por página"
+msgstr "By page"
+
+msgid "Porcentaje"
+msgstr "Percent"
+
+msgid "Porcentaje del objetivo presupuestado"
+msgstr ""
+
+msgid "Porcentaje realizado"
+msgstr "Percent completed"
+
+msgid "Porcentaje sobre el total acumulado."
+msgstr ""
+
+msgid "Porcentajes"
+msgstr "Percents"
+
+msgid "Porcentajes de Cumplimiento Medidos"
+msgstr ""
+
+#, fuzzy
+msgid "Portugués"
+msgstr "Portuguese."
+
+msgid "Ppto. Regional"
+msgstr ""
+
+msgid "Ppto. previsto"
+msgstr "Planned budget"
+
+#, fuzzy
+msgid "Presupuest."
+msgstr "Budget"
+
+#, fuzzy
+msgid "Presupuestable"
+msgstr "Budgeted"
+
+msgid "Presupuestado"
+msgstr "Budgeted"
+
+msgid "Presupuesto"
+msgstr "Budget"
+
+msgid "Presupuesto Proyectos"
+msgstr "Budget projects"
+
+#, fuzzy
+msgid "Presupuesto Total (%{mon})"
+msgstr "Total budget"
+
+#, fuzzy
+msgid "Presupuesto aprobado"
+msgstr "Total budget"
+
+#, fuzzy
+msgid "Presupuesto de Gastos"
+msgstr "Budget or expenses"
+
+#, fuzzy
+msgid "Presupuesto de Ingresos"
+msgstr "Budget or expenses"
+
+#, fuzzy
+msgid "Presupuesto de Personal"
+msgstr "Budget is not valid"
+
+msgid "Presupuesto de personal AGREGADO"
+msgstr ""
+
+msgid "Presupuesto de personal del periodo"
+msgstr ""
+
+msgid "Presupuesto de personal por MESES"
+msgstr ""
+
+msgid "Presupuesto de personal por PROYECTOS"
+msgstr ""
+
+#, fuzzy
+msgid "Presupuesto del periodo"
+msgstr "Budget is not valid"
+
+#, fuzzy
+msgid "Presupuesto ejecutado"
+msgstr "Total budget"
+
+msgid "Presupuesto no es válido."
+msgstr "Budget is not valid"
+
+msgid "Presupuesto o Gastos"
+msgstr "Budget or expenses"
+
+msgid "Presupuesto por actividades"
+msgstr ""
+
+msgid "Presupuesto por partidas"
+msgstr ""
+
+msgid "Presupuesto total"
+msgstr "Total budget"
+
+msgid "Presupuesto total del Proyecto:"
+msgstr ""
+
+msgid "Presupuestos"
+msgstr "Budgets"
+
+msgid "Presupuestos de la actividad"
+msgstr ""
+
+msgid "Previsión de Gastos"
+msgstr "Estimate of expenditure"
+
+#, fuzzy
+msgid "Previsión de Gastos mensuales"
+msgstr "Estimate of expenditure"
+
+msgid "Previsto"
+msgstr "Expected"
+
+msgid "Primer estado"
+msgstr "First state"
+
+msgid "Primer estado debe ser único"
+msgstr "First state must be unique"
+
+msgid "Prioridades y Observaciones"
+msgstr ""
+
+msgid "Privada"
+msgstr "Private"
+
+msgid "Privilegios especiales"
+msgstr ""
+
+msgid "Problemas descargando detalle de contrato."
+msgstr ""
+
+msgid "Problemas generando transferencia de remanente para el libro"
+msgstr ""
+
+msgid "Prorroga aceptada"
+msgstr ""
+
+msgid "Prorrogas a la Ejecución."
+msgstr ""
+
+msgid "Prorrogas a la Justificación Final."
+msgstr ""
+
+msgid "Prorrogas pendientes de ser aceptadas"
+msgstr ""
+
+msgid "Proveedor"
+msgstr "Supplier"
+
+#, fuzzy
+msgid "Proveedores"
+msgstr "Supplier"
+
+msgid "Provincia"
+msgstr "Province"
+
+msgid "Proyecto"
+msgstr "Project"
+
+msgid "Proyecto '%s' no tiene definidas fechas de comienzo o de fin"
+msgstr "Project ‘%s’  has no start  or end dates defined"
+
+msgid "Proyecto Origen"
+msgstr "Source Project"
+
+msgid "Proyecto cofinanciador"
+msgstr "Confunder project"
+
+msgid "Proyecto no definido o no válido."
+msgstr "Undefined or invalid project."
+
+msgid "Proyecto no válido para el agente"
+msgstr "Invalid project for the agent"
+
+msgid "Proyecto o Agente"
+msgstr "Project or agent"
+
+msgid "Proyecto o Convenio"
+msgstr "Project or agreement"
+
+msgid "Proyecto o Delegación"
+msgstr "Project or subsidiary"
+
+msgid "Proyecto:"
+msgstr "Project:"
+
+msgid "Proyectos"
+msgstr "Projects"
+
+msgid "Proyectos Aprobados"
+msgstr "Approved projects"
+
+msgid "Proyectos abiertos"
+msgstr "Open Projects"
+
+msgid "Proyectos cofinanciadores"
+msgstr "Cofunders projects"
+
+#, fuzzy
+msgid "Proyectos como gestor"
+msgstr "Project or agent"
+
+msgid "Proyectos como implementador"
+msgstr ""
+
+msgid "Proyectos en fechas de posible petición de prorroga."
+msgstr ""
+
+msgid "Proyectos gestionados"
+msgstr "Managed projects"
+
+msgid "Proyectos relacionados con el gasto"
+msgstr ""
+
+msgid "Proyectos sin estado"
+msgstr "Projects without State"
+
+msgid "Prueba"
+msgstr "Test"
+
+msgid "Prórroga"
+msgstr ""
+
+#, fuzzy
+msgid "Prórroga Ejecución"
+msgstr "received amount"
+
+#, fuzzy
+msgid "Prórroga Justificación Final"
+msgstr "Notifications"
+
+msgid "Próximo"
+msgstr "Next"
+
+msgid "Próximo Año"
+msgstr "Next year"
+
+msgid "Próximo Mes"
+msgstr "Next month"
+
+msgid "Próximo Semestre"
+msgstr "Next semester"
+
+msgid "Próximo Trimestre"
+msgstr "Next quarter"
+
+msgid "Puede cambiar"
+msgstr ""
+
+msgid "Puede leer"
+msgstr ""
+
+msgid "Página inicial"
+msgstr "Home page"
+
+msgid "Página web de Gong por Comunidad de desarrollo Gong se encuentra bajo una Licencia Creative Commons Atribución-CompartirIgual 3.0 España"
+msgstr "Gong's web page by Gong Development Community, is licensed under a Creative Commons Attribution-ShareAlike 3.0 Spain"
+
+msgid "Pública"
+msgstr "Public"
+
+msgid "Quitar filtro"
+msgstr "Delete filter"
+
+msgid "RECEPCIÓN DE FONDOS: "
+msgstr ""
+
+msgid "RESUMEN DE GASTO POR ACTIVIDADES DE OTRO FINANCIADOR"
+msgstr ""
+
+msgid "RESUMEN DE GASTO POR ACTIVIDADES DE TODOS LOS FINANCIADORES"
+msgstr ""
+
+msgid "RESUMEN DE GASTO POR ACTIVIDADES DEL FINANCIADOR PRINCIPAL"
+msgstr ""
+
+msgid "RESUMEN DE GASTO POR PARTIDAS DE OTRO FINANCIADOR"
+msgstr ""
+
+msgid "RESUMEN DE GASTO POR PARTIDAS DE TODOS LOS FINANCIADORES"
+msgstr ""
+
+msgid "RESUMEN DE GASTO POR PARTIDAS DEL FINANCIADOR PRINCIPAL"
+msgstr ""
+
+msgid "RESUMEN DE PRESUPUESTO POR  ACTIVIDADES"
+msgstr ""
+
+msgid "RESUMEN DE PRESUPUESTO POR PARTIDAS"
+msgstr ""
+
+msgid "Raiz de espacios de %s"
+msgstr "space's root of %s"
+
+msgid "Rango de fechas"
+msgstr "Date range"
+
+msgid "Raíz"
+msgstr "Root"
+
+msgid "Realizada"
+msgstr "done"
+
+msgid "Recibido"
+msgstr "Received"
+
+msgid "Recibido en:"
+msgstr "Received in:"
+
+msgid "Recibir correos de cambio de estado de los siguientes proyectos"
+msgstr ""
+
+msgid "Recibir correos de comentarios de los siguientes proyectos"
+msgstr ""
+
+msgid "Recibir correos de nuevas asignaciones de usuario a los siguientes Proyectos"
+msgstr ""
+
+msgid "Recibir notificaciones de asignación de usuario al proyecto"
+msgstr ""
+
+msgid "Recibir notificaciones de cambios de estado del proyecto"
+msgstr ""
+
+#, fuzzy
+msgid "Recibir notificaciones de comentarios del proyecto"
+msgstr "Receive comment notifications from projects"
+
+msgid "Recursos"
+msgstr "Resources"
+
+#, fuzzy
+msgid "Ref.Contable"
+msgstr "Accounting reference"
+
+msgid "Referencia"
+msgstr "Reference"
+
+msgid "Referencia Contable"
+msgstr "Accounting reference"
+
+#, fuzzy
+msgid "Refresque posteriormente el listado para ver la informacion actualizada del resgistro de exportación"
+msgstr " to "
+
+msgid "Regional"
+msgstr "Regional"
+
+#, fuzzy
+msgid "Registro de estados"
+msgstr "State change"
+
+msgid "Región"
+msgstr "Region"
+
+msgid "Reintegro de Subvención"
+msgstr "Reinstatement of grant"
+
+msgid "Reintegro desde:"
+msgstr "Return from:"
+
+#, fuzzy
+msgid "Rel.Proyectos"
+msgstr "From project"
+
+msgid "Relaciones del proyecto"
+msgstr "Project links"
+
+msgid "Relación de Personal"
+msgstr ""
+
+msgid "Rellene todos los datos del formulario"
+msgstr "Fill in all the form data"
+
+msgid "Remanente"
+msgstr "Remaining"
+
+msgid "Remanente Aplicado"
+msgstr "Remaining applied"
+
+msgid "Remanente de Tesorería"
+msgstr "Remaining cash"
+
+msgid "Remanentes"
+msgstr "Remainings"
+
+msgid "Remanentes de %{moneda} por %{actividad}"
+msgstr ""
+
+msgid "Remanentes de %{nombre}"
+msgstr "Remaining of %{nombre}"
+
+msgid "Remanentes de la Etapa"
+msgstr "Remnants of the stage"
+
+msgid "Remanentes por:"
+msgstr "Remnants by:"
+
+msgid "Reordenar"
+msgstr "Rearrange"
+
+msgid "Reparto del gasto"
+msgstr ""
+
+msgid "Repetir contraseña"
+msgstr "Repeat password"
+
+msgid "Reporte"
+msgstr "Report"
+
+msgid "Residencia"
+msgstr "Residence"
+
+msgid "Responsables"
+msgstr ""
+
+msgid "Resultado"
+msgstr "Result"
+
+msgid "Resultados"
+msgstr "Results"
+
+msgid "Resumen"
+msgstr "Abstract"
+
+#, fuzzy
+msgid "Resumen Ejecutivo"
+msgstr "Expenses summary"
+
+msgid "Resumen Gasto"
+msgstr "Expenses summary"
+
+msgid "Resumen Matriz"
+msgstr "Matrix summary"
+
+msgid "Resumen Presupuesto"
+msgstr "Budget summary"
+
+msgid "Resumen Tesoreria"
+msgstr "Treasury summary"
+
+msgid "Resumen Tesorería"
+msgstr "Treasury summary"
+
+msgid "Resumen Transferencias "
+msgstr "Transfers summary"
+
+msgid "Resumen de"
+msgstr "Summary of"
+
+#, fuzzy
+msgid "Resumen de Personal"
+msgstr "Suppliers summary"
+
+msgid "Resumen de Proveedores"
+msgstr "Suppliers summary"
+
+msgid "Resumen de Proveedores."
+msgstr "Summary of suppliers."
+
+#, fuzzy
+msgid "Resumen de Proyectos"
+msgstr "Project management"
+
+msgid "Resumen de Seguimiento Técnico"
+msgstr "Summary of technical monitoring"
+
+msgid "Resumen de Transferencias"
+msgstr "Transfers summary"
+
+msgid "Resumen de Transferencias a Proyectos."
+msgstr "Summary of transfers to projects."
+
+msgid "Resumen de gasto"
+msgstr "Overview of expenditure"
+
+msgid "Resumen de gasto comparado con el presupuesto."
+msgstr ""
+
+msgid "Resumen de presupuesto."
+msgstr ""
+
+msgid "Resumen de proveedores"
+msgstr ""
+
+msgid "Resumen por partidas"
+msgstr ""
+
+msgid "Resumen por proyectos"
+msgstr ""
+
+msgid "Resumen por subpartidas"
+msgstr ""
+
+msgid "Resumen por subpartidas y proyectos"
+msgstr ""
+
+msgid "Resumen_ejecutivo_"
+msgstr ""
+
+msgid "Retirada"
+msgstr "Withdrawal"
+
+msgid "Retirada desde:"
+msgstr "Withdrawal from:"
+
+msgid "Retroceder Estado Anterior"
+msgstr "Return to previous state"
+
+msgid "Revisar la aplicación de tasas de cambio en todos los gastos del proyecto"
+msgstr ""
+
+msgid "Rol"
+msgstr "Role"
+
+msgid "Rol del agente"
+msgstr "Role of the agent"
+
+msgid "Rol en agentes relacionados"
+msgstr ""
+
+msgid "Rol en proyectos"
+msgstr "Role in projects"
+
+#, fuzzy
+msgid "Roles de Usuario"
+msgstr "Users groups"
+
+msgid "Ruta"
+msgstr "Path"
+
+msgid "Rótulo"
+msgstr "Label"
+
+msgid "Rótulo repetido."
+msgstr "Repeated label."
+
+msgid "SI"
+msgstr "YES"
+
+msgid "SIN ACTIVIDAD"
+msgstr "No activity"
+
+msgid "SWIFT"
+msgstr "SWIFT"
+
+msgid "Sacar a fichero "
+msgstr "Save to file"
+
+msgid "Sacar el resultado a fichero"
+msgstr "Save result to file"
+
+msgid "Sacar el resultado a fichero "
+msgstr "Save result to file "
+
+msgid "Salario Bruto Mensual"
+msgstr "Monthly gross salary"
+
+msgid "Salario Bruto Total"
+msgstr "Total gross wages"
+
+msgid "Saldo"
+msgstr "Balance"
+
+msgid "Salidas"
+msgstr "Outputs"
+
+msgid "Salir de la aplicación"
+msgstr "Logoff"
+
+msgid "Se aplicarán los Remanentes a la Etapa"
+msgstr ""
+
+msgid "Se encuentra en la 'raíz' de documentos"
+msgstr ""
+
+#, fuzzy
+msgid "Se ha creado el proyecto"
+msgstr "Copy data from project"
+
+msgid "Se ha eliminado correctamente."
+msgstr "Correctly deleted."
+
+msgid "Se ha excedido la fecha de finalizacion de alguna de las tareas del periodo."
+msgstr ""
+
+msgid "Se han eliminado correctamente todas las lineas de presupuesto del empleado "
+msgstr ""
+
+msgid "Se han generado correctamente los siguientes pagos."
+msgstr ""
+
+msgid "Se han generado las transferencias correspondientes a los remanentes de '%{proyecto}'"
+msgstr ""
+
+msgid "Se han producido errores enviando correos a los usuarios"
+msgstr ""
+
+msgid "Se han producido errores."
+msgstr "There were errors."
+
+msgid "Se han revisado las tasas de cambio aplicadas a cada uno de los gastos del proyecto."
+msgstr ""
+
+msgid "Se produjeron errores asignando Financiador a la Transferencia"
+msgstr ""
+
+msgid "Se produjeron errores asignando el Gasto"
+msgstr ""
+
+msgid "Se produjeron errores asociando la Partida con Código '%{partida}': La Partida de Sistema '%{partida_sistema}' no existe."
+msgstr ""
+
+msgid "Se produjeron errores borrando alguno de los gastos."
+msgstr ""
+
+msgid "Se produjeron errores procesando"
+msgstr "there were errors in the process"
+
+msgid "Se produjeron errores procesando Gasto"
+msgstr ""
+
+msgid "Se produjeron errores procesando Objetivo Especifico"
+msgstr ""
+
+msgid "Se produjeron errores procesando Partida "
+msgstr ""
+
+msgid "Se produjeron errores procesando Resultado"
+msgstr ""
+
+msgid "Se produjeron errores procesando Subpartida "
+msgstr ""
+
+msgid "Se produjeron errores procesando Transferencia "
+msgstr ""
+
+msgid "Se produjeron errores procesando Variable"
+msgstr "There were errors processing the variable"
+
+msgid "Se produjeron errores procesando hoja de Actividad"
+msgstr ""
+
+msgid "Se produjeron errores procesando línea de Presupuesto"
+msgstr ""
+
+msgid "Se produjeron errores procesando línea de Presupuesto "
+msgstr ""
+
+msgid "Se produjo un error en el módulo de CuadroDeMando. Contacte con el administrador del sistema."
+msgstr ""
+
+msgid "Se produjo un error en el módulo de exportación a PDF."
+msgstr "There were errors in the export to PDF module."
+
+msgid "Se produjo un error leyendo la plantilla: %{msg_err}"
+msgstr ""
+
+msgid "Se van a eliminar %{num} líneas de gasto."
+msgstr ""
+
+msgid "Sea cauteloso: Si desea revocar permisos deberá hacerse individualmente sobre cada elemento."
+msgstr "Be careful: If you want to revoke permissions should it should be done individually on each item."
+
+#, fuzzy
+msgid "Sección"
+msgstr "Action"
+
+msgid "Sección Agentes"
+msgstr "Agents section"
+
+msgid "Sección Cuadro de Mando"
+msgstr "Dashboard section"
+
+msgid "Sección Documentos"
+msgstr "Documents section"
+
+msgid "Sección Informes AECID"
+msgstr "AECID reports section"
+
+msgid "Sección Proyectos"
+msgstr "Projects section"
+
+msgid "Sección Socios"
+msgstr "Partners section"
+
+msgid "Sector Intervención"
+msgstr ""
+
+msgid "Sector Población"
+msgstr "Sector population"
+
+msgid "Sector de Intervención"
+msgstr ""
+
+msgid "Sector de Población"
+msgstr ""
+
+msgid "Sector/es de intervención:"
+msgstr ""
+
+#, fuzzy
+msgid "Sector/es de población:"
+msgstr "Sector population"
+
+msgid "Sectores de Intervención"
+msgstr ""
+
+msgid "Seguimiento"
+msgstr ""
+
+msgid "Seguimiento Actividades"
+msgstr ""
+
+msgid "Seguimiento Fuentes de Verificación"
+msgstr ""
+
+msgid "Seguimiento Gasto"
+msgstr ""
+
+msgid "Seguimiento Indicadores"
+msgstr ""
+
+msgid "Seguimiento convocatorias"
+msgstr ""
+
+msgid "Seguimiento de Actividad Ejecutada"
+msgstr ""
+
+msgid "Seguimiento de OEs y Resultados"
+msgstr ""
+
+msgid "Seguimiento de Subactividad Ejecutada"
+msgstr ""
+
+msgid "Seguimiento del Proyecto"
+msgstr ""
+
+#, fuzzy
+msgid "Seguimiento económico"
+msgstr "technical_monitoring"
+
+#, fuzzy
+msgid "Seguimiento técnico"
+msgstr "technical_monitoring"
+
+msgid "Selecciona el fichero a importar:"
+msgstr ""
+
+msgid "Selecciona etapa para gestionar datos"
+msgstr ""
+
+#, fuzzy
+msgid "Selecciona los proyectos de los que se van a exportar gastos"
+msgstr "to"
+
+msgid "Seleccionable"
+msgstr ""
+
+msgid "Seleccionable por usuario asignado"
+msgstr ""
+
+msgid "Seleccionando esta opción se asignará al grupo permiso de uso (si no lo tuvieran previamente) sobre cada Libro del Agente."
+msgstr ""
+
+msgid "Seleccionando esta opción se asignará al grupo permiso de uso (si no lo tuvieran previamente) sobre cada Libro y Agente Implementador existente en el sistema."
+msgstr ""
+
+msgid "Seleccionando esta opción se asignará al usuario permiso de uso (si no lo tuviera previamente) sobre cada Libro del Agente."
+msgstr ""
+
+msgid "Seleccionando esta opción se asignará al usuario permiso de uso (si no lo tuviera previamente) sobre cada Libro y Agente Implementador existente en el sistema."
+msgstr ""
+
+msgid "Seleccionando esta opción se exportarán todos los gastos o transferencias incluyendo las cofinanciadas (las efectuadas en otros proyectos y usadas en el presente para la justificación al financiador)."
+msgstr ""
+
+msgid "Seleccionando esta opción se guardará como documento asociado al nuevo estado un detalle del estado del proyecto en el momento actual."
+msgstr ""
+
+msgid "Seleccionando esta opción se importarán los gastos usando como identificador de cada uno el número de orden de factura en lugar de los identificadores internos de GONG."
+msgstr ""
+
+msgid "Seleccionando esta opción se otorgarán al usuario privilegios especiales adicionales a los permisos asignados por menú."
+msgstr ""
+
+msgid "Seleccionar"
+msgstr ""
+
+msgid "Seleccionar PAC"
+msgstr ""
+
+msgid "Seleccionar Proyecto"
+msgstr ""
+
+msgid "Seleccionar fichero y tipo para importación"
+msgstr ""
+
+#, fuzzy
+msgid "Seleccionar las fechas para la exportación y, opcionalmente, de una descripcion de la exportación"
+msgstr " to "
+
+msgid "Seleccionar los criterios"
+msgstr "Select criteria"
+
+msgid "Seleccionar los criterios para Generación de Pagos"
+msgstr ""
+
+msgid "Seleccionar proyecto para gestionar tasas de cambio"
+msgstr ""
+
+msgid "Seleccionar socio para ver pagos"
+msgstr "Select partner to view payments"
+
+msgid "Seleccione Año"
+msgstr "Select Year"
+
+msgid "Seleccione Convocatoria"
+msgstr "Select call"
+
+#, fuzzy
+msgid "Seleccione Ejercicio"
+msgstr "Select marked"
+
+#, fuzzy
+msgid "Seleccione Estado"
+msgstr "Select state"
+
+#, fuzzy
+msgid "Seleccione Etapa"
+msgstr "Select stage"
+
+msgid "Seleccione Financiador"
+msgstr "Select financier"
+
+#, fuzzy
+msgid "Seleccione NIF"
+msgstr "Select Year"
+
+#, fuzzy
+msgid "Seleccione Nombre"
+msgstr "Select agent"
+
+#, fuzzy
+msgid "Seleccione Países"
+msgstr "Select Country"
+
+#, fuzzy
+msgid "Seleccione Tipo"
+msgstr "Select Type"
+
+msgid "Seleccione actividad"
+msgstr "Select Activity"
+
+msgid "Seleccione agente"
+msgstr "Select agent"
+
+#, fuzzy
+msgid "Seleccione creador"
+msgstr "Select state"
+
+msgid "Seleccione cuenta"
+msgstr "Select account"
+
+#, fuzzy
+msgid "Seleccione empleado"
+msgstr "Select state"
+
+msgid "Seleccione estado"
+msgstr "Select state"
+
+msgid "Seleccione etapa"
+msgstr "Select stage"
+
+msgid "Seleccione etapa para poder gestionar la fecha del gasto"
+msgstr ""
+
+msgid "Seleccione etapa para ver el cronograma"
+msgstr ""
+
+msgid "Seleccione etapa, proyecto, y tipo para aplicar tasas de cambio"
+msgstr ""
+
+msgid "Seleccione etiquetas para filtrar documentos: "
+msgstr ""
+
+msgid "Seleccione financiador"
+msgstr "Select funder"
+
+#, fuzzy
+msgid "Seleccione gestor"
+msgstr "Select agent"
+
+msgid "Seleccione los criterios para la vista resumen de Arqueo de Caja/Cuenta: "
+msgstr ""
+
+msgid "Seleccione los criterios para la vista resumen de Estado de Tesorería:"
+msgstr ""
+
+msgid "Seleccione los criterios para la vista resumen de Matriz: "
+msgstr ""
+
+msgid "Seleccione los criterios para la vista resumen de Transferencias: "
+msgstr ""
+
+msgid "Seleccione los criterios para la vista resumen del presupuesto: "
+msgstr ""
+
+msgid "Seleccione marcado"
+msgstr "Select marked"
+
+msgid "Seleccione moneda"
+msgstr "Select currency"
+
+msgid "Seleccione mostrar partidas ocultas para verlas"
+msgstr ""
+
+msgid "Seleccione partida"
+msgstr "Select heading"
+
+msgid "Seleccione partida para elegir subpartida"
+msgstr ""
+
+msgid "Seleccione país"
+msgstr "Select country"
+
+#, fuzzy
+msgid "Seleccione proveedor"
+msgstr "Select project"
+
+msgid "Seleccione proyecto"
+msgstr "Select project"
+
+#, fuzzy
+msgid "Seleccione proyectos"
+msgstr "Select project"
+
+#, fuzzy
+msgid "Seleccione ref.contable"
+msgstr "Select agent"
+
+msgid "Seleccione rol para mostrar agentes"
+msgstr ""
+
+msgid "Seleccione subpartida"
+msgstr "Select a subheading"
+
+msgid "Seleccione subtipo"
+msgstr "Select sub-type"
+
+msgid "Seleccione tipo"
+msgstr "Select Type"
+
+msgid "Seleccione un documento a vincular en el espacio %s"
+msgstr "Select a document link in space %s"
+
+msgid "Seleccione un espacio hacia donde mover el documento"
+msgstr "Select a space to move the document"
+
+msgid "Seleccione un tipo de backup."
+msgstr "Select a type of backup."
+
+msgid "Seleccione una etapa"
+msgstr ""
+
+msgid "Sexo"
+msgstr "Gender"
+
+msgid "Si"
+msgstr ""
+
+msgid "Si confirma esta acción, se recalculará la tasa de cambio a aplicar a cada uno de los gastos del proyecto."
+msgstr ""
+
+msgid "Si posteriormente incluye nuevos Libros en él, deberá volver a ejecutar esta opción"
+msgstr ""
+
+msgid "Si posteriormente incluye nuevos Libros o Implementadores, deberá volver a ejecutar esta opción"
+msgstr ""
+
+msgid "Sin Proyecto"
+msgstr "Without project"
+
+msgid "Sin condición"
+msgstr ""
+
+msgid "Sin definir"
+msgstr "Undefined"
+
+msgid "Sin especificar 'Area de Actuacion'"
+msgstr ""
+
+#, fuzzy
+msgid "Sin filtro de marcado"
+msgstr "Select marked"
+
+msgid "Sin proyecto"
+msgstr "Without project"
+
+msgid "Sin subpartida"
+msgstr "Without subheading"
+
+msgid "Skype ID"
+msgstr ""
+
+msgid "Socia Local"
+msgstr "Local partner"
+
+msgid "Socio"
+msgstr "Partner"
+
+msgid "Socio Activo"
+msgstr "Active partner"
+
+msgid "Socio/a en Activo"
+msgstr "Active partner"
+
+msgid "Socios"
+msgstr "Partners"
+
+msgid "Socios por Naturaleza"
+msgstr "Partners by nature"
+
+msgid "Socios por Provincias"
+msgstr "Partners by provinces"
+
+msgid "Socios por Sexos"
+msgstr "Partners by genders"
+
+msgid "Socios por Tipo de Cuota"
+msgstr "Partners by type of Fee"
+
+msgid "Socios por Tramo de Edad"
+msgstr "Partners by age"
+
+msgid "Solicitado Delegación"
+msgstr "Select branch"
+
+msgid "Solicitado ONGD"
+msgstr ""
+
+msgid "Solicitante"
+msgstr "Applicant"
+
+msgid "Solo se borrarán los gastos generados en el proyecto. Los gastos creados por los agentes o los gastos cofinanciados no serán borrados."
+msgstr ""
+
+msgid "Sr."
+msgstr "Mr."
+
+msgid "Sra."
+msgstr "Mrs."
+
+msgid "Su usuario no tiene permisos para gestionar pagos asociados a esta cuenta"
+msgstr ""
+
+msgid "Subactividad"
+msgstr "Subactivity"
+
+msgid "Subactividad "
+msgstr "Subactivity"
+
+msgid "Subactividades"
+msgstr "Sub-activities"
+
+msgid "Subactividades:"
+msgstr "Sub-activities:"
+
+msgid "Subcuentas Contables"
+msgstr "Sub-accounts accounting"
+
+msgid "Subcuentas y Centros de Coste"
+msgstr "Sub accounts and cost centers"
+
+msgid "Subpartida"
+msgstr "subheading"
+
+msgid "Subpartidas"
+msgstr "Subheadings"
+
+msgid "Subpartidas del agente"
+msgstr "Subheadings of the agent"
+
+msgid "Subpartidas por partida"
+msgstr "Subheadings by heading"
+
+msgid "Subtipo"
+msgstr "Subtype"
+
+msgid "Subtipo de Movimiento:"
+msgstr "Subtype of movement:"
+
+msgid "Subtipos de Movimiento"
+msgstr "Subtypes of movement"
+
+msgid "Subvencion"
+msgstr "Grant"
+
+msgid "Subvenciones Recibidas"
+msgstr "Grants received"
+
+msgid "Subvención %{agente} prevista"
+msgstr "Grant from %{agente} planned "
+
+msgid "Subvención recibida respecto al presupuesto total del financiador principal"
+msgstr ""
+
+msgid "Subvención:"
+msgstr "Grant:"
+
+msgid "Suma de Presupuestos aprobados (%{mon})"
+msgstr ""
+
+msgid "Sus datos de registro son"
+msgstr "Your registration data is"
+
+msgid "Swift"
+msgstr "SWIFT"
+
+msgid "Sí"
+msgstr "Yes"
+
+msgid "Sí, Confirmar"
+msgstr "Yes, confirm"
+
+msgid "Sólo Centros de Coste"
+msgstr "Only cost centers"
+
+#, fuzzy
+msgid "Sólo NO financiadores"
+msgstr "All the funders"
+
+#, fuzzy
+msgid "Sólo NO implementadores"
+msgstr "Implementers"
+
+msgid "Sólo Subcuentas"
+msgstr "Only sub-accounts"
+
+msgid "Sólo está definido %{moneda} como moneda."
+msgstr "It is only defined %{mooned} as currency."
+
+#, fuzzy
+msgid "Sólo financiadores"
+msgstr "Funders detail"
+
+#, fuzzy
+msgid "Sólo implementadores"
+msgstr "Implementers"
+
+msgid "Sólo los no cofinanciados aún"
+msgstr ""
+
+msgid "Sólo los ya cofinanciados"
+msgstr ""
+
+msgid "Sólo proyectos aprobados"
+msgstr "Only approved projects"
+
+msgid "Sólo se editan algunos datos."
+msgstr "Only a few data are edited."
+
+msgid "T.Cambio"
+msgstr "ex.rate"
+
+#, fuzzy
+msgid "T.Cambio divisa"
+msgstr "ex.rate"
+
+#, fuzzy
+msgid "T.Oficial"
+msgstr "Initial"
+
+msgid "TC a Divisa"
+msgstr ""
+
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#, fuzzy
+msgid "TOTAL Ejecutado"
+msgstr "executed"
+
+#, fuzzy
+msgid "TOTAL Presupuestado"
+msgstr "TOTAL budget"
+
+msgid "TOTAL Presupuesto"
+msgstr "TOTAL budget"
+
+msgid "TOTALES"
+msgstr "TOTALS"
+
+msgid "Tarea"
+msgstr "Task"
+
+msgid "Tareas"
+msgstr "Tasks"
+
+msgid "Tareas Periodo"
+msgstr "Task period"
+
+msgid "Tareas activas"
+msgstr "Active tasks"
+
+msgid "Tareas de Proyectos o Agentes"
+msgstr ""
+
+msgid "Tareas no activas"
+msgstr "Inactive tasks"
+
+msgid "Tareas pendientes asignadas a"
+msgstr "Pending tasks assigned to"
+
+msgid "Tarjeta"
+msgstr "Card"
+
+msgid "Tasa Cambio"
+msgstr "Exchange rate"
+
+#, fuzzy
+msgid "Tasa Cambio Divisa"
+msgstr "Exchange rate"
+
+msgid "Tasa cambio"
+msgstr "Exchange rate"
+
+msgid "Tasa de Cambio"
+msgstr "Exchange rate"
+
+msgid "Tasa de Cambio debe ser mayor de 0."
+msgstr "Tasa de Cambio debe ser mayor de 0."
+
+msgid "Tasa de Cambio para Divisa debe ser mayor de 0."
+msgstr "Currency Exchange rate to be greater than 0."
+
+msgid "Tasas de cambio de Gastos en la etapa seleccionada"
+msgstr ""
+
+msgid "Telefono Fijo"
+msgstr "Landline telephone"
+
+msgid "Telefono Movil"
+msgstr "Mobile telephone"
+
+msgid "Tesoreria"
+msgstr "Treasury"
+
+msgid "Texto"
+msgstr "Text"
+
+msgid "Tiempo de inactividad en el sistema superado. Vuelva a identificarse para acceder."
+msgstr "Idle time exceeded. Login again."
+
+msgid "Tiempo transcurrido del periodo"
+msgstr ""
+
+msgid "Tiempo:"
+msgstr "Time:"
+
+msgid "Tiene que definir por lo menos una etapa"
+msgstr "You have to define at least one stage"
+
+msgid "Tiene que definir por lo menos una etapa para acceder a la gestión de Subcuentas Contables"
+msgstr "You have to define at least one stage to access sub accounts accounting management"
+
+msgid "Tiene que definir por lo menos una etapa para acceder a la gestión de transferencias."
+msgstr "You must define at least one stage to access the management of transfers."
+
+msgid "Tiene que definir por lo menos una etapa para acceder a la gestión del presupuesto"
+msgstr "You have to define at least one stage to access to the management of the budget"
+
+msgid "Tiene que definir por lo menos una etapa para acceder a los informes"
+msgstr "You have to define at least one stage to access reports"
+
+msgid "Tiene que definir por lo menos una etapa para acceder al seguimiento de actividades."
+msgstr ""
+
+msgid "Tiene que definir por lo menos una etapa para poder acceder a la gestion de Gasto."
+msgstr ""
+
+msgid "Tienes que subir por lo menos un documento"
+msgstr "You have to upload one document, at least"
+
+msgid "Tipo"
+msgstr "Type"
+
+msgid "Tipo Asociado"
+msgstr "Partner type"
+
+msgid "Tipo Convocatoria"
+msgstr "Call type"
+
+msgid "Tipo Cuota"
+msgstr "Fee type"
+
+msgid "Tipo Partida"
+msgstr "Departure type"
+
+msgid "Tipo Periodo"
+msgstr "Period type"
+
+msgid "Tipo Tarjeta"
+msgstr "Card type"
+
+#, fuzzy
+msgid "Tipo de Agente"
+msgstr "Item type"
+
+#, fuzzy
+msgid "Tipo de Campo"
+msgstr "Code Type"
+
+msgid "Tipo de Contrato"
+msgstr "Type of contract"
+
+#, fuzzy
+msgid "Tipo de Convocatoria"
+msgstr "Types of calls"
+
+msgid "Tipo de Cuota"
+msgstr "Fee type"
+
+msgid "Tipo de Código"
+msgstr "Code Type"
+
+msgid "Tipo de Elemento"
+msgstr "Item type"
+
+msgid "Tipo de Informe"
+msgstr "Report type"
+
+msgid "Tipo de Movimiento"
+msgstr "Movement type"
+
+msgid "Tipo de Movimiento Asociado"
+msgstr "Associated movement type"
+
+msgid "Tipo de Orden"
+msgstr "Order type"
+
+#, fuzzy
+msgid "Tipo de Periodo"
+msgstr "Period type"
+
+msgid "Tipo de Personal"
+msgstr "Type of personnel"
+
+msgid "Tipo de Tarjeta"
+msgstr "Card type"
+
+msgid "Tipo de cambio aplicable"
+msgstr "Applicable exchange rate"
+
+#, fuzzy
+msgid "Tipo de campo"
+msgstr "Task type"
+
+#, fuzzy
+msgid "Tipo de comentario"
+msgstr "Type of contract"
+
+#, fuzzy
+msgid "Tipo de fichero"
+msgstr "Item type"
+
+#, fuzzy
+msgid "Tipo de fichero "
+msgstr "Type of sub-account"
+
+msgid "Tipo de subcuenta"
+msgstr "Type of sub-account"
+
+msgid "Tipo de tarea"
+msgstr "Task type"
+
+#, fuzzy
+msgid "Tipo de tareas"
+msgstr "Task type"
+
+msgid "Tipo importación"
+msgstr "Import type"
+
+#, fuzzy
+msgid "Tipo personal"
+msgstr "Type of personnel"
+
+msgid "Tipologia de movimiento no definida"
+msgstr ""
+
+#, fuzzy
+msgid "Tipos de Agentes"
+msgstr "Agent books"
+
+#, fuzzy
+msgid "Tipos de Contrato"
+msgstr "Type of contract"
+
+msgid "Tipos de Convocatorias"
+msgstr "Types of calls"
+
+#, fuzzy
+msgid "Tipos de Periodos"
+msgstr "Period type"
+
+#, fuzzy
+msgid "Tipos de Tareas"
+msgstr "Task type"
+
+msgid "Titulares derecho directos hombres"
+msgstr ""
+
+msgid "Titulares derecho directos mujeres"
+msgstr ""
+
+msgid "Titulares derecho directos sin especificar"
+msgstr ""
+
+msgid "Titulo"
+msgstr "Title"
+
+msgid "Toda la Etapa"
+msgstr "All the Stage"
+
+msgid "Todas"
+msgstr "All"
+
+msgid "Todas las actividades"
+msgstr "All the activities"
+
+msgid "Todas las delegaciones"
+msgstr "All the delegations"
+
+msgid "Todas las etapas"
+msgstr "All the stages"
+
+msgid "Todas las formas de pago"
+msgstr "All forms of payment"
+
+msgid "Todas las monedas"
+msgstr "All currencies"
+
+msgid "Todas las monedas (con tasa aplicada)"
+msgstr "All currencies (with applied rate)"
+
+msgid "Todas las partidas"
+msgstr "All the departures"
+
+#, fuzzy
+msgid "Todas las partidas de ingreso"
+msgstr "All forms of payment"
+
+msgid "Todas las subpartidas"
+msgstr "All the sub-departures"
+
+msgid "Todavía hay alguna partida del Sistema sin asignar a alguna de las Partidas del Proyecto"
+msgstr ""
+
+msgid "Todos"
+msgstr "All"
+
+msgid "Todos los PACs"
+msgstr "All the PACs"
+
+msgid "Todos los Tipos"
+msgstr "All the types"
+
+#, fuzzy
+msgid "Todos los abiertos"
+msgstr "All the agents"
+
+#, fuzzy
+msgid "Todos los activos"
+msgstr "All Types"
+
+msgid "Todos los agentes"
+msgstr "All the agents"
+
+msgid "Todos los agentes (agrupados)"
+msgstr "All the (gathered) agents"
+
+#, fuzzy
+msgid "Todos los cerrados"
+msgstr "All status"
+
+#, fuzzy
+msgid "Todos los contratos"
+msgstr "All status"
+
+msgid "Todos los contratos abiertos"
+msgstr ""
+
+msgid "Todos los contratos cerrados"
+msgstr ""
+
+msgid "Todos los contratos en estado '%{est}'"
+msgstr ""
+
+msgid "Todos los estados"
+msgstr "All status"
+
+msgid "Todos los financiadores"
+msgstr "All the funders"
+
+msgid "Todos los gastos fueron borrados."
+msgstr "All the expenses were deleted"
+
+#, fuzzy
+msgid "Todos los gestores"
+msgstr "All the agents"
+
+msgid "Todos los libros de %{agente} en %{moneda}"
+msgstr "All  %{agente}´s books in %{moneda}"
+
+#, fuzzy
+msgid "Todos los paises"
+msgstr "All countries"
+
+msgid "Todos los países"
+msgstr "All countries"
+
+#, fuzzy
+msgid "Todos los proveedores"
+msgstr "All projects"
+
+msgid "Todos los proyectos"
+msgstr "All projects"
+
+msgid "Todos los tipos"
+msgstr "All Types"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Total Aprobado"
+msgstr "Approved Total"
+
+#, fuzzy
+msgid "Total Ejecutado"
+msgstr "executed"
+
+msgid "Total Fondos Solicitados"
+msgstr ""
+
+#, fuzzy
+msgid "Total Presupuestado"
+msgstr "Budgeted"
+
+#, fuzzy
+msgid "Total acumulado"
+msgstr "Approved Total"
+
+#, fuzzy
+msgid "Total contratos"
+msgstr "Type of contract"
+
+#, fuzzy
+msgid "Total ejecutado"
+msgstr "executed"
+
+msgid "Total funcionamiento"
+msgstr ""
+
+#, fuzzy
+msgid "Total líneas de presupuesto"
+msgstr "in the Budget line"
+
+msgid "Total líneas de presupuesto sin actividad"
+msgstr ""
+
+msgid "Total líneas de presupuesto sin partida de financiador"
+msgstr ""
+
+#, fuzzy
+msgid "Total por empleado"
+msgstr "Approved Total"
+
+#, fuzzy
+msgid "Total: %{num} proyectos"
+msgstr "%{num} projects"
+
+msgid "Totales"
+msgstr "Totals"
+
+msgid "Transferencia"
+msgstr "Transfer"
+
+msgid "Transferencias"
+msgstr "Transfers"
+
+msgid "Transferencias %{agente} a cuentas %{moneda} en %{pais}"
+msgstr ""
+
+msgid "Transferencias a Proyectos"
+msgstr "Transfers to Projects"
+
+msgid "Transferencias realizadas a %{mon} respecto al presupuesto del financiador principal para esa moneda"
+msgstr ""
+
+msgid "Transferido"
+msgstr "Moved"
+
+msgid "Transferidos:"
+msgstr "Moved:"
+
+msgid "Tratamiento"
+msgstr "Procedure"
+
+msgid "Título"
+msgstr "Títle"
+
+#, fuzzy
+msgid "Título del Proyecto:"
+msgstr "Project status"
+
+#, fuzzy
+msgid "Título del Proyecto: "
+msgstr "Project status"
+
+msgid "Título en financiacion"
+msgstr "Title in financing"
+
+msgid "Título en la financiación"
+msgstr "Title in financing"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Ubicación"
+msgstr "Location"
+
+msgid "Un Objetivo Específico no se puede modificar desde la PAC."
+msgstr "A specific object cant be modified from PAC"
+
+#, fuzzy
+msgid "Un agente tiene que estar vacío para poder desvincularlo."
+msgstr "An agent must be empty to be deleted"
+
+msgid "Un agente tiene que estar vacío para poder ser borrado."
+msgstr "An agent must be empty to be deleted"
+
+msgid "Un contrato aceptado debe tener código."
+msgstr ""
+
+msgid "Un contrato aceptado debe tener proveedor."
+msgstr ""
+
+msgid "Un pago debe estar asociado a una cuenta"
+msgstr ""
+
+msgid "Un país tiene que estar vacío para poder ser borrado."
+msgstr "A country must be empty to be deleted"
+
+#, fuzzy
+msgid "Un proveedor tiene que estar vacío para poder ser borrado."
+msgstr "A project must be empty to be deleted"
+
+msgid "Un proyecto tiene que estar vacío para poder ser borrado."
+msgstr "A project must be empty to be deleted"
+
+msgid "Un sector de intervención tiene que estar vacío para poder ser borrado."
+msgstr "An  intervention sector  must be empty to be deleted"
+
+msgid "Un sector de población tiene que estar vacío para poder ser borrado."
+msgstr "A population sector must be empty to be deleted"
+
+msgid "Un tipo de contrato tiene que estar vacío para poder ser borrado."
+msgstr ""
+
+msgid "Un tipo de tarea tiene que no estar utilizado para poder ser borrado."
+msgstr ""
+
+msgid "Un área de actuación tiene que estar vacía para poder ser borrada."
+msgstr "An operation área must be empty to be deleted"
+
+msgid "Una acción no se puede modificar desde el PAC."
+msgstr "An activity cant be modified from PAC"
+
+msgid "Una actividad tiene que estar vacia para poder ser borrado."
+msgstr "An activity must be empty to be deleted"
+
+msgid "Una categoría de sector de intervención tiene que estar vacía para poder ser borrada."
+msgstr ""
+
+msgid "Una categoría de área de actuación tiene que estar vacía para poder ser borrada."
+msgstr ""
+
+msgid "Una convocatoria tiene que estar vacía para poder ser borrada."
+msgstr "An announcement must be empty to be deleted"
+
+msgid "Una cuenta tiene que estar vacía para poder ser borrada."
+msgstr "An account must be empty to be deleted"
+
+msgid "Una partida tiene que estar vacía para poder ser borrada."
+msgstr "A departure must be empty to be deleted"
+
+msgid "Unidad"
+msgstr "Unit"
+
+msgid "Usar número de orden de factura"
+msgstr "Use invoice order number"
+
+msgid "Usuario"
+msgstr "User"
+
+msgid "Usuario asignado"
+msgstr "Asigned user"
+
+msgid "Usuario asignado al"
+msgstr "Asigned user to"
+
+msgid "Usuario repetido."
+msgstr "Repeated user."
+
+#, fuzzy
+msgid "Usuario: "
+msgstr "User"
+
+msgid "Usuarios"
+msgstr "Users"
+
+#, fuzzy
+msgid "Usuarios Asignados"
+msgstr "Asigned user"
+
+#, fuzzy
+msgid "Usuarios asignados"
+msgstr "Asigned user"
+
+msgid "Utilice fecha de documento solo en caso de que la fecha en la que se va a registrar el gasto no coincida con la fecha que viene en el documento (habitualmente una factura). Esto puede deberse a gastos que estén fuera de etapa y que quieran incluirse en una determinada etapa. Indique en este campo la fecha original del documento. Esta fecha no se utilizará en el sistema ni para los informes ni para aplicacion de tasas de cambio."
+msgstr ""
+
+msgid "Va a desasociar la partida"
+msgstr "You will unpair the departure"
+
+#, fuzzy
+msgid "Va a descargar el fichero de exportación del registro con fecha de inicio: %{ini}, y fecha de fin: %{fin}"
+msgstr "download"
+
+msgid "Va a desvincular del Proyecto el gasto cofinanciado con %{nombre}"
+msgstr "You will untie the '%{nombre}' co-financing expense  of the project"
+
+msgid "Va a desvincular del Proyecto el gasto cofinanciado con '%{nombre}'"
+msgstr "You will untie the '%{nombre}' co-financing expense  of the project"
+
+msgid "Va a eliminar"
+msgstr "You will delete"
+
+msgid "Va a eliminar %{nombre_dato}"
+msgstr "You will delete %{nombre_dato}"
+
+msgid "Va a eliminar el pago: "
+msgstr "You will delete the payment"
+
+msgid "Va a eliminar la actividad"
+msgstr "You will delete the activity"
+
+msgid "Va a retroceder al estado anterior"
+msgstr "You will return to the previous state"
+
+msgid "Valor"
+msgstr "Value"
+
+msgid "Valor Base"
+msgstr "Base Value"
+
+#, fuzzy
+msgid "Valor Condicion"
+msgstr "Average Value"
+
+msgid "Valor Medido"
+msgstr "Average Value"
+
+msgid "Valor Objetivo"
+msgstr "Target Value"
+
+#, fuzzy
+msgid "Valor condición"
+msgstr "Average Value"
+
+msgid "Valores Medidos"
+msgstr "Average Values"
+
+msgid "Valorizado"
+msgstr "Valued"
+
+msgid "Variable de Indicador"
+msgstr "Indicator variable"
+
+msgid "Variables de Medición del Indicador"
+msgstr ""
+
+msgid "Variables del Indicador"
+msgstr "Indicator´s variable"
+
+msgid "Ver"
+msgstr ""
+
+msgid "Ver Actividades Generales"
+msgstr "Show General Activities"
+
+msgid "Ver Ejecución:"
+msgstr "show implementation"
+
+msgid "Ver Gráfica"
+msgstr "Show chart"
+
+msgid "Ver PACs"
+msgstr "show PACs"
+
+msgid "Ver Tarea"
+msgstr "View task"
+
+msgid "Ver Tasa de Cambio"
+msgstr "show rate of change"
+
+msgid "Ver actividades"
+msgstr "show activities"
+
+msgid "Ver comentarios"
+msgstr "show feedbacks"
+
+msgid "Ver datos"
+msgstr "show data"
+
+msgid "Ver documentos"
+msgstr "show documents"
+
+#, fuzzy
+msgid "Ver ficha de contrato."
+msgstr "Type of contract"
+
+msgid "Ver gastos asociados"
+msgstr "show associated expenses"
+
+msgid "Ver indicadores y fuentes de verificación"
+msgstr "show indicators, and verification sources "
+
+msgid "Ver indicadores, fuentes de verificación y hipótesis"
+msgstr "show indicators, verification sources and hypothesis"
+
+msgid "Ver información del socio"
+msgstr "show membership info"
+
+msgid "Ver mediciones del indicador"
+msgstr "show indicator measurements"
+
+msgid "Ver monedas"
+msgstr "Show currencies"
+
+msgid "Ver o gestionar presupuestos de la actividad '%s'"
+msgstr ""
+
+msgid "Ver o gestionar presupuestos sin actividad"
+msgstr ""
+
+msgid "Ver pagos"
+msgstr "show payments"
+
+msgid "Ver partidas asociadas"
+msgstr "show associated departures"
+
+msgid "Ver partidas del financiador"
+msgstr "show funder´s departures"
+
+#, fuzzy
+msgid "Ver plantillas asociadas"
+msgstr "show associated departures"
+
+msgid "Ver presupuestos"
+msgstr "Show budgets"
+
+msgid "Ver presupuestos para el empleado"
+msgstr ""
+
+msgid "Ver presupuestos para la partida"
+msgstr ""
+
+msgid "Ver proyectos en la convocatoria"
+msgstr ""
+
+msgid "Ver resumen"
+msgstr "Show summary"
+
+msgid "Ver resumen de arqueo de caja"
+msgstr "Show summary of cash counts"
+
+msgid "Ver seguimiento de la actividad"
+msgstr "Show monitoring of the activity"
+
+msgid "Ver seguimiento de la subactividad"
+msgstr "show monitoring of subactivity"
+
+msgid "Ver tareas asociadas al estado"
+msgstr "show the tasks associated to the state"
+
+msgid "Ver usuarios asignados"
+msgstr "Show user assigned"
+
+msgid "Ver valores medidos"
+msgstr "show measured values"
+
+#, fuzzy
+msgid "Versiones del Contrato"
+msgstr "Type of contract"
+
+#, fuzzy
+msgid "Versión"
+msgstr "Region"
+
+msgid "Vinculación con: "
+msgstr "linked with"
+
+msgid "Vinculado en"
+msgstr "linked in"
+
+#, fuzzy
+msgid "Vincular"
+msgstr "link"
+
+#, fuzzy
+msgid "Vincular Gasto"
+msgstr "link"
+
+msgid "Vincular a"
+msgstr "link"
+
+msgid "Vincular a la fuente de verificación documento ya existente"
+msgstr ""
+
+msgid "Vincular concepto ya existente a esta actividad."
+msgstr ""
+
+msgid "Vista"
+msgstr "View"
+
+msgid "Vista Previa"
+msgstr "Preview"
+
+msgid "Vista Resumen Socios"
+msgstr "Summary partners view"
+
+msgid "Vista general"
+msgstr "Overview"
+
+msgid "Volumen de ejecución presupuestado"
+msgstr ""
+
+msgid "Volver al Estado anterior"
+msgstr "Back to the previous state"
+
+msgid "Volver al espacio superior"
+msgstr "Back to upper space"
+
+#, fuzzy
+msgid "Workflow de Contratos"
+msgstr "Type of contract"
+
+#, fuzzy
+msgid "Workflow de Proyectos"
+msgstr "Project management"
+
+msgid "Ya existe objetivo general para el proyecto."
+msgstr "There is already a general objective for that project"
+
+msgid "Ya existe un contrato abierto en el proyecto para el proveedor."
+msgstr ""
+
+msgid "Ya existe un proveedor con ese nombre para ese NIF."
+msgstr ""
+
+msgid "Ya existe una tasa de cambio de presupuesto para esa moneda en la etapa."
+msgstr "There is already a budget exchange rate for that currency on the stage."
+
+msgid "Ya existe una versión del contrato para el estado propuesto."
+msgstr ""
+
+msgid "a"
+msgstr "to"
+
+msgid "amarillo"
+msgstr "yellow"
+
+msgid "asociación con plantilla '%{nombre}'"
+msgstr ""
+
+msgid "asociar gasto"
+msgstr "associated expenditure"
+
+msgid "asociar una partida"
+msgstr "associated departure"
+
+msgid "azul"
+msgstr "blue"
+
+#, fuzzy
+msgid "borrar:"
+msgstr "Delete"
+
+msgid "campos"
+msgstr "fields"
+
+#, fuzzy
+msgid "con"
+msgstr "Mr."
+
+msgid "con ID"
+msgstr "with ID"
+
+msgid "con código"
+msgstr "with code"
+
+msgid "con nombre"
+msgstr "with name"
+
+msgid "creado"
+msgstr "created"
+
+msgid "del"
+msgstr "of"
+
+msgid "del Objetivo Especifico"
+msgstr "of the Specific Object"
+
+msgid "descargar"
+msgstr "download"
+
+msgid "desde"
+msgstr "from"
+
+msgid "documentación de delegaciones"
+msgstr "delegation documentation"
+
+msgid "documentación de financiadores"
+msgstr "financier documentation"
+
+msgid "documentación de paises"
+msgstr "Countries documentation"
+
+msgid "documentación de proyecto"
+msgstr "Project documentation"
+
+msgid "documentación de socias locales"
+msgstr "local partner documentation"
+
+msgid "documentación general"
+msgstr "general documentation"
+
+#, fuzzy
+msgid "eliminado"
+msgstr "Deleted"
+
+msgid "eliminar"
+msgstr "delete"
+
+msgid "eliminar asociación"
+msgstr "delete association"
+
+msgid "en Actividad con código"
+msgstr "in Activity with code"
+
+msgid "en Resultado con código"
+msgstr "In Result with code"
+
+msgid "en el Gasto"
+msgstr "in spending"
+
+msgid "en el Gasto con ID"
+msgstr "In expenses with IP"
+
+msgid "en el PAC"
+msgstr "in the PAC"
+
+msgid "en la Partida con Código"
+msgstr "in the departure with code"
+
+msgid "en la línea de Presupuesto"
+msgstr "in the Budget line"
+
+msgid "en la transferencia"
+msgstr "in transfer"
+
+msgid "en los PACs"
+msgstr "in the PAC´S"
+
+msgid "en línea de Presupuesto con ID"
+msgstr "in the Budget line with ID"
+
+msgid "en total"
+msgstr "total"
+
+msgid "esta cerrado y no se puede modificar el gasto."
+msgstr ""
+
+msgid "está fuera de la etapa."
+msgstr "it is outside of the stage"
+
+msgid "fecha no puede esta vacio"
+msgstr "\"date\" cant be empty"
+
+msgid "fecha_caducidad"
+msgstr "expiration_date"
+
+#, fuzzy
+msgid "financiador"
+msgstr "Funder"
+
+msgid "gris"
+msgstr "grey"
+
+msgid "ha cerrado la cuenta de destino para esa fecha. No se puede modificar la transferencia."
+msgstr "the destination count in that date has been closed. You cant modify the transfer."
+
+msgid "ha cerrado la cuenta de origen para esa fecha. No se puede modificar la transferencia."
+msgstr "the origin count in that date has been closed. You cant modify the transfer."
+
+msgid "ha cerrado la etapa donde se ejecuta el pago. No se pueden modificar pagos de esas fechas."
+msgstr "the stage in which the payments are performed is closed. Payments of those dates cant be modified"
+
+msgid "ha cerrado la etapa imputada en el ingreso. No se pueden modificar ingresos de esas fechas."
+msgstr ""
+
+msgid "hasta"
+msgstr "to"
+
+msgid "hay agentes vinculados"
+msgstr "there are linked agents"
+
+#, fuzzy
+msgid "hay contratos asociados"
+msgstr "there are associated payments"
+
+msgid "hay cuentas bancarias o cajas chicas"
+msgstr ""
+
+msgid "hay gastos"
+msgstr "there are expenses"
+
+#, fuzzy
+msgid "hay gastos ejecutados"
+msgstr "there are linked agents"
+
+#, fuzzy
+msgid "hay gastos financiados"
+msgstr "show associated expenses"
+
+#, fuzzy
+msgid "hay gastos vinculados"
+msgstr "there are linked agents"
+
+msgid "hay libros"
+msgstr "there are books"
+
+msgid "hay líneas de presupuesto asignadas"
+msgstr ""
+
+msgid "hay líneas de presupuesto financiadas"
+msgstr ""
+
+msgid "hay pagos asociados"
+msgstr "there are associated payments"
+
+msgid "hay presupuestos"
+msgstr "there are budgets"
+
+msgid "hay proyectos"
+msgstr "there are projects"
+
+msgid "hay transferencias"
+msgstr "there are transfers"
+
+msgid "hay transferencias asociadas"
+msgstr "there are associated transfers"
+
+msgid "hay un Indicador que debería tener código."
+msgstr "there is an indicator that should have a code"
+
+msgid "hay una Fuente de Verificación que debería tener código."
+msgstr "there is a verification source that should have a code"
+
+msgid "importes en %{moneda}"
+msgstr "Amounts in %{moneda}"
+
+msgid "la convocatoria %{conv} tiene proyectos asignados"
+msgstr "the announcement %{conv} has assigned projects"
+
+msgid "la fecha de fin tiene que ser mayor que la fecha de inicio"
+msgstr "the end date must be after the start one"
+
+msgid "mes"
+msgstr "month"
+
+msgid "meses"
+msgstr "months"
+
+msgid "modificado"
+msgstr "modified"
+
+msgid "morado"
+msgstr "purple"
+
+#, fuzzy
+msgid "mostrar formulario de registros de exportación >>"
+msgstr "to"
+
+msgid "naranja"
+msgstr "orange"
+
+msgid "no encontrada o no válida."
+msgstr "not found or invalid"
+
+msgid "no encontrado o no válido."
+msgstr "not found or invalid"
+
+msgid "no es un financiador"
+msgstr "it is not a funded"
+
+#, fuzzy
+msgid "no es una partida de empleado."
+msgstr "to"
+
+msgid "no es válido para el proyecto."
+msgstr "it is not applicable to the project"
+
+msgid "no existe el objetivo especifico asociado a la hipotesis"
+msgstr "there is no specific object related with the hypothesis"
+
+msgid "no existe el resultado asociado a la hipotesis"
+msgstr "there is no result related with the hypothesis"
+
+msgid "no puede estar vacía."
+msgstr "can not be empty."
+
+msgid "no puede estar vacío."
+msgstr "can not be empty."
+
+msgid "no tiene los derechos para ir a la sección "
+msgstr "not have rights to go to the section"
+
+msgid "no valida"
+msgstr "invalid"
+
+msgid "no válida para la etapa."
+msgstr "wrong to the stage"
+
+msgid "no válido"
+msgstr "invalid"
+
+msgid "no válido."
+msgstr "invalid."
+
+msgid "nombre del proyecto"
+msgstr "project name"
+
+msgid "nueva:"
+msgstr "new:"
+
+msgid "nuevo:"
+msgstr "new:"
+
+msgid "numero_tarjeta"
+msgstr "card_number"
+
+msgid "para Resultado con código"
+msgstr "to result with code"
+
+msgid "para Variable de Indicador"
+msgstr "to display´s variant"
+
+msgid "pdf"
+msgstr ""
+
+msgid "permisos sobre '%{menu}' / '%{controlador}'"
+msgstr ""
+
+msgid "realizado"
+msgstr "completed"
+
+msgid "relacionado a la Fuente de Verificación"
+msgstr "Related with the Check Source"
+
+msgid "repetida."
+msgstr "repeated."
+
+msgid "repetido."
+msgstr "repeated."
+
+msgid "rojo"
+msgstr "red"
+
+msgid "rosa"
+msgstr "pink"
+
+msgid "seguimiento_tecnico"
+msgstr "technical_monitoring"
+
+msgid "seleccionar"
+msgstr "select"
+
+msgid "sobre el total de lo presupuestado"
+msgstr "about the estimated total"
+
+msgid "sobre el total de otros financiadores"
+msgstr "about the total of the rest of the funders"
+
+#, fuzzy
+msgid "tareas del proyecto"
+msgstr "Project data"
+
+msgid "ultimo valor"
+msgstr "last value"
+
+msgid "un documento ya existente"
+msgstr "a document already exists"
+
+msgid "usuario sin asignar"
+msgstr "Unassigned user"
+
+msgid "verde"
+msgstr "green"
+
+msgid "xls"
+msgstr ""
+
+msgid "¡Atención! El detalle del presupuesto no es correcto"
+msgstr "Warning! the Budget detail is wrong"
+
+msgid "¡Atención!."
+msgstr "Warning!"
+
+msgid "¡Atención!. Este gasto pertenece a una partida no mapeada en este proyecto"
+msgstr ""
+
+msgid "¡Atención!. No existe Partida o no está mapeada a la Financiación"
+msgstr "Warning!. There is no batch or is not mapped to the financier"
+
+msgid "¿Está seguro de querer borrar todos los gastos del listado?"
+msgstr "are you sure do you want to delere all the expenses of the list?"
+
+msgid "¿Está seguro de querer hacer esto?"
+msgstr "Are you sure you want to do this?"
+
+msgid "Ámbito Global"
+msgstr "Global scope"
+
+msgid "Área Geográfica"
+msgstr "Geographic area"
+
+msgid "Área de Actuación"
+msgstr "Action Area"
+
+#, fuzzy
+msgid "Área/s de Actuación:"
+msgstr "Action Areas"
+
+msgid "Áreas de Actuación"
+msgstr "Action Areas"
+
+msgid "Última medida"
+msgstr "Last measurement"
+
+msgid "Último"
+msgstr "Last"
+
+msgid "Último Año"
+msgstr "Last year"
+
+msgid "Último Mes"
+msgstr "Last month"
+
+msgid "Último Semestre"
+msgstr "Last semester"
+
+msgid "Último Trimestre"
+msgstr "Last quarter"

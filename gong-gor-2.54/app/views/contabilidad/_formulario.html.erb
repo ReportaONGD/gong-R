@@ -1,0 +1,16 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @subcuenta, :i => params[:i] } %>
+  <div class="linea">
+    <%= selector _("Tipo de Código"), 'subcuenta', 'centro_coste', [["Centro de Coste",1], ["Subcuenta Contable",0]], false, '3_4', {:selected => @subcuenta.centro_coste||0, :obligatorio => true} %>
+  </div>
+  <div class="linea">
+    <%= texto _("Código"), 'subcuenta', 'codigo', '1', :obligatorio => true %>
+    <%= texto _("Descripción"), 'subcuenta', 'descripcion', '2' %>
+    <%= selector _("Tipo de Elemento"), 'subcuenta', 'elemento_contable_type', @tipo_elementos, true, '3_4', :obligatorio => true %>
+      <%= observe_field( "subcuenta_elemento_contable_type" , :url => {:action => "subcuenta_cambio_tipo"},
+              :update => "elemento_contable", :with => "type", :loading => "Element.show('espera')", :complete => "Element.hide('espera')") %>
+    <%= render :partial => "elemento" %>
+    <%= texto_area _("Observaciones"), 'subcuenta', 'observaciones', "5" %>
+  </div>
+  <div class="fila">&nbsp;</div>
+<%= formulario_final %>

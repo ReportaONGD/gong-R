@@ -1,0 +1,13 @@
+<% porcentajes = Array.new (21) {|x| [(x * 5).to_s + "%", ((x * 0.05).to_s + "00").to_f ]}%>
+
+<%= formulario_comienzo :url => { :action => 'crear_modificar_valor_actividad', :id => @valor, :actividad_x_etapa_id => params[:actividad_x_etapa_id], :update_objeto => params[:update_objeto] } %>
+  <div class="fila">
+    <%= calendario_fecha _("Fecha"), 'valor', 'fecha', :valid_date_check => "fecha_inicio = new Date(" + @proyecto.fecha_de_inicio.strftime("%Y,%m -1,%d") + "); fecha_fin = new Date(" + @proyecto.fecha_de_fin.strftime("%Y,%m -1,%d") + "); if (date >= fecha_inicio && date <= fecha_fin) return true; else return false;", :year_range => [ 1995, Time.now.year + 20 ], :class => "fecha"%>
+    <%= checkbox _("Cerrada"), 'valor', 'realizada', "1_2", {:izquierda => true, :checked => (@valor ? @valor.realizada : false) } %>
+    <%= selector( _("% realizado"), 'valor', 'porcentaje', porcentajes, false ,"1_2") %>
+  </div>
+  <div class="fila">
+    <%= texto_area _("Comentario"), 'valor', 'comentario', '4' %>
+  </div>
+  <div class="fila">&nbsp;</div>
+<%= formulario_final %>

@@ -1,0 +1,28 @@
+<%
+    if financiador
+      element_id = "financiador_#{financiador.id}"
+      element_name = financiador.nombre
+      ppto = @proyecto.presupuesto_total_con_financiador(financiador)
+      gsto = @proyecto.gasto_total_con_financiador(financiador)
+      estilo = cycle('fila', 'filaDos') 
+    else
+      element_id = "financiador_totales"
+      element_name = _("TOTALES")
+      ppto = @proyecto.presupuesto_total_sin_financiador
+      gsto = @proyecto.gasto_total_sin_financiador
+      estilo = "filagris"
+    end
+    ppto_str = celda_formateada(ppto)
+    gsto_str = celda_formateada(gsto)
+    dif = ppto - gsto
+    dif_str = celda_formateada(dif)
+    pct = ppto != 0.0 ? (gsto / ppto).to_f : nil 
+%>
+  <div id="<%= element_id %>" class="<%= estilo %>">
+    <div id="<%= element_id %>_nombre" class="elemento_listado elemento1 value_string" title="<%= element_name %>"><%= element_name %></div>
+    <div id="<%= element_id %>_ppto" class="elemento_listado elemento2_3_td value_string" title="<%= ppto_str %> <%= moneda %>"><%= ppto_str %></div>
+    <div id="<%= element_id %>_gsto" class="elemento_listado elemento2_3_td value_string" title="<%= gsto_str %> <%= moneda %>"><%= gsto_str %></div>
+    <div id="<%= element_id %>_dif" class="elemento_listado elemento2_3_td value_string" title="<%= dif_str %> <%= moneda %>"><%= dif_str %></div>
+    <div class="elemento_listado elemento1_5">&nbsp;</div>
+    <div id="<%= element_id %>_pct" class="elemento_listado elemento2_3_td value_string"><%= caja_porcentaje total: 1, valor: pct %></div>
+  </div>

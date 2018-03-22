@@ -1,0 +1,14 @@
+<div id="<%= update_listado %>">
+
+<%= listado( campos_listado("subactividad"), :anadir => false ) %>
+
+
+<% for @subactividad in @actividad_x_etapa.actividad.subactividad %>
+  <% fila = update_listado + "_" + @subactividad.id.to_s %>
+  <%= render :partial => "subactividad", :locals => { :fila => fila } %>
+<% end %>
+
+<%= final_listado %>
+
+</div>
+

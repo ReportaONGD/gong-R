@@ -1,0 +1,10 @@
+<div class="filacabecera" id="<%= update %>">
+  <%= fila_listado grupo_datos, [[_("Nombre"),'1','nombre']], update %>
+  <div class="elementoderecha">
+    <%= link_to_function( icono("lista", _("Ver datos")), nil, {:id => update + '_datos_ocultar', :style => "display:none;"}) {|page| page.show update + '_datos'; page.show update + '_datos_anadir_anadir'; page.hide update + '_datos_ocultar'} %>
+    <% if @proyecto.usuario_admin?(@usuario_identificado) %>
+      <%= anadir :url => {:action => 'anadir_nuevo', :grupo_datos_id => grupo_datos.id , :update_listado => update + "_datos", :update =>  update + "_datos_anadir" } %>
+    <% end %>
+    <%= link_to( icono( "descargar", _("Exportar a PDF" )), {:action => :listado_grupo_pdf, :grupo_datos_id => grupo_datos.id}, :target => '_blank' ) %>
+  </div>
+</div>

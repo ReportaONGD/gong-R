@@ -1,0 +1,13 @@
+<%= comienzo_listado %>
+<% for grupo in @grupos_datos %>
+   <% update = "grupo_datos_" + grupo.id.to_s %>
+   <%= render :partial => "grupo_datos_dinamicos", :locals => {:update => update, :grupo_datos => grupo} %>
+
+   <div id="<%= update %>_datos">
+     <% datos = @proyecto.datos_dinamicos grupo %>
+     <%= render :partial => "datos_dinamicos", :locals => { :grupo_datos_id => grupo.id, :datos => datos, :update_listado => update + "_datos"} %>
+   </div>
+   <br/><br/>
+<% end if @grupos_datos %>
+<%= final_listado %>
+

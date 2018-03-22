@@ -1,0 +1,26 @@
+
+<div id="proyectos_detalle">
+  <div class="linea"> <div class="filacabecera">Proyectos</div></div>
+  <% if params[:detallado] == "no" %>
+		<% @proyecto = @proyectos.first %>
+    <%= selector  _("Proyecto"), "proyecto", 'proyecto_id', @proyectos_seleccionables, false, "3_2", {:name => "proyectos[0][proyecto_id]", :obligatorio => true, disabled: params[:disabled] } %>
+
+
+    <%# hidden_field 'proyecto', 'proyecto_id', {:value => @presupuesto.id, :name => "proyectos[0][proyecto_id]"} %>
+    <div class="elementoderecha"><br>
+    <%= link_to_remote ">> " + _("Detallar proyectos"), :url => {:action => "detallar_proyectos", :detallado => "si", :id =>  @presupuesto.id }, :loading =>          "Element.show('espera')", :complete => "Element.hide('espera')" unless params[:disabled] %>
+    </div>
+    <br><br>
+  <% else %>
+    <div class="linea">
+    <div class="elementoderecha"><br>
+    <%= link_to_remote "<< " + _("No detallar proyectos"), :url => {:action => "detallar_proyectos", :detallado => "no", :id =>  @presupuesto.id }, :loading =>                "Element.show('espera')", :complete => "Element.hide('espera')"  unless params[:disabled] || params[:detallado] == "siempre" %>
+    </div>
+    </div>
+    <div class="linea">
+      <%=render :partial => "proyectos" %>
+    </div>
+    <div class="linea"></div>
+    <%= hidden_field 'proyectos_detallado', {:value => true } %>
+  <% end %>
+</div>

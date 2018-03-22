@@ -1,0 +1,44 @@
+
+<% unless params[:fecha_de_fin] %>
+  <fieldset id="criterios_resumen">
+  <div class="legend" align= "left"><%= _("Seleccionar los criterios") %></div>
+  <%= form_tag( { :action => "seguimiento_tecnico"}, :multipart => true, :class => "formulario" ) %>
+    <%= selector(_('PAC'), '', 'pac', @listado_pac, false, '1', {:selected => params[:pac].to_i }) if @proyecto.convenio? %>
+    <div class="fila">
+      <%# mes_fecha _('Fecha inicio'), 'fecha_inicio', '', {:default => @fecha_de_inicio, :incluir_dia => true, :class => "5_4" }%> 
+      <%= mes_fecha _('Fecha fin'), 'fecha_fin', '', {:default => @fecha_de_fin, :incluir_dia => true, :class => "5_4"}  %>
+      <%= checkbox _("Sacar el resultado a fichero "), 'selector', 'pdf', "1", {:izquierda => true, :abajo => true}  %>
+    </div>
+  <div class="elementoderecha"> <%= submit_tag(_("Buscar"), :class => "boton1_2") %></div>
+  </form>
+  </fieldset>
+<% end %>
+
+
+  <% @oe.each do |objetivo| %>
+    <div class="fieldset">
+      <div class="legend" align= "left">
+        <%= _("Objetivo Específico") + ": " +  objetivo.codigo %>
+        <% if @proyecto.convenio? %>
+          &nbsp;(<%= objetivo.proyecto.nombre %>)
+        <% end %>
+        <div class = "linea"></div>
+        <%= objetivo.descripcion %>
+        <div class = "linea"></div><br/>
+        <%= _("Periodo") + ": " + @proyecto.fecha_de_inicio.strftime('%d/%m/%Y') + " - " + @fecha_de_fin.strftime('%d/%m/%Y') %>
+      </div>
+      <%= render :partial => "indicadores", :locals => {:objeto => objetivo} %>
+      <%= render :partial => "fuentes_verificacion", :locals => {:objeto => objetivo} %>
+
+      <% @resultados.each do |resultado| %>
+        <% if resultado.objetivo_especifico_id == objetivo.id %>
+          <br/><h2><%= _("Resultado") + ": " + resultado.codigo %></h2>
+          <%= resultado.descripcion %><br/>
+          <%= render :partial => "indicadores", :locals => {:objeto => resultado} %>
+          <%= render :partial => "fuentes_verificacion", :locals => {:objeto => resultado} %>
+          <%= render :partial => "actividades", :locals => {:resultado => resultado} %>
+        <% end %>
+      <% end %>
+    </div>
+    <br/>
+  <% end if @oe && !@oe.empty? %>

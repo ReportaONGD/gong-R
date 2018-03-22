@@ -1,0 +1,23 @@
+<%= cabecera_listado campos_listado("proyecto"), _("Añadir Proyecto"), {:action => 'editar_nuevo_selector'}, :id => "proyecto_anadir" %>
+<% i = 0 %>
+<% for proyecto in @proyectos %>
+
+<div  id="proyecto_<%= i += 1 %>" class="fila">
+    <% tipo_elemento = (proyecto.convenio? ? _("Convenio") : _("Proyecto")) %>
+    <%= fila_listado proyecto, campos_listado("proyecto"), "proyecto_" + i.to_s %>
+    <div class="elementoderecha">
+      <%= link_to_remote(icono("lista", _("Ver PACs")), :url => {:controller => 'proyecto', :action => 'listado_proyectos_convenio', :convenio_id => proyecto, :objeto => "proyecto", :update => "proyecto_sub_" + i.to_s + "_pac"}, :html => {:id => "proyecto_" + i.to_s + "_proyectos"}, :loading => "Element.show('spinner_#{proyecto.id.to_s }')", :complete => "Element.hide('spinner_#{proyecto.id.to_s}')" ) if proyecto.convenio? %>
+      <%= ventana_info_popup proyecto, {:campos => campos_listado("proyecto") + campos_info("proyecto"), :id => "proyecto_" + i.to_s + "_informacion" } %>
+      <%= link_to_remote(icono("usuarios", _("Ver usuarios asignados")), :url => {:controller => 'relaciones_usuario', :action => 'usuarios', :id => proyecto, :objeto => "proyecto", :update => "proyecto_sub_" + i.to_s}, :html => {:id => "proyecto_" + i.to_s + "_usuarios"}, :loading => "Element.show('spinner_#{proyecto.id.to_s }')", :complete => "Element.hide('spinner_#{proyecto.id.to_s}')" )   %>
+      <%= link_to( icono( "seleccionar", _("Seleccionar Proyecto") + " " + proyecto.nombre ), proyecto_path(proyecto.id), :id => ("proyecto_" + i.to_s + "_seleccionar")  )  %>
+      <%= modal( icono( "editar", _("Editar") + " " + tipo_elemento),  {:action => 'editar_nuevo', :id => proyecto}, _("Editar") + " " + tipo_elemento,  :id => ("proyecto_" + i.to_s + "_editar") )   %>
+      <%= modal_borrado icono("borrar", _('Eliminar') + " " + tipo_elemento), {:action => 'eliminar', :id =>proyecto.id } , _('Eliminar') + " " + tipo_elemento, proyecto.nombre, :id => "proyecto_" + i.to_s + "_borrar" %>
+    </div>
+  <div class='linea'></div>
+  <div id="spinner_<%= proyecto.id.to_s %>" class="spinner" style="display:none" ></div>
+  <div id="proyecto_sub_<%= i %>" class="linea"></div>
+  <div id="proyecto_sub_<%= i %>_pac" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>
+

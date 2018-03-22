@@ -1,0 +1,10 @@
+<% objeto = params[:objetivo_especifico_id] ? "objetivo_especifico" : "resultado" %>
+<%= formulario_comienzo( :url => { :action => 'crear_modificar_hipotesis', :id => @hipotesis}) %>
+<div class="fila">
+  <%= texto_area _("Descripción"), 'hipotesis', 'descripcion', "3" %>
+  <input type="hidden" name="<%= objeto %>_id" value="<%= params[(objeto + "_id").to_sym] %>" >
+<div>
+
+<%= final_formulario %>
+
+

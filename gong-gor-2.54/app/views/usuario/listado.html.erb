@@ -1,0 +1,25 @@
+<% permitir_cambios = params[:seccion] == "administracion" || params[:seccion] == "agentes" %>
+<% if permitir_cambios %>
+  <% campos = params[:seccion] == "administracion" ? campos_listado("usuario_adm") : campos_listado("usuario") %>
+  <%= cabecera_listado campos, _("Nuevo usuario"), {:action => 'editar_nuevo'}, :id => "usuario_anadir" %>
+<% else %>
+  <% campos = campos_listado("usuario_prj") %>
+  <%= cabecera_listado campos %>
+<% end %>
+<% i = 0 %>
+<% for usuario in @usuarios %>
+<div id="usuario_<%= i += 1 %>" class="<%= cycle('fila', 'filaDos') %> <%= usuario.bloqueado ? 'rojo' : '' %>">
+    <%= fila_listado usuario, campos, "usuario_" + i.to_s  %>
+    <div class="elementoderecha">
+      <%= link_to( icono("skype",_("Llamar a %s vía Skype")%[usuario.skype_id]), "skype:#{usuario.skype_id}?call") unless usuario.skype_id.blank? %>
+      <% if permitir_cambios %>
+        <%= modal icono( "editar"), {:action => 'editar_nuevo', :id => usuario}, _("Editar usuario"),  :id => ("usuario_" + i.to_s + "_editar") %>
+        <%= link_to_remote(icono("lista", _("Elementos Vinculados")), :url => {:action => 'listado_relaciones', :id => usuario, :update => "usuario_sub_" + i.to_s}, :html => {:id => "usuario_" + i.to_s + "_relaciones"}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')" ) %>
+        <%= modal_borrado icono( "borrar", _( "Eliminar usuario" ) ), { :action => 'eliminar', :id => usuario.id }, _('Eliminar usuario y perder sus relaciones con Proyectos, Implementadores, Libros, Comentarios...'), usuario.nombre, :id => ("usuario_" + i.to_s + "_borrar")  %>
+      <% end %>
+    </div>
+    <div class="linea"></div>
+    <div id="usuario_sub_<%= i %>" class="linea"></div>
+</div>
+<% end %>
+<%= final_listado %>

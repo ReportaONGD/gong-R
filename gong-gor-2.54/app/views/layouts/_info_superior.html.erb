@@ -1,0 +1,5 @@
+    <a class="menu" href="http://gong.es/" target="_blank" title="<%= _('Enlace a página de información sobre GONG') %>"><%= _('Más sobre') %> <img src="/images/logo_gong_enlace_masinfo.png" /></a> |
+    <a class="menu" href="/glosario.html" target="_blank" title="<%= _('Glosario de términos utilizados en GONG') %>"><%= _('Glosario') %></a>|
+    <a class="menu" href="http://gong.es/es/como-funciona-gong" target="_blank" title="<%= _('Ayuda sobre GONG') %>"><%= _('Ayuda') %></a>|
+    <%= _('Conectado como') %>:
+    <i><%= modal @usuario_identificado.nombre, main_app.datos_personales_path, _("Usuario: ") + @usuario_identificado.nombre + _(". Cambiar datos personales.") %></i>

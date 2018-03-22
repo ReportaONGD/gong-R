@@ -1,0 +1,27 @@
+    <!-- Cofinanciacion exterior publica -->
+    <% cofinanciador_publico = Agente.find_by_sistema_and_publico_and_local(true,true,false)%>
+    <% cofinanciador_privado = Agente.find_by_sistema_and_publico_and_local(true,false,false)%>
+    <% cofinanciado_publico_total = VPresupuesto.sum_total(proyecto: @proyecto.id, agente: cofinanciador_publico, agente_rol: "financiador") %>
+    <% cofinanciado_publico_valor = @proyecto.proyecto_x_proyecto.inject(0) {|sum, pxp| sum + (pxp.financiacion_publica ? pxp.importe||0 : 0) } %>
+    <% cofinanciado_publico_total ||= 0 %>    
+    <% cofinanciado_publico_valor ||= 0 %>
+
+    <!-- Cofinanciacion exterior privada -->
+    <% cofinanciado_privado_total = VPresupuesto.sum_total(proyecto: @proyecto.id, agente: cofinanciador_privado, agente_rol: "financiador") %>
+    <% cofinanciado_privado_valor = @proyecto.proyecto_x_proyecto.inject(0) {|sum, pxp| sum + (pxp.financiacion_privada ? pxp.importe||0 : 0) } %>
+    <% cofinanciado_privado_total ||= 0 %>    
+    <% cofinanciado_privado_valor ||= 0 %>
+
+    <!-- Caja con seguimiento del proyecto -->
+    <fieldset class="caja_info caja_gris">
+      <div class="info_nombre"><%= _("Detalles del Proyecto") %></div>
+      <div class="info_contenido">
+        <%= render :partial => "porcentaje_tiempos", :locals => {:proyecto => @proyecto} unless @proyecto.estado_actual && @proyecto.estado_actual.definicion_estado.cerrado %>
+        <% @proyecto.proyecto_x_area_actuacion.each do |pxaa| %>
+          <%= render :partial => "porcentaje_area_actuacion", :locals => { :pxaa => pxaa } %>
+        <% end %>
+        <!-- Determinar los totales de cofinanciacion conseguida por pac -->
+        <%# caja_porcentaje(:total => cofinanciado_publico_total, :valor => cofinanciado_publico_valor, :titulo => _("Cof. Pública:"), :rotulo => cofinanciado_publico_valor.to_s + _(" de ") + cofinanciado_publico_total.to_s + _(" de cofinanciacion publica conseguida")) if cofinanciado_publico_valor != 0 && cofinanciado_publico_total != 0 %> 
+        <%# caja_porcentaje(:total => cofinanciado_privado_total, :valor => cofinanciado_privado_valor, :titulo => _("Cof. Privada:"), :rotulo => cofinanciado_privado_valor.to_s + _(" de ") + cofinanciado_privado_total.to_s + _(" de cofinanciacion privada conseguida")) if cofinanciado_privado_valor != 0 && cofinanciado_privado_total != 0 %> 
+      </div>
+    </fieldset>

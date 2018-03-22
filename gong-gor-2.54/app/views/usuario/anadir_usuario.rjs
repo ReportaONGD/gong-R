@@ -1,0 +1,2 @@
+page.replace "usuario_"+params[:id]+"_"+params[:linea], :partial => "/usuario/usuario", :locals => { :linea => params[:linea].to_i, :ultima => true}
+page.call("Modalbox.resizeToContent")

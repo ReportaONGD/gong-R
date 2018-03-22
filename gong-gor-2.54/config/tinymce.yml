@@ -1,0 +1,45 @@
+# Here you can specify default options for TinyMCE across all controllers
+#
+# theme: advanced
+# plugins:
+#  - table
+#  - fullscreen
+
+theme: advanced
+remove_script_host: false
+relative_urls: false
+theme_advanced_buttons1:
+ - bold
+ - italic
+ - underline
+ - formatselect
+ - fontselect
+ - fontsizeselect
+ - justifyleft
+ - justifycenter
+ - justifyright
+ - justifyfull
+ - separator
+ - bullist
+ - numlist
+ - separator
+ - outdent
+ - indent
+ - hr
+ - separator
+ - image
+ - uploadimage
+ - table
+ - cut
+ - copy
+ - pasteword
+ - undo
+ - redo
+ - cleanup
+width: 100%
+plugins:
+ - paste
+ - table
+ - contextmenu
+ - uploadimage
+language: es

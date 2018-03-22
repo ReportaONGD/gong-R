@@ -1,0 +1,24 @@
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @partida_financiacion, :objeto_id => params[:objeto_id], :update => params[:update], :update_listado => params[:update_listado] } %>
+  <%= texto _("Código"), 'partida_financiacion', 'codigo',"1_2"  %>
+  <%= texto _("Nombre"), 'partida_financiacion', 'nombre', "3" %>
+  <%= selector _("Directa/Indirecta"), 'partida_financiacion', 'tipo',  [[_("Directa"),"directo"], [_("Indirecta"),"indirecto"]] , false, "1_2"  %>
+
+  <%= texto _("Descripción/Observaciones"), 'partida_financiacion', 'descripcion', "4" %>
+
+  <%= texto_numero( _("% máximo ppto."), 'partida_financiacion', 'porcentaje_maximo_convertido',"2_3" ) %>
+
+  <%= checkbox _("Partida tipo 'madre'"), 'partida_financiacion', 'padre', "3_4", {:checked => (@partida_financiacion.padre), :izquierda => true, :abajo => true} %>
+    <%= observe_field( "partida_financiacion_padre" , :function => '
+      if( document.getElementById("partida_financiacion_padre").checked ) {
+        Element.hide("padre");
+      } else {
+        Element.show("padre");
+      }
+    ' ) %>
+
+  <div id="padre" style="<%= @partida_financiacion.padre ? 'display:none;' : '' %>" >
+    <%= selector _("Partida 'madre'"), 'partida_financiacion', 'partida_financiacion_id',  @partidas_financiacion_padre , true, "2"  %>
+  </div>
+  <div class="fila">&nbsp;</div>
+<%= formulario_final %>
+

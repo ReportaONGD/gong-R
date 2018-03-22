@@ -1,0 +1,12 @@
+primera:
+  importe: 33
+  proyecto_id: 1
+  moneda_id: 1
+  libro_id: 1
+  libro_receptor_emisor_id: 1
+  agente_id: 1
+  observaciones: MyString
+  entrante_saliente: MyString
+  iban: MyString
+  tasa_cambio: 33
+  fecha: 2010-08-16

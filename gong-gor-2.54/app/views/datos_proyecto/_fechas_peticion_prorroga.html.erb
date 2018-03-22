@@ -1,0 +1,9 @@
+
+<%= mensaje _("El rellenar estas fechas le permite que el sistema le recuerde los plazos de peticion de prorroga de sus proyectos") unless @proyecto.send("fecha_limite_peticion_" + tipo_periodo) && @proyecto.send("fecha_inicio_aviso_peticion_" + tipo_periodo) %>
+<br>
+<%=  comienzo_formulario( {:action => 'modificar_crear_fechas_peticion_prorroga', tipo_periodo: tipo_periodo} , false ) %>
+  <%= calendario_fecha _("Fecha limite para petición de prorroga"), "proyecto", "fecha_limite_peticion_" + tipo_periodo %> 
+  <div class="elemento1_4">&nbsp;</div>
+  <%= calendario_fecha _("Fecha de inicio para aviso de petición de prorroga"), "proyecto", "fecha_inicio_aviso_peticion_" + tipo_periodo %>
+<%= final_formulario %>
+

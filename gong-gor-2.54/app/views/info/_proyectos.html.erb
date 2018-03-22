@@ -1,0 +1,10 @@
+
+  <% @proyectos.each do |proyecto| %>
+    <%= render :partial => "datos_proyecto", :locals => { proyecto: proyecto, enlazar: true } %>
+  <% end %>
+  <% if @proyectos.total_pages > @proyectos.current_page %>
+    <div id="proyectos_paginador">
+      <%= link_to_remote '<div class="contenedor_paginador "><div class="info_nombre_paginador_proyectos">'.html_safe + icono("seleccionar", _("Mostrar Más Proyectos")) +'&nbsp;'.html_safe+ _('Mostrar Más Proyectos')+'</div></div>'.html_safe,
+                :url => { :action => :mas_proyectos, :page => @proyectos.current_page + 1, :update => 'proyectos_paginador'}, :loading => "Element.show('espera')", :complete => "Element.hide('espera')"%>
+    </div>
+  <% end %>

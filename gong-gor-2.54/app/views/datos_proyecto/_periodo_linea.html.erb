@@ -1,0 +1,26 @@
+<%
+	campos = campos_listado("periodo") 
+	campos.pop(2) if tipo_periodo == "prorroga"	
+%>
+
+  <div id="periodo_<%= periodo.id %>" class="fila <%= periodo.estado_color %>">
+    <%= fila_listado periodo, campos, "periodos_" + periodo.id.to_s %>
+      <div class="elementoderecha">
+				<% unless tipo_periodo == "prorroga" %>
+	        <% avisos, tareas, hoy = "", periodo.tarea, Date.today %>
+	        <% avisos += " " + _("No hay tareas definidas para el periodo.") if tareas.empty? %>
+	        <% avisos += " " + _("Alguna de las tareas no tiene definida fecha de finalización.") if tareas.find {|t| t.fecha_fin == nil && t.estado_tarea && t.estado_tarea.activo} %>
+					<% avisos += " " + _("Alguna de las tareas no tiene definida fecha de inicio.") if tareas.find {|t| t.fecha_inicio == nil && t.estado_tarea && t.estado_tarea.activo} %>
+	        <% avisos += " " + _("Se ha excedido la fecha de finalizacion de alguna de las tareas del periodo.") if tareas.find {|t| t.fecha_fin && t.fecha_fin < hoy && t.estado_tarea && t.estado_tarea.activo} %>
+					<% avisos += " " + _("Alguna de las tareas del periodo no esta asignada a ningun usuario.") if tareas.find {|t| t.usuario_asignado_id == nil && t.estado_tarea && t.estado_tarea.activo} %>
+	        <%= icono( "alerta", _("¡Atención!.") + avisos ) unless avisos == "" %>
+				<% end %>
+				<%= ventana_info_popup periodo, {:campos => campos_listado("periodo") + campos_info("periodo"), :id => "periodos_" + periodo.id.to_s + "_informacion" } %>
+         <%= modal( icono( "editar"), {:controller => :datos_proyecto, :action => 'editar_nuevo_periodo', :id => periodo, :tipo_periodo => periodo.tipo_periodo.grupo_tipo_periodo}, _( "Editar periodo"), :id => ("periodo_" + periodo.id.to_s + "_editar") ) %>
+        <%= link_to_remote(icono("lista", _("Ver Tarea")),  :url => {:update => "periodo_sub_"+ periodo.id.to_s, :controller => 'tarea', :action => 'listado_tarea_periodo', :periodo_id => periodo.id.to_s}, :html => {:id =>"periodo_" + periodo.id.to_s + "_tasas_cambio"}, :loading => "Element.show('spinner_#{periodo.id.to_s }')", :complete => "Element.hide('spinner_#{periodo.id.to_s}')" ) %>
+        <%= modal_borrado icono("borrar", _("Eliminar periodo")), { :controller => :datos_proyecto, :action => 'eliminar_periodo', :id => periodo.id, :periodo => periodo.id }, _('Eliminar el periodo: '), periodo.tipo_periodo.nombre, :id => ("periodo_" + periodo.id.to_s + "_borrar") %>   
+      </div>
+      <div class="linea"></div>
+      <div id="spinner_<%= periodo.id.to_s %>" class="spinner" style="display:none" ></div>
+    <div id="periodo_sub_<%= periodo.id.to_s %>" class="linea"></div>
+  </div>

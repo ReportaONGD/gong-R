@@ -1,0 +1,15 @@
+<!-- Formulario -->
+<%=  formulario_comienzo :url => { :action => 'modificar_crear', :id => @proveedor, :i => params[:i] } %>
+  <div class="linea">
+    <%= texto _("Nombre"), 'proveedor', 'nombre', '3', :obligatorio => true %>
+    <%= texto _("NIF"), 'proveedor', 'nif', '1', :obligatorio => true %>
+    <%= selector _("País"), 'proveedor', 'pais_id', @paises, true, '1' %>
+    <%= texto _("Entidad Bancaria"), 'proveedor', 'entidad_bancaria', '2' %>
+    <%= texto _("Cuenta Bancaria"), 'proveedor', 'cuenta_bancaria', '1' %>
+    <div class="fila"><br></div>
+    <%= texto _("Descripción"), 'proveedor', 'descripcion', '4' %>
+    <%= selector _("Activo"), 'proveedor', 'activo',   [[_("No"), false], [_("Sí"), true]] , false, "1"  %>
+    <%= texto_area _("Observaciones"), 'proveedor', 'observaciones', "5" %>
+  </div>
+  <div class="linea"><br><br></div>
+<%= formulario_final %>

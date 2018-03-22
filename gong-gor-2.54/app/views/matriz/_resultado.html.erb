@@ -1,0 +1,5 @@
+<%=  comienzo_formulario( { :action => 'modificar_crear_resultado', :id => @resultado } , false ) %>
+   <%= texto _("Código"), 'resultado', 'codigo', "1" %>
+    <%= texto_area _("Descripción"), 'resultado', 'descripcion', "4" %>
+    <%= hidden_field_tag(:objetivo_especifico_id, @objetivo_especifico_id ) %>
+<%= final_formulario %>
