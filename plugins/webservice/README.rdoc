@@ -1,0 +1,69 @@
+--
+
+################################################################################
+ Copyright 2014-2015 Red.es
+
+ Licencia con arreglo a la EUPL, Versión 1.1 o –en cuanto sean aprobadas por la Comisión Europea– 
+ versiones posteriores de la EUPL (la «Licencia»);
+ Solo podrá usarse esta obra si se respeta la Licencia.
+ Puede obtenerse una copia de la Licencia en:
+
+ http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1
+
+ Salvo cuando lo exija la legislación aplicable o se acuerde por escrito, 
+ el programa distribuido con arreglo a la Licencia se distribuye «TAL CUAL»,
+ SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ni expresas ni implícitas.
+ Véase la Licencia en el idioma concreto que rige los permisos y limitaciones que establece la Licencia.
+################################################################################
+
+++
+
+= Plugin de Webservices AECID para GONG 
+
+
+== Install
+
+1.- Instalar el plugin en el PATH:
+
+  /usr/share/gong/plugins/webservice
+
+
+2.- Desde el directorio base de GONG (habitualmente /usr/share/gong/gor),
+    instalar el plugin y sus dependencias:
+
+  $ bundle install
+
+
+3.- Definir en la configuración del servidor web para la instancia a configurar la variable de entorno
+    donde se indique la URL donde se ha instalado el generador de informes (p.ej.):
+
+  SetEnv GONGR_URL "http://miong.gong_r.gong.org.es/"
+
+4.- Arrancar GONG y activar el plugin en la administración del sistema
+
+5.- Comprobar en la ruta '/webservice/proyectos.xml' que se obtiene una respuesta "401 - Unautorized".
+
+
+== Autorización de aplicaciones
+
+Cada una de las aplicaciones que vaya a consultar los webservices proporcionados por este módulo,
+deberá registrarse como autorizada para el sistema OAuth de GONG en la página 'oauth/applications'.
+
+Con los datos obtenidos en el registro, la aplicación deberá configurarse con los parámetros:
+
+GONG_AUTHORIZATION_ENDPOINT: oauth/authorize
+GONG_TOKEN_ENDPOINT: oauth/token
+GONG_APP_ID: clave pública obtenida en el registro de la aplicación
+GONG_SECRET: clave privada obtenida en el registro de la aplicación
+
+
+== Licencia
+
+GONG/webservices está licenciado bajo EUPL1.1. Una descripción de dicha licencia, así como las
+condiciones de uso, copia, modificación y distribución aparecen en el fichero "COPYING".
+
+GONG/webservices está desarrollado por el equipo referido en el archivo "AUTHORS". El Copyright
+de GONG/webservices pertenece a:
+
+  Entidad Pública Empresarial RED.ES: http://red.es/ 
+

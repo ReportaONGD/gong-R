@@ -1,0 +1,19 @@
+2015-xx-xx xxx <xxx@semillasl.com> Version 2.50dev
+
+ * Adecuamos el metodo de generacion de seccion al nuevo
+   formato del helper del core
+
+2015-06-03 Santiago Ramos <sramos@semillasl.com> Version 2.47
+
+ * Limpieza de ficheros
+ * Cambios en el manual de instalacion
+ * El listado de proyectos devuelve en su version xml devuelve
+   <proyecto type="array"/> cuando no hay proyectos a mostrar
+ * Retocamos las instrucciones para indicar mensaje de prueba y
+   proceso de autorizacion de las aplicaciones
+
+
+2014-11-18 Santiago Ramos <sramos@semillasl.com> Version 2.46
+
+ * Primera versión del plugin 
+
