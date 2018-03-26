@@ -22,28 +22,16 @@ module Webservice::Swagger::ApiDocs
 	  tag do
 	    key :name, 'Convenios'
 	    key :description, 'Convenios'
-	    # externalDocs do
-	    #   key :description, 'Find more info here'
-	    #   key :url, 'https://swagger.io'
-	    # end
 	  end
 
 	  tag do
 	    key :name, 'Proyectos'
 	    key :description, 'Proyectos'
-	    # externalDocs do
-	    #   key :description, 'Find more info here'
-	    #   key :url, 'https://swagger.io'
-	    # end
 	  end
 
 		tag do
 			key :name, 'Documentos'
 			key :description, 'Documentos'
-			# externalDocs do
-			#   key :description, 'Find more info here'
-			#   key :url, 'https://swagger.io'
-			# end
 		end
 
 	  
@@ -55,47 +43,10 @@ module Webservice::Swagger::ApiDocs
     security_definition :gong_auth do
 			key :type, :oauth2
       key :authorizationUrl, 'http://localhost:3000/oauth/authorize'
-      # key :tokenUrl, 'http://localhost:3000/oauth/token'
-      # key :oauth2RedirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-      # key :redirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
       key :flow, :implicit
       scopes do
 			end
     end
-
-		security_definition :gong_auth1 do
-			key :type, :oauth2
-			key :authorizationUrl, 'http://localhost:3000/oauth/authorize'
-			# key :tokenUrl, 'http://localhost:3000/oauth/token'
-			# key :oauth2RedirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-			# key :redirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-			key :flow, :accessCode
-			scopes do
-			end
-		end
-
-		security_definition :gong_auth2 do
-			key :type, :oauth2
-			key :authorizationUrl, 'http://localhost:3000/oauth/authorize'
-			# key :tokenUrl, 'http://localhost:3000/oauth/token'
-			# key :oauth2RedirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-			# key :redirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-			key :flow, :password
-			scopes do
-			end
-		end
-
-		security_definition :gong_auth3 do
-			key :type, :oauth2
-			key :authorizationUrl, 'http://localhost:3000/oauth/authorize'
-			# key :tokenUrl, 'http://localhost:3000/oauth/token'
-			# key :oauth2RedirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-			# key :redirectUrl, "http://localhost:3000sss/api/oauth2-redirect.html"
-			key :flow, :application
-			scopes do
-			end
-		end
-
 
 		extend Webservice::Swagger::Parameters
 		
